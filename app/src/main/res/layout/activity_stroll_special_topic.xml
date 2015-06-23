@@ -11,6 +11,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:text="普通列表形式，类似Pinterest 堆叠卡片形式" />
 
 </RelativeLayout>
