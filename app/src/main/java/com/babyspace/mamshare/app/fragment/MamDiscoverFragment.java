@@ -105,7 +105,7 @@ public class MamDiscoverFragment extends BaseFragment {
      */
 
     private void InitImageView() {
-        imageView= (ImageView) findViewById(R.id.cursor);
+        imageView = (ImageView) findViewById(R.id.cursor);
         bmpW = BitmapFactory.decodeResource(getResources(), R.drawable.ic_pager_line).getWidth();// 获取图片宽度
         DisplayMetrics dm = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -169,42 +169,14 @@ public class MamDiscoverFragment extends BaseFragment {
 
         public void onPageScrollStateChanged(int arg0) {
 
-
         }
 
         public void onPageScrolled(int arg0, float arg1, int arg2) {
 
-
         }
 
         public void onPageSelected(int arg0) {
-            /*
-            Animation animation = null;
-			switch (arg0) {
-			case 0:
-				if (currIndex == 1) {
-					animation = new TranslateAnimation(one, 0, 0, 0);
-				} else if (currIndex == 2) {
-					animation = new TranslateAnimation(two, 0, 0, 0);
-				}
-				break;
-			case 1:
-				if (currIndex == 0) {
-					animation = new TranslateAnimation(offset, one, 0, 0);
-				} else if (currIndex == 2) {
-					animation = new TranslateAnimation(two, one, 0, 0);
-				}
-				break;
-			case 2:
-				if (currIndex == 0) {
-					animation = new TranslateAnimation(offset, two, 0, 0);
-				} else if (currIndex == 1) {
-					animation = new TranslateAnimation(one, two, 0, 0);
-				}
-				break;
 
-			}
-			*/
             Animation animation = new TranslateAnimation(one * currIndex, one * arg0, 0, 0);
             currIndex = arg0;
             animation.setFillAfter(true);// True:图片停在动画结束位置

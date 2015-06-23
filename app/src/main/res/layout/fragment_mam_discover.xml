@@ -17,7 +17,6 @@
             android:layout_weight="1.0"
             android:gravity="center"
             android:text="攻略"
-            android:textColor="#000000"
             android:textSize="20.0dip" />
 
         <TextView
@@ -27,7 +26,6 @@
             android:layout_weight="1.0"
             android:gravity="center"
             android:text="标签"
-            android:textColor="#000000"
             android:textSize="20.0dip" />
 
         <TextView
@@ -37,7 +35,6 @@
             android:layout_weight="1.0"
             android:gravity="center"
             android:text="妈妈说"
-            android:textColor="#000000"
             android:textSize="20.0dip" />
     </LinearLayout>
 
