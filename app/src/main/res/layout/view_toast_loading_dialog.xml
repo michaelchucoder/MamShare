@@ -18,7 +18,7 @@
             android:orientation="horizontal"
             android:paddingRight="@dimen/rightwidth">
 
-            <com.michael.library.progressview.ProgressBarLogoView
+            <com.michael.library.widget.progressview.ProgressBarLogoView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/common_distance"
@@ -50,7 +50,7 @@
             android:orientation="horizontal"
             android:paddingRight="@dimen/rightwidth">
 
-            <com.michael.library.progressview.ProgressBarLogoView
+            <com.michael.library.widget.progressview.ProgressBarLogoView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/common_distance"
