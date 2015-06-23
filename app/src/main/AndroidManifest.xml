@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.babyspace.mamshare" >
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <!-- Push service 运行需要的权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 允许应用程序联网，以便向我们的服务器端发送数据。 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 获取用户手机的IMEI，用来唯一的标识用户。 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 检测网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 获取mac地址作为用户的备用唯一标识 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.READ_EXTERNAL_STORAG" />
+    <!-- 缓存资源优先存入SDcard -->
+
+
+    <!-- 相机权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- 新增权限 -->
+    <application
+        android:name=".basement.MamShare"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="C_youmeng" />
+        <meta-data
+            android:name="APP_NAME"
+            android:value="mamShare" />
+
+        <activity
+            android:name=".app.activity.WelcomeActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="welcome"
+                    android:scheme="mamShare" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".app.activity.HomeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="home"
+                    android:scheme="mamShare" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".app.activity.MamRegisterActivity" />
+        <activity android:name=".app.activity.MamLoginActivity" />
+        <activity android:name=".app.activity.MamStrollActivity" />
+
+    </application>
+
+</manifest>

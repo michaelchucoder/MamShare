@@ -1,0 +1,81 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#5a000000">
+
+    <LinearLayout
+        android:id="@+id/mCommonStyleRoot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bg_dialog_white_mama"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingRight="@dimen/rightwidth">
+
+            <com.michael.library.progressview.ProgressBarLogoView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/common_distance"
+                android:layout_marginLeft="@dimen/leftwidth"
+                android:layout_marginRight="@dimen/common_distance"
+                android:layout_marginTop="@dimen/common_distance" />
+
+            <TextView
+                android:id="@+id/mContentLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="订单提交需要一点时间，请耐心等待" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mTitleStyleRoot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bg_dialog_white_mama"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingRight="@dimen/rightwidth">
+
+            <com.michael.library.progressview.ProgressBarLogoView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/common_distance"
+                android:layout_marginLeft="@dimen/leftwidth"
+                android:layout_marginRight="@dimen/common_distance"
+                android:layout_marginTop="@dimen/common_distance" />
+
+            <TextView
+                android:id="@+id/mContentLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="正在更新订单状态" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/mContentLabel"
+            android:layout_width="400px"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/common_distance"
+            android:layout_marginLeft="@dimen/leftwidth"
+            android:layout_marginRight="@dimen/common_distance"
+            android:text="可继续完成支付。"
+            android:textColor="@color/mam_text_black_6"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</RelativeLayout>

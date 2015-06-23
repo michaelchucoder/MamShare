@@ -1,0 +1,63 @@
+<android.support.v4.app.FragmentTabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/plane_base_white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0" />
+
+        <FrameLayout
+            android:id="@+id/realtabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:visibility="gone" />
+
+        <RadioGroup
+            android:id="@+id/main_radio"
+            style="@style/main_tabroot"
+            android:layout_width="match_parent"
+            android:layout_gravity="bottom"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radio_button_topic"
+                style="@style/plane_main_tab_radio"
+                android:checked="true"
+                android:drawableTop="@drawable/icon_plane_tab_flightbook"
+                android:text="机票预订" />
+
+            <RadioButton
+                android:id="@+id/radio_button_discover"
+                style="@style/plane_main_tab_radio"
+                android:button="@null"
+                android:drawableTop="@drawable/icon_plane_tab_airport"
+                android:text="信息" />
+
+
+            <RadioButton
+                android:id="@+id/radio_button_user"
+                style="@style/plane_main_tab_radio"
+                android:button="@null"
+                android:drawableTop="@drawable/icon_plane_tab_user"
+                android:text="个人中心" />
+        </RadioGroup>
+    </LinearLayout>
+
+</android.support.v4.app.FragmentTabHost>
