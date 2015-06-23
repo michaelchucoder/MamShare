@@ -9,4 +9,5 @@
     <string name="title_activity_mam_stroll">MamStrollActivity</string>
     <string name="title_activity_setting">SettingActivity</string>
     <string name="title_activity_user_profile">UserProfileActivity</string>
+    <string name="title_activity_stroll_special_topic">StrollSpecialTopicActivity</string>
 </resources>

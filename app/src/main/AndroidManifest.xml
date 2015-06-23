@@ -93,6 +93,10 @@
             android:name=".app.activity.UserProfileActivity"
             android:label="@string/title_activity_user_profile" >
         </activity>
+        <activity
+            android:name=".app.activity.StrollSpecialTopicActivity"
+            android:label="@string/title_activity_stroll_special_topic" >
+        </activity>
     </application>
 
 </manifest>
