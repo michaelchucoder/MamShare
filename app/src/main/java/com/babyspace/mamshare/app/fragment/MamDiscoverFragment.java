@@ -44,13 +44,6 @@ public class MamDiscoverFragment extends BaseFragment {
         // Required empty public constructor
     }
 
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_mam_discover, container, false);
-    }
-
     @Override
     public void init(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_mam_discover);
@@ -62,12 +55,6 @@ public class MamDiscoverFragment extends BaseFragment {
         InitImageView();
         InitTextView();
         InitViewPager();
-    }
-
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-
-        super.onViewCreated(view, savedInstanceState);
     }
 
     private void InitViewPager() {

@@ -1,14 +1,14 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin">32px</dimen>
+    <dimen name="activity_vertical_margin">32px</dimen>
 
     <!-- Plane Progress Bar size -->
 
-    <dimen name="common_item_heigh">60dp</dimen>
-    <dimen name="leftwidth">17dp</dimen>
-    <dimen name="rightwidth">17dp</dimen>
-    <dimen name="common_distance">10dp</dimen>
+    <dimen name="common_item_heigh">120px</dimen>
+    <dimen name="leftwidth">34px</dimen>
+    <dimen name="rightwidth">34px</dimen>
+    <dimen name="common_distance">20px</dimen>
 
 
 </resources>

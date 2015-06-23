@@ -26,6 +26,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="30px"
                 android:text="手机号" />
 
             <EditText
@@ -33,6 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/push"
+                android:textSize="30px"
                 android:text="请输入手机号"
                 android:inputType="phone" />
         </LinearLayout>
@@ -47,17 +49,21 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="30px"
                 android:text="验证码" />
 
             <EditText
                 android:id="@+id/edit_verify"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="30px"
                 android:inputType="phone" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="30px"
+                android:background="@drawable/shape_btn_login"
                 android:text="获取验证码" />
         </LinearLayout>
 
@@ -71,12 +77,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="30px"
                 android:text="密码" />
 
             <EditText
                 android:id="@+id/edit_pwd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="30px"
                 android:hint="密码由6-16个字符组成" />
         </LinearLayout>
     </RelativeLayout>
@@ -86,6 +94,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/rl_reg_container"
+        android:textSize="40px"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/shape_btn_login"
         android:text="注册" />
 </RelativeLayout>
