@@ -110,11 +110,11 @@ public class MamStrollActivity extends BaseActivity {
             this.imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             this.imageView.setAdjustViewBounds(true);
 
-            this.button.setText("Goto GitHub");
+            this.button.setText("奔跑吧");
             this.button.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://davidschreiber.github.com/FancyCoverFlow"));
+                    Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("mamShare://stroll_special_topic"));
                     view.getContext().startActivity(i);
                 }
             });
