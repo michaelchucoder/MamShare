@@ -45,4 +45,11 @@ public class HomeGroupActivity extends ActivityGroup {
         super.onResume();
         MobclickAgent.onResume(this);
     }
+    @Override
+    protected void onDestroy() {
+        //TODO 销毁注册信息
+        if (EventBus.getDefault().isRegistered(this))
+            EventBus.getDefault().unregister(this);
+        super.onDestroy();
+    }
 }
