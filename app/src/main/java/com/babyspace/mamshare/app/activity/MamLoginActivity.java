@@ -34,7 +34,7 @@ public class MamLoginActivity extends BaseActivity {
 
         switch (view.getId()) {
             case R.id.btn_login_submit:
-                i.setClass(this, HomeActivity.class);
+                i.setClass(this, HomeActivity2.class);
                 break;
         }
         startActivity(i);

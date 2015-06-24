@@ -2,14 +2,6 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <style name="plane_main_tab_radio">
-        <item name="android:textSize">30px</item>
-        <item name="android:gravity">center</item>
-        <item name="android:button">@null</item>
-        <item name="android:background">@android:color/transparent</item>
-        <item name="android:layout_weight">1.0</item>
-        <item name="android:textColor">@color/bg_main_tab_text_selector</item>
-    </style>
 
     <!-- 自定义loading dialog -->
     <style name="loading_dialog" parent="android:style/Theme.Dialog">

@@ -20,7 +20,7 @@ import com.michael.library.widget.fancycoverflow.FancyCoverFlowAdapter;
 import butterknife.InjectView;
 
 public class MamStrollActivity extends BaseActivity {
-    private int[] images = {R.drawable.plane_airport_nor, R.drawable.plane_flightbook_normal, R.drawable.icon_plane_tab_flightbook};
+    private int[] images = {R.drawable.push, R.drawable.push, R.drawable.push};
 
     @InjectView(R.id.ll_stroll_fancy_cover_flow)
     LinearLayout ll_stroll_fancy_cover_flow;
