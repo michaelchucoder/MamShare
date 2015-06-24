@@ -17,7 +17,6 @@ public class VersionCheck implements Serializable {
     public int isShowBotton; // 是否显示跳过按钮 1显示 0 不显示
 
 
-
     @Override
     public String toString() {
         return "VersionCheck{" +
