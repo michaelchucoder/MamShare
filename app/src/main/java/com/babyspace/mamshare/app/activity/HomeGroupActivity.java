@@ -7,6 +7,7 @@ import android.view.View;
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.basement.MamShare;
 import com.michael.core.tools.ViewRelayoutUtil;
+import com.umeng.analytics.MobclickAgent;
 
 public class HomeGroupActivity extends ActivityGroup {
     //TODO 因为不可抗拒的原因 似乎只能弃用fragmentManager 而用ActivityGroup
@@ -20,4 +21,15 @@ public class HomeGroupActivity extends ActivityGroup {
 
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
 }
