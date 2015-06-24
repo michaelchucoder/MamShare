@@ -1,31 +1,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <FrameLayout
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" >
+        android:layout_weight="1">
+
     </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@drawable/tab_bg" >
+        android:background="@drawable/tab_bg">
 
         <RelativeLayout
             android:id="@+id/message_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" >
+            android:layout_weight="1">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/message_image"
@@ -39,7 +40,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="消息"
+                    android:text="专题"
                     android:textColor="#82858b" />
             </LinearLayout>
         </RelativeLayout>
@@ -48,13 +49,13 @@
             android:id="@+id/contacts_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" >
+            android:layout_weight="1">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/contacts_image"
@@ -68,7 +69,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="联系人"
+                    android:text="发现"
                     android:textColor="#82858b" />
             </LinearLayout>
         </RelativeLayout>
@@ -77,13 +78,13 @@
             android:id="@+id/setting_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" >
+            android:layout_weight="1">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/setting_image"
@@ -97,7 +98,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="设置"
+                    android:text="妈妈说"
                     android:textColor="#82858b" />
             </LinearLayout>
         </RelativeLayout>

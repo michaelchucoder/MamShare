@@ -16,7 +16,6 @@ public class VersionCheck implements Serializable {
     public String fontColorValue; // 跳过按钮文字颜色 #cc1d00
     public int isShowBotton; // 是否显示跳过按钮 1显示 0 不显示
 
-
     @Override
     public String toString() {
         return "VersionCheck{" +

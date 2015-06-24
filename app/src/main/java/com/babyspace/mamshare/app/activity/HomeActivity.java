@@ -1,64 +1,36 @@
 package com.babyspace.mamshare.app.activity;
 
-import android.app.Activity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTabHost;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewTreeObserver;
-import android.view.Window;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.fragment.DiscoverGuidanceFragment;
 import com.babyspace.mamshare.app.fragment.DiscoverLabelFragment;
 import com.babyspace.mamshare.app.fragment.DiscoverShareFragment;
-import com.babyspace.mamshare.app.fragment.MamDiscoverFragment2;
-import com.babyspace.mamshare.app.fragment.MamSpecialTopicFragment;
-import com.babyspace.mamshare.app.fragment.MamUserCenterFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
 
-import butterknife.InjectView;
 
+public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
-public class HomeActivity2 extends BaseActivity implements View.OnClickListener {
-
-    /**
-     * 用于展示消息的Fragment
-     */
     private DiscoverGuidanceFragment discoverGuidanceFragment;
 
-    /**
-     * 用于展示联系人的Fragment
-     */
     private DiscoverLabelFragment discoverLabelFragment;
 
-    /**
-     * 用于展示设置的Fragment
-     */
+
     private DiscoverShareFragment discoverShareFragment;
 
-    /**
-     * 消息界面布局
-     */
+
     private View messageLayout;
 
-    /**
-     * 联系人界面布局
-     */
+
     private View contactsLayout;
 
-    /**
-     * 设置界面布局
-     */
+
     private View settingLayout;
 
     /**
@@ -105,7 +77,7 @@ public class HomeActivity2 extends BaseActivity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_home2);
+        setContentView(R.layout.activity_home);
         // 初始化布局元素
         initViews();
         fragmentManager = getSupportFragmentManager();
@@ -154,8 +126,7 @@ public class HomeActivity2 extends BaseActivity implements View.OnClickListener 
     /**
      * 根据传入的index参数来设置选中的tab页。
      *
-     * @param index
-     *            每个tab页对应的下标。0表示消息，1表示联系人，2表示动态，3表示设置。
+     * @param index 每个tab页对应的下标。0表示消息，1表示联系人，2表示动态，3表示设置。
      */
     private void setTabSelection(int index) {
         // 每次选中之前先清楚掉上次的选中状态
@@ -224,8 +195,7 @@ public class HomeActivity2 extends BaseActivity implements View.OnClickListener 
     /**
      * 将所有的Fragment都置为隐藏状态。
      *
-     * @param transaction
-     *            用于对Fragment执行操作的事务
+     * @param transaction 用于对Fragment执行操作的事务
      */
     private void hideFragments(FragmentTransaction transaction) {
         if (discoverGuidanceFragment != null) {

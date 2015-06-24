@@ -70,7 +70,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".app.activity.HomeActivity2"
+            android:name=".app.activity.HomeActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
             <intent-filter>
