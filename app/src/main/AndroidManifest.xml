@@ -132,7 +132,10 @@
                     android:scheme="mamShare" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".app.activity.HomeSpecialTopicActivity"
+            android:label="@string/title_activity_home_special_topic" >
+        </activity>
     </application>
 
 </manifest>

@@ -4,6 +4,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_home_group">HomeGroupActivity</string>
+    <string name="title_activity_home_special_topic">HomeSpecialTopicActivity</string>
 
 
 </resources>
