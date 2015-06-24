@@ -136,6 +136,14 @@
             android:name=".app.activity.HomeSpecialTopicActivity"
             android:label="@string/title_activity_home_special_topic" >
         </activity>
+        <activity
+            android:name=".app.activity.HomeDiscoverActivity"
+            android:label="@string/title_activity_home_discover" >
+        </activity>
+        <activity
+            android:name=".app.activity.HomeUserCenterActivity"
+            android:label="@string/title_activity_home_user_center" >
+        </activity>
     </application>
 
 </manifest>
