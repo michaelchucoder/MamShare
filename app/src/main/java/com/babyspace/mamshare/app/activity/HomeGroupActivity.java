@@ -1,6 +1,7 @@
 package com.babyspace.mamshare.app.activity;
 
 import android.app.ActivityGroup;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -21,6 +22,11 @@ public class HomeGroupActivity extends ActivityGroup {
 
     }
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+
+        super.onNewIntent(intent);
+    }
 
     @Override
     protected void onPause() {
