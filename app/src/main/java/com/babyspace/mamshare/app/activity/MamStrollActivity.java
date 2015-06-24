@@ -6,16 +6,24 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.basement.BaseActivity;
+import com.michael.library.debug.L;
 import com.michael.library.widget.fancycoverflow.FancyCoverFlow;
 import com.michael.library.widget.fancycoverflow.FancyCoverFlowAdapter;
 
+import butterknife.InjectView;
+
 public class MamStrollActivity extends BaseActivity {
+    private int[] images = {R.drawable.plane_airport_nor, R.drawable.plane_flightbook_normal, R.drawable.icon_plane_tab_flightbook};
+
+    @InjectView(R.id.ll_stroll_fancy_cover_flow)
+    LinearLayout ll_stroll_fancy_cover_flow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,23 +33,41 @@ public class MamStrollActivity extends BaseActivity {
 
         FancyCoverFlow fancyCoverFlow = (FancyCoverFlow) findViewById(R.id.fancyCoverFlow);
         fancyCoverFlow.setReflectionEnabled(true);
-        fancyCoverFlow.setReflectionRatio(0.3f);
+        fancyCoverFlow.setReflectionRatio(0.4f);
         fancyCoverFlow.setReflectionGap(0);
 
-        fancyCoverFlow.setAdapter(new ViewGroupExampleAdapter());
+        fancyCoverFlow.setAdapter(new StrollFancyCoverFlowAdapter(images));
+
+        fancyCoverFlow.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ll_stroll_fancy_cover_flow.setBackgroundResource(images[position]);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     // =============================================================================
     // Private classes
     // =============================================================================
 
-    private static class ViewGroupExampleAdapter extends FancyCoverFlowAdapter {
+    private static class StrollFancyCoverFlowAdapter extends FancyCoverFlowAdapter {
+
+        private final int[] images;
+
+        public StrollFancyCoverFlowAdapter(int[] images) {
+            this.images=images;
+            
+        }
 
         // =============================================================================
         // Private members
         // =============================================================================
 
-        private int[] images = {R.drawable.plane_airport_nor, R.drawable.plane_flightbook_normal, R.drawable.icon_plane_tab_flightbook};
 
         // =============================================================================
         // SuperType overrides
@@ -74,7 +100,6 @@ public class MamStrollActivity extends BaseActivity {
             }
 
             customViewGroup.getImageView().setImageResource(this.getItem(i));
-
             return customViewGroup;
         }
     }
