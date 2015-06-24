@@ -21,6 +21,7 @@ public class HomeGroupActivity extends ActivityGroup {
 
     }
 
+
     @Override
     protected void onPause() {
         super.onPause();

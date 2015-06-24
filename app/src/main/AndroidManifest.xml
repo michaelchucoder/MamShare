@@ -90,6 +90,26 @@
                     android:scheme="mamShare" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".app.activity.HomeGroupActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="home_group"
+                    android:scheme="mamShare" />
+            </intent-filter>
+        </activity>
         <activity android:name=".app.activity.MamRegisterActivity" />
         <activity android:name=".app.activity.MamLoginActivity" />
         <activity android:name=".app.activity.MamStrollActivity" />
@@ -112,10 +132,7 @@
                     android:scheme="mamShare" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".app.activity.HomeGroupActivity"
-            android:label="@string/title_activity_home_group" >
-        </activity>
+
     </application>
 
 </manifest>
