@@ -60,8 +60,8 @@ public class MamStrollActivity extends BaseActivity {
         private final int[] images;
 
         public StrollFancyCoverFlowAdapter(int[] images) {
-            this.images=images;
-            
+            this.images = images;
+
         }
 
         // =============================================================================
