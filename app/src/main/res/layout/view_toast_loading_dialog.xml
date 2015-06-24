@@ -34,7 +34,6 @@
                 android:text="订单提交需要一点时间，请耐心等待" />
         </LinearLayout>
     </LinearLayout>
-
     <LinearLayout
         android:id="@+id/mTitleStyleRoot"
         android:layout_width="wrap_content"

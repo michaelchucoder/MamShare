@@ -35,6 +35,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.1.1'
     compile 'com.google.code.gson:gson:2.3.1'
     compile 'com.android.support:support-v4:22.1.1'
-    compile files('libs/umeng-analytics-v5.5.2.jar')
     compile files('libs/umeng-feedback-v4.3.jar')
+    compile files('libs/umeng-analytics-v5.5.3.jar')
 }

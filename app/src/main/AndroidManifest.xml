@@ -36,6 +36,13 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <!-- ***************添加UmengAppKey************-->
+        <activity android:name="com.umeng.fb.ConversationActivity" />
+        <activity android:name="com.umeng.fb.ContactActivity" />
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="558a109167e58e0b5600822f" />
         <meta-data
             android:name="UMENG_CHANNEL"
             android:value="C_youmeng" />
