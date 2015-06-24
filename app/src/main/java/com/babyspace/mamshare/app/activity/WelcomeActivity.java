@@ -35,9 +35,7 @@ public class WelcomeActivity extends BaseActivity {
 
         setSwipeBackEnable(false);
 
-
         OkHttpExecutor.query(UrlConstants.HomeFloatLayerActivity, HomeFloatLayerEvent.class, false, this);
-
 
     }
 
