@@ -21,7 +21,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     private DiscoverLabelFragment discoverLabelFragment;
 
-
     private DiscoverShareFragment discoverShareFragment;
 
 
@@ -57,11 +56,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
      * 在Tab布局上显示联系人标题的控件
      */
     private TextView contactsText;
-
-    /**
-     * 在Tab布局上显示动态标题的控件
-     */
-    private TextView newsText;
 
     /**
      * 在Tab布局上显示设置标题的控件
