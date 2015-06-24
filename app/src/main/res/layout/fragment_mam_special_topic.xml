@@ -6,8 +6,10 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/frg_special_topic_title"
         android:layout_width="match_parent"
-        android:layout_height="720dp"
+        android:layout_height="match_parent"
+        android:textSize="30px"
         android:text="MamSpecialTopicFragment" />
 
 </FrameLayout>

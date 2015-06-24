@@ -24,15 +24,16 @@
         <TabWidget
             android:id="@android:id/tabs"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="72px"
             android:orientation="horizontal"
             android:visibility="gone" />
 
         <RadioGroup
             android:id="@+id/main_radio"
-            style="@style/main_tabroot"
             android:layout_width="match_parent"
+            android:layout_height="100px"
             android:layout_gravity="bottom"
+            android:background="@drawable/plane_tabroot_bg"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
