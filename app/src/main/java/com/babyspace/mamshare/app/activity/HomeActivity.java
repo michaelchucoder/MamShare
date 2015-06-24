@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.fragment.MamDiscoverFragment;
+import com.babyspace.mamshare.app.fragment.MamDiscoverFragment2;
 import com.babyspace.mamshare.app.fragment.MamSpecialTopicFragment;
 import com.babyspace.mamshare.app.fragment.MamUserCenterFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
@@ -53,7 +54,7 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnCheck
         mTabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
 
         mTabHost.addTab(mTabHost.newTabSpec("tab1").setIndicator(""), MamSpecialTopicFragment.class, null);
-        mTabHost.addTab(mTabHost.newTabSpec("tab2").setIndicator(""), MamDiscoverFragment.class, null);
+        mTabHost.addTab(mTabHost.newTabSpec("tab2").setIndicator(""), MamDiscoverFragment2.class, null);
         mTabHost.addTab(mTabHost.newTabSpec("tab3").setIndicator(""), MamUserCenterFragment.class, null);
     }
 
