@@ -110,8 +110,8 @@ public class ModuleController {
 
     */
 /**
-     * 释放所有模块
-     *//*
+ * 释放所有模块
+ *//*
 
     public static void releaseAll() {
         Set<Entry<Class<? extends IModule<?>>, IModule<?>>> entrySet = map.entrySet();
@@ -126,10 +126,10 @@ public class ModuleController {
 
     */
 /**
-     * 释放制定模块
-     *
-     * @param clazz
-     *//*
+ * 释放制定模块
+ *
+ * @param clazz
+ *//*
 
     public static void release(Class<? extends IModule<?>> clazz) {
         IModule<?> iModule = map.remove(clazz);

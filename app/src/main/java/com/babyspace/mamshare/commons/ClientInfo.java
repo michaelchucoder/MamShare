@@ -15,15 +15,15 @@ public class ClientInfo implements Serializable {
 
     public static final String INTERFACE_TOKEN = "interfacetoken";
 
-    public  String deviceId;
-    public  String USER_AGENT;
-    public  String equipmentModel;
-    public  String equipmentOSVersion;
-    public  String setupChannel;
-    public  String VERSION;
-    public  String platform;
-    public  String screensize;
-    public  String appname;
+    public String deviceId;
+    public String USER_AGENT;
+    public String equipmentModel;
+    public String equipmentOSVersion;
+    public String setupChannel;
+    public String VERSION;
+    public String platform;
+    public String screensize;
+    public String appname;
 
     public Location local = new Location();
 

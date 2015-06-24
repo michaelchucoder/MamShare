@@ -36,7 +36,7 @@ public abstract class FancyCoverFlowAdapter extends BaseAdapter {
         final boolean isReflectionEnabled = coverFlow.isReflectionEnabled();
         coverFlowItem.setReflectionEnabled(isReflectionEnabled);
 
-        if(isReflectionEnabled) {
+        if (isReflectionEnabled) {
             coverFlowItem.setReflectionGap(coverFlow.getReflectionGap());
             coverFlowItem.setReflectionRatio(coverFlow.getReflectionRatio());
         }

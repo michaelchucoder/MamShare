@@ -70,8 +70,8 @@ public class UpdateService {
     };
     */
 /**
-     * SDK服务是否启动
-     *//*
+ * SDK服务是否启动
+ *//*
 
     private boolean tIsRunning = true;
     private Context mContext = null;
@@ -92,8 +92,8 @@ public class UpdateService {
 
     */
 /**
-     * 下载成功后操作
-     *//*
+ * 下载成功后操作
+ *//*
 
     private void downLoadOk() {
         // 下载完成，提示用户安装/替换应用
@@ -106,8 +106,8 @@ public class UpdateService {
 
     */
 /**
-     * 删除所有记录线程下载长度的临时文件
-     *//*
+ * 删除所有记录线程下载长度的临时文件
+ *//*
 
     private synchronized void deleteTempFile() {
         runningThread--;
@@ -124,10 +124,10 @@ public class UpdateService {
 
     */
 /**
-     * 多线程断点续传安装包
-     *
-     * @param path
-     *//*
+ * 多线程断点续传安装包
+ *
+ * @param path
+ *//*
 
     private void downLoadApk(final String path) {
         new Thread() {
@@ -181,8 +181,8 @@ public class UpdateService {
 
     */
 /**
-     * 下载提示框
-     *//*
+ * 下载提示框
+ *//*
 
     private synchronized void downLoadProgress() {
         progressDialog = new ProgressDialog(this);
@@ -196,8 +196,8 @@ public class UpdateService {
 
     */
 /**
-     * 提示用户安装/替换apk
-     *//*
+ * 提示用户安装/替换apk
+ *//*
 
     private void installNewApk() {
         File mFile = new File(filePath + "/" + fileName);
@@ -214,8 +214,8 @@ public class UpdateService {
 
     */
 /**
-     * 下载文件的子线程，每一个线程下载对应位置的文件
-     *//*
+ * 下载文件的子线程，每一个线程下载对应位置的文件
+ *//*
 
     public class DownloadThread extends Thread {
         // private int threadId; //线程的id
@@ -225,10 +225,10 @@ public class UpdateService {
 
         */
 /**
-         * @param startIndex 线程下载的开始位置
-         * @param endIndex   线程下载的结束位置
-         * @param path       资源文件的路径
-         *//*
+ * @param startIndex 线程下载的开始位置
+ * @param endIndex   线程下载的结束位置
+ * @param path       资源文件的路径
+ *//*
 
         public DownloadThread(int startIndex, int endIndex, String path) {
             // this.threadId = threadId;

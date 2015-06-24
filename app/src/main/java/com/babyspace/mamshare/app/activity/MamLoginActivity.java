@@ -28,6 +28,7 @@ public class MamLoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mam_login);
     }
+
     @OnClick({R.id.btn_login_submit})
     public void doOnClick(View view) {
         Intent i = new Intent();

@@ -36,6 +36,7 @@ public class MamRegisterActivity extends BaseActivity {
 
 
     }
+
     @OnClick({R.id.btn_reg_register})
     public void doOnClick(View view) {
         Intent i = new Intent();

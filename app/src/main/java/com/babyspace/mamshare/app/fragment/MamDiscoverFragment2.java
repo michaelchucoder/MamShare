@@ -34,6 +34,7 @@ public class MamDiscoverFragment2 extends BaseFragment {
     private TabPageIndicator mIndicator;
     private ViewPager mViewPager;
     private FragmentPagerAdapter mAdapter;
+
     @Override
     public void init(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_mam_discover2);

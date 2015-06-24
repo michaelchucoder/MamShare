@@ -14,7 +14,7 @@ import butterknife.InjectView;
  * A simple {@link Fragment} subclass.
  */
 public class MamUserCenterFragment extends BaseFragment {
-    @InjectView (R.id.frg_user_center_title)
+    @InjectView(R.id.frg_user_center_title)
     TextView frg_user_center_title;
 
 

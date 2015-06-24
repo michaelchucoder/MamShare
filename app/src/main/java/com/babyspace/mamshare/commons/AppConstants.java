@@ -66,7 +66,6 @@ public class AppConstants {
     public static final int RESPONSE_NO_NEED_UPDATE = 10009;
 
 
-
     /**
      * michael 防止应用崩溃导致数据丢失
      */
