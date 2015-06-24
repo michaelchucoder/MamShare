@@ -24,43 +24,43 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private DiscoverShareFragment discoverShareFragment;
 
 
-    private View messageLayout;
+    private View discoverGuidanceLayout;
 
 
-    private View contactsLayout;
+    private View discoverLabelLayout;
 
 
-    private View settingLayout;
-
-    /**
-     * 在Tab布局上显示消息图标的控件
-     */
-    private ImageView messageImage;
+    private View discoverShareLayout;
 
     /**
-     * 在Tab布局上显示联系人图标的控件
+     * 在Tab布局上显示攻略的控件
      */
-    private ImageView contactsImage;
+    private ImageView discoverGuidanceImage;
 
     /**
-     * 在Tab布局上显示设置图标的控件
+     * 在Tab布局上显示标签的控件
      */
-    private ImageView settingImage;
+    private ImageView discoverLabelImage;
+
+    /**
+     * 在Tab布局上显示妈妈说图标的控件
+     */
+    private ImageView discoverShareImage;
 
     /**
      * 在Tab布局上显示消息标题的控件
      */
-    private TextView messageText;
+    private TextView discoverGuidanceText;
 
     /**
      * 在Tab布局上显示联系人标题的控件
      */
-    private TextView contactsText;
+    private TextView discoverLabelText;
 
     /**
      * 在Tab布局上显示设置标题的控件
      */
-    private TextView settingText;
+    private TextView discoverShareText;
 
     /**
      * 用于对Fragment进行管理
@@ -83,32 +83,32 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
      * 在这里获取到每个需要用到的控件的实例，并给它们设置好必要的点击事件。
      */
     private void initViews() {
-        messageLayout = findViewById(R.id.message_layout);
-        contactsLayout = findViewById(R.id.contacts_layout);
-        settingLayout = findViewById(R.id.setting_layout);
-        messageImage = (ImageView) findViewById(R.id.message_image);
-        contactsImage = (ImageView) findViewById(R.id.contacts_image);
-        settingImage = (ImageView) findViewById(R.id.setting_image);
-        messageText = (TextView) findViewById(R.id.message_text);
-        contactsText = (TextView) findViewById(R.id.contacts_text);
-        settingText = (TextView) findViewById(R.id.setting_text);
-        messageLayout.setOnClickListener(this);
-        contactsLayout.setOnClickListener(this);
-        settingLayout.setOnClickListener(this);
+        discoverGuidanceLayout = findViewById(R.id.discoverGuidance_layout);
+        discoverLabelLayout = findViewById(R.id.discoverLabel_layout);
+        discoverShareLayout = findViewById(R.id.discoverShare_layout);
+        discoverGuidanceImage = (ImageView) findViewById(R.id.discoverGuidance_image);
+        discoverLabelImage = (ImageView) findViewById(R.id.discoverLabel_image);
+        discoverShareImage = (ImageView) findViewById(R.id.discoverShare_image);
+        discoverGuidanceText = (TextView) findViewById(R.id.discoverGuidance_text);
+        discoverLabelText = (TextView) findViewById(R.id.discoverLabel_text);
+        discoverShareText = (TextView) findViewById(R.id.discoverShare_text);
+        discoverGuidanceLayout.setOnClickListener(this);
+        discoverLabelLayout.setOnClickListener(this);
+        discoverShareLayout.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.message_layout:
+            case R.id.discoverGuidance_layout:
                 // 当点击了消息tab时，选中第1个tab
                 setTabSelection(0);
                 break;
-            case R.id.contacts_layout:
+            case R.id.discoverLabel_layout:
                 // 当点击了联系人tab时，选中第2个tab
                 setTabSelection(1);
                 break;
-            case R.id.setting_layout:
+            case R.id.discoverShare_layout:
                 // 当点击了设置tab时，选中第4个tab
                 setTabSelection(2);
                 break;
@@ -132,8 +132,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         switch (index) {
             case 0:
                 // 当点击了消息tab时，改变控件的图片和文字颜色
-                messageImage.setImageResource(R.drawable.tab_message_selected);
-                messageText.setTextColor(Color.WHITE);
+                discoverGuidanceImage.setImageResource(R.drawable.tab_message_selected);
+                discoverGuidanceText.setTextColor(Color.WHITE);
                 if (discoverGuidanceFragment == null) {
                     // 如果MessageFragment为空，则创建一个并添加到界面上
                     discoverGuidanceFragment = new DiscoverGuidanceFragment();
@@ -145,8 +145,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case 1:
                 // 当点击了联系人tab时，改变控件的图片和文字颜色
-                contactsImage.setImageResource(R.drawable.tab_contacts_selected);
-                contactsText.setTextColor(Color.WHITE);
+                discoverLabelImage.setImageResource(R.drawable.tab_contacts_selected);
+                discoverLabelText.setTextColor(Color.WHITE);
                 if (discoverLabelFragment == null) {
                     // 如果ContactsFragment为空，则创建一个并添加到界面上
                     discoverLabelFragment = new DiscoverLabelFragment();
@@ -159,8 +159,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             case 2:
             default:
                 // 当点击了设置tab时，改变控件的图片和文字颜色
-                settingImage.setImageResource(R.drawable.tab_setting_selected);
-                settingText.setTextColor(Color.WHITE);
+                discoverShareImage.setImageResource(R.drawable.tab_setting_selected);
+                discoverShareText.setTextColor(Color.WHITE);
                 if (discoverShareFragment == null) {
                     // 如果SettingFragment为空，则创建一个并添加到界面上
                     discoverShareFragment = new DiscoverShareFragment();
@@ -178,12 +178,12 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
      * 清除掉所有的选中状态。
      */
     private void clearSelection() {
-        messageImage.setImageResource(R.drawable.tab_message_unselected);
-        messageText.setTextColor(Color.parseColor("#82858b"));
-        contactsImage.setImageResource(R.drawable.tab_contacts_unselected);
-        contactsText.setTextColor(Color.parseColor("#82858b"));
-        settingImage.setImageResource(R.drawable.tab_setting_unselected);
-        settingText.setTextColor(Color.parseColor("#82858b"));
+        discoverGuidanceImage.setImageResource(R.drawable.tab_message_unselected);
+        discoverGuidanceText.setTextColor(Color.parseColor("#82858b"));
+        discoverLabelImage.setImageResource(R.drawable.tab_contacts_unselected);
+        discoverLabelText.setTextColor(Color.parseColor("#82858b"));
+        discoverShareImage.setImageResource(R.drawable.tab_setting_unselected);
+        discoverShareText.setTextColor(Color.parseColor("#82858b"));
     }
 
     /**
