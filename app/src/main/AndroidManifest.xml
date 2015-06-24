@@ -85,7 +85,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="home2"
+                    android:host="home"
                     android:scheme="mamShare" />
             </intent-filter>
         </activity>
