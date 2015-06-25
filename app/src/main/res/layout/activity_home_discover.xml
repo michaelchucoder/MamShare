@@ -4,18 +4,18 @@
     android:layout_height="match_parent"
     android:background="#eee"
     android:orientation="vertical">
+
     <RelativeLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="96px"
-        android:background="#00f33f">
+        android:background="#fff33f">
 
         <LinearLayout
             android:id="@+id/layout_home_search"
-            android:layout_width="wrap_content"
+            android:layout_width="500px"
             android:layout_height="50px"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10px"
-            android:layout_marginRight="10px"
+            android:layout_marginLeft="40px"
             android:layout_marginTop="2px"
             android:background="@drawable/shape_discover_search_bg"
             android:gravity="center_vertical">
@@ -46,8 +46,8 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="40px"
-            android:textSize="40px"
-            android:text="取消" />
+            android:text="取消"
+            android:textSize="40px" />
     </RelativeLayout>
 
 
