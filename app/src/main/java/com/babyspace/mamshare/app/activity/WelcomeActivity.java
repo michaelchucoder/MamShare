@@ -33,7 +33,6 @@ public class WelcomeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        setSwipeBackEnable(false);
 
         OkHttpExecutor.query(UrlConstants.HomeFloatLayerActivity, HomeFloatLayerEvent.class, false, this);
 

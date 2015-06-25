@@ -28,8 +28,6 @@ public class MamRegisterActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mam_register);
 
-        setSwipeBackEnable(false);
-
         edit_pwd.setHint(Html.fromHtml("<font size=\"3\" color=\"blue\">\n" +
                 "This is another paragraph.\n" +
                 "</font>"));

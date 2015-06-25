@@ -29,7 +29,6 @@ public class MamStrollActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mam_stroll);
-        setSwipeBackEnable(false);
 
         FancyCoverFlow fancyCoverFlow = (FancyCoverFlow) findViewById(R.id.fancyCoverFlow);
         fancyCoverFlow.setReflectionEnabled(true);

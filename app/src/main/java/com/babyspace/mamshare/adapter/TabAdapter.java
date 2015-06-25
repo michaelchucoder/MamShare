@@ -13,16 +13,16 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.babyspace.mamshare.app.fragment.DiscoverGuidanceFragment;
-import com.babyspace.mamshare.app.fragment.DiscoverLabelFragment;
-
 public class TabAdapter extends FragmentPagerAdapter {
 
-    public static final String[] TITLES = new String[]{"推荐攻略", "热门标签"};
-    public static final Fragment[] FRAGMENTS = new Fragment[]{new DiscoverGuidanceFragment(), new DiscoverLabelFragment()};
+    public String[] TITLES;
+    public Fragment[] FRAGMENTS;
 
-    public TabAdapter(FragmentManager fm) {
+    public TabAdapter(FragmentManager fm,String[] TITLES, Fragment[] FRAGMENTS) {
+
         super(fm);
+        this.TITLES = TITLES;
+        this.FRAGMENTS = FRAGMENTS;
     }
 
     @Override

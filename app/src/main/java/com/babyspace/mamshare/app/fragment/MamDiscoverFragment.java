@@ -20,6 +20,9 @@ import com.viewpagerindicator.TabPageIndicator;
  * A simple {@link Fragment} subclass.
  */
 public class MamDiscoverFragment extends BaseFragment {
+    public static final String[] TITLES = new String[]{"推荐攻略", "热门标签"};
+    public static final Fragment[] FRAGMENTS = new Fragment[]{new DiscoverGuidanceFragment(), new DiscoverLabelFragment()};
+
     private TabPageIndicator mIndicator;
     private ViewPager mViewPager;
     private FragmentPagerAdapter mAdapter;
@@ -45,7 +48,7 @@ public class MamDiscoverFragment extends BaseFragment {
 
         mIndicator = (TabPageIndicator) findViewById(R.id.id_indicator);
         mViewPager = (ViewPager) findViewById(R.id.id_pager);
-        mAdapter = new TabAdapter(getFragmentManager());
+        mAdapter = new TabAdapter(getFragmentManager(),TITLES,FRAGMENTS);
         mViewPager.setAdapter(mAdapter);
         mIndicator.setViewPager(mViewPager, 0);
 
