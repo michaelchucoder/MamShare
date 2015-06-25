@@ -27,7 +27,7 @@ public class HomeUserCenterActivity extends BaseActivity {
 
         mIndicator = (TabPageIndicator) findViewById(R.id.id_indicator);
         mViewPager = (ViewPager) findViewById(R.id.id_pager);
-        mAdapter = new TabPageAdapter(getSupportFragmentManager(),TITLES,FRAGMENTS);
+        mAdapter = new TabPageAdapter(getSupportFragmentManager(), TITLES, FRAGMENTS);
         mViewPager.setAdapter(mAdapter);
         mIndicator.setViewPager(mViewPager, 0);
 
