@@ -23,7 +23,7 @@ import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 
 public class HomeGroupActivity extends ActivityGroup {
-    //TODO 因为不可抗拒的原因 似乎只能弃用fragmentManager 而用ActivityGroup
+    //TODO 因为不可抗拒的原因 似乎只能弃用fragmentManager 而用ActivityGroup 最后又解决Fragment缓存的问题了 囧
     public static final int PAGE_SPECIAL_TOPIC = 1001;
     private int page = PAGE_SPECIAL_TOPIC;
     public static final int PAGE_DISCOVER = 1002;
