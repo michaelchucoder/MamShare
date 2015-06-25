@@ -1,11 +1,11 @@
 package com.babyspace.mamshare.app.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.basement.BaseActivity;
 
-public class UserProfileActivity extends AppCompatActivity {
+public class UserProfileActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

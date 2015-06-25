@@ -1,53 +1,56 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:imagecontrol="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#eee"
     android:orientation="vertical">
+
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="96px"
-        android:background="#00f33f">
+        android:layout_height="440px"
+        android:background="#43f33f">
 
-        <LinearLayout
-            android:id="@+id/layout_home_search"
-            android:layout_width="wrap_content"
-            android:layout_height="50px"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10px"
-            android:layout_marginRight="10px"
-            android:layout_marginTop="2px"
-            android:background="@drawable/shape_discover_search_bg"
-            android:gravity="center_vertical">
+        <ImageButton
+            android:id="@+id/user_profile_edit"
+            android:layout_width="80px"
+            android:layout_height="80px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30px"
+            android:layout_marginTop="30px"
+            android:background="#f9f33f" />
 
-            <View
-                android:id="@+id/view_search_aas"
-                android:layout_width="24px"
-                android:layout_height="25px"
-                android:layout_marginLeft="20px"
-                android:background="@drawable/activity_home_btn_search2" />
-
-            <TextView
-                android:id="@+id/et_search"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_marginLeft="17px"
-                android:layout_marginRight="17px"
-                android:background="#00000000"
-                android:gravity="center_vertical"
-                android:hint="为宝宝找到世界上最好用的"
-                android:textColor="#868686"
-                android:textSize="24px" />
-        </LinearLayout>
+        <com.michael.library.widget.roundimage.RoundImageView
+            android:id="@+id/user_avatar_show"
+            android:layout_width="200px"
+            android:layout_height="200px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80px"
+            android:scaleType="fitXY"
+            android:src="@drawable/user_default_avatar"
+            imagecontrol:border_outside_color="#ffdcd4d9"
+            imagecontrol:border_thickness="3px" />
 
         <TextView
+            android:id="@+id/user_id_show"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="40px"
-            android:textSize="40px"
-            android:text="取消" />
+            android:layout_below="@+id/user_avatar_show"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25px"
+            android:text="用户id"
+            android:textSize="30px" />
+
+        <Button
+            android:id="@+id/user_contribute_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user_id_show"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25px"
+            android:background="@drawable/shape_btn_login"
+            android:text="我要投稿" />
+
+
     </RelativeLayout>
 
 
