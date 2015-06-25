@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
-import com.babyspace.mamshare.app.fragment.MamDiscoverFragment2;
+import com.babyspace.mamshare.app.fragment.MamDiscoverFragment;
 import com.babyspace.mamshare.app.fragment.MamSpecialTopicFragment;
 import com.babyspace.mamshare.app.fragment.MamUserCenterFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
@@ -19,7 +19,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     private MamSpecialTopicFragment specialTopicFragment;
 
-    private MamDiscoverFragment2 discoverFragment;
+    private MamDiscoverFragment discoverFragment;
 
     private MamUserCenterFragment userCenterFragment;
 
@@ -149,7 +149,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 discoverText.setTextColor(Color.WHITE);
                 if (discoverFragment == null) {
                     // 如果MamDiscoverFragment为空，则创建一个并添加到界面上
-                    discoverFragment = new MamDiscoverFragment2();
+                    discoverFragment = new MamDiscoverFragment();
                     transaction.add(R.id.content, discoverFragment);
                 } else {
                     // 如果MamDiscoverFragment不为空，则直接将它显示出来

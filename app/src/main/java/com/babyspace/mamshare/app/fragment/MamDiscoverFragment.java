@@ -2,45 +2,31 @@ package com.babyspace.mamshare.app.fragment;
 
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.DisplayMetrics;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.TabAdapter;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.viewpagerindicator.TabPageIndicator;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MamDiscoverFragment2 extends BaseFragment {
+public class MamDiscoverFragment extends BaseFragment {
     private TabPageIndicator mIndicator;
     private ViewPager mViewPager;
     private FragmentPagerAdapter mAdapter;
 
     @Override
     public void init(Bundle savedInstanceState) {
-        //setContentView(R.layout.fragment_mam_discover2);
+        //setContentView(R.layout.fragment_mam_discover);
 
     }
 
@@ -49,7 +35,7 @@ public class MamDiscoverFragment2 extends BaseFragment {
         final Context contextThemeWrapper = new ContextThemeWrapper(getActivity(), R.style.MyTheme);
         // clone the inflater using the ContextThemeWrapper
         LayoutInflater localInflater = inflater.cloneInContext(contextThemeWrapper);
-        View v = localInflater.inflate(R.layout.fragment_mam_discover2, container, false);
+        View v = localInflater.inflate(R.layout.fragment_mam_discover, container, false);
         return v;
     }
 
