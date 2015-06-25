@@ -127,7 +127,7 @@ public class HomeSpecialTopicActivity extends BaseActivity {
             this.imageView.setLayoutParams(layoutParams);
             this.button.setLayoutParams(layoutParams);
 
-            this.imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            this.imageView.setScaleType(ImageView.ScaleType.MATRIX);
             this.imageView.setAdjustViewBounds(true);
 
             this.button.setOnClickListener(new OnClickListener() {
