@@ -22,4 +22,6 @@ public class DiscoverGuidanceFragment extends BaseFragment {
     public void initView() {
 
     }
+
+
 }

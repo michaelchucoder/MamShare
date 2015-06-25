@@ -93,7 +93,9 @@
         <activity
             android:name=".app.activity.HomeGroupActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:theme="@style/MyTheme"
+        >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
