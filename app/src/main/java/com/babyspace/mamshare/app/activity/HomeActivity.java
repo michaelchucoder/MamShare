@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.fragment.MamDiscoverFragment2;
 import com.babyspace.mamshare.app.fragment.MamSpecialTopicFragment;
-import com.babyspace.mamshare.app.fragment.MamDiscoverFragment;
 import com.babyspace.mamshare.app.fragment.MamUserCenterFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
 
