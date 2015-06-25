@@ -26,6 +26,6 @@ public class UrlConstants {
     public static final String HomeAdvertisingFigureData = "/Goods/NewHomeAdvertisingFigureData.do";
     public static final String HomeFloatLayerActivity = "/System/HomeFloatlayerActivity.do";
     public static final String GatherGeTuiCID = "/System/GatherGeTuiCID.do";
-
+    public static final String HomeAdvertisingFigure = "/System/HomeAdvertisingFigure.do";
 
 }

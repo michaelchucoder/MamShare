@@ -26,44 +26,8 @@ public class AppConstants {
     /**
      * 请求成功
      */
-    public static final int RESPONSE_OK = 10000;
+    public static final String RESPONSE_OK = "200";
 
-    /**
-     * 返回无数据
-     */
-    public static final int RESPONSE_EMPTY = 10001;
-
-    /**
-     * 请求超时
-     */
-    public static final int RESPONSE_TIMEOUT = 10002;
-
-    /**
-     * 执行错误，业务接口返回错误，或网络问题引起
-     */
-    public static final int RESPONSE_INVALID = 10003;
-
-    /**
-     * 该页码无数据
-     */
-    public static final int RESPONSE_PAGE_EMPTY = 10004;
-
-    /**
-     * 查询方法错误
-     */
-    public static final int RESPONSE_REQUEST_ERROR = 10005;
-
-    /**
-     * 参数错误，缺少必要参数
-     */
-    public static final int RESPONSE_PARAMS_ERROR = 10006;
-
-    //10007，10008未使用
-
-    /**
-     * 无需更新
-     */
-    public static final int RESPONSE_NO_NEED_UPDATE = 10009;
 
 
     /**

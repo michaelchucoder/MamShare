@@ -13,15 +13,27 @@ import android.widget.LinearLayout;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.basement.BaseActivity;
+import com.babyspace.mamshare.basement.BaseResponseBean;
+import com.babyspace.mamshare.bean.Advert;
+import com.babyspace.mamshare.bean.AdvertEvent;
+import com.babyspace.mamshare.commons.AppConstants;
+import com.babyspace.mamshare.commons.UrlConstants;
+import com.babyspace.mamshare.framework.eventbus.HttpErrorEvent;
+import com.michael.core.okhttp.OkHttpExecutor;
+import com.michael.library.debug.L;
 import com.michael.library.widget.fancycoverflow.FancyCoverFlow;
 import com.michael.library.widget.fancycoverflow.FancyCoverFlowAdapter;
+import com.nostra13.universalimageloader.core.ImageLoader;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.InjectView;
+import de.greenrobot.event.EventBus;
 
 public class HomeSpecialTopicActivity extends BaseActivity {
 
-    private int[] images = {R.drawable.push, R.drawable.push, R.drawable.push};
-
+    StrollFancyCoverFlowAdapter strollFancyCoverFlowAdapter;
     @InjectView(R.id.ll_stroll_fancy_cover_flow)
     LinearLayout ll_stroll_fancy_cover_flow;
 
@@ -29,57 +41,41 @@ public class HomeSpecialTopicActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_special_topic);
+        strollFancyCoverFlowAdapter=new StrollFancyCoverFlowAdapter(this);
 
-        FancyCoverFlow fancyCoverFlow = (FancyCoverFlow) findViewById(R.id.fancyCoverFlow);
-        fancyCoverFlow.setReflectionEnabled(true);
-        fancyCoverFlow.setReflectionRatio(0.4f);
-        fancyCoverFlow.setReflectionGap(0);
+        OkHttpExecutor.query(UrlConstants.HomeAdvertisingFigure, AdvertEvent.class, false, this);
 
-        fancyCoverFlow.setAdapter(new StrollFancyCoverFlowAdapter(images));
-
-        fancyCoverFlow.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                ll_stroll_fancy_cover_flow.setBackgroundResource(images[position]);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
     }
 
     // =============================================================================
     // Private classes
     // =============================================================================
 
-    private static class StrollFancyCoverFlowAdapter extends FancyCoverFlowAdapter {
+    private  class StrollFancyCoverFlowAdapter extends FancyCoverFlowAdapter {
+        Context ctx;
+        List<Advert> datas=new ArrayList<Advert>();
 
-        private final int[] images;
 
-        public StrollFancyCoverFlowAdapter(int[] images) {
-            this.images = images;
+        public StrollFancyCoverFlowAdapter(Context ctx) {
+            this.ctx = ctx;
 
         }
 
-        // =============================================================================
-        // Private members
-        // =============================================================================
-
-
+        public  void setData(List<Advert> datas){
+            this.datas = datas;
+        }
         // =============================================================================
         // SuperType overrides
         // =============================================================================
 
         @Override
         public int getCount() {
-            return images.length;
+            return datas.size();
         }
 
         @Override
-        public Integer getItem(int i) {
-            return images[i];
+        public Object getItem(int i) {
+            return datas.get(i);
         }
 
         @Override
@@ -97,8 +93,8 @@ public class HomeSpecialTopicActivity extends BaseActivity {
                 customViewGroup = new CustomViewGroup(viewGroup.getContext());
                 customViewGroup.setLayoutParams(new FancyCoverFlow.LayoutParams(300, 600));
             }
-
-            customViewGroup.getImageView().setImageResource(this.getItem(i));
+            customViewGroup.getButton().setText("i-"+i);
+            ImageLoader.getInstance().displayImage(datas.get(i).ImgesUrl, customViewGroup.getImageView());
             return customViewGroup;
         }
     }
@@ -134,7 +130,6 @@ public class HomeSpecialTopicActivity extends BaseActivity {
             this.imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             this.imageView.setAdjustViewBounds(true);
 
-            this.button.setText("奔跑吧");
             this.button.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -154,6 +149,45 @@ public class HomeSpecialTopicActivity extends BaseActivity {
         private ImageView getImageView() {
             return imageView;
         }
+        private Button getButton() {
+            return button;
+        }
+    }
+
+
+    public void onEventMainThread(AdvertEvent event) {
+        L.d("onEventMainThread","AdvertEvent:"+event.getData().get(0).toString());
+        L.d("onEventMainThread","event.getCode():"+event.getCode());
+
+        if (event.getCode().equals(AppConstants.RESPONSE_OK) && event.getData() != null) {
+
+            FancyCoverFlow fancyCoverFlow = (FancyCoverFlow) findViewById(R.id.fancyCoverFlow);
+            fancyCoverFlow.setReflectionEnabled(true);
+            fancyCoverFlow.setReflectionRatio(0.4f);
+            fancyCoverFlow.setReflectionGap(0);
+
+            strollFancyCoverFlowAdapter.setData(event.getData());
+            fancyCoverFlow.setAdapter(strollFancyCoverFlowAdapter);
+            strollFancyCoverFlowAdapter.notifyDataSetChanged();
+
+            fancyCoverFlow.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    //ll_stroll_fancy_cover_flow.setBackgroundResource(images[position]);
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+
+        }
+        requestEnd(event);
+    }
+
+    public void onEventMainThread(HttpErrorEvent event) {
+        requestEnd(event);
     }
 
 
