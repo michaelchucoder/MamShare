@@ -41,7 +41,7 @@ public class HomeSpecialTopicActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_special_topic);
-        strollFancyCoverFlowAdapter=new StrollFancyCoverFlowAdapter(this);
+        strollFancyCoverFlowAdapter = new StrollFancyCoverFlowAdapter(this);
 
         OkHttpExecutor.query(UrlConstants.HomeAdvertisingFigure, AdvertEvent.class, false, this);
 
@@ -51,9 +51,9 @@ public class HomeSpecialTopicActivity extends BaseActivity {
     // Private classes
     // =============================================================================
 
-    private  class StrollFancyCoverFlowAdapter extends FancyCoverFlowAdapter {
+    private class StrollFancyCoverFlowAdapter extends FancyCoverFlowAdapter {
         Context ctx;
-        List<Advert> datas=new ArrayList<Advert>();
+        List<Advert> datas = new ArrayList<Advert>();
 
 
         public StrollFancyCoverFlowAdapter(Context ctx) {
@@ -61,7 +61,7 @@ public class HomeSpecialTopicActivity extends BaseActivity {
 
         }
 
-        public  void setData(List<Advert> datas){
+        public void setData(List<Advert> datas) {
             this.datas = datas;
         }
         // =============================================================================
@@ -93,7 +93,7 @@ public class HomeSpecialTopicActivity extends BaseActivity {
                 customViewGroup = new CustomViewGroup(viewGroup.getContext());
                 customViewGroup.setLayoutParams(new FancyCoverFlow.LayoutParams(300, 600));
             }
-            customViewGroup.getButton().setText("i-"+i);
+            customViewGroup.getButton().setText("i-" + i);
             ImageLoader.getInstance().displayImage(datas.get(i).ImgesUrl, customViewGroup.getImageView());
             return customViewGroup;
         }
@@ -149,6 +149,7 @@ public class HomeSpecialTopicActivity extends BaseActivity {
         private ImageView getImageView() {
             return imageView;
         }
+
         private Button getButton() {
             return button;
         }
@@ -156,8 +157,8 @@ public class HomeSpecialTopicActivity extends BaseActivity {
 
 
     public void onEventMainThread(final AdvertEvent event) {
-        L.d("onEventMainThread","AdvertEvent:"+event.getData().get(0).toString());
-        L.d("onEventMainThread","event.getCode():"+event.getCode());
+        L.d("onEventMainThread", "AdvertEvent:" + event.getData().get(0).toString());
+        L.d("onEventMainThread", "event.getCode():" + event.getCode());
 
         if (event.getCode().equals(AppConstants.RESPONSE_OK) && event.getData() != null) {
 
@@ -174,7 +175,7 @@ public class HomeSpecialTopicActivity extends BaseActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-ImageLoader.getInstance().displayImage(event.getData().get(position).ImgesUrl,specialTopic_bg);
+                    ImageLoader.getInstance().displayImage(event.getData().get(position).ImgesUrl, specialTopic_bg);
                 }
 
                 @Override
