@@ -18,7 +18,7 @@ import com.babyspace.mamshare.app.fragment.DiscoverLabelFragment;
 
 public class TabAdapter extends FragmentPagerAdapter {
 
-    public static final String[] TITLES = new String[]{"业界", "移动"};
+    public static final String[] TITLES = new String[]{"推荐攻略", "热门标签"};
     public static final Fragment[] FRAGMENTS = new Fragment[]{new DiscoverGuidanceFragment(), new DiscoverLabelFragment()};
 
     public TabAdapter(FragmentManager fm) {

@@ -1,6 +1,8 @@
 package com.babyspace.mamshare.app.fragment;
 
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.os.Bundle;
@@ -10,6 +12,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.DisplayMetrics;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,8 +40,17 @@ public class MamDiscoverFragment2 extends BaseFragment {
 
     @Override
     public void init(Bundle savedInstanceState) {
-        setContentView(R.layout.fragment_mam_discover2);
+        //setContentView(R.layout.fragment_mam_discover2);
 
+    }
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        final Context contextThemeWrapper = new ContextThemeWrapper(getActivity(), R.style.MyTheme);
+        // clone the inflater using the ContextThemeWrapper
+        LayoutInflater localInflater = inflater.cloneInContext(contextThemeWrapper);
+        View v = localInflater.inflate(R.layout.fragment_mam_discover2, container, false);
+        return v;
     }
 
     @Override
