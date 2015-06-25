@@ -12,7 +12,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="120px"
         android:background="@drawable/tab_bg">
 
         <RelativeLayout
@@ -29,8 +29,8 @@
 
                 <ImageView
                     android:id="@+id/specialTopic_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50px"
+                    android:layout_height="50px"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/tab_message_unselected" />
 
@@ -40,7 +40,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="专题"
-                    android:textColor="#82858b" />
+                    android:textColor="#82858b"
+                    android:textSize="30px" />
             </LinearLayout>
         </RelativeLayout>
 
@@ -58,8 +59,8 @@
 
                 <ImageView
                     android:id="@+id/discover_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50px"
+                    android:layout_height="50px"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/tab_contacts_unselected" />
 
@@ -69,7 +70,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="发现"
-                    android:textColor="#82858b" />
+                    android:textColor="#82858b"
+                    android:textSize="30px" />
             </LinearLayout>
         </RelativeLayout>
 
@@ -87,8 +89,8 @@
 
                 <ImageView
                     android:id="@+id/userCenter_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50px"
+                    android:layout_height="50px"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/tab_setting_unselected" />
 
@@ -98,7 +100,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="妈妈说"
-                    android:textColor="#82858b" />
+                    android:textColor="#82858b"
+                    android:textSize="30px" />
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
