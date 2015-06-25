@@ -34,8 +34,8 @@ import de.greenrobot.event.EventBus;
 public class HomeSpecialTopicActivity extends BaseActivity {
 
     StrollFancyCoverFlowAdapter strollFancyCoverFlowAdapter;
-    @InjectView(R.id.ll_stroll_fancy_cover_flow)
-    LinearLayout ll_stroll_fancy_cover_flow;
+    @InjectView(R.id.specialTopic_bg)
+    ImageView specialTopic_bg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,7 +155,7 @@ public class HomeSpecialTopicActivity extends BaseActivity {
     }
 
 
-    public void onEventMainThread(AdvertEvent event) {
+    public void onEventMainThread(final AdvertEvent event) {
         L.d("onEventMainThread","AdvertEvent:"+event.getData().get(0).toString());
         L.d("onEventMainThread","event.getCode():"+event.getCode());
 
@@ -173,7 +173,8 @@ public class HomeSpecialTopicActivity extends BaseActivity {
             fancyCoverFlow.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    //ll_stroll_fancy_cover_flow.setBackgroundResource(images[position]);
+
+ImageLoader.getInstance().displayImage(event.getData().get(position).ImgesUrl,specialTopic_bg);
                 }
 
                 @Override
