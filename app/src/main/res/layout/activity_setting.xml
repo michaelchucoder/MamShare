@@ -43,9 +43,9 @@
             android:id="@+id/setting_about"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="40px"
+            android:layout_margin="30px"
             android:text="关于妈妈说"
-            android:textSize="40px" />
+            android:textSize="30px" />
 
         <ImageView
             android:layout_width="match_parent"
@@ -57,9 +57,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:layout_margin="40px"
+            android:layout_margin="30px"
             android:text="反馈"
-            android:textSize="40px" />
+            android:textSize="30px" />
 
         <ImageView
             android:layout_width="match_parent"
@@ -70,9 +70,9 @@
             android:id="@+id/setting_clear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="40px"
+            android:layout_margin="30px"
             android:text="清楚缓存"
-            android:textSize="40px" />
+            android:textSize="30px" />
 
         <ImageView
             android:layout_width="match_parent"
@@ -86,7 +86,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/shape_btn_login"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="40px"
+            android:layout_margin="30px"
+            android:textSize="30px"
             android:text="退出登录" />
     </LinearLayout>
 
