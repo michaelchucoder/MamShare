@@ -155,7 +155,6 @@ public class HomeSpecialTopicActivity extends BaseActivity {
         }
     }
 
-
     public void onEventMainThread(final AdvertEvent event) {
         L.d("onEventMainThread", "AdvertEvent:" + event.getData().get(0).toString());
         L.d("onEventMainThread", "event.getCode():" + event.getCode());
