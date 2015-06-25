@@ -13,12 +13,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-public class TabAdapter extends FragmentPagerAdapter {
+public class TabPageAdapter extends FragmentPagerAdapter {
 
     public String[] TITLES;
     public Fragment[] FRAGMENTS;
 
-    public TabAdapter(FragmentManager fm,String[] TITLES, Fragment[] FRAGMENTS) {
+    public TabPageAdapter(FragmentManager fm, String[] TITLES, Fragment[] FRAGMENTS) {
 
         super(fm);
         this.TITLES = TITLES;

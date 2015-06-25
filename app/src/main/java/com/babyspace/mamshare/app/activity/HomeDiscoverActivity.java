@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
 import com.babyspace.mamshare.R;
-import com.babyspace.mamshare.adapter.TabAdapter;
+import com.babyspace.mamshare.adapter.TabPageAdapter;
 import com.babyspace.mamshare.app.fragment.DiscoverGuidanceFragment;
 import com.babyspace.mamshare.app.fragment.DiscoverLabelFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
@@ -29,7 +29,7 @@ public class HomeDiscoverActivity extends BaseActivity {
 
         mIndicator = (TabPageIndicator) findViewById(R.id.id_indicator);
         mViewPager = (ViewPager) findViewById(R.id.id_pager);
-        mAdapter = new TabAdapter(getSupportFragmentManager(),TITLES,FRAGMENTS);
+        mAdapter = new TabPageAdapter(getSupportFragmentManager(),TITLES,FRAGMENTS);
         mViewPager.setAdapter(mAdapter);
         mIndicator.setViewPager(mViewPager, 0);
 

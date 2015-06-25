@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.babyspace.mamshare.R;
-import com.babyspace.mamshare.adapter.TabAdapter;
+import com.babyspace.mamshare.adapter.TabPageAdapter;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.viewpagerindicator.TabPageIndicator;
 
@@ -48,7 +48,7 @@ public class MamDiscoverFragment extends BaseFragment {
 
         mIndicator = (TabPageIndicator) findViewById(R.id.id_indicator);
         mViewPager = (ViewPager) findViewById(R.id.id_pager);
-        mAdapter = new TabAdapter(getFragmentManager(),TITLES,FRAGMENTS);
+        mAdapter = new TabPageAdapter(getFragmentManager(),TITLES,FRAGMENTS);
         mViewPager.setAdapter(mAdapter);
         mIndicator.setViewPager(mViewPager, 0);
 
