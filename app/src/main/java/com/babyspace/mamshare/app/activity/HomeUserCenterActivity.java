@@ -62,7 +62,7 @@ public class HomeUserCenterActivity extends BaseActivity {
                 i.setClass(this, UserProfileActivity.class);
                 break;
             case R.id.user_profile_edit:
-                i.setClass(this, UserProfileActivity.class);
+                i.setClass(this, SettingActivity.class);
                 break;
         }
         startActivity(i);
