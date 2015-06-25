@@ -24,8 +24,6 @@ public class WelcomeActivity extends BaseActivity {
     TextView btn_wel_register;
     @InjectView(R.id.btn_wel_login)
     TextView btn_wel_login;
-    @InjectView(R.id.btn_wel_stroll)
-    TextView btn_wel_stroll;
 
 
     @Override
@@ -50,7 +48,7 @@ public class WelcomeActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.btn_wel_register, R.id.btn_wel_login, R.id.btn_wel_stroll})
+    @OnClick({R.id.btn_wel_register, R.id.btn_wel_login})
     public void doOnClick(View view) {
         Intent i = new Intent();
 
@@ -60,9 +58,6 @@ public class WelcomeActivity extends BaseActivity {
                 break;
             case R.id.btn_wel_login:
                 i.setClass(this, MamLoginActivity.class);
-                break;
-            case R.id.btn_wel_stroll:
-                i.setClass(this, MamStrollActivity.class);
                 break;
         }
         startActivity(i);

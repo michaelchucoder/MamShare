@@ -113,7 +113,6 @@
         </activity>
         <activity android:name=".app.activity.MamRegisterActivity" />
         <activity android:name=".app.activity.MamLoginActivity" />
-        <activity android:name=".app.activity.MamStrollActivity" />
         <activity android:name=".app.activity.SettingActivity" />
         <activity android:name=".app.activity.UserProfileActivity" />
         <activity android:name=".app.activity.StrollSpecialTopicActivity">

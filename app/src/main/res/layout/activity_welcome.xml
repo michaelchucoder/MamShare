@@ -30,15 +30,6 @@
         android:textSize="30px" />
 
 
-    <Button
-        android:id="@+id/btn_wel_stroll"
-        android:layout_below="@id/btn_wel_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shape_btn_login"
-        android:layout_centerHorizontal="true"
-        android:text="随便看看"
-        android:textSize="30px" />
 
 
 </RelativeLayout>
