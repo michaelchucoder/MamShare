@@ -11,6 +11,7 @@ public class Advert {
     public String ImgesUrl;// ÂÖ²¥Í¼Í¼Æ¬µØÖ·
     public int AdvertisingFigureID;// ÂÖ²¥Í¼ID±êÊ¾
 
+
     @Override
     public String toString() {
         return "Advert [DataValue=" + DataValue + ", DataType=" + DataType + ", ImgesUrl=" + ImgesUrl + ", AdvertisingFigureID=" + AdvertisingFigureID + "]";
