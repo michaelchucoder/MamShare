@@ -41,7 +41,7 @@ public class MamRegisterActivity extends BaseActivity {
 
         switch (view.getId()) {
             case R.id.btn_reg_register:
-                i.setClass(this, HomeGroupActivity.class);
+                i.setClass(this, RegisterProfileActivity.class);
                 break;
         }
         startActivity(i);
