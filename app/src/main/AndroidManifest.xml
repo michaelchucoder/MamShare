@@ -159,6 +159,10 @@
             android:name=".app.activity.Html5Activity"
             android:label="@string/title_activity_html5" >
         </activity>
+        <activity
+            android:name=".app.activity.SplashActivity"
+            android:label="@string/title_activity_splash" >
+        </activity>
     </application>
 
 </manifest>
