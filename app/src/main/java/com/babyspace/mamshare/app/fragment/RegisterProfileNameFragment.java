@@ -38,7 +38,6 @@ public class RegisterProfileNameFragment extends BaseFragment {
 
     }
 
-
     @OnClick({R.id.btn_register_next})
     public void doOnClick(View view) {
 
