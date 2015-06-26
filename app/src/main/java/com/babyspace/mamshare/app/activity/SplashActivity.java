@@ -335,8 +335,6 @@ public class SplashActivity extends BaseActivity {
                     e.printStackTrace();
                 }
             }
-
-            ;
         }.start();
     }
 
@@ -453,7 +451,6 @@ public class SplashActivity extends BaseActivity {
                         currentProgress += len; // 获取当前的总进度
                         progressDialog.setProgress(currentProgress);
                     }
-
                 }
                 L.i(TAG, "lengthInt----------->" + lengthInt);
                 L.i(TAG, "totle" + totle);
