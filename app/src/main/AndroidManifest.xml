@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.babyspace.mamshare">
+    package="com.babyspace.mamshare" >
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -35,7 +35,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
 
         <!-- ***************添加UmengAppKey************ -->
         <activity android:name="com.umeng.fb.ConversationActivity" />
@@ -53,7 +53,7 @@
 
         <activity
             android:name=".app.activity.WelcomeActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -73,7 +73,7 @@
         <activity
             android:name=".app.activity.HomeActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -94,7 +94,7 @@
             android:name=".app.activity.HomeGroupActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@style/MyTheme">
+            android:theme="@style/MyTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -115,7 +115,7 @@
         <activity android:name=".app.activity.MamLoginActivity" />
         <activity android:name=".app.activity.SettingActivity" />
         <activity android:name=".app.activity.UserProfileActivity" />
-        <activity android:name=".app.activity.StrollSpecialTopicActivity">
+        <activity android:name=".app.activity.StrollSpecialTopicActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -132,13 +132,13 @@
                     android:scheme="mamShare" />
             </intent-filter>
         </activity>
-        <activity android:name=".app.activity.HomeSpecialTopicActivity"/>
-        <activity android:name=".app.activity.HomeDiscoverActivity"/>
+        <activity android:name=".app.activity.HomeSpecialTopicActivity" />
+        <activity android:name=".app.activity.HomeDiscoverActivity" />
         <activity
             android:name=".app.activity.HomeUserCenterActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@style/MyTheme">
+            android:theme="@style/MyTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -155,7 +155,10 @@
                     android:scheme="mamShare" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".app.activity.Html5Activity"
+            android:label="@string/title_activity_html5" >
+        </activity>
     </application>
 
 </manifest>
