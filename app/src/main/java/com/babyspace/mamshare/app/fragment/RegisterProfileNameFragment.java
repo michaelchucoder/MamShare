@@ -1,5 +1,6 @@
 package com.babyspace.mamshare.app.fragment;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -8,6 +9,7 @@ import android.widget.Button;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.basement.BaseFragment;
+import com.babyspace.mamshare.listener.RegisterProfileListener;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -16,20 +18,33 @@ import butterknife.OnClick;
  * A placeholder fragment containing a simple view.
  */
 public class RegisterProfileNameFragment extends BaseFragment {
+    RegisterProfileListener mCallback;
     @InjectView(R.id.btn_register_next)
     Button btn_register_next;
 
-    FragmentManager fm ;
+    FragmentManager fm;
 
 
     public RegisterProfileNameFragment() {
     }
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
 
+        // This makes sure that the container activity has implemented
+        // the callback interface. If not, it throws an exception.
+        try {
+            mCallback = (RegisterProfileListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement OnHeadlineSelectedListener");
+        }
+    }
 
     @Override
     public void init(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_register_profile_name);
-        fm=getFragmentManager();
+        fm = getFragmentManager();
 
     }
 
@@ -44,20 +59,11 @@ public class RegisterProfileNameFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.btn_wel_register:
 
-                FragmentTransaction ft = fm.beginTransaction();//注意。一个transaction 只能commit一次，所以不要定义成全局变量
-                RegisterProfileRoleFragment fragment = new RegisterProfileRoleFragment();
-                Bundle bundle = new Bundle();
-                bundle.putLong("id", 1);
-                bundle.putString("name", "RegisterProfileRoleFragment");
-                fragment.setArguments(bundle);
-                ft.replace(R.id.fragment_container, fragment);
-                ft.addToBackStack(null);
-                ft.commit();
+                mCallback.onRegisterNameSelected();
                 break;
 
         }
     }
-
 
 
 }
