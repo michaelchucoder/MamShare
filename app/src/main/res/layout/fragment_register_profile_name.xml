@@ -21,11 +21,11 @@
         android:background="@drawable/shape_btn_login"
         android:text="下一步"
         android:textSize="40px" />
-    <ContentFrameLayout
+    <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-    </ContentFrameLayout>
+    </FrameLayout>
 
 </RelativeLayout>
