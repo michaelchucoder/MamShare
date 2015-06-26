@@ -13,6 +13,8 @@ public class AppConstants {
     /**
      * 请求成功
      */
+    public static final int HTTP_NO_NETWORK = 404;
+
     public static final String RESPONSE_OK = "200";
 
 
