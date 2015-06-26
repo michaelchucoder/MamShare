@@ -42,9 +42,13 @@ public class HomeSpecialTopicActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_special_topic);
         strollFancyCoverFlowAdapter = new StrollFancyCoverFlowAdapter(this);
+        initView();
 
         OkHttpExecutor.query(UrlConstants.HomeAdvertisingFigure, AdvertEvent.class, false, this);
 
+    }
+
+    private void initView() {
     }
 
     // =============================================================================
