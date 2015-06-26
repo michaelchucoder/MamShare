@@ -6,9 +6,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
@@ -16,37 +13,33 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.StatFs;
 import android.os.StrictMode;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
+
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.basement.BaseActivity;
+import com.babyspace.mamshare.basement.BaseApplication;
+import com.babyspace.mamshare.bean.DefaultResponseEvent;
 import com.babyspace.mamshare.bean.VersionCheck;
+import com.babyspace.mamshare.bean.VersionCheckEvent;
 import com.babyspace.mamshare.commons.UrlConstants;
-import com.google.gson.Gson;
+import com.babyspace.mamshare.framework.utils.NetWorkUtil;
+import com.babyspace.mamshare.framework.utils.UiHelper;
 import com.google.gson.JsonObject;
-import com.google.gson.reflect.TypeToken;
 import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.core.tools.MD5Util;
 import com.michael.core.tools.PreferencesUtil;
 import com.michael.library.debug.L;
-import com.squareup.okhttp.Request;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
-import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
@@ -210,30 +203,6 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void onStart() {
-        final Intent intent = getIntent();
-        final Uri myURI = intent.getData();
-        if (!(myURI == null || intent == null || myURI.equals(null) || intent.equals(null))) {
-            String id = myURI.getQueryParameter("userId");
-            String auth2 = myURI.getQueryParameter("auth");
-            if (!(id == null && auth == null)) {
-                SharedPreferences sharedPreferences = getSharedPreferences("com.mrocker.m6go_preferences", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();// 获取编辑器
-                editor.putString(M6go.USERID, id);
-                editor.putString(M6go.AUTH, auth2);
-                editor.commit();// 提交修改
-            }
-        }
-
-
-        if (!TextUtils.isEmpty(intent.getStringExtra(IntentParms.FROM_PAGE_TYPE)) && intent.getStringExtra(IntentParms.FROM_PAGE_TYPE).equals(IntentParms.PAGE_PUSH)) {
-            // 持久化数据 广播接受者不能放到这里来,因为还没有初始化application 生命周期
-            PreferencesUtil.putPreferences("pushAction", intent.getStringExtra(IntentParms.PUSH_ACTION));
-            PreferencesUtil.putPreferences("pushActionUri", intent.getStringExtra(IntentParms.PUSH_ACTION_URI));
-            PreferencesUtil.putPreferences("pushActionTitle", intent.getStringExtra(IntentParms.PUSH_ACTION_TITLE));
-            L.d("PushMsg-Splash>" + intent.getStringExtra(IntentParms.PUSH_ACTION));
-
-        }
-
         super.onStart();
     }
 
@@ -268,129 +237,7 @@ public class SplashActivity extends BaseActivity {
             return;
         }
         JsonObject jo = new JsonObject();
-        OkHttpExecutor.query(UrlConstants.VERSION_CHECK, false, jo, new OkHttpExecutor.HttpCallback() {
-            @Override
-            public void onFailure(Request request, Throwable e) {
-
-            }
-
-            @Override
-            public void onSuccess(JsonObject result) {
-                String code = result.get("code").getAsString();
-                if (code.equals("200")) {
-                    // 服务器返回成功
-                    Gson gson = new Gson();
-                    JsonObject json_msg = result.get("msg").getAsJsonObject();
-                    Type type = new TypeToken<VersionCheck>() {
-                    }.getType();
-                    versionCheck = gson.fromJson(json_msg, type);
-                    if (!TextUtils.isEmpty(versionCheck.filePath)) {
-                        fileName = versionCheck.filePath.substring(versionCheck.filePath.lastIndexOf("/") + 1, versionCheck.filePath.lastIndexOf('?'));
-                        M6goFile = versionCheck.filePath.substring(versionCheck.filePath.lastIndexOf("/") + 1, versionCheck.filePath.lastIndexOf("apk") - 1);
-                        filePath = Environment.getExternalStorageDirectory().getPath() + "/" + M6goFile;
-                        L.i(TAG, "sd卡目录" + filePath);
-                    }
-                    // sdCardFilePath =
-                    // Environment.getExternalStorageDirectory().getPath();
-                    if (versionCheck.versionState == 0) { // 当前为最新版本，跳转到首页
-                        Message msg = Message.obtain();
-                        msg.what = SENDBRODCAST_INTERNET_NO;
-                        handler.sendMessage(msg);
-                        // finish();
-                    } else if (versionCheck.versionState == 1) { // 当前并非最新版本，用户可选择更新或忽略
-                        // 弹出提示框
-                        new AlertDialog.Builder(SplashActivity.this).setCancelable(false)
-                                // 点击对话框以外的区域不关闭对话框
-                                .setTitle(versionCheck.updateTitle)
-                                        // 设置提示框标题
-                                .setMessage(versionCheck.updateContent)
-                                        // 设置提示内容
-                                .setPositiveButton("立即更新", new DialogInterface.OnClickListener() {
-
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        setResult(RESULT_OK); // 点击确认按钮
-                                        // 开始更新，使用多线程断点续传
-                                        L.i(TAG, "开始更新...");
-                                        final String path = versionCheck.filePath;
-                                        File mFile = new File(filePath + "/" + fileName);
-                                        getServerFileLength(path);
-                                        L.i(TAG, "本地文件的长度：" + mFile.length());
-                                        L.i(TAG, "网络文件的长度:" + length);
-                                        if (mFile.exists() && mFile.length() == length) {
-                                            L.i(TAG, "文件存在，直接提示用户安装！");
-                                            installNewApk();
-                                        } else {
-                                            L.i(TAG, "文件不存在，弹出下载框！");
-                                            // 判断sd卡是否可能
-                                            String status = Environment.getExternalStorageState();
-                                            if (!status.equalsIgnoreCase(Environment.MEDIA_MOUNTED)) {
-                                                Toast.makeText(SplashActivity.this, "SD卡卸载或者不存在", Toast.LENGTH_LONG).show();
-                                                return;
-                                            }
-
-                                            // TODO 判断sd卡容量是否可用
-                                            long size = getSDAvailableSize();
-                                            L.i(TAG, "内存卡的容量为：" + size);
-                                            if (size < length) {
-                                                showToast("对不起，您的储存卡空间不足", 0);
-                                                return;
-                                            } else {
-                                                downLoadProgress();
-                                                downLoadApk(path);
-                                            }
-                                        }
-
-                                    }
-
-                                }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int whichButton) {
-                                Message msg = Message.obtain();
-                                msg.what = SENDBRODCAST_INTERNET_NO;
-                                handler.sendMessage(msg);
-                            }
-                        }).show();
-
-                    } else if (versionCheck.versionState == 2) { // 当前并非最新版本，强制用户升级，没有忽略按钮
-                        // 弹出提示框
-                        new AlertDialog.Builder(SplashActivity.this).setCancelable(false) // 点击对话框以外的区域不关闭对话框
-                                .setTitle(versionCheck.updateTitle) // 设置提示框标题
-                                .setMessage(versionCheck.updateTip + "\n" + versionCheck.updateContent) // 设置提示内容
-                                .setPositiveButton("立即更新", new DialogInterface.OnClickListener() {
-
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        setResult(RESULT_OK); // 点击确认按钮
-                                        // 开始更新，使用多线程断点续传
-                                        L.i(TAG, "开始更新...");
-                                        final String path = versionCheck.filePath;
-                                        File mFile = new File(filePath + "/" + fileName);
-                                        getServerFileLength(path);
-                                        L.i(TAG, "本地文件的长度：" + mFile.length());
-                                        L.i(TAG, "网络文件的长度:" + length);
-                                        if (mFile.exists() && mFile.length() == length) {
-                                            L.i(TAG, "文件存在，直接提示用户安装！");
-                                            installNewApk();
-                                        } else {
-                                            L.i(TAG, "文件不存在，弹出下载框！");
-                                            downLoadProgress();
-                                            downLoadApk(path);
-                                        }
-
-                                    }
-
-                                }).show();
-                    }
-                } else if (code.equals("500")) {
-                    // 服务器错误
-                    String msg = "服务器内部错误！";
-                    UiHelper.showSystemDialog(SplashActivity.this, msg);
-                } else {
-                    String msg = result.get("msg").getAsString();
-                    UiHelper.showSystemDialog(SplashActivity.this, msg);
-                }
-            }
-        });
+        OkHttpExecutor.query(UrlConstants.VERSION_CHECK, jo, VersionCheckEvent.class, false, this);
     }
 
     /**
@@ -422,88 +269,31 @@ public class SplashActivity extends BaseActivity {
     }
 
     public void toHomeGroupActivity() {
-        boolean isFirstLogin = PreferencesUtil.getPreferences(M6go.FIRST_LOGIN, true);
+        boolean isFirstLogin = PreferencesUtil.getPreferences(PreferencesUtil.FIRST_LOGIN, true);
         if (isFirstLogin) {
-            Intent intent = new Intent(SplashActivity.this, GuideActivity.class);
-            intent.putExtra(IntentParms.FROM_PAGE_TYPE, IntentParms.PAGE_SPLASHACTIVITY);
-            startActivity(intent);
-            finish();
-            overridePendingTransition(R.anim.umeng_fb_slide_in_from_right, R.anim.umeng_fb_slide_out_from_left);
+
         } else {
             doAutoLogin();
         }
     }
 
     private void doAutoLogin() {
-        // app = (M6go)getApplication();
-        interfacetoken = PreferencesUtil.getPreferences(M6go.INTERFACETOKEN, "");
-        if (!StringUtil.isEmpty(interfacetoken)) {
-            auto_login = PreferencesUtil.getPreferences(LoginActivity.AUTO_LOGIN, false);
-            if (auto_login) {
-                mobile = PreferencesUtil.getPreferences(LoginActivity.MOBILE, "");
-                password = PreferencesUtil.getPreferences(LoginActivity.PASSWORD, "");
-                if (!StringUtil.isEmpty(mobile) && !StringUtil.isEmpty(password)) {
-                    doLogin();
-                    return;
-                }
-            }
-        }
 
     }
 
     private void doLogin() {
-        if (!NetWorkUtil.networkCanUse(M6go.context)) {
+        if (!NetWorkUtil.networkCanUse(BaseApplication.context)) {
             // Toast.makeText(M6go.context, "请检查网络设置！",
             // Toast.LENGTH_SHORT).show();
             String msg = "请检查网络设置！";
             UiHelper.showSystemDialog(SplashActivity.this, msg);
             return;
         }
-        L.i("mobile...>" + mobile + ",password====>" + password + ",interfacetoken===>" + interfacetoken);
         JsonObject jo = new JsonObject();
         jo.addProperty("logonName", mobile);
         jo.addProperty("password", MD5Util.getMD5String(password));
-        startProgressBar("加载数据...", new Thread(), true);
-        OkHttpExecutor.query(UrlConstants.USER_LOGIN, true, jo, new OkHttpExecutor.HttpCallback() {
-            @Override
-            public void onFailure(Request request, Throwable e) {
-                closeProgressBar();
-            }
 
-            @Override
-            public void onSuccess(JsonObject result) {
-                if (result == null || result.isJsonNull()) {
-                    return;
-                }
-                String code = result.get("code").getAsString();
-                L.i("code....>" + code);
-                if (code.equals("200")) {
-                    JsonObject json_msg = result.get("msg").getAsJsonObject();
-                    auth = json_msg.get("auth").getAsString();
-                    userId = json_msg.get("userId").getAsString();
-
-                    PreferencesUtil.putPreferences(M6go.AUTH, auth);
-                    PreferencesUtil.putPreferences(M6go.USERID, userId);
-                    PreferencesUtil.putPreferences(LoginActivity.MOBILE, mobile);
-                    PreferencesUtil.putPreferences(LoginActivity.PASSWORD, password);
-                    PreferencesUtil.putPreferences("login_refresh", true);
-                    if (versionCheck.isHaveAdvertisingImg == 1) {
-                        // 有广告图
-                        Intent intent = new Intent(SplashActivity.this, AdvertisingActivity.class);
-                        intent.putExtra("advertising", versionCheck.advertisingImgUrl);
-                        intent.putExtra("advertisingInterval", versionCheck.advertisingInterval);
-                        startActivity(intent);
-                        overridePendingTransition(R.anim.umeng_fb_slide_in_from_right, R.anim.umeng_fb_slide_out_from_left);
-                        finish();
-                    } else {
-                        Intent intent = new Intent(SplashActivity.this, HomeGroupActivity.class);
-                        startActivity(intent);
-                        finish();
-                        overridePendingTransition(R.anim.umeng_fb_slide_in_from_right, R.anim.umeng_fb_slide_out_from_left);
-                    }
-                }
-            }
-        });
+        OkHttpExecutor.query(UrlConstants.USER_LOGIN, jo, DefaultResponseEvent.class, false, this);
 
     }
 
@@ -705,6 +495,122 @@ public class SplashActivity extends BaseActivity {
                 handler.sendMessage(msg);
             }
         }
+    }
+
+    public void onEventMainThread(VersionCheckEvent event) {
+        hideLoadingProgress();
+
+        String code = event.getCode();
+        if (code.equals("200")) {
+            // 服务器返回成功
+
+            versionCheck = event.getData();
+            if (!TextUtils.isEmpty(versionCheck.filePath)) {
+                fileName = versionCheck.filePath.substring(versionCheck.filePath.lastIndexOf("/") + 1, versionCheck.filePath.lastIndexOf('?'));
+                M6goFile = versionCheck.filePath.substring(versionCheck.filePath.lastIndexOf("/") + 1, versionCheck.filePath.lastIndexOf("apk") - 1);
+                filePath = Environment.getExternalStorageDirectory().getPath() + "/" + M6goFile;
+                L.i(TAG, "sd卡目录" + filePath);
+            }
+            // sdCardFilePath =
+            // Environment.getExternalStorageDirectory().getPath();
+            if (versionCheck.versionState == 0) { // 当前为最新版本，跳转到首页
+                Message msg = Message.obtain();
+                msg.what = SENDBRODCAST_INTERNET_NO;
+                handler.sendMessage(msg);
+                // finish();
+            } else if (versionCheck.versionState == 1) { // 当前并非最新版本，用户可选择更新或忽略
+                // 弹出提示框
+                new AlertDialog.Builder(SplashActivity.this).setCancelable(false)
+                        // 点击对话框以外的区域不关闭对话框
+                        .setTitle(versionCheck.updateTitle)
+                                // 设置提示框标题
+                        .setMessage(versionCheck.updateContent)
+                                // 设置提示内容
+                        .setPositiveButton("立即更新", new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                setResult(RESULT_OK); // 点击确认按钮
+                                // 开始更新，使用多线程断点续传
+                                L.i(TAG, "开始更新...");
+                                final String path = versionCheck.filePath;
+                                File mFile = new File(filePath + "/" + fileName);
+                                getServerFileLength(path);
+                                L.i(TAG, "本地文件的长度：" + mFile.length());
+                                L.i(TAG, "网络文件的长度:" + length);
+                                if (mFile.exists() && mFile.length() == length) {
+                                    L.i(TAG, "文件存在，直接提示用户安装！");
+                                    installNewApk();
+                                } else {
+                                    L.i(TAG, "文件不存在，弹出下载框！");
+                                    // 判断sd卡是否可能
+                                    String status = Environment.getExternalStorageState();
+                                    if (!status.equalsIgnoreCase(Environment.MEDIA_MOUNTED)) {
+                                        Toast.makeText(SplashActivity.this, "SD卡卸载或者不存在", Toast.LENGTH_LONG).show();
+                                        return;
+                                    }
+
+                                    // TODO 判断sd卡容量是否可用
+                                    long size = getSDAvailableSize();
+                                    L.i(TAG, "内存卡的容量为：" + size);
+                                    if (size < length) {
+                                        Toast.makeText(SplashActivity.this, "对不起，您的储存卡空间不足", 0).show();
+                                        return;
+                                    } else {
+                                        downLoadProgress();
+                                        downLoadApk(path);
+                                    }
+                                }
+
+                            }
+
+                        }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        Message msg = Message.obtain();
+                        msg.what = SENDBRODCAST_INTERNET_NO;
+                        handler.sendMessage(msg);
+                    }
+                }).show();
+
+            } else if (versionCheck.versionState == 2) { // 当前并非最新版本，强制用户升级，没有忽略按钮
+                // 弹出提示框
+                new AlertDialog.Builder(SplashActivity.this).setCancelable(false) // 点击对话框以外的区域不关闭对话框
+                        .setTitle(versionCheck.updateTitle) // 设置提示框标题
+                        .setMessage(versionCheck.updateTip + "\n" + versionCheck.updateContent) // 设置提示内容
+                        .setPositiveButton("立即更新", new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                setResult(RESULT_OK); // 点击确认按钮
+                                // 开始更新，使用多线程断点续传
+                                L.i(TAG, "开始更新...");
+                                final String path = versionCheck.filePath;
+                                File mFile = new File(filePath + "/" + fileName);
+                                getServerFileLength(path);
+                                L.i(TAG, "本地文件的长度：" + mFile.length());
+                                L.i(TAG, "网络文件的长度:" + length);
+                                if (mFile.exists() && mFile.length() == length) {
+                                    L.i(TAG, "文件存在，直接提示用户安装！");
+                                    installNewApk();
+                                } else {
+                                    L.i(TAG, "文件不存在，弹出下载框！");
+                                    downLoadProgress();
+                                    downLoadApk(path);
+                                }
+
+                            }
+
+                        }).show();
+            }
+        } else if (code.equals("500")) {
+            // 服务器错误
+            String msg = "服务器内部错误！";
+            UiHelper.showSystemDialog(SplashActivity.this, msg);
+        } else {
+
+        }
+
+
     }
 
 }

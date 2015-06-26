@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="488px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50px"
+        android:background="@drawable/shape_btn_login"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="80px">
+
+
+        <TextView
+            android:id="@+id/txt_title_dl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32px"
+            android:text="标题"
+            android:textColor="#120101"
+            android:textSize="32px" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="30px"
+            android:background="#bebebe" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30px">
+
+            <Button
+                android:id="@+id/btn_left_dl"
+                android:layout_width="191px"
+                android:layout_height="68px"
+                android:background="@drawable/shape_btn_login"
+                android:text="左面"
+                android:textColor="@color/white"
+                android:textSize="26px" />
+
+            <Button
+                android:id="@+id/btn_right_dl"
+                android:layout_width="191px"
+                android:layout_height="68px"
+                android:layout_marginLeft="10px"
+                android:background="@drawable/shape_btn_login"
+                android:text="右面"
+                android:textColor="#333333"
+                android:textSize="26px" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

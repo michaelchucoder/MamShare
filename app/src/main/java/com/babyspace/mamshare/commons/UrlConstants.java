@@ -27,5 +27,10 @@ public class UrlConstants {
     public static final String HomeFloatLayerActivity = "/System/HomeFloatlayerActivity.do";
     public static final String GatherGeTuiCID = "/System/GatherGeTuiCID.do";
     public static final String HomeAdvertisingFigure = "/System/HomeAdvertisingFigure.do";
+    public static final String USER_LOGIN = "/user/user_login.do";
 
+    /**
+     * 【V1.3.1开启】版本控制接口以及检测是否显示广告图（versionCheck）
+     */
+    public static final String VERSION_CHECK = "/System/versionCheck.do";
 }
