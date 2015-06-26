@@ -10,7 +10,6 @@ package com.babyspace.mamshare.commons;
  */
 public class UrlConstants {
 
-
     //TODO
     /**
      * 正式服务器地址
