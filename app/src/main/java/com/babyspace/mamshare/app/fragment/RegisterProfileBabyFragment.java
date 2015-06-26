@@ -8,11 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.basement.BaseFragment;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RegisterProfileBabyFragment extends Fragment {
+public class RegisterProfileBabyFragment extends BaseFragment {
 
 
     public RegisterProfileBabyFragment() {
@@ -21,10 +22,13 @@ public class RegisterProfileBabyFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register_profile_baby, container, false);
+    public void init(Bundle savedInstanceState) {
+        setContentView(R.layout.fragment_register_profile_baby);
+    }
+
+    @Override
+    public void initView() {
+
     }
 
 

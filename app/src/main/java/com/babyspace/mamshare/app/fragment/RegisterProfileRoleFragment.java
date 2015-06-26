@@ -7,18 +7,25 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.basement.BaseFragment;
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class RegisterProfileRoleFragment extends Fragment {
+public class RegisterProfileRoleFragment extends BaseFragment {
 
     public RegisterProfileRoleFragment() {
     }
 
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_register_profile_name, container, false);
+    public void init(Bundle savedInstanceState) {
+        setContentView(R.layout.fragment_register_profile_name);
+
+    }
+
+    @Override
+    public void initView() {
+
     }
 }
