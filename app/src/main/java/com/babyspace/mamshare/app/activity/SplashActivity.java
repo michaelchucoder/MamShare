@@ -31,12 +31,14 @@ import android.widget.Toast;
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.babyspace.mamshare.bean.VersionCheck;
+import com.babyspace.mamshare.commons.UrlConstants;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
+import com.michael.core.okhttp.OkHttpExecutor;
+import com.michael.core.tools.MD5Util;
 import com.michael.core.tools.PreferencesUtil;
 import com.michael.library.debug.L;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.squareup.okhttp.Request;
 
 import java.io.File;
@@ -115,9 +117,6 @@ public class SplashActivity extends BaseActivity {
     private Date curDate = null;
     // SDK参数，会自动从Manifest文件中读取，第三方无需修改下列变量，请修改AndroidManifest.xml文件中相应的meta-data信息。
     // 修改方式参见个推SDK文档
-    private String appkey = "";
-    private String appsecret = "";
-    private String appid = "";
     private ImageView background;
     private Drawable image_splash = null;
     private boolean auto_login = false;// 是否自动登录
@@ -132,10 +131,6 @@ public class SplashActivity extends BaseActivity {
     private ProgressDialog progressDialog;
     private int currentProgress; // 当前的进度
     private int lengthInt; // 服务器文件的长度
-
-    public static List<MArea> getData() {
-        return list;
-    }
 
     /**
      * 获取手机内部储存卡的剩余容量，返回的单位为字节
@@ -453,26 +448,7 @@ public class SplashActivity extends BaseActivity {
                 }
             }
         }
-        // 在这里判断是否跳转到广告
-        if (versionCheck.isHaveAdvertisingImg == 1) {
-            // 有广告图
-            Intent intent = new Intent(SplashActivity.this, AdvertisingActivity.class);
-            intent.putExtra("advertising", versionCheck.advertisingImgUrl); // 广告地址
-            intent.putExtra("advertisingInterval", versionCheck.advertisingInterval); // 显示广告的秒数
-            intent.putExtra("backgroundColorValue", versionCheck.backgroundColorValue); // 跳过 背景颜色
-            intent.putExtra("transparency", versionCheck.transparency); // 跳过按钮
-            // 的透明度
-            intent.putExtra("fontColorValue", versionCheck.fontColorValue); // 跳过文字的颜色
-            intent.putExtra("isShowBotton", versionCheck.isShowBotton); // 是否显示跳过
-            startActivity(intent);
-            finish();
-            overridePendingTransition(R.anim.umeng_fb_slide_in_from_right, R.anim.umeng_fb_slide_out_from_left);
-        } else {
-            Intent intent = new Intent(SplashActivity.this, HomeGroupActivity.class);
-            startActivity(intent);
-            finish();
-            overridePendingTransition(R.anim.umeng_fb_slide_in_from_right, R.anim.umeng_fb_slide_out_from_left);
-        }
+
     }
 
     private void doLogin() {
@@ -570,13 +546,7 @@ public class SplashActivity extends BaseActivity {
                         // 平均每个线程下载的大小
                         int blockSize = lengthInt / threadCount;
 
-						/*
-                         * for (int threadId =1;threadId <= threadCount;
-						 * threadId ++){ //第一个线程下载开始的位置 int startIndex =
-						 * (threadId - 1) * blockSize; int endIndex = threadId *
-						 * blockSize - 1; //最后一个线程下载的长度可能要长一些 if (threadId ==
-						 * threadCount) { endIndex = lengthInt; }
-						 */
+
                         L.i(TAG, "线程下载----->" + 0 + "------" + lengthInt);
 
                         new DownloadThread(0, lengthInt, path).start();
