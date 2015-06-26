@@ -12,5 +12,4 @@ public class Html5Activity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_html5);
     }
-
 }

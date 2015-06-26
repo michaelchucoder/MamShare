@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_setting_title"
+    android:layout_width="match_parent"
+    android:layout_height="80px"
+    android:background="@color/plane_base_blue_text">
+
+    <ImageButton
+        android:id="@+id/common_title_left"
+        android:layout_width="80px"
+        android:layout_height="80px"
+        android:layout_marginLeft="30px"
+        android:background="#f9f33f" />
+
+
+    <TextView
+        android:id="@+id/common_title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="公共标题"
+        android:textSize="40px" />
+
+    <ImageButton
+        android:id="@+id/common_title_right"
+        android:layout_width="80px"
+        android:layout_height="80px"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30px"
+        android:background="#f9f33f" />
+
+</RelativeLayout>
