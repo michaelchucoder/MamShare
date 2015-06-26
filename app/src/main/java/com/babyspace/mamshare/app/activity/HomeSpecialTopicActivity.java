@@ -13,7 +13,6 @@ import android.widget.LinearLayout;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.basement.BaseActivity;
-import com.babyspace.mamshare.basement.BaseResponseBean;
 import com.babyspace.mamshare.bean.Advert;
 import com.babyspace.mamshare.bean.AdvertEvent;
 import com.babyspace.mamshare.commons.AppConstants;
