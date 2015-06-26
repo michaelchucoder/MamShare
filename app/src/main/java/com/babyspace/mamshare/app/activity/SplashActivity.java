@@ -126,25 +126,6 @@ public class SplashActivity extends BaseActivity {
     private int lengthInt; // 服务器文件的长度
 
     /**
-     * 获取手机内部储存卡的剩余容量，返回的单位为字节
-     *
-     * @return
-     */
-    public static long getAvailableStore() {
-
-        // 取得sdcard文件路径
-        StatFs statFs = new StatFs(filePath);
-        // 获取block的SIZE
-        long blocSize = statFs.getBlockSizeLong();
-        // 可使用的Block的数量
-        long availaBlock = statFs.getAvailableBlocksLong();
-        // long total = totalBlocks * blocSize;
-        long availableSpare = availaBlock * blocSize;
-        return availableSpare;
-
-    }
-
-    /**
      * 获得sd卡剩余容量，即可用大小
      *
      * @return
