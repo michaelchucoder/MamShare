@@ -3,10 +3,13 @@ package com.babyspace.mamshare.app.activity;
 import android.os.Bundle;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.app.fragment.RegisterProfileBabyFragment;
 import com.babyspace.mamshare.app.fragment.RegisterProfileNameFragment;
+import com.babyspace.mamshare.app.fragment.RegisterProfileRoleFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
+import com.babyspace.mamshare.listener.RegisterProfileListener;
 
-public class RegisterProfileActivity extends BaseActivity {
+public class RegisterProfileActivity extends BaseActivity implements RegisterProfileListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,13 +22,35 @@ public class RegisterProfileActivity extends BaseActivity {
                 return;
             }
 
-            RegisterProfileNameFragment firstFragment = new RegisterProfileNameFragment();
+            RegisterProfileNameFragment fragment = new RegisterProfileNameFragment();
 
-            firstFragment.setArguments(getIntent().getExtras());
+            fragment.setArguments(getIntent().getExtras());
 
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_container, firstFragment).commit();
+                    .add(R.id.fragment_container, fragment).commit();
         }
     }
 
+    @Override
+    public void onRegisterNameSelected() {
+
+        RegisterProfileRoleFragment fragment = new RegisterProfileRoleFragment();
+
+        fragment.setArguments(getIntent().getExtras());
+
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.fragment_container, fragment).commit();
+
+    }
+
+    @Override
+    public void onRegisterRoleSelected() {
+
+        RegisterProfileBabyFragment fragment = new RegisterProfileBabyFragment();
+
+        fragment.setArguments(getIntent().getExtras());
+
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.fragment_container, fragment).commit();
+    }
 }
