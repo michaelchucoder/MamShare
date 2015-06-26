@@ -585,6 +585,7 @@ public class SplashActivity extends BaseActivity {
             String msg = "服务器内部错误！";
             UiHelper.showSystemDialog(SplashActivity.this, msg);
         } else {
+            //TODO
 
         }
 
