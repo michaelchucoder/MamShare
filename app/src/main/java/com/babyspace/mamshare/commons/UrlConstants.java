@@ -19,6 +19,7 @@ public class UrlConstants {
     public static String BASE_WEB_URL = "http://appweb.gou.com";
     public static String SERVER_URL = BASE_API_SERVER_URL + "/AndroidApi";
 
+
     /**
      * All the URL are placed in the UrlConstants class
      */

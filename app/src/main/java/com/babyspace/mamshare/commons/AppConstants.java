@@ -9,25 +9,11 @@ package com.babyspace.mamshare.commons;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class AppConstants {
-    /**
-     * 无可用网络
-     */
-    public static final int HTTP_NO_NETWORK = -3;
-    /**
-     * Http请求错误
-     */
-    public static final int HTTP_ERROR = -2;
-
-    /**
-     * api返回为空
-     */
-    public static final int RESPONSE_API_EMPTY = -1;
 
     /**
      * 请求成功
      */
     public static final String RESPONSE_OK = "200";
-
 
 
     /**
