@@ -45,9 +45,7 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class SplashActivity extends BaseActivity {
 
@@ -106,7 +104,6 @@ public class SplashActivity extends BaseActivity {
      */
     private boolean tIsRunning = true;
     private Context mContext = null;
-    private SimpleDateFormat formatter = null;
     private Date curDate = null;
     // SDK参数，会自动从Manifest文件中读取，第三方无需修改下列变量，请修改AndroidManifest.xml文件中相应的meta-data信息。
     // 修改方式参见个推SDK文档
