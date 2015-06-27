@@ -1,13 +1,13 @@
 package com.babyspace.mamshare.app.activity;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.basement.BaseActivity;
 
-public class DiscoverSearchActivity extends ActionBarActivity {
+public class DiscoverSearchActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
