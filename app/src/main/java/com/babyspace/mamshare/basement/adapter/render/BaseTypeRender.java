@@ -1,4 +1,4 @@
-package com.babyspace.mamshare.adapter.render;
+package com.babyspace.mamshare.basement.adapter.render;
 
 import android.content.Context;
 import android.util.SparseArray;

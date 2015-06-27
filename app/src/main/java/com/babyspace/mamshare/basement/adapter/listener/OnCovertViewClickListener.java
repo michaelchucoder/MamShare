@@ -1,4 +1,4 @@
-package com.babyspace.mamshare.adapter.listener;
+package com.babyspace.mamshare.basement.adapter.listener;
 
 import android.view.View;
 
