@@ -1,11 +1,11 @@
 package com.babyspace.mamshare.app.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.basement.BaseActivity;
 
-public class SearchResultActivity extends ActionBarActivity {
+public class SearchResultActivity extends BaseActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
