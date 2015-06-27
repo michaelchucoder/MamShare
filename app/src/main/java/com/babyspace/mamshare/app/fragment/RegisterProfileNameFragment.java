@@ -22,8 +22,6 @@ public class RegisterProfileNameFragment extends BaseFragment {
     @InjectView(R.id.btn_register_next)
     Button btn_register_next;
 
-    FragmentManager fm;
-
 
     public RegisterProfileNameFragment() {
     }
@@ -44,7 +42,6 @@ public class RegisterProfileNameFragment extends BaseFragment {
     @Override
     public void init(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_register_profile_name);
-        fm = getFragmentManager();
 
     }
 
