@@ -23,4 +23,8 @@ public class AppConstants {
      */
     public static final String KEY_PROTECT_APP = "KEY_PROTECT_APP";
     public static final String KEY_CLOSE_APP = "KEY_CLOSE_APP";
+
+
+    public static final String DATA_PATH = "";
+    public static final String DATA_PATH_GBADATA = "";
 }
