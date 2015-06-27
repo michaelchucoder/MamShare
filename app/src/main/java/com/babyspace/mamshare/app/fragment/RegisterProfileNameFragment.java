@@ -35,7 +35,7 @@ public class RegisterProfileNameFragment extends BaseFragment {
             mCallback = (RegisterProfileListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement OnSelectedListener");
+                    + " must implement RegisterProfileListener");
         }
     }
 
