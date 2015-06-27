@@ -11,5 +11,6 @@
     <string name="title_activity_register_profile">RegisterProfileActivity</string>
     <string name="title_activity_discover_search">DiscoverSearchActivity</string>
     <string name="title_activity_search_result">SearchResultActivity</string>
+    <string name="title_activity_user_guidance_list">UserGuidanceListActivity</string>
 
 </resources>
