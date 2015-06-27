@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="@drawable/bg_dialog_white_mama"
+        android:background="@drawable/bg_progress_dialog_white"
         android:orientation="vertical">
 
         <LinearLayout
@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="@drawable/bg_dialog_white_mama"
+        android:background="@drawable/bg_progress_dialog_white"
         android:orientation="vertical">
 
         <LinearLayout
