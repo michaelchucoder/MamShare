@@ -9,11 +9,11 @@
 
     <Button
         android:id="@+id/btn_register_title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:background="@drawable/shape_btn_login"
-        android:text="ahhhahhah"
+        android:text="btn_register_next"
         android:textSize="30px" />
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
