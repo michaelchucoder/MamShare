@@ -36,7 +36,7 @@ public class RegisterProfileRoleFragment extends BaseFragment {
 
     @Override
     public void init(Bundle savedInstanceState) {
-        setContentView(R.layout.fragment_register_profile_name);
+        setContentView(R.layout.fragment_register_profile_role);
 
     }
 

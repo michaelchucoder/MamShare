@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:text="RegisterProfileNameFragment" />
 
     <Button
         android:id="@+id/btn_register_next"
@@ -21,11 +21,6 @@
         android:background="@drawable/shape_btn_login"
         android:text="下一步"
         android:textSize="40px" />
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
 
-    </FrameLayout>
 
 </RelativeLayout>

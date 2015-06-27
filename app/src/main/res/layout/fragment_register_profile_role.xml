@@ -7,10 +7,19 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.babyspace.mamshare.app.fragment.RegisterProfileRoleFragment">
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:text="RegisterProfileRoleFragment" />
+
+    <Button
+        android:id="@+id/btn_register_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/shape_btn_login"
+        android:text="Role下一步"
+        android:textSize="40px" />
+
 
 </RelativeLayout>
