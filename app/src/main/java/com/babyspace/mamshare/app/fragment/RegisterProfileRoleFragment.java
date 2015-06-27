@@ -48,7 +48,7 @@ public class RegisterProfileRoleFragment extends BaseFragment {
     public void doOnClick(View view) {
 
         switch (view.getId()) {
-            case R.id.btn_wel_register:
+            case R.id.btn_register_next:
 
                 mCallback.onRegisterRoleSelected();
                 break;

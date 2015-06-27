@@ -37,7 +37,7 @@ public class RegisterProfileNameFragment extends BaseFragment {
             mCallback = (RegisterProfileListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement OnHeadlineSelectedListener");
+                    + " must implement OnSelectedListener");
         }
     }
 
@@ -57,7 +57,7 @@ public class RegisterProfileNameFragment extends BaseFragment {
     public void doOnClick(View view) {
 
         switch (view.getId()) {
-            case R.id.btn_wel_register:
+            case R.id.btn_register_next:
 
                 mCallback.onRegisterNameSelected();
                 break;

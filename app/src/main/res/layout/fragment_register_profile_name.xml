@@ -9,6 +9,7 @@
     tools:context="com.babyspace.mamshare.app.fragment.RegisterProfileNameFragment">
 
     <TextView
+        android:id="@+id/btn_register_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="RegisterProfileNameFragment" />
@@ -17,7 +18,7 @@
         android:id="@+id/btn_register_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_below="@+id/btn_register_title"
         android:background="@drawable/shape_btn_login"
         android:text="下一步"
         android:textSize="40px" />
