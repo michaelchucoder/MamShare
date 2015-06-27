@@ -9,5 +9,7 @@
     <string name="title_activity_html5">Html5Activity</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="title_activity_register_profile">RegisterProfileActivity</string>
+    <string name="title_activity_discover_search">DiscoverSearchActivity</string>
+    <string name="title_activity_search_result">SearchResultActivity</string>
 
 </resources>

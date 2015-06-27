@@ -167,6 +167,14 @@
             android:name=".app.activity.RegisterProfileActivity"
             android:label="@string/title_activity_register_profile" >
         </activity>
+        <activity
+            android:name=".app.activity.DiscoverSearchActivity"
+            android:label="@string/title_activity_discover_search" >
+        </activity>
+        <activity
+            android:name=".app.activity.SearchResultActivity"
+            android:label="@string/title_activity_search_result" >
+        </activity>
     </application>
 
 </manifest>
