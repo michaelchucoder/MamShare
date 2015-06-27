@@ -39,7 +39,7 @@ public class RegisterProfileActivity extends BaseActivity implements RegisterPro
         fragment.setArguments(getIntent().getExtras());
 
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_container, fragment).commit();
+                .replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
 
     }
 
@@ -51,6 +51,6 @@ public class RegisterProfileActivity extends BaseActivity implements RegisterPro
         fragment.setArguments(getIntent().getExtras());
 
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_container, fragment).commit();
+                .replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
     }
 }
