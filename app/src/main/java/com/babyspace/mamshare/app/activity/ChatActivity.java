@@ -23,8 +23,6 @@ public class ChatActivity extends BaseActivity {
         setContentView(R.layout.activity_chat);
         initView();
         initData();
-
-
     }
 
     private void initView() {
