@@ -3,7 +3,7 @@ package com.babyspace.mamshare.bean;
 /**
  * Created by lizhangqu on 2015/6/21.
  */
-public class Message{
+public class ChatMessage {
     public static final int TYPE_FROM=0x00;
     public static final int TYPE_TO=0x01;
     public static final int TOTAL=2;

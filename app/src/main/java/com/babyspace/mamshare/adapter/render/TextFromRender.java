@@ -10,12 +10,12 @@ import com.babyspace.mamshare.adapter.ChatAdapter;
 import com.babyspace.mamshare.basement.adapter.listener.OnCovertViewClickListener;
 import com.babyspace.mamshare.basement.adapter.render.BaseTypeAdapter;
 import com.babyspace.mamshare.basement.adapter.render.BaseTypeRender;
-import com.babyspace.mamshare.bean.Message;
+import com.babyspace.mamshare.bean.ChatMessage;
 
 /**
  * Created by michael on 2015/6/27.
  */
-public class TextFromRender extends BaseTypeRender<Message> {
+public class TextFromRender extends BaseTypeRender<ChatMessage> {
     private TextView from;
     private ImageView photo;
     public TextFromRender(Context context, BaseTypeAdapter baseTypeAdapter) {
@@ -57,7 +57,7 @@ public class TextFromRender extends BaseTypeRender<Message> {
 
 
     @Override
-    public void bindDatas(Message item) {
+    public void bindDatas(ChatMessage item) {
         //绑定数据
         from= obtainView(mConvertView,R.id.from);
 

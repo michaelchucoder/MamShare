@@ -6,7 +6,7 @@ import com.babyspace.mamshare.adapter.render.TextFromRender;
 import com.babyspace.mamshare.adapter.render.TextToRender;
 import com.babyspace.mamshare.basement.adapter.render.AdapterTypeRender;
 import com.babyspace.mamshare.basement.adapter.render.BaseTypeAdapter;
-import com.babyspace.mamshare.bean.Message;
+import com.babyspace.mamshare.bean.ChatMessage;
 
 import java.util.List;
 
@@ -14,21 +14,21 @@ import java.util.List;
 /**
  * Created by michael on 2015/6/27.
  */
-public class ChatAdapter extends BaseTypeAdapter<Message> {
+public class ChatAdapter extends BaseTypeAdapter<ChatMessage> {
 
-    public ChatAdapter(Context context, List<Message> list) {
+    public ChatAdapter(Context context, List<ChatMessage> list) {
         super(context, list);
     }
 
     @Override
     public AdapterTypeRender getAdapterTypeRender(int position) {
-        AdapterTypeRender<Message> typeRender=null;
+        AdapterTypeRender<ChatMessage> typeRender=null;
         switch (getItemViewType(position)){
-            case Message.TYPE_FROM:
+            case ChatMessage.TYPE_FROM:
                 typeRender=new TextFromRender(mContext,this);
 
                 break;
-            case Message.TYPE_TO:
+            case ChatMessage.TYPE_TO:
                 typeRender=new TextToRender(mContext,this);
                 break;
         }
@@ -42,7 +42,7 @@ public class ChatAdapter extends BaseTypeAdapter<Message> {
 
     @Override
     public int getViewTypeCount() {
-        return Message.TOTAL;
+        return ChatMessage.TOTAL;
     }
 
     public interface OnMessageItemListener{
