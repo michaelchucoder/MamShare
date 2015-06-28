@@ -16,7 +16,8 @@ public class ChatActivity extends BaseActivity {
 
     private ListView mListView;
     private ChatAdapter mAdapter;
-    private List<ChatMessage> mList=new ArrayList<ChatMessage>();
+    private List<ChatMessage> mList = new ArrayList<ChatMessage>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +27,8 @@ public class ChatActivity extends BaseActivity {
     }
 
     private void initView() {
-        mListView= (ListView) findViewById(R.id.listview);
-        mAdapter=new ChatAdapter(this,mList);
+        mListView = (ListView) findViewById(R.id.listview);
+        mAdapter = new ChatAdapter(this, mList);
         mListView.setAdapter(mAdapter);
         mAdapter.setOnMessageItemListener(new ChatAdapter.OnMessageItemListener() {
             @Override
@@ -37,27 +38,26 @@ public class ChatActivity extends BaseActivity {
 
             @Override
             public void onMessageClicked(int position) {
-                ChatMessage chatMessage =mAdapter.getItem(position);
-                Toast.makeText(ChatActivity.this, "from chat message:"+ chatMessage.getContent(), Toast.LENGTH_SHORT).show();
+                ChatMessage chatMessage = mAdapter.getItem(position);
+                Toast.makeText(ChatActivity.this, "from chat message:" + chatMessage.getContent(), Toast.LENGTH_SHORT).show();
             }
         });
 
     }
 
     private void initData() {
-        ChatMessage m=null;
-        for (int i=1;i<=10;i++){
-            m=new ChatMessage();
+        ChatMessage m = null;
+        for (int i = 1; i <= 10; i++) {
+            m = new ChatMessage();
             m.setType(ChatMessage.TYPE_FROM);
-            m.setContent("form "+i);
+            m.setContent("form " + i);
             mList.add(m);
-            m=new ChatMessage();
+            m = new ChatMessage();
             m.setType(ChatMessage.TYPE_TO);
-            m.setContent("to "+i);
+            m.setContent("to " + i);
             mList.add(m);
 
         }
-
 
 
         mAdapter.notifyDataSetChanged();
