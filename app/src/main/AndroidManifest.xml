@@ -179,6 +179,10 @@
             android:name=".app.activity.UserGuidanceListActivity"
             android:label="@string/title_activity_user_guidance_list" >
         </activity>
+        <activity
+            android:name=".app.activity.ChatActivity"
+            android:label="@string/title_activity_chat" >
+        </activity>
     </application>
 
 </manifest>
