@@ -23,6 +23,7 @@
         android:id="@+id/register_picker"
         android:layout_width="match_parent"
         android:layout_height="150px"
+        android:layout_centerHorizontal="true"
         android:layout_below="@+id/btn_register_name_txt"
         android:layout_marginTop="200px"
         android:orientation="horizontal">
