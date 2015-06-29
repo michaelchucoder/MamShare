@@ -23,6 +23,7 @@ public class RegisterProfileNameFragment extends BaseFragment {
 
     public RegisterProfileNameFragment() {
     }
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
