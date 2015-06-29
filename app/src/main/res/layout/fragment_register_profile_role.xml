@@ -45,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="换一批"
+            android:gravity="center"
             android:textSize="30px" />
 
         <TextView
@@ -52,6 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="都不符合我"
+            android:gravity="center"
             android:textSize="30px" />
 
     </LinearLayout>
