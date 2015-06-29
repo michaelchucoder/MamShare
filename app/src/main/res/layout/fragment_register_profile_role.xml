@@ -34,11 +34,33 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/ll_register_tips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_register_name">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="换一批"
+            android:textSize="30px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="都不符合我"
+            android:textSize="30px" />
+
+    </LinearLayout>
+
     <Button
         android:id="@+id/btn_register_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ll_register_name"
+        android:layout_below="@+id/ll_register_tips"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20px"
         android:background="@drawable/shape_rounded_rectangle_red"
