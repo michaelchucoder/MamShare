@@ -30,7 +30,6 @@ public class RegisterProfileBabyFragment extends BaseFragment {
     @InjectView(R.id.btn_register_next)
     Button btn_register_next;
 
-
     public RegisterProfileBabyFragment() {
     }
 
