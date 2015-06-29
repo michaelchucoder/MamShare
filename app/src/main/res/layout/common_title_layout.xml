@@ -4,11 +4,13 @@
     android:layout_height="80px"
     android:background="@color/plane_base_blue_text">
 
-    <ImageButton
+    <Button
         android:id="@+id/common_title_left"
-        android:layout_width="80px"
+        android:layout_width="120px"
         android:layout_height="80px"
         android:layout_marginLeft="30px"
+        android:text="左按钮"
+        android:textSize="40px"
         android:background="#f9f33f" />
 
 
@@ -21,12 +23,14 @@
         android:text="公共标题"
         android:textSize="40px" />
 
-    <ImageButton
+    <Button
         android:id="@+id/common_title_right"
-        android:layout_width="80px"
+        android:layout_width="120px"
         android:layout_height="80px"
         android:layout_alignParentRight="true"
         android:layout_marginRight="30px"
+        android:text="右按钮"
+        android:textSize="40px"
         android:background="#f9f33f" />
 
 </RelativeLayout>
