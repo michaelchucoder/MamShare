@@ -30,7 +30,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="50px"
-            android:background="#ff00ff" />
+            android:background="@drawable/input_background" />
     </LinearLayout>
 
     <Button

@@ -1,9 +1,11 @@
 package com.babyspace.mamshare.app.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.TabPageAdapter;
@@ -11,6 +13,8 @@ import com.babyspace.mamshare.app.fragment.DiscoverGuidanceFragment;
 import com.babyspace.mamshare.app.fragment.DiscoverLabelFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.viewpagerindicator.TabPageIndicator;
+
+import butterknife.OnClick;
 
 public class HomeDiscoverActivity extends BaseActivity {
 
@@ -33,8 +37,20 @@ public class HomeDiscoverActivity extends BaseActivity {
         mViewPager.setAdapter(mAdapter);
         mIndicator.setViewPager(mViewPager, 0);
 
-
-
     }
+
+
+    @OnClick({R.id.layout_home_search})
+    public void doOnClick(View view) {
+        Intent i = new Intent();
+
+        switch (view.getId()) {
+            case R.id.layout_home_search:
+                i.setClass(this, DiscoverSearchActivity.class);
+                break;
+        }
+        startActivity(i);
+    }
+
 
 }
