@@ -55,6 +55,7 @@ public class SearchResultActivity extends BaseActivity implements SwipeRefreshLa
 
     @Override
     public void onRefresh() {
+        //TODO 刷新操作
 
     }
 }
