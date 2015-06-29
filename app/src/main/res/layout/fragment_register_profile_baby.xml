@@ -6,6 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     tools:context="com.babyspace.mamshare.app.fragment.RegisterProfileBabyFragment">
+
     <TextView
         android:id="@+id/btn_register_title"
         android:layout_width="wrap_content"
@@ -17,10 +18,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn_register_title"
-        android:background="@drawable/shape_rounded_rectangle_red"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/shape_rounded_rectangle_red"
         android:text="baby下一步"
         android:textSize="40px" />
 
+    <LinearLayout
+        android:id="@+id/register_picker"
+        android:layout_width="match_parent"
+        android:layout_marginTop="300px"
+        android:layout_height="190px"
+        android:orientation="horizontal">
+
+        <com.michael.library.widget.wheelpicker.WheelView
+            android:id="@+id/year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.michael.library.widget.wheelpicker.WheelView
+            android:id="@+id/month"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+
+        <com.michael.library.widget.wheelpicker.WheelView
+            android:id="@+id/day"
+            android:layout_width="46dp"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
 
 </RelativeLayout>
