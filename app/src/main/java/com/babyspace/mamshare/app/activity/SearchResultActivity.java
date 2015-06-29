@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 import android.widget.TextView;
 
@@ -18,7 +19,7 @@ import com.viewpagerindicator.TabPageIndicator;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class SearchResultActivity extends BaseActivity{
+public class SearchResultActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener {
     public static final String[] TITLES = new String[]{"专题", "攻略"};
     public static final Fragment[] FRAGMENTS = new Fragment[]{new SearchResultSpecialTopicFragment(), new SearchResultGuidanceFragment()};
 
@@ -52,4 +53,8 @@ public class SearchResultActivity extends BaseActivity{
         }
     }
 
+    @Override
+    public void onRefresh() {
+
+    }
 }
