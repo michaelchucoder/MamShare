@@ -44,16 +44,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="换一批"
             android:gravity="center"
+            android:text="换一批"
             android:textSize="30px" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="都不符合我"
             android:gravity="center"
+            android:text="都不符合我"
             android:textSize="30px" />
 
     </LinearLayout>
