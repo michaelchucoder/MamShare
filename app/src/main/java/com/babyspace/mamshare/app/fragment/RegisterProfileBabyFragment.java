@@ -67,8 +67,8 @@ public class RegisterProfileBabyFragment extends BaseFragment {
 
         // month
         int curMonth = calendar.get(Calendar.MONTH);
-        String months[] = new String[]{"January", "February", "March", "April", "May",
-                "June", "July", "August", "September", "October", "November", "December"};
+        String months[] = new String[]{"1月", "2月", "3月", "4月", "5月",
+                "6月", "7月", "8月", "9月", "10月", "10月", "12月"};
         month.setViewAdapter(new DateArrayAdapter(getActivity(), months, curMonth));
         month.setCurrentItem(curMonth);
         month.addChangingListener(listener);

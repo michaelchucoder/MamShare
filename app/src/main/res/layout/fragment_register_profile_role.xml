@@ -6,10 +6,12 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     tools:context="com.babyspace.mamshare.app.fragment.RegisterProfileRoleFragment">
+
     <TextView
         android:id="@+id/btn_register_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="30px"
         android:text="RegisterProfileRoleFragmentRegisterProfileNameFragment" />
 
     <Button
@@ -17,8 +19,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn_register_title"
-        android:background="@drawable/shape_rounded_rectangle_red"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/shape_rounded_rectangle_red"
         android:text="role下一步"
         android:textSize="40px" />
 
