@@ -5,9 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.widget.Button;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.basement.MamShare;
+import com.michael.core.tools.ViewRelayoutUtil;
 
 import java.util.List;
 
@@ -49,7 +51,8 @@ public class GridViewSearchAdapter extends BaseAdapter {
 
         View rootView = LayoutInflater.from(mContext).inflate(R.layout.gridview_search_item,
                 parent, false);
-        TextView textView = (TextView) rootView.findViewById(R.id.my_txt);
+        //ViewRelayoutUtil.relayoutViewWithScale(rootView, MamShare.screenWidthScale);
+        Button textView = (Button) rootView.findViewById(R.id.my_txt);
         textView.setText(datas.get(position));
         return rootView;
     }

@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.basement.MamShare;
+import com.michael.core.tools.ViewRelayoutUtil;
 
 import java.util.List;
 
@@ -49,6 +51,8 @@ public class ListViewSearchAdapter extends BaseAdapter {
 
         View rootView = LayoutInflater.from(mContext).inflate(R.layout.listview_search_item,
                 parent, false);
+        //ViewRelayoutUtil.relayoutViewWithScale(rootView, MamShare.screenWidthScale);
+
         TextView textView = (TextView) rootView.findViewById(R.id.my_txt);
         textView.setText(datas.get(position));
         return rootView;

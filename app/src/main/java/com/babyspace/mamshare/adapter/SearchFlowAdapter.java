@@ -8,7 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.FlowSearchItem;
+import com.michael.core.tools.ViewRelayoutUtil;
 import com.michael.library.widget.custom.NoStrollGridView;
 import com.michael.library.widget.custom.NoStrollListView;
 
@@ -57,16 +59,18 @@ public class SearchFlowAdapter extends BaseAdapter {
         final FlowSearchItem item = getItem(position);
 
         if (item.mText.equals("111")) {
-            ViewHolder viewHolder = null;
+            ViewHolderGrid viewHolder = null;
 
             if (convertView == null) {
                 convertView = mInflater.inflate(R.layout.flow_search_item_g, parent, false);
-                viewHolder = new ViewHolder();
+                ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
+
+                viewHolder = new ViewHolderGrid();
                 viewHolder.noStrollGridView = (NoStrollGridView) convertView.findViewById(R.id.my_flow_view);
                 viewHolder.mTextView = (TextView) convertView.findViewById(R.id.my_tv);
                 convertView.setTag(viewHolder);
             } else {
-                viewHolder = (ViewHolder) convertView.getTag();
+                viewHolder = (ViewHolderGrid) convertView.getTag();
             }
 
             // 设置GridView的Adapter
@@ -80,6 +84,8 @@ public class SearchFlowAdapter extends BaseAdapter {
 
             if (convertView == null) {
                 convertView = mInflater.inflate(R.layout.flow_search_item_l, parent, false);
+                ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
+
                 viewHolder = new ViewHolderList();
                 viewHolder.noStrollListView = (NoStrollListView) convertView.findViewById(R.id.my_flow_view);
                 viewHolder.mTextView = (TextView) convertView.findViewById(R.id.my_tv);
@@ -100,9 +106,9 @@ public class SearchFlowAdapter extends BaseAdapter {
     }
 
     /**
-     * @author mrsimple
+     * @author michael
      */
-    static class ViewHolder {
+    static class ViewHolderGrid {
         NoStrollGridView noStrollGridView;
         TextView mTextView;
     }
