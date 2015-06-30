@@ -30,6 +30,7 @@ import java.util.List;
 import butterknife.InjectView;
 
 public class HomeSpecialTopicActivity extends BaseActivity {
+    // 加上fragment
 
     StrollFancyCoverFlowAdapter strollFancyCoverFlowAdapter;
     @InjectView(R.id.specialTopic_bg)
