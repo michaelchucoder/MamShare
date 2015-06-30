@@ -9,6 +9,7 @@
     <dimen name="leftwidth">34px</dimen>
     <dimen name="rightwidth">34px</dimen>
     <dimen name="common_distance">20px</dimen>
+    <dimen name="title_view_height">110px</dimen>
 
 
 </resources>

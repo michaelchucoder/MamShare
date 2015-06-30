@@ -4,6 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -12,7 +16,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.adapter.TabPageAdapter;
+import com.babyspace.mamshare.app.fragment.HomeGuidanceListFragment;
+import com.babyspace.mamshare.app.fragment.HomeReviewsListFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
+import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.bean.Advert;
 import com.babyspace.mamshare.bean.AdvertEvent;
 import com.babyspace.mamshare.commons.AppConstants;
@@ -20,6 +28,7 @@ import com.babyspace.mamshare.commons.UrlConstants;
 import com.babyspace.mamshare.framework.eventbus.HttpErrorEvent;
 import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.library.debug.L;
+import com.michael.library.widget.custom.AbsPagerTab;
 import com.michael.library.widget.fancycoverflow.FancyCoverFlow;
 import com.michael.library.widget.fancycoverflow.FancyCoverFlowAdapter;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -32,28 +41,38 @@ import butterknife.InjectView;
 public class HomeSpecialTopicActivity extends BaseActivity {
     // 加上fragment
 
-    StrollFancyCoverFlowAdapter strollFancyCoverFlowAdapter;
-    @InjectView(R.id.specialTopic_bg)
-    ImageView specialTopic_bg;
+    //StrollFancyCoverFlowAdapter strollFancyCoverFlowAdapter;
+    private ViewPager mPager;
+    private AbsPagerTab mTab;
+    public static final String[] TITLES  = {"战略", "评测"};
+    public static final Fragment[] FRAGMENTS = {new HomeGuidanceListFragment(), new HomeReviewsListFragment()};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_special_topic);
-        strollFancyCoverFlowAdapter = new StrollFancyCoverFlowAdapter(this);
+        //strollFancyCoverFlowAdapter = new StrollFancyCoverFlowAdapter(this);
         initView();
 
-        OkHttpExecutor.query(UrlConstants.HomeAdvertisingFigure, AdvertEvent.class, false, this);
 
     }
 
     private void initView() {
+        mPager = (ViewPager) findViewById(R.id.pager);
+        mTab = (AbsPagerTab) findViewById(R.id.tabs);
+
+        TabPageAdapter adapter = new TabPageAdapter(getSupportFragmentManager(), TITLES, FRAGMENTS);
+        mPager.setAdapter(adapter);
+
+        mTab.setViewPager(mPager);
+
     }
 
     // =============================================================================
     // Private classes
     // =============================================================================
 
+/*
     private class StrollFancyCoverFlowAdapter extends FancyCoverFlowAdapter {
         Context ctx;
         List<Advert> datas = new ArrayList<Advert>();
@@ -194,5 +213,6 @@ public class HomeSpecialTopicActivity extends BaseActivity {
         requestEnd(event);
     }
 
+*/
 
 }
