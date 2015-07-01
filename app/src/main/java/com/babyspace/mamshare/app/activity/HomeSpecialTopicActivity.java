@@ -6,11 +6,13 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.fragment.HomeGuidanceListFragment;
 import com.babyspace.mamshare.app.fragment.HomeReviewsListFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
+import com.michael.library.debug.L;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -21,6 +23,9 @@ public class HomeSpecialTopicActivity extends BaseActivity implements ViewPager.
     Button tab_guidance;
     @InjectView(R.id.tab_remark)
     Button tab_remark;
+
+    private static int pagePosition = 0;
+    private static int lastState = 0;
 
     //StrollFancyCoverFlowAdapter strollFancyCoverFlowAdapter;
     private ViewPager mPager;
@@ -236,6 +241,8 @@ public class HomeSpecialTopicActivity extends BaseActivity implements ViewPager.
 
     @Override
     public void onPageSelected(int position) {
+        pagePosition = position;
+
         if (position == 0) {
             tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_selected);
             tab_remark.setBackgroundResource(R.drawable.tab_shape_right_blue_unselect);
@@ -247,6 +254,20 @@ public class HomeSpecialTopicActivity extends BaseActivity implements ViewPager.
 
     @Override
     public void onPageScrollStateChanged(int state) {
+        if (lastState == 1 && state == 0) {
+            switch (pagePosition) {
+                case 0:
+                    Toast.makeText(this, "左", Toast.LENGTH_SHORT).show();
 
+                    break;
+                case 1:
+                    Toast.makeText(this, "右", Toast.LENGTH_SHORT).show();
+
+                    break;
+
+            }
+
+        }
+        lastState = state;
     }
 }
