@@ -20,6 +20,7 @@ import com.babyspace.mamshare.framework.utils.UIUtils;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class CheckDialogHelper {
+
     public static Dialog getDialog(Activity ctx, String content, final CallBack callback) {
         LayoutInflater mInflater = LayoutInflater.from(ctx);
         return new AlertDialog.Builder(ctx)
