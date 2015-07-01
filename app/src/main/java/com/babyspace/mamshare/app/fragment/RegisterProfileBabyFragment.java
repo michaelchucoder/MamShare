@@ -15,6 +15,7 @@ import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.activity.ChatActivity;
 import com.babyspace.mamshare.app.dialog.DialogHelper;
 import com.babyspace.mamshare.app.dialog.PickerDialog;
+import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.michael.library.widget.custom.DatePicker;
 
@@ -92,11 +93,13 @@ public class RegisterProfileBabyFragment extends BaseFragment {
                 DialogHelper.getDialog("哈哈哈", new DialogHelper.CallBack("zuo", "you") {
                     @Override
                     public void leftBtnClick(DialogInterface dialog) {
+                        ToastHelper.showToast(getActivity(),"leftBtnClick");
 
                     }
 
                     @Override
                     public void rightBtnClick(DialogInterface dialog) {
+                        ToastHelper.showToast(getActivity(),"rightBtnClick");
 
                     }
                 }).show();
