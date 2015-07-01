@@ -23,26 +23,17 @@
         android:id="@+id/register_picker"
         android:layout_width="match_parent"
         android:layout_height="150px"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/btn_register_name_txt"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="200px"
         android:orientation="horizontal">
 
-        <com.michael.library.widget.wheelpicker.WheelView
-            android:id="@+id/year"
+        <com.michael.library.widget.custom.DatePicker
+            android:id="@+id/long_date"
+            style="@android:style/Widget.TextView.SpinnerItem"
+            android:textSize="30px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
-        <com.michael.library.widget.wheelpicker.WheelView
-            android:id="@+id/month"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content" />
-
-        <com.michael.library.widget.wheelpicker.WheelView
-            android:id="@+id/day"
-            android:layout_width="46dp"
-            android:layout_height="wrap_content" />
-
 
     </LinearLayout>
 
