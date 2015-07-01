@@ -9,13 +9,18 @@ import android.graphics.Matrix;
 import android.graphics.Shader.TileMode;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Parcelable;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.commons.AppRuntime;
 
 
@@ -197,5 +202,21 @@ public class ViewUtils {
 
         listView.setLayoutParams(params);
     }
+    public static void showToast(Context ctx, String toastTxt) {
+        String fontBase = "<font color=\"#0F1099\">contentPosition</font>";
 
+        Toast toast = Toast.makeText(ctx, null, Toast.LENGTH_SHORT);
+
+        LinearLayout toastView = (LinearLayout) toast.getView();
+
+        ImageView imageCodeProject = new ImageView(ctx);
+        imageCodeProject.setImageResource(R.drawable.push);
+        toastView.addView(imageCodeProject, 1);
+        toastView.setBackgroundColor(0xF5FF69B4);
+
+        toast.setText(Html.fromHtml(fontBase.replace("contentPosition", toastTxt)));
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.show();
+
+    }
 }

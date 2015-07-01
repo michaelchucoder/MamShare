@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.activity.ChatActivity;
-import com.babyspace.mamshare.app.dialog.CheckDialogHelper;
+import com.babyspace.mamshare.app.dialog.DialogHelper;
 import com.babyspace.mamshare.app.dialog.PickerDialog;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.michael.library.widget.custom.DatePicker;
@@ -74,7 +74,7 @@ public class RegisterProfileBabyFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.btn_register_next, R.id.btn_register_day})
+    @OnClick({R.id.btn_register_next, R.id.btn_register_day, R.id.btn_register_dialog})
     public void doOnClick(View view) {
 
         switch (view.getId()) {
@@ -89,7 +89,7 @@ public class RegisterProfileBabyFragment extends BaseFragment {
                 break;
             case R.id.btn_register_dialog:
 
-                CheckDialogHelper.getDialog(getActivity(), "哈哈哈", new CheckDialogHelper.CallBack("zuo","you") {
+                DialogHelper.getDialog("哈哈哈", new DialogHelper.CallBack("zuo", "you") {
                     @Override
                     public void leftBtnClick(DialogInterface dialog) {
 
