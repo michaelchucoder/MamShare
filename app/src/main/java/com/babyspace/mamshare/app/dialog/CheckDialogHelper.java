@@ -43,6 +43,12 @@ public class CheckDialogHelper {
                 .create();
     }
 
+    public static Dialog getDialog(String content, final CallBack callback) {
+
+        return getDialog(UIUtils.getForegroundActivity(), content, callback);
+
+    }
+
     public static abstract class CallBack {
         public String leftBtnText;
         public String rightBtnText;
