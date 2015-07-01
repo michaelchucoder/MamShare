@@ -41,7 +41,7 @@ public class ToastHelper {
 
         ImageView imageCodeProject = new ImageView(ctx);
         imageCodeProject.setImageResource(R.drawable.push);
-        toastView.addView(imageCodeProject, 1);
+        toastView.addView(imageCodeProject, 0);
         toastView.setBackgroundColor(0xF5FF69B4);
 
         toast.setText(Html.fromHtml(fontBase.replace("contentPosition", toastTxt)));
