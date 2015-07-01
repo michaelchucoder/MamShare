@@ -6,7 +6,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.framework.utils.UIUtils;
 
 /**
