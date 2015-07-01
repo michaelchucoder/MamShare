@@ -99,7 +99,6 @@ public abstract class AbsPagerTab extends ViewGroup {
         init();
         initPaint();
     }
-
     /**
      * 初始化一些常量
      */
