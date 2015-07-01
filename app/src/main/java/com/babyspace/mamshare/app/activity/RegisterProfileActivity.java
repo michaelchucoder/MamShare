@@ -1,6 +1,8 @@
 package com.babyspace.mamshare.app.activity;
 
+import android.app.ActionBar;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.fragment.RegisterProfileBabyFragment;
@@ -15,6 +17,9 @@ public class RegisterProfileActivity extends BaseActivity implements RegisterPro
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_profile);
+
+        if (getActionBar() != null) getActionBar().hide();
+
 
         if (findViewById(R.id.fragment_container) != null) {
 
