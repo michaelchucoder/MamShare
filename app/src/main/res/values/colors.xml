@@ -5,4 +5,5 @@
     <color name="yellow">#ffffff00</color>
     <color name="black">#ff000000</color>
     <color name="transparent">#00000000</color>
+    <color name="red">#ffff0000</color>
 </resources>

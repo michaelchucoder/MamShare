@@ -25,7 +25,7 @@
                 android:layout_width="24px"
                 android:layout_height="25px"
                 android:layout_marginLeft="20px"
-                android:background="@drawable/activity_home_btn_search2" />
+                android:background="@drawable/activity_home_btn_search" />
 
             <TextView
                 android:id="@+id/et_search"
