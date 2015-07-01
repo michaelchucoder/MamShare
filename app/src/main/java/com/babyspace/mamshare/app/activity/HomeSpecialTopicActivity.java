@@ -12,7 +12,6 @@ import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.fragment.HomeGuidanceListFragment;
 import com.babyspace.mamshare.app.fragment.HomeReviewsListFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
-import com.michael.library.debug.L;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
