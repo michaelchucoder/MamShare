@@ -39,6 +39,13 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
-
+    <style name="plane_picker_dialog_anim"  parent="android:Animation">
+        <item name="@android:windowEnterAnimation">@anim/picker_dialog_enter</item>  //进入时的动画
+        <item name="@android:windowExitAnimation">@anim/picker_dialog_exit</item>
+    </style>
+    <style name="plane_dialog_style"  parent="android:Animation">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
 
 </resources>

@@ -66,5 +66,15 @@
         android:background="@drawable/shape_rounded_rectangle_red"
         android:text="dialog"
         android:textSize="40px" />
+    <Button
+        android:id="@+id/btn_register_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_register_dialog"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30px"
+        android:background="@drawable/shape_rounded_rectangle_red"
+        android:text="picker"
+        android:textSize="40px" />
 
 </RelativeLayout>
