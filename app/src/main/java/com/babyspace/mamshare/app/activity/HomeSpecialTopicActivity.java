@@ -217,13 +217,13 @@ public class HomeSpecialTopicActivity extends BaseActivity implements ViewPager.
         int id = view.getId();
         switch (id) {
             case R.id.tab_guidance:
-                tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_down);
-                tab_remark.setBackgroundResource(R.drawable.tab_shape_right_blue_up);
+                tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_selected);
+                tab_remark.setBackgroundResource(R.drawable.tab_shape_right_blue_unselect);
                 mPager.setCurrentItem(0);
                 break;
             case R.id.tab_remark:
-                tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_up);
-                tab_remark.setBackgroundResource(R.drawable.tab_shape_right_blue_down);
+                tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_unselect);
+                tab_remark.setBackgroundResource(R.drawable.tab_shape_right_blue_selected);
                 mPager.setCurrentItem(1);
                 break;
         }
@@ -237,11 +237,11 @@ public class HomeSpecialTopicActivity extends BaseActivity implements ViewPager.
     @Override
     public void onPageSelected(int position) {
         if (position == 0) {
-            tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_down);
-            tab_remark.setBackgroundResource(R.drawable.tab_shape_right_blue_up);
+            tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_selected);
+            tab_remark.setBackgroundResource(R.drawable.tab_shape_right_blue_unselect);
         } else {
-            tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_up);
-            tab_remark.setBackgroundResource(R.drawable.tab_shape_right_blue_down);
+            tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_unselect);
+            tab_remark.setBackgroundResource(R.drawable.tab_shape_right_blue_selected);
         }
     }
 
