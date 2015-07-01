@@ -3,6 +3,7 @@ package com.babyspace.mamshare.app.fragment;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.activity.ChatActivity;
+import com.babyspace.mamshare.app.dialog.CheckDialogHelper;
 import com.babyspace.mamshare.app.dialog.PickerDialog;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.michael.library.widget.custom.DatePicker;
@@ -66,7 +68,7 @@ public class RegisterProfileBabyFragment extends BaseFragment {
         pickerDialog.setOnDateSetListener(new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(android.widget.DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                Toast.makeText(getActivity(), "onDateSet:" + year+"/" + dayOfMonth + "/" + year, Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "onDateSet:" + year + "/" + dayOfMonth + "/" + year, Toast.LENGTH_LONG).show();
             }
         });
 
@@ -84,6 +86,21 @@ public class RegisterProfileBabyFragment extends BaseFragment {
             case R.id.btn_register_day:
 
                 pickerDialog.show(getActivity().getSupportFragmentManager(), "date_picker");
+                break;
+            case R.id.btn_register_dialog:
+
+                CheckDialogHelper.getDialog(getActivity(), "哈哈哈", new CheckDialogHelper.CallBack("zuo","you") {
+                    @Override
+                    public void leftBtnClick(DialogInterface dialog) {
+
+                    }
+
+                    @Override
+                    public void rightBtnClick(DialogInterface dialog) {
+
+                    }
+                }).show();
+
                 break;
 
         }
