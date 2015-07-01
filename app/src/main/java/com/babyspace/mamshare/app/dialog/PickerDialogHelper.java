@@ -79,7 +79,7 @@ public class PickerDialogHelper {
         return dialog;
     }
 
-    public static interface CallBack<T> {
+    public interface CallBack<T> {
         void pickedOut(T entry);
     }
 
