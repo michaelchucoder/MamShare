@@ -1,8 +1,6 @@
 package com.babyspace.mamshare.app.activity;
 
-import android.app.ActionBar;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.fragment.RegisterProfileBabyFragment;

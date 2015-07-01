@@ -10,7 +10,6 @@ import android.text.format.DateFormat;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.activity.ChatActivity;
@@ -52,6 +51,14 @@ public class RegisterProfileBabyFragment extends BaseFragment {
         datePicker = ((DatePicker) findViewById(R.id.long_date));
         datePicker.setDateFormat(DateFormat.getDateFormat(getActivity()));
         datePicker.setText("选择生日");
+
+        datePicker.setOnDateSetListener(new DatePicker.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int day) {
+                datePicker.setText(year + "年" + month + "月" + day + "日");
+
+            }
+        });
 
     }
 

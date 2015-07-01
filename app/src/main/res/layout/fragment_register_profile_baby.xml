@@ -30,7 +30,7 @@
 
         <com.michael.library.widget.custom.DatePicker
             android:id="@+id/long_date"
-            style="@android:style/Widget.TextView.SpinnerItem"
+            style="@android:style/Widget.Holo.TextView.SpinnerItem"
             android:textSize="30px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
