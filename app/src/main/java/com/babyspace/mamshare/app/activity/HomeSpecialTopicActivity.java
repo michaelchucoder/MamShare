@@ -1,49 +1,30 @@
 package com.babyspace.mamshare.app.activity;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.babyspace.mamshare.R;
-import com.babyspace.mamshare.adapter.TabPageAdapter;
 import com.babyspace.mamshare.app.fragment.HomeGuidanceListFragment;
 import com.babyspace.mamshare.app.fragment.HomeReviewsListFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
-import com.babyspace.mamshare.basement.BaseFragment;
-import com.babyspace.mamshare.bean.Advert;
-import com.babyspace.mamshare.bean.AdvertEvent;
-import com.babyspace.mamshare.commons.AppConstants;
-import com.babyspace.mamshare.commons.UrlConstants;
-import com.babyspace.mamshare.framework.eventbus.HttpErrorEvent;
-import com.michael.core.okhttp.OkHttpExecutor;
-import com.michael.library.debug.L;
-import com.michael.library.widget.custom.AbsPagerTab;
-import com.michael.library.widget.fancycoverflow.FancyCoverFlow;
-import com.michael.library.widget.fancycoverflow.FancyCoverFlowAdapter;
-import com.nostra13.universalimageloader.core.ImageLoader;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.InjectView;
+import butterknife.OnClick;
 
-public class HomeSpecialTopicActivity extends BaseActivity {
+public class HomeSpecialTopicActivity extends BaseActivity implements ViewPager.OnPageChangeListener {
     // 加上fragment
+    @InjectView(R.id.tab_guidance)
+    Button tab_guidance;
+    @InjectView(R.id.tab_remark)
+    Button tab_remark;
 
     //StrollFancyCoverFlowAdapter strollFancyCoverFlowAdapter;
     private ViewPager mPager;
-    private AbsPagerTab mTab;
+    //private AbsPagerTab mTab;
     public static final String[] TITLES = {"战略", "评测"};
     public static final Fragment[] FRAGMENTS = {new HomeGuidanceListFragment(), new HomeReviewsListFragment()};
 
@@ -59,12 +40,28 @@ public class HomeSpecialTopicActivity extends BaseActivity {
 
     private void initView() {
         mPager = (ViewPager) findViewById(R.id.pager);
-        mTab = (AbsPagerTab) findViewById(R.id.tabs);
 
-        TabPageAdapter adapter = new TabPageAdapter(getSupportFragmentManager(), TITLES, FRAGMENTS);
-        mPager.setAdapter(adapter);
+        // 给ViewPager添加适配器
+        mPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
+            @Override
+            public Fragment getItem(int position) {
+                return FRAGMENTS[position];
+            }
 
-        mTab.setViewPager(mPager);
+            @Override
+            public int getCount() {
+                return FRAGMENTS.length;
+            }
+        });
+        // 设置监听获得回调
+        mPager.setOnPageChangeListener(this);
+
+        mPager.post(new Runnable() {
+            @Override
+            public void run() {
+                onPageSelected(mPager.getCurrentItem());
+            }
+        });
 
     }
 
@@ -215,4 +212,41 @@ public class HomeSpecialTopicActivity extends BaseActivity {
 
 */
 
+    @OnClick({R.id.tab_guidance, R.id.tab_remark})
+    public void doOnClick(View view) {
+        int id = view.getId();
+        switch (id) {
+            case R.id.tab_guidance:
+                tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_down);
+                tab_remark.setBackgroundResource(R.drawable.tab_shape_right_blue_up);
+                mPager.setCurrentItem(0);
+                break;
+            case R.id.tab_remark:
+                tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_up);
+                tab_remark.setBackgroundResource(R.drawable.tab_shape_right_blue_down);
+                mPager.setCurrentItem(1);
+                break;
+        }
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        if (position == 0) {
+            tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_down);
+            tab_remark.setBackgroundResource(R.drawable.tab_shape_right_blue_up);
+        } else {
+            tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_up);
+            tab_remark.setBackgroundResource(R.drawable.tab_shape_right_blue_down);
+        }
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
 }

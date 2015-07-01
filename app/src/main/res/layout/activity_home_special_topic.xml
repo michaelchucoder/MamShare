@@ -9,18 +9,31 @@
         android:layout_height="match_parent"
         android:layout_alignParentTop="true">
 
-        <com.michael.library.widget.custom.IOSPagerTab
-            android:id="@+id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/title_view_height"
-            android:background="@color/plane_title_bg"
-            android:gravity="center_horizontal" />
+        <LinearLayout
+            android:id="@+id/tab_title"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/tab_guidance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="战略" />
+
+            <Button
+                android:id="@+id/tab_remark"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:text="评测" />
+        </LinearLayout>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/pager"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_below="@+id/tabs" />
+            android:layout_below="@+id/tab_title" />
 
         <RelativeLayout
             android:id="@+id/header"
