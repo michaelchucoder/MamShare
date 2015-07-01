@@ -47,7 +47,7 @@ public class RegisterProfileBabyFragment extends BaseFragment {
 
         datePicker = ((DatePicker) findViewById(R.id.long_date));
         datePicker.setDateFormat(DateFormat.getDateFormat(getActivity()));
-        datePicker.setText("选择生日");
+        datePicker.setText("请宝宝选择生日");
 
         datePicker.setOnDateSetListener(new DatePicker.OnDateSetListener() {
             @Override
