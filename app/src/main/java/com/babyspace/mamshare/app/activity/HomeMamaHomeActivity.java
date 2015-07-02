@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.fragment.HomeGuidanceListFragment;
-import com.babyspace.mamshare.app.fragment.HomeReviewsListFragment;
+import com.babyspace.mamshare.app.fragment.HomeEvaluateListFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
 
 import butterknife.InjectView;
@@ -30,7 +30,7 @@ public class HomeMamaHomeActivity extends BaseActivity implements ViewPager.OnPa
     private ViewPager mPager;
     //private AbsPagerTab mTab;
     public static final String[] TITLES = {"攻略", "评测"};
-    public static final Fragment[] FRAGMENTS = {new HomeGuidanceListFragment(), new HomeReviewsListFragment()};
+    public static final Fragment[] FRAGMENTS = {new HomeGuidanceListFragment(), new HomeEvaluateListFragment()};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
