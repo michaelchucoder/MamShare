@@ -124,6 +124,18 @@ public class McSysInfoUtils {
     }
 
     /**
+     * appname
+     *
+     * @param context
+     * @return
+     */
+    public static String getJpushAppKey(Context context) {
+        if (appname == null)
+            appname = getMetaData(context, "JPUSH_APPKEY");
+        return appname;
+    }
+
+    /**
      * 取得mainfest中的<meta_data>
      *
      * @param context
