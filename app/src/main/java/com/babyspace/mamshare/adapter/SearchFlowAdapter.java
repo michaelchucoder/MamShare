@@ -27,24 +27,24 @@ import java.util.List;
  */
 public class SearchFlowAdapter extends BaseAdapter {
 
-    List<FlowSearchItem> mImages = new ArrayList<FlowSearchItem>();
+    List<FlowSearchItem> items = new ArrayList<FlowSearchItem>();
     LayoutInflater mInflater;
     Context mContext;
 
     public SearchFlowAdapter(Context context, List<FlowSearchItem> items) {
         mContext = context;
-        mImages = items;
+        this.items = items;
         mInflater = LayoutInflater.from(context);
     }
 
     @Override
     public int getCount() {
-        return mImages.size();
+        return items.size();
     }
 
     @Override
     public FlowSearchItem getItem(int position) {
-        return mImages.get(position);
+        return items.get(position);
     }
 
     @Override
@@ -117,5 +117,8 @@ public class SearchFlowAdapter extends BaseAdapter {
         NoStrollListView noStrollListView;
         TextView mTextView;
     }
-
+    public void refresh(List<FlowSearchItem> items) {
+        this.items = items;
+        notifyDataSetChanged();
+    }
 }

@@ -56,5 +56,8 @@ public class GridViewSearchAdapter extends BaseAdapter {
         textView.setText(datas.get(position));
         return rootView;
     }
-
+    public void refresh(List<String> datas) {
+        this.datas = datas;
+        notifyDataSetChanged();
+    }
 }

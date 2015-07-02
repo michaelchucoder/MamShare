@@ -58,5 +58,8 @@ public class ListViewSearchAdapter extends BaseAdapter {
         return rootView;
     }
 
-
+    public void refresh(List<String> datas) {
+        this.datas = datas;
+        notifyDataSetChanged();
+    }
 }
