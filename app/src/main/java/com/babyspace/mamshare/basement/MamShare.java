@@ -71,8 +71,8 @@ public class MamShare extends BaseApplication {
         //forceUpdateActModel = new ForceUpdateActModel(this);
 
         // 初始化push推送服务
-        JPushInterface.setDebugMode(true); 	// 设置开启日志,发布时请关闭日志
-        JPushInterface.init(this);     		// 初始化 JPush
+        JPushInterface.setDebugMode(true);    // 设置开启日志,发布时请关闭日志
+        JPushInterface.init(this);            // 初始化 JPush
 
         if (AppRuntime.shouldInit(getApplicationContext())) {
             // 初始化Runtime
