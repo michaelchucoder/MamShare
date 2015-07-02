@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.fragment.HomeGuidanceListFragment;
@@ -21,8 +20,8 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
     // 加上fragment
     @InjectView(R.id.tab_guidance)
     Button tab_guidance;
-    @InjectView(R.id.tab_remark)
-    Button tab_remark;
+    @InjectView(R.id.tab_evaluate)
+    Button tab_evaluate;
 
     private static int pagePosition = 0;
     private static int lastState = 0;
@@ -217,18 +216,18 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
 
 */
 
-    @OnClick({R.id.tab_guidance, R.id.tab_remark})
+    @OnClick({R.id.tab_guidance, R.id.tab_evaluate})
     public void doOnClick(View view) {
         int id = view.getId();
         switch (id) {
             case R.id.tab_guidance:
                 tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_selected);
-                tab_remark.setBackgroundResource(R.drawable.tab_shape_right_blue_unselect);
+                tab_evaluate.setBackgroundResource(R.drawable.tab_shape_right_blue_unselect);
                 mPager.setCurrentItem(0);
                 break;
-            case R.id.tab_remark:
+            case R.id.tab_evaluate:
                 tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_unselect);
-                tab_remark.setBackgroundResource(R.drawable.tab_shape_right_blue_selected);
+                tab_evaluate.setBackgroundResource(R.drawable.tab_shape_right_blue_selected);
                 mPager.setCurrentItem(1);
                 break;
         }
@@ -245,10 +244,10 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
 
         if (position == 0) {
             tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_selected);
-            tab_remark.setBackgroundResource(R.drawable.tab_shape_right_blue_unselect);
+            tab_evaluate.setBackgroundResource(R.drawable.tab_shape_right_blue_unselect);
         } else {
             tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_unselect);
-            tab_remark.setBackgroundResource(R.drawable.tab_shape_right_blue_selected);
+            tab_evaluate.setBackgroundResource(R.drawable.tab_shape_right_blue_selected);
         }
     }
 

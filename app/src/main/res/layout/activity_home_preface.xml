@@ -22,7 +22,7 @@
                 android:text="攻略" />
 
             <Button
-                android:id="@+id/tab_remark"
+                android:id="@+id/tab_evaluate"
                 android:layout_width="wrap_content"
 
                 android:layout_height="wrap_content"
