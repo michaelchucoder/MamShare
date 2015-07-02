@@ -86,13 +86,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 // 当点击了消息tab时，选中第1个tab
                 setTabSelection(0);
                 break;
-            case R.id.discover_layout:
-                // 当点击了联系人tab时，选中第2个tab
-                setTabSelection(1);
-                break;
             case R.id.userCenter_layout:
                 // 当点击了设置tab时，选中第4个tab
-                setTabSelection(2);
+                setTabSelection(1);
                 break;
             default:
                 break;

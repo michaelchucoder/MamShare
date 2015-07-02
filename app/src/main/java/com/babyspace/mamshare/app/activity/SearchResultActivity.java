@@ -16,7 +16,6 @@ import com.babyspace.mamshare.app.fragment.SearchResultEvaluateFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.viewpagerindicator.TabPageIndicator;
 
-import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class SearchResultActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener {
@@ -26,9 +25,6 @@ public class SearchResultActivity extends BaseActivity implements SwipeRefreshLa
     private TabPageIndicator mIndicator;
     private ViewPager mViewPager;
     private FragmentPagerAdapter mAdapter;
-
-    @InjectView(R.id.search_result_txt)
-    TextView search_result_txt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,16 +39,6 @@ public class SearchResultActivity extends BaseActivity implements SwipeRefreshLa
 
     }
 
-    @OnClick({R.id.search_result_txt})
-    public void doOnClick(View view) {
-        Intent i = new Intent();
-
-        switch (view.getId()) {
-            case R.id.search_result_txt:
-                break;
-
-        }
-    }
 
     @Override
     public void onRefresh() {
