@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.TabPageAdapter;
 import com.babyspace.mamshare.app.fragment.SearchResultGuidanceFragment;
-import com.babyspace.mamshare.app.fragment.SearchResultSpecialTopicFragment;
+import com.babyspace.mamshare.app.fragment.SearchResultEvaluateFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.viewpagerindicator.TabPageIndicator;
 
@@ -20,8 +20,8 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class SearchResultActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener {
-    public static final String[] TITLES = new String[]{"专题", "攻略"};
-    public static final Fragment[] FRAGMENTS = new Fragment[]{new SearchResultSpecialTopicFragment(), new SearchResultGuidanceFragment()};
+    public static final String[] TITLES = new String[]{"攻略", "评测"};
+    public static final Fragment[] FRAGMENTS = new Fragment[]{new SearchResultGuidanceFragment(), new SearchResultEvaluateFragment()};
 
     private TabPageIndicator mIndicator;
     private ViewPager mViewPager;
@@ -42,6 +42,7 @@ public class SearchResultActivity extends BaseActivity implements SwipeRefreshLa
         mIndicator.setViewPager(mViewPager, 0);
 
     }
+
     @OnClick({R.id.search_result_txt})
     public void doOnClick(View view) {
         Intent i = new Intent();
