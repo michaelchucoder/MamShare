@@ -29,7 +29,7 @@ public class HomeSpecialTopicActivity extends BaseActivity implements ViewPager.
     //StrollFancyCoverFlowAdapter strollFancyCoverFlowAdapter;
     private ViewPager mPager;
     //private AbsPagerTab mTab;
-    public static final String[] TITLES = {"战略", "评测"};
+    public static final String[] TITLES = {"攻略", "评测"};
     public static final Fragment[] FRAGMENTS = {new HomeGuidanceListFragment(), new HomeReviewsListFragment()};
 
     @Override
