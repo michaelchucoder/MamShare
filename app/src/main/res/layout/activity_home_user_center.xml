@@ -53,7 +53,6 @@
 
     </RelativeLayout>
 
-
     <com.viewpagerindicator.TabPageIndicator
         android:id="@+id/id_indicator"
         android:layout_width="fill_parent"

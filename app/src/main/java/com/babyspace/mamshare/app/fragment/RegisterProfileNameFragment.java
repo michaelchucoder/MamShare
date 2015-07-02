@@ -2,8 +2,6 @@ package com.babyspace.mamshare.app.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.Button;
 
@@ -25,6 +23,7 @@ public class RegisterProfileNameFragment extends BaseFragment {
 
     public RegisterProfileNameFragment() {
     }
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);

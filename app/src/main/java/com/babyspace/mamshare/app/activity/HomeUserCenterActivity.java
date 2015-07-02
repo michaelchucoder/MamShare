@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.TabPageAdapter;
+import com.babyspace.mamshare.app.fragment.HomeEvaluateListFragment;
+import com.babyspace.mamshare.app.fragment.HomeGuidanceListFragment;
 import com.babyspace.mamshare.app.fragment.UserCenterCollectFragment;
 import com.babyspace.mamshare.app.fragment.UserCenterShareFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
@@ -22,8 +24,8 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class HomeUserCenterActivity extends BaseActivity {
-    public static final String[] TITLES = new String[]{"我的收藏", "我的晒图"};
-    public static final Fragment[] FRAGMENTS = new Fragment[]{new UserCenterCollectFragment(), new UserCenterShareFragment()};
+    public static final String[] TITLES = new String[]{"攻略", "评测"};
+    public static final Fragment[] FRAGMENTS = new Fragment[]{new HomeGuidanceListFragment(), new HomeEvaluateListFragment()};
 
     private TabPageIndicator mIndicator;
     private ViewPager mViewPager;
@@ -50,6 +52,7 @@ public class HomeUserCenterActivity extends BaseActivity {
         mIndicator.setViewPager(mViewPager, 0);
 
     }
+
     @OnClick({R.id.user_avatar_show, R.id.user_contribute_btn, R.id.user_profile_edit})
     public void doOnClick(View view) {
         Intent i = new Intent();

@@ -3,10 +3,11 @@ package com.babyspace.mamshare.app.activity;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
@@ -17,13 +18,10 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.basement.BaseActivity;
-import com.babyspace.mamshare.basement.BaseApplication;
-import com.babyspace.mamshare.bean.DefaultResponseEvent;
 import com.babyspace.mamshare.bean.VersionCheck;
 import com.babyspace.mamshare.bean.VersionCheckEvent;
 import com.babyspace.mamshare.commons.UrlConstants;
@@ -31,7 +29,6 @@ import com.babyspace.mamshare.framework.utils.NetWorkUtil;
 import com.babyspace.mamshare.framework.utils.UiHelper;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
-import com.michael.core.tools.MD5Util;
 import com.michael.core.tools.PreferencesUtil;
 import com.michael.library.debug.L;
 
@@ -44,13 +41,13 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
+import cn.jpush.android.api.JPushInterface;
 
 public class SplashActivity extends BaseActivity {
 
     /**
-     * 以上加上个推
+     * 以上加上极光推送
      */
     private static final String TAG = "SplashActivity";
     private static final int DOWN_LOAD_ERROR_MALFORMEDURLEXCEPTION = 1; // 下载安装包失败
@@ -104,23 +101,14 @@ public class SplashActivity extends BaseActivity {
      */
     private boolean tIsRunning = true;
     private Context mContext = null;
-    private Date curDate = null;
-    // SDK参数，会自动从Manifest文件中读取，第三方无需修改下列变量，请修改AndroidManifest.xml文件中相应的meta-data信息。
-    // 修改方式参见个推SDK文档
-    private ImageView background;
-    private Drawable image_splash = null;
-    private boolean auto_login = false;// 是否自动登录
-    // private Application app;
-    private String interfacetoken;
-    private String mobile;// 帐号
-    private String password;// 密码
-    private String auth;
-    private String userId;
     private VersionCheck versionCheck = new VersionCheck();
     private long length; // 网络文件的长度
     private ProgressDialog progressDialog;
     private int currentProgress; // 当前的进度
     private int lengthInt; // 服务器文件的长度
+
+    public static boolean isForeground = false;
+
 
     /**
      * 获得sd卡剩余容量，即可用大小
@@ -140,14 +128,15 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        // 注册一个广播事件
-        // newThread();
-        // TODO 暂时把百度推送注释
+
+        // TODO 极光推送
+        initPush();
 
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
+
     }
 
 
@@ -179,9 +168,32 @@ public class SplashActivity extends BaseActivity {
     }
 
 
+    // 初始化 JPush。如果已经初始化，但没有登录成功，则执行重新登录。
+    private void initPush() {
+        JPushInterface.init(getApplicationContext());
+
+        registerMessageReceiver();
+    }
+
+
     @Override
-    protected void onStart() {
-        super.onStart();
+    protected void onResume() {
+        isForeground = true;
+        super.onResume();
+    }
+
+
+    @Override
+    protected void onPause() {
+        isForeground = false;
+        super.onPause();
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        unregisterReceiver(mMessageReceiver);
+        super.onDestroy();
     }
 
     private void showSetNetWorkDialog(String message) {
@@ -251,28 +263,8 @@ public class SplashActivity extends BaseActivity {
         if (isFirstLogin) {
 
         } else {
-            doAutoLogin();
+
         }
-    }
-
-    private void doAutoLogin() {
-
-    }
-
-    private void doLogin() {
-        if (!NetWorkUtil.networkCanUse(BaseApplication.context)) {
-            // Toast.makeText(M6go.context, "请检查网络设置！",
-            // Toast.LENGTH_SHORT).show();
-            String msg = "请检查网络设置！";
-            UiHelper.showSystemDialog(SplashActivity.this, msg);
-            return;
-        }
-        JsonObject jo = new JsonObject();
-        jo.addProperty("logonName", mobile);
-        jo.addProperty("password", MD5Util.getMD5String(password));
-
-        OkHttpExecutor.query(UrlConstants.USER_LOGIN, jo, DefaultResponseEvent.class, false, this);
-
     }
 
     /**
@@ -309,20 +301,11 @@ public class SplashActivity extends BaseActivity {
                         RandomAccessFile raf = new RandomAccessFile(filePath + "/" + fileName, "rwd");
                         // raf.setLength(length);
                         raf.close();
-
-                        // 假设是3个线程去下载资源
-                        // 平均每个线程下载的大小
-                        int blockSize = lengthInt / threadCount;
-
-
                         L.i(TAG, "线程下载----->" + 0 + "------" + lengthInt);
 
                         new DownloadThread(0, lengthInt, path).start();
 
-                        // }
-
                     } else {
-                        // L.i("服务器错误");
                         L.i(TAG, "服务器错误");
                     }
 
@@ -366,13 +349,8 @@ public class SplashActivity extends BaseActivity {
 
     /**
      * 下载文件的子线程，每一个线程下载对应位置的文件
-     *
-     * @author sunjianfei
-     *         <p/>
-     *         2014-8-27
      */
     public class DownloadThread extends Thread {
-        // private int threadId; //线程的id
         private int startIndex; // 开始下载的位置
         private int endIndex; // 结束下载的位置
         private String path; // 资源路径
@@ -450,7 +428,6 @@ public class SplashActivity extends BaseActivity {
                     }
                 }
                 L.i(TAG, "lengthInt----------->" + lengthInt);
-                L.i(TAG, "totle" + totle);
                 L.i(TAG, "lengthInt" + lengthInt);
                 if ((len = is.read(buffer)) == -1) {
                     is.close();
@@ -529,8 +506,7 @@ public class SplashActivity extends BaseActivity {
                                     long size = getSDAvailableSize();
                                     L.i(TAG, "内存卡的容量为：" + size);
                                     if (size < length) {
-                                        Toast.makeText(SplashActivity.this, "对不起，您的储存卡空间不足", 0).show();
-                                        return;
+                                        Toast.makeText(SplashActivity.this, "对不起，您的储存卡空间不足", Toast.LENGTH_SHORT).show();
                                     } else {
                                         downLoadProgress();
                                         downLoadApk(path);
@@ -585,8 +561,38 @@ public class SplashActivity extends BaseActivity {
             //TODO
 
         }
-
-
     }
+
+    //for receive customer msg from jpush server
+    private MessageReceiver mMessageReceiver;
+    public static final String MESSAGE_RECEIVED_ACTION = "com.example.jpushdemo.MESSAGE_RECEIVED_ACTION";
+    public static final String KEY_TITLE = "title";
+    public static final String KEY_MESSAGE = "message";
+    public static final String KEY_EXTRAS = "extras";
+
+    public void registerMessageReceiver() {
+        mMessageReceiver = new MessageReceiver();
+        IntentFilter filter = new IntentFilter();
+        filter.setPriority(IntentFilter.SYSTEM_HIGH_PRIORITY);
+        filter.addAction(MESSAGE_RECEIVED_ACTION);
+        registerReceiver(mMessageReceiver, filter);
+    }
+
+    public class MessageReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (MESSAGE_RECEIVED_ACTION.equals(intent.getAction())) {
+                String messge = intent.getStringExtra(KEY_MESSAGE);
+                String extras = intent.getStringExtra(KEY_EXTRAS);
+                StringBuilder showMsg = new StringBuilder();
+                showMsg.append(KEY_MESSAGE + " : " + messge + "\n");
+                if (!TextUtils.isEmpty(extras)) {
+                    showMsg.append(KEY_EXTRAS + " : " + extras + "\n");
+                }
+            }
+        }
+    }
+
 
 }

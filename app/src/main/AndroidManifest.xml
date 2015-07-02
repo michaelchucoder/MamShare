@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.babyspace.mamshare" >
+    package="com.babyspace.mamshare">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -29,13 +29,38 @@
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.CAMERA" />
 
+    <!-- JPush 极光推送 -->
+
+
+    <!-- Required  一些系统要求的权限，如访问网络等 -->
+    <uses-permission android:name="com.babyspace.mamshare.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <!-- Optional for location -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
     <!-- 新增权限 -->
     <application
         android:name=".basement.MamShare"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
 
         <!-- ***************添加UmengAppKey************ -->
         <activity android:name="com.umeng.fb.ConversationActivity" />
@@ -51,13 +76,102 @@
             android:name="APP_NAME"
             android:value="mamShare" />
 
+        <!-- Required. Enable it you can get statistics data with channel -->
+        <meta-data
+            android:name="JPUSH_CHANNEL"
+            android:value="C_youmeng" />
+        <meta-data
+            android:name="JPUSH_APPKEY"
+            android:value="您应用的Appkey" />
+
+        <!-- 极光推送 -->
+
+
+        <!-- Required SDK核心功能 -->
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.babyspace.mamshare" />
+            </intent-filter>
+        </activity>
+        <!-- Required  SDK核心功能 -->
+        <service
+            android:name="cn.jpush.android.service.DownloadService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <!-- Required SDK 核心功能 -->
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+            </intent-filter>
+        </service>
+
+        <!-- Required SDK核心功能 -->
+        <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
+                <!-- Required  显示通知栏 -->
+                <category android:name="com.babyspace.mamshare" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <!-- Optional -->
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Required SDK核心功能 -->
+        <receiver android:name="cn.jpush.android.service.AlarmReceiver" />
+
+        <!-- User defined.  For test only  用户自定义的广播接收器 -->
+        <receiver
+            android:name=".app.service.receiver.JPushReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+                <!-- Required  用户注册SDK的intent -->
+                <action android:name="cn.jpush.android.intent.UNREGISTRATION" />
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                <!-- Required  用户接收SDK消息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <!-- Required  用户接收SDK通知栏信息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+                <!-- Required  用户打开自定义通知栏的intent -->
+                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" />
+                <!-- Optional 用户接受Rich Push Javascript 回调函数的intent -->
+                <action android:name="cn.jpush.android.intent.CONNECTION" />
+                <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <category android:name="com.babyspace.mamshare" />
+            </intent-filter>
+        </receiver>
+
         <activity
             android:name=".app.activity.WelcomeActivity"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -73,7 +187,7 @@
         <activity
             android:name=".app.activity.HomeActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -94,7 +208,7 @@
             android:name=".app.activity.HomeGroupActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@style/MyTheme" >
+            android:theme="@style/MyTheme">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -111,15 +225,16 @@
                     android:scheme="mamShare" />
             </intent-filter>
         </activity>
-        <activity android:name=".app.activity.MamRegisterActivity" />
-        <activity android:name=".app.activity.MamLoginActivity" />
-        <activity android:name=".app.activity.SettingActivity" />
-        <activity android:name=".app.activity.UserProfileActivity" />
-        <activity android:name=".app.activity.StrollSpecialTopicActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
+        <activity
+            android:name=".app.activity.HomePrefaceActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyTheme">
 
-                <category android:name="android.intent.category.DEFAULT" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -128,17 +243,19 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="stroll_special_topic"
+                    android:host="home_preface"
                     android:scheme="mamShare" />
             </intent-filter>
         </activity>
-        <activity android:name=".app.activity.HomeSpecialTopicActivity" />
-        <activity android:name=".app.activity.HomeDiscoverActivity" />
+        <activity android:name=".app.activity.RegisterActivity" />
+        <activity android:name=".app.activity.LoginActivity" />
+        <activity android:name=".app.activity.SettingActivity" />
+        <activity android:name=".app.activity.UserProfileActivity" />
         <activity
             android:name=".app.activity.HomeUserCenterActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@style/MyTheme" >
+            android:theme="@style/MyTheme">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -155,34 +272,18 @@
                     android:scheme="mamShare" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".app.activity.Html5Activity"
-            android:label="@string/title_activity_html5" >
-        </activity>
-        <activity
-            android:name=".app.activity.SplashActivity"
-            android:label="@string/title_activity_splash" >
-        </activity>
+        <activity android:name=".app.activity.Html5Activity" />
+        <activity android:name=".app.activity.SplashActivity" />
         <activity
             android:name=".app.activity.RegisterProfileActivity"
-            android:label="@string/title_activity_register_profile" >
-        </activity>
-        <activity
-            android:name=".app.activity.DiscoverSearchActivity"
-            android:label="@string/title_activity_discover_search" >
-        </activity>
-        <activity
-            android:name=".app.activity.SearchResultActivity"
-            android:label="@string/title_activity_search_result" >
-        </activity>
-        <activity
-            android:name=".app.activity.UserGuidanceListActivity"
-            android:label="@string/title_activity_user_guidance_list" >
-        </activity>
-        <activity
-            android:name=".app.activity.ChatActivity"
-            android:label="@string/title_activity_chat" >
-        </activity>
+            android:theme="@style/AppBaseTheme" />
+        <activity android:name=".app.activity.DiscoverSearchActivity" />
+        <activity android:name=".app.activity.SearchResultActivity" />
+        <activity android:name=".app.activity.UserEvaluateListActivity" />
+        <activity android:name=".app.activity.ChatActivity" />
+        <activity android:name=".app.activity.EvaluateDetailActivity" />
+        <activity android:name=".app.activity.RecommendLabelActivity" />
+        <activity android:name=".app.activity.LabelEvaluateListActivity" />
     </application>
 
 </manifest>

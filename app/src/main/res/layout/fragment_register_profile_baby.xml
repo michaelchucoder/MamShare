@@ -6,21 +6,75 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     tools:context="com.babyspace.mamshare.app.fragment.RegisterProfileBabyFragment">
+
+    <include
+        android:id="@+id/common_title"
+        layout="@layout/common_title_layout" />
+
     <TextView
-        android:id="@+id/btn_register_title"
+        android:id="@+id/btn_register_name_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RegisterProfileBabyFragment" />
+        android:layout_below="@+id/common_title"
+        android:layout_margin="30px"
+        android:text="给自己起个好听的名字吧" />
+
+    <LinearLayout
+        android:id="@+id/register_picker"
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:layout_below="@+id/btn_register_name_txt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200px"
+        android:orientation="horizontal">
+
+        <com.michael.library.widget.custom.DatePicker
+            android:id="@+id/long_date"
+            style="@android:style/Widget.Holo.TextView.SpinnerItem"
+            android:textSize="30px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_register_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_register_title"
-        android:background="@drawable/shape_rounded_rectangle_red"
+        android:layout_below="@+id/register_picker"
         android:layout_centerHorizontal="true"
-        android:text="baby下一步"
+        android:background="@drawable/shape_rounded_rectangle_red"
+        android:text="确定"
         android:textSize="40px" />
-
+    <Button
+        android:id="@+id/btn_register_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_register_next"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30px"
+        android:background="@drawable/shape_rounded_rectangle_red"
+        android:text="挑选"
+        android:textSize="40px" />
+    <Button
+        android:id="@+id/btn_register_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_register_day"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30px"
+        android:background="@drawable/shape_rounded_rectangle_red"
+        android:text="dialog"
+        android:textSize="40px" />
+    <Button
+        android:id="@+id/btn_register_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_register_dialog"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30px"
+        android:background="@drawable/shape_rounded_rectangle_red"
+        android:text="picker"
+        android:textSize="40px" />
 
 </RelativeLayout>

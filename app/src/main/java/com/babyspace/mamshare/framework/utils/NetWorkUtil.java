@@ -3,7 +3,7 @@ package com.babyspace.mamshare.framework.utils;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.util.Log;
+import com.michael.library.debug.L;
 
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -14,7 +14,7 @@ import java.util.Enumeration;
  * Created with IntelliJ IDEA.
  * User: junhai
  * Date: 13-1-18
- * Time: œ¬ŒÁ12:03
+ * Time: ‰∏ãÂçà12:03
  * To change this template use File | Settings | File Templates.
  */
 public class NetWorkUtil {
@@ -59,7 +59,7 @@ public class NetWorkUtil {
                 }
             }
         } catch (SocketException ex) {
-            Log.e("WifiPreference IpAddress", ex.toString());
+            L.e("WifiPreference IpAddress", ex.toString());
         }
         return null;
     }

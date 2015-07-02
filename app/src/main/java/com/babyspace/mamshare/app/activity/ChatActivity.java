@@ -59,7 +59,6 @@ public class ChatActivity extends BaseActivity {
 
         }
 
-
         mAdapter.notifyDataSetChanged();
     }
 }

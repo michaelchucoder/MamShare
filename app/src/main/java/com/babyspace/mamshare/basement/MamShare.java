@@ -13,6 +13,7 @@ import com.babyspace.mamshare.framework.utils.UIUtils;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
+import cn.jpush.android.api.JPushInterface;
 import de.greenrobot.event.EventBus;
 
 
@@ -70,7 +71,8 @@ public class MamShare extends BaseApplication {
         //forceUpdateActModel = new ForceUpdateActModel(this);
 
         // 初始化push推送服务
-        //TODO
+        JPushInterface.setDebugMode(true);    // 设置开启日志,发布时请关闭日志
+        JPushInterface.init(this);            // 初始化 JPush
 
         if (AppRuntime.shouldInit(getApplicationContext())) {
             // 初始化Runtime
@@ -109,9 +111,6 @@ public class MamShare extends BaseApplication {
         }
         if (UIUtils.getForegroundActivity() != null)
             UIUtils.getForegroundActivity().hideLoadingProgress();
-        // if (event.isShowTip) {
-        // Toast.makeText(this, event.msg, Toast.LENGTH_SHORT).show();
-        // }
     }
 
     public static Context getApplication() {

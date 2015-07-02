@@ -16,6 +16,9 @@ public class RegisterProfileActivity extends BaseActivity implements RegisterPro
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_profile);
 
+        if (getActionBar() != null) getActionBar().hide();
+
+
         if (findViewById(R.id.fragment_container) != null) {
 
             if (savedInstanceState != null) {

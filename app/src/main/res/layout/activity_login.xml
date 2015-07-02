@@ -1,0 +1,171 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pink_mama_bg"
+    tools:context="com.babyspace.mamshare.app.activity.LoginActivity">
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:id="@+id/rl_login_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/back"
+        android:layout_centerHorizontal="true"
+        android:background="@color/ripple_material_dark"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <LinearLayout
+            android:id="@+id/ll_login_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="手机号/邮箱"
+                android:textSize="30px" />
+
+            <EditText
+                android:id="@+id/edit_login_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/push"
+                android:text="请输入手机号或邮箱"
+                android:textSize="30px" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_login_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_login_account"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="密码"
+                android:textSize="30px" />
+
+            <EditText
+                android:id="@+id/edit_login_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="密码由6-16个字符组成"
+                android:textSize="30px" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_login_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_login_container"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20px"
+        android:background="@drawable/shape_rounded_rectangle_red"
+        android:text="登录"
+        android:textSize="40px" />
+
+    <Button
+        android:id="@+id/btn_register_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_login_submit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20px"
+        android:background="@drawable/shape_rounded_rectangle_red"
+        android:text="注册"
+        android:textSize="40px" />
+
+    <RelativeLayout
+        android:id="@+id/third_party_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_register_submit"
+        android:layout_marginTop="35px">
+
+        <TextView
+            android:id="@+id/tv_login_thirdparty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="20px"
+            android:text="第三方登录"
+            android:textColor="#676767"
+            android:textSize="22px" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/tv_login_thirdparty"
+            android:background="#dfe2e1" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tv_login_thirdparty"
+            android:background="#dfe2e1" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/third_party_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/third_party_title"
+        android:layout_marginBottom="35px"
+        android:layout_marginTop="35px">
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_login_wechat"
+                android:layout_width="90px"
+                android:layout_height="90px"
+
+                android:background="@drawable/login_wechat_icon" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_login_tencent"
+                android:layout_width="90px"
+                android:layout_height="90px"
+                android:background="@drawable/login_tencent_icon"
+                android:textSize="22px" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_login_sina"
+                android:layout_width="90px"
+                android:layout_height="90px"
+                android:background="@drawable/login_sina_icon" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
