@@ -54,10 +54,10 @@ public class WelcomeActivity extends BaseActivity {
 
         switch (view.getId()) {
             case R.id.btn_wel_register:
-                i.setClass(this, MamRegisterActivity.class);
+                i.setClass(this, RegisterActivity.class);
                 break;
             case R.id.btn_wel_login:
-                i.setClass(this, MamLoginActivity.class);
+                i.setClass(this, LoginActivity.class);
                 break;
         }
         startActivity(i);

@@ -12,7 +12,7 @@ import com.babyspace.mamshare.basement.BaseActivity;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class MamLoginActivity extends BaseActivity {
+public class LoginActivity extends BaseActivity {
     @InjectView(R.id.edit_login_account)
     EditText edit_login_account;
 
@@ -26,7 +26,7 @@ public class MamLoginActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mam_login);
+        setContentView(R.layout.activity_login);
     }
 
     @OnClick({R.id.btn_login_submit})

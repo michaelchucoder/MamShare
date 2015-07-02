@@ -13,7 +13,7 @@ import com.babyspace.mamshare.basement.BaseActivity;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class MamRegisterActivity extends BaseActivity {
+public class RegisterActivity extends BaseActivity {
     @InjectView(R.id.edit_phone)
     EditText edit_phone;
     @InjectView(R.id.edit_verify)
@@ -26,7 +26,7 @@ public class MamRegisterActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mam_register);
+        setContentView(R.layout.activity_register);
 
         edit_pwd.setHint(Html.fromHtml("<font size=\"3\" color=\"blue\">\n" +
                 "This is another paragraph.\n" +
