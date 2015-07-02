@@ -1,5 +1,6 @@
 package com.babyspace.mamshare.app.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -254,17 +255,18 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
     @Override
     public void onPageScrollStateChanged(int state) {
         if (lastState == 1 && state == 0) {
+            Intent i = new Intent();
+
             switch (pagePosition) {
                 case 0:
-                    Toast.makeText(this, "左", Toast.LENGTH_SHORT).show();
-
+                    i.setClass(this, Html5Activity.class);
                     break;
                 case 1:
-                    Toast.makeText(this, "右", Toast.LENGTH_SHORT).show();
-
+                    i.setClass(this, HomeUserCenterActivity.class);
                     break;
 
             }
+            startActivity(i);
 
         }
         lastState = state;
