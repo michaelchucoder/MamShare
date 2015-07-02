@@ -563,7 +563,6 @@ public class SplashActivity extends BaseActivity {
         }
     }
 
-
     //for receive customer msg from jpush server
     private MessageReceiver mMessageReceiver;
     public static final String MESSAGE_RECEIVED_ACTION = "com.example.jpushdemo.MESSAGE_RECEIVED_ACTION";
