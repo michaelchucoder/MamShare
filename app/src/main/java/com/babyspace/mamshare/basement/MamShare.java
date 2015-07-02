@@ -111,9 +111,6 @@ public class MamShare extends BaseApplication {
         }
         if (UIUtils.getForegroundActivity() != null)
             UIUtils.getForegroundActivity().hideLoadingProgress();
-        // if (event.isShowTip) {
-        // Toast.makeText(this, event.msg, Toast.LENGTH_SHORT).show();
-        // }
     }
 
     public static Context getApplication() {
