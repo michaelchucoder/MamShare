@@ -229,23 +229,6 @@
         <activity android:name=".app.activity.MamLoginActivity" />
         <activity android:name=".app.activity.SettingActivity" />
         <activity android:name=".app.activity.UserProfileActivity" />
-        <activity android:name=".app.activity.StrollSpecialTopicActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data
-                    android:host="stroll_special_topic"
-                    android:scheme="mamShare" />
-            </intent-filter>
-        </activity>
         <activity android:name=".app.activity.HomePrefaceActivity" />
         <activity android:name=".app.activity.HomeDiscoverActivity" />
         <activity
