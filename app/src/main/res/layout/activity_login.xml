@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#66ff6666"
+    android:background="@color/pink_mama_bg"
     tools:context="com.babyspace.mamshare.app.activity.LoginActivity">
 
     <Button
@@ -68,6 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/rl_login_container"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="20px"
         android:background="@drawable/shape_rounded_rectangle_red"
         android:text="登录"
         android:textSize="40px" />
@@ -82,4 +83,89 @@
         android:background="@drawable/shape_rounded_rectangle_red"
         android:text="注册"
         android:textSize="40px" />
+
+    <RelativeLayout
+        android:id="@+id/third_party_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_register_submit"
+        android:layout_marginTop="35px">
+
+        <TextView
+            android:id="@+id/tv_login_thirdparty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="20px"
+            android:text="第三方登录"
+            android:textColor="#676767"
+            android:textSize="22px" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/tv_login_thirdparty"
+            android:background="#dfe2e1" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tv_login_thirdparty"
+            android:background="#dfe2e1" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/third_party_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/third_party_title"
+        android:layout_marginBottom="35px"
+        android:layout_marginTop="35px">
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_login_wechat"
+                android:layout_width="90px"
+                android:layout_height="90px"
+
+                android:background="@drawable/login_wechat_icon" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_login_tencent"
+                android:layout_width="90px"
+                android:layout_height="90px"
+                android:background="@drawable/login_tencent_icon"
+                android:textSize="22px" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_login_sina"
+                android:layout_width="90px"
+                android:layout_height="90px"
+                android:background="@drawable/login_sina_icon" />
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>
