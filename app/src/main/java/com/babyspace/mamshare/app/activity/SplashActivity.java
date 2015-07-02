@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
@@ -170,6 +171,8 @@ public class SplashActivity extends BaseActivity {
     // 初始化 JPush。如果已经初始化，但没有登录成功，则执行重新登录。
     private void initPush() {
         JPushInterface.init(getApplicationContext());
+
+        registerMessageReceiver();
     }
 
 
@@ -560,12 +563,21 @@ public class SplashActivity extends BaseActivity {
         }
     }
 
+
     //for receive customer msg from jpush server
     private MessageReceiver mMessageReceiver;
-    public static final String MESSAGE_RECEIVED_ACTION = "com.babyspace.mamshare.MESSAGE_RECEIVED_ACTION";
+    public static final String MESSAGE_RECEIVED_ACTION = "com.example.jpushdemo.MESSAGE_RECEIVED_ACTION";
     public static final String KEY_TITLE = "title";
     public static final String KEY_MESSAGE = "message";
     public static final String KEY_EXTRAS = "extras";
+
+    public void registerMessageReceiver() {
+        mMessageReceiver = new MessageReceiver();
+        IntentFilter filter = new IntentFilter();
+        filter.setPriority(IntentFilter.SYSTEM_HIGH_PRIORITY);
+        filter.addAction(MESSAGE_RECEIVED_ACTION);
+        registerReceiver(mMessageReceiver, filter);
+    }
 
     public class MessageReceiver extends BroadcastReceiver {
 
@@ -582,5 +594,6 @@ public class SplashActivity extends BaseActivity {
             }
         }
     }
+
 
 }

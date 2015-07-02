@@ -97,7 +97,6 @@ public class JPushReceiver extends BroadcastReceiver {
                 } catch (JSONException e) {
 
                 }
-
             }
             context.sendBroadcast(msgIntent);
         }
