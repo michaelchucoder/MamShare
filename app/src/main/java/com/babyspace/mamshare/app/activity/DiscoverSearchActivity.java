@@ -6,6 +6,7 @@ import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.fragment.DiscoverSearchFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
 
+
 public class DiscoverSearchActivity extends BaseActivity {
 
     @Override
