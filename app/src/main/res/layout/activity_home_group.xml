@@ -46,36 +46,6 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/discover_layout"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/discover_image"
-                    android:layout_width="50px"
-                    android:layout_height="50px"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/tab_contacts_unselected" />
-
-                <TextView
-                    android:id="@+id/discover_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="发现"
-                    android:textColor="#82858b"
-                    android:textSize="30px" />
-            </LinearLayout>
-        </RelativeLayout>
-
-        <RelativeLayout
             android:id="@+id/userCenter_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"

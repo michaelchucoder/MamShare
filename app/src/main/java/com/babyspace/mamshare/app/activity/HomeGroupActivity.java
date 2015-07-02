@@ -26,15 +26,12 @@ public class HomeGroupActivity extends ActivityGroup {
     //TODO 因为不可抗拒的原因 似乎只能弃用fragmentManager 而用ActivityGroup 最后又解决Fragment缓存的问题了 囧
     public static final int PAGE_SPECIAL_TOPIC = 1001;
     private int page = PAGE_SPECIAL_TOPIC;
-    public static final int PAGE_DISCOVER = 1002;
     public static final int PAGE_USER_CENTER = 1003;
 
 
     @InjectView(R.id.specialTopic_image)
     ImageView specialTopicImage;
 
-    @InjectView(R.id.discover_image)
-    ImageView discoverImage;
 
     @InjectView(R.id.userCenter_image)
     ImageView userCenterImage;
@@ -42,8 +39,6 @@ public class HomeGroupActivity extends ActivityGroup {
     @InjectView(R.id.specialTopic_text)
     TextView specialTopicText;
 
-    @InjectView(R.id.discover_text)
-    TextView discoverText;
 
     @InjectView(R.id.userCenter_text)
     TextView userCenterText;
@@ -51,8 +46,6 @@ public class HomeGroupActivity extends ActivityGroup {
 
     @InjectView(R.id.specialTopic_layout)
     View specialTopic_layout;
-    @InjectView(R.id.discover_layout)
-    View discover_layout;
     @InjectView(R.id.userCenter_layout)
     View userCenter_layout;
     @InjectView(R.id.home_layout_container)
@@ -78,30 +71,12 @@ public class HomeGroupActivity extends ActivityGroup {
                 specialTopicImage.setImageResource(R.drawable.tab_message_selected);
                 specialTopicText.setTextColor(Color.WHITE);
 
-                discoverImage.setImageResource(R.drawable.tab_contacts_unselected);
-                discoverText.setTextColor(Color.parseColor("#82858b"));
-
                 userCenterImage.setImageResource(R.drawable.tab_setting_unselected);
                 userCenterText.setTextColor(Color.parseColor("#82858b"));
-                break;
-            case PAGE_DISCOVER:
-
-                specialTopicImage.setImageResource(R.drawable.tab_message_unselected);
-                specialTopicText.setTextColor(Color.parseColor("#82858b"));
-
-                userCenterImage.setImageResource(R.drawable.tab_setting_unselected);
-                userCenterText.setTextColor(Color.parseColor("#82858b"));
-
-                discoverImage.setImageResource(R.drawable.tab_contacts_selected);
-                discoverText.setTextColor(Color.WHITE);
-
                 break;
             case PAGE_USER_CENTER:
                 specialTopicImage.setImageResource(R.drawable.tab_message_unselected);
                 specialTopicText.setTextColor(Color.parseColor("#82858b"));
-
-                discoverImage.setImageResource(R.drawable.tab_contacts_unselected);
-                discoverText.setTextColor(Color.parseColor("#82858b"));
 
                 userCenterImage.setImageResource(R.drawable.tab_setting_selected);
                 userCenterText.setTextColor(Color.WHITE);
@@ -117,9 +92,6 @@ public class HomeGroupActivity extends ActivityGroup {
         switch (page) {
             case PAGE_SPECIAL_TOPIC:
                 view = getLocalActivityManager().startActivity("item0", new Intent(getApplicationContext(), HomePrefaceActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)).getDecorView();
-                break;
-            case PAGE_DISCOVER:
-                view = getLocalActivityManager().startActivity("item1", new Intent(getApplicationContext(), HomeDiscoverActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)).getDecorView();
                 break;
             case PAGE_USER_CENTER:
                 view = getLocalActivityManager().startActivity("item2", new Intent(getApplicationContext(), HomeUserCenterActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)).getDecorView();
@@ -161,24 +133,21 @@ public class HomeGroupActivity extends ActivityGroup {
     }
 
 
-    @OnClick({R.id.specialTopic_layout, R.id.discover_layout, R.id.userCenter_layout})
+    @OnClick({R.id.specialTopic_layout, R.id.userCenter_layout})
     public void doOnClick(View view) {
         switch (view.getId()) {
             case R.id.specialTopic_layout:
-                if(page == PAGE_SPECIAL_TOPIC) return;
+                if (page == PAGE_SPECIAL_TOPIC) return;
                 page = PAGE_SPECIAL_TOPIC;
                 break;
-            case R.id.discover_layout:
-                if(page == PAGE_DISCOVER) return;
-                page = PAGE_DISCOVER;
-                break;
             case R.id.userCenter_layout:
-                if(page == PAGE_USER_CENTER) return;
+                if (page == PAGE_USER_CENTER) return;
                 page = PAGE_USER_CENTER;
                 break;
         }
         changeContainerView();
     }
+
     public void onEventMainThread(HomeFloatLayerEvent event) {
         L.d(OkHttpExecutor.TAG, "onEventMainThread->" + event.getData().getActivityEnable());
 

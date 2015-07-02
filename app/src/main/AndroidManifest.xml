@@ -250,7 +250,6 @@
         <activity android:name=".app.activity.LoginActivity" />
         <activity android:name=".app.activity.SettingActivity" />
         <activity android:name=".app.activity.UserProfileActivity" />
-        <activity android:name=".app.activity.HomeDiscoverActivity" />
         <activity
             android:name=".app.activity.HomeUserCenterActivity"
             android:launchMode="singleTask"

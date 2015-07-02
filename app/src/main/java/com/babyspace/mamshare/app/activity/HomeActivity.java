@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
-import com.babyspace.mamshare.app.fragment.MamDiscoverFragment;
 import com.babyspace.mamshare.app.fragment.MamSpecialTopicFragment;
 import com.babyspace.mamshare.app.fragment.MamUserCenterFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
@@ -19,15 +18,11 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     private MamSpecialTopicFragment specialTopicFragment;
 
-    private MamDiscoverFragment discoverFragment;
 
     private MamUserCenterFragment userCenterFragment;
 
 
     private View specialTopicLayout;
-
-
-    private View discoverLayout;
 
 
     private View userCenterLayout;
@@ -37,10 +32,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
      */
     private ImageView specialTopicImage;
 
-    /**
-     * 在Tab布局上显示标签的控件
-     */
-    private ImageView discoverImage;
 
     /**
      * 在Tab布局上显示妈妈说图标的控件
@@ -51,11 +42,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
      * 在Tab布局上显示消息标题的控件
      */
     private TextView specialTopicText;
-
-    /**
-     * 在Tab布局上显示联系人标题的控件
-     */
-    private TextView discoverText;
 
     /**
      * 在Tab布局上显示设置标题的控件
@@ -84,16 +70,12 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
      */
     private void initViews() {
         specialTopicLayout = findViewById(R.id.specialTopic_layout);
-        discoverLayout = findViewById(R.id.discover_layout);
         userCenterLayout = findViewById(R.id.userCenter_layout);
         specialTopicImage = (ImageView) findViewById(R.id.specialTopic_image);
-        discoverImage = (ImageView) findViewById(R.id.discover_image);
         userCenterImage = (ImageView) findViewById(R.id.userCenter_image);
         specialTopicText = (TextView) findViewById(R.id.specialTopic_text);
-        discoverText = (TextView) findViewById(R.id.discover_text);
         userCenterText = (TextView) findViewById(R.id.userCenter_text);
         specialTopicLayout.setOnClickListener(this);
-        discoverLayout.setOnClickListener(this);
         userCenterLayout.setOnClickListener(this);
     }
 
@@ -144,19 +126,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 }
                 break;
             case 1:
-                // 当点击了联系人tab时，改变控件的图片和文字颜色
-                discoverImage.setImageResource(R.drawable.tab_contacts_selected);
-                discoverText.setTextColor(Color.WHITE);
-                if (discoverFragment == null) {
-                    // 如果MamDiscoverFragment为空，则创建一个并添加到界面上
-                    discoverFragment = new MamDiscoverFragment();
-                    transaction.add(R.id.content, discoverFragment);
-                } else {
-                    // 如果MamDiscoverFragment不为空，则直接将它显示出来
-                    transaction.show(discoverFragment);
-                }
-                break;
-            case 2:
             default:
                 // 当点击了设置tab时，改变控件的图片和文字颜色
                 userCenterImage.setImageResource(R.drawable.tab_setting_selected);
@@ -180,8 +149,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private void clearSelection() {
         specialTopicImage.setImageResource(R.drawable.tab_message_unselected);
         specialTopicText.setTextColor(Color.parseColor("#82858b"));
-        discoverImage.setImageResource(R.drawable.tab_contacts_unselected);
-        discoverText.setTextColor(Color.parseColor("#82858b"));
         userCenterImage.setImageResource(R.drawable.tab_setting_unselected);
         userCenterText.setTextColor(Color.parseColor("#82858b"));
     }
@@ -194,9 +161,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private void hideFragments(FragmentTransaction transaction) {
         if (specialTopicFragment != null) {
             transaction.hide(specialTopicFragment);
-        }
-        if (discoverFragment != null) {
-            transaction.hide(discoverFragment);
         }
         if (userCenterFragment != null) {
             transaction.hide(userCenterFragment);
