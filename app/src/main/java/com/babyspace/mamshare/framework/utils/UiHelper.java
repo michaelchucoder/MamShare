@@ -25,11 +25,11 @@ public class UiHelper {
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
         builder.setTitle(title);
         builder.setMessage(message);
-        pButton = pButton == null ? "确定" : pButton;
+        pButton = pButton == null ? "纭畾" : pButton;
         if (pListener != null) {
             builder.setPositiveButton(pButton, pListener);
         }
-        nButton = nButton == null ? "取消" : nButton;
+        nButton = nButton == null ? "鍙栨秷" : nButton;
         if (nListener != null) {
             builder.setNegativeButton(nButton, nListener);
         }
@@ -40,10 +40,10 @@ public class UiHelper {
 
     public static void showSystemDialog(Context mContext, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-        builder.setTitle("系统提示");
+        builder.setTitle("绯荤粺鎻愮ず");
         builder.setMessage(message);
 
-        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("纭畾", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {

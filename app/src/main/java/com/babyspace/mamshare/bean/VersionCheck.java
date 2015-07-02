@@ -3,18 +3,18 @@ package com.babyspace.mamshare.bean;
 import java.io.Serializable;
 
 public class VersionCheck implements Serializable {
-    public int versionState; // µ±Ç°°æ±¾×´Ì¬ 0Îª×îĞÂ°æ±¾ 1µ±Ç°·Ç×îĞÂ°æ±¾£¬UI°üº¬È¥¡°¸üĞÂ¡±°´Å¥ÒÔ¼°¡±¾Ü¾ø¸üĞÂ°´Å¥¡° 2 µ±Ç°·Ç×îĞÂ°æ±¾²¢ÇÒÎªÍ£ÓÃ°æ±¾£¬UIÖ»°üº¬Ò»¸öÈ¥¡°¸üĞÂ¡±°´Å¥
-    public String updateTitle; // °æ±¾¸üĞÂÌáÊ¾±êÌâ
-    public String updateContent; // °æ±¾¸üĞÂÌáÊ¾ÄÚÈİ
-    public String updateTip; // °æ±¾¸üĞÂÇ¿ÖÆÉı¼¶ÌáÊ¾Óï µ±versionState=2Çé¿öÏÂÓĞÖµ
-    public String filePath; // °²×¿°üÏÂÔØµØÖ·
-    public int isHaveAdvertisingImg; // ÊÇ·ñº¬ÓĞ¹ã¸æÍ¼ 1ÓĞ 0·ñ
-    public String advertisingImgUrl; // ¹ã¸æÍ¼Æ¬µØÖ·
-    public int advertisingInterval; // ÏÔÊ¾¹ã¸æµÄÃëÊı
-    public String backgroundColorValue; // Ìø¹ı°´Å¥±³¾°ÑÕÉ« #ffdfc2
-    public float transparency; // Ìø¹ı°´Å¥Í¸Ã÷¶È EG 0.6
-    public String fontColorValue; // Ìø¹ı°´Å¥ÎÄ×ÖÑÕÉ« #cc1d00
-    public int isShowBotton; // ÊÇ·ñÏÔÊ¾Ìø¹ı°´Å¥ 1ÏÔÊ¾ 0 ²»ÏÔÊ¾
+    public int versionState;
+    public String updateTitle;
+    public String updateContent; // ç‰ˆæœ¬æ›´æ–°æç¤ºå†…å®¹
+    public String updateTip; // ç‰ˆæœ¬æ›´æ–°å¼ºåˆ¶å‡çº§æç¤ºè¯­ å½“versionState=2æƒ…å†µä¸‹æœ‰å€¼
+    public String filePath; // å®‰å“åŒ…ä¸‹è½½åœ°å€
+    public int isHaveAdvertisingImg; // æ˜¯å¦å«æœ‰å¹¿å‘Šå›¾ 1æœ‰ 0å¦
+    public String advertisingImgUrl; // å¹¿å‘Šå›¾ç‰‡åœ°å€
+    public int advertisingInterval; // æ˜¾ç¤ºå¹¿å‘Šçš„ç§’æ•°
+    public String backgroundColorValue; // è·³è¿‡æŒ‰é’®èƒŒæ™¯é¢œè‰² #ffdfc2
+    public float transparency; // è·³è¿‡æŒ‰é’®é€æ˜åº¦ EG 0.6
+    public String fontColorValue; // è·³è¿‡æŒ‰é’®æ–‡å­—é¢œè‰² #cc1d00
+    public int isShowBotton; // æ˜¯å¦æ˜¾ç¤ºè·³è¿‡æŒ‰é’® 1æ˜¾ç¤º 0 ä¸æ˜¾ç¤º
 
     @Override
     public String toString() {
