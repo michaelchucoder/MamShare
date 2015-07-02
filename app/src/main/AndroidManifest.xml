@@ -225,11 +225,31 @@
                     android:scheme="mamShare" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".app.activity.HomePrefaceActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="home_preface"
+                    android:scheme="mamShare" />
+            </intent-filter>
+        </activity>
         <activity android:name=".app.activity.MamRegisterActivity" />
         <activity android:name=".app.activity.MamLoginActivity" />
         <activity android:name=".app.activity.SettingActivity" />
         <activity android:name=".app.activity.UserProfileActivity" />
-        <activity android:name=".app.activity.HomePrefaceActivity" />
         <activity android:name=".app.activity.HomeDiscoverActivity" />
         <activity
             android:name=".app.activity.HomeUserCenterActivity"
