@@ -6,13 +6,13 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.babyspace.mamshare.app.activity.UserGuidanceListActivity">
+    tools:context="com.babyspace.mamshare.app.activity.UserEvaluateListActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="某用户发表攻略列表
-        \n\n1、展示元素同发现-推荐攻略列表，瀑布流\n\n
+        android:text="某用户发评测列表
+        \n\n1、展示元素同发现-某用户发评测列表，瀑布流\n\n
         2、向上拖动时顶部banner逐渐隐为bar" />
 
 </RelativeLayout>

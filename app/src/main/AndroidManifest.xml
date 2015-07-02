@@ -276,7 +276,7 @@
             android:theme="@style/AppBaseTheme" />
         <activity android:name=".app.activity.DiscoverSearchActivity" />
         <activity android:name=".app.activity.SearchResultActivity" />
-        <activity android:name=".app.activity.UserGuidanceListActivity" />
+        <activity android:name=".app.activity.UserEvaluateListActivity" />
         <activity android:name=".app.activity.ChatActivity" />
         <activity
             android:name=".app.activity.EvaluateDetailActivity"
@@ -285,6 +285,10 @@
         <activity
             android:name=".app.activity.RecommendLabelActivity"
             android:label="@string/title_activity_recommend_label" >
+        </activity>
+        <activity
+            android:name=".app.activity.LabelEvaluateListActivity"
+            android:label="@string/title_activity_label_evaluate_list" >
         </activity>
     </application>
 
