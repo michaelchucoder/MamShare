@@ -23,6 +23,12 @@ android {
 }
 
 dependencies {
+
+    compile 'com.android.support:support-v4:22.1.1'
+    compile 'com.android.support:appcompat-v7:22.1.1'
+    compile 'com.google.code.gson:gson:2.3.1'
+    compile 'com.viewpagerindicator:library:2.4.1@aar'
+
     compile files('libs/butterknife-6.1.0.jar')
     compile files('libs/eventbus-2.4.0.jar')
     compile files('libs/okhttp-2.4.0.jar')
@@ -41,8 +47,5 @@ dependencies {
     compile files('libs/open_sdk.jar')
     compile files('libs/weibosdkcore.jar')
     compile files('libs/jpush-sdk-release1.7.5.jar')
-    compile 'com.viewpagerindicator:library:2.4.1@aar'
-    compile 'com.android.support:appcompat-v7:22.1.1'
-    compile 'com.google.code.gson:gson:2.3.1'
-    compile 'com.android.support:support-v4:22.1.1'
+
 }
