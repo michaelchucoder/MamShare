@@ -282,6 +282,10 @@
             android:name=".app.activity.EvaluateDetailActivity"
             android:label="@string/title_activity_evaluate_detail" >
         </activity>
+        <activity
+            android:name=".app.activity.RecommendLabelActivity"
+            android:label="@string/title_activity_recommend_label" >
+        </activity>
     </application>
 
 </manifest>

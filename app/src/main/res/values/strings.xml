@@ -14,5 +14,6 @@
     <string name="title_activity_user_guidance_list">UserGuidanceListActivity</string>
     <string name="title_activity_chat">ChatActivity</string>
     <string name="title_activity_evaluate_detail">EvaluateDetailActivity</string>
+    <string name="title_activity_recommend_label">RecommendLabelActivity</string>
 
 </resources>

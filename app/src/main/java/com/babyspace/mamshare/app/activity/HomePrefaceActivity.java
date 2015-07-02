@@ -258,7 +258,7 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
 
             switch (pagePosition) {
                 case 0:
-                    i.setClass(this, Html5Activity.class);
+                    i.setClass(this, RecommendLabelActivity.class);
                     break;
                 case 1:
                     i.setClass(this, HomeUserCenterActivity.class);
