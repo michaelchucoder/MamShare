@@ -26,6 +26,8 @@ public class HomeEvaluateListFragment extends BaseFragment {
     @Override
     public void initView() {
 
+
+
     }
 
 

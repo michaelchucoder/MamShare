@@ -14,8 +14,6 @@ import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.TabPageAdapter;
 import com.babyspace.mamshare.app.fragment.HomeEvaluateListFragment;
 import com.babyspace.mamshare.app.fragment.HomeGuidanceListFragment;
-import com.babyspace.mamshare.app.fragment.UserCenterCollectFragment;
-import com.babyspace.mamshare.app.fragment.UserCenterShareFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.michael.library.widget.roundimage.RoundImageView;
 import com.viewpagerindicator.TabPageIndicator;
