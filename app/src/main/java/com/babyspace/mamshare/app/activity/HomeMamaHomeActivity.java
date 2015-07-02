@@ -16,7 +16,7 @@ import com.babyspace.mamshare.basement.BaseActivity;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class HomeSpecialTopicActivity extends BaseActivity implements ViewPager.OnPageChangeListener {
+public class HomeMamaHomeActivity extends BaseActivity implements ViewPager.OnPageChangeListener {
     // 加上fragment
     @InjectView(R.id.tab_guidance)
     Button tab_guidance;
@@ -35,7 +35,7 @@ public class HomeSpecialTopicActivity extends BaseActivity implements ViewPager.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_special_topic);
+        setContentView(R.layout.activity_mama_home);
         //strollFancyCoverFlowAdapter = new StrollFancyCoverFlowAdapter(this);
         initView();
 

@@ -116,7 +116,7 @@ public class HomeGroupActivity extends ActivityGroup {
         View view;
         switch (page) {
             case PAGE_SPECIAL_TOPIC:
-                view = getLocalActivityManager().startActivity("item0", new Intent(getApplicationContext(), HomeSpecialTopicActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)).getDecorView();
+                view = getLocalActivityManager().startActivity("item0", new Intent(getApplicationContext(), HomeMamaHomeActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)).getDecorView();
                 break;
             case PAGE_DISCOVER:
                 view = getLocalActivityManager().startActivity("item1", new Intent(getApplicationContext(), HomeDiscoverActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)).getDecorView();
@@ -125,7 +125,7 @@ public class HomeGroupActivity extends ActivityGroup {
                 view = getLocalActivityManager().startActivity("item2", new Intent(getApplicationContext(), HomeUserCenterActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)).getDecorView();
                 break;
             default:
-                view = getLocalActivityManager().startActivity("item1", new Intent(getApplicationContext(), HomeSpecialTopicActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)).getDecorView();
+                view = getLocalActivityManager().startActivity("item1", new Intent(getApplicationContext(), HomeMamaHomeActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)).getDecorView();
                 break;
 
         }

@@ -251,7 +251,7 @@
                     android:scheme="mamShare" />
             </intent-filter>
         </activity>
-        <activity android:name=".app.activity.HomeSpecialTopicActivity" />
+        <activity android:name=".app.activity.HomeMamaHomeActivity" />
         <activity android:name=".app.activity.HomeDiscoverActivity" />
         <activity
             android:name=".app.activity.HomeUserCenterActivity"
