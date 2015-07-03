@@ -221,7 +221,6 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
 
         adapter.refresh(data);
 
-
     }
 
     @Override
