@@ -34,11 +34,6 @@ public class AppRuntime {
     public static String token;
 
     /**
-     * 消息推送跳转，必须结合action和scheme来判断，action==ACTION_WEB跳转h5，其他凭scheme跳转
-     */
-    public static String ACTION_WEB = "h5page";
-
-    /**
      * 接口
      */
     public static HashMap<String, String> INTERFACEVERSIONS = new HashMap<String, String>();
@@ -98,19 +93,6 @@ public class AppRuntime {
         }
     }
 
-    /**
-     * 根据action 取得接口version
-     *
-     * @param action
-     * @return
-     */
-    public static String getINTERFACEVERSION(String action) {
-        String iv = INTERFACEVERSIONS.get(action);
-
-        if (iv != null)
-            return iv;
-        return DEFALUT_INTERFACEVERSION;
-    }
 
     /**
      * 用户是否登录
