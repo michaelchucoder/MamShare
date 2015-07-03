@@ -82,7 +82,7 @@
             android:value="C_youmeng" />
         <meta-data
             android:name="JPUSH_APPKEY"
-            android:value="您应用的Appkey" />
+            android:value="2044f03502e0094de957b113" />
 
         <!-- 极光推送 -->
 
@@ -232,6 +232,27 @@
             android:theme="@style/MyTheme">
 
             <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="home_preface"
+                    android:scheme="mamShare" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".app.activity.SplashActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -243,7 +264,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="home_preface"
+                    android:host="home_splash"
                     android:scheme="mamShare" />
             </intent-filter>
         </activity>
@@ -273,7 +294,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".app.activity.Html5Activity" />
-        <activity android:name=".app.activity.SplashActivity" />
         <activity
             android:name=".app.activity.RegisterProfileActivity"
             android:theme="@style/AppBaseTheme" />

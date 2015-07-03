@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 
+import android.view.View;
 import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
@@ -42,6 +43,7 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
+import butterknife.OnClick;
 import cn.jpush.android.api.JPushInterface;
 
 public class SplashActivity extends BaseActivity {
@@ -55,11 +57,10 @@ public class SplashActivity extends BaseActivity {
     private static final int MESSAGE_DOWNLOAD_OK = 3; // 下载成功
     private static final int SENDBRODCAST_INTERNET_OK = 4; // 广播接收到网络状态为ok
     private static final int SENDBRODCAST_INTERNET_NO = 5; // 广播接收到网络状态为no
-    private static int threadCount = 3; // 线程个数
     private static int runningThread = 3;
     private static String filePath = ""; // 手机储存卡
     private static String fileName = "";
-    private static String M6goFile = "";
+    private static String MamaFile = "";
     private final int MESSAGE_WHAT_OK = 100;
     private final int MESSAGE_WHAT = 101;
     @SuppressLint("HandlerLeak")
@@ -99,8 +100,6 @@ public class SplashActivity extends BaseActivity {
     /**
      * SDK服务是否启动
      */
-    private boolean tIsRunning = true;
-    private Context mContext = null;
     private VersionCheck versionCheck = new VersionCheck();
     private long length; // 网络文件的长度
     private ProgressDialog progressDialog;
@@ -180,6 +179,8 @@ public class SplashActivity extends BaseActivity {
     protected void onResume() {
         isForeground = true;
         super.onResume();
+        JPushInterface.onResume(this);
+
     }
 
 
@@ -187,8 +188,9 @@ public class SplashActivity extends BaseActivity {
     protected void onPause() {
         isForeground = false;
         super.onPause();
-    }
+        JPushInterface.onPause(this);
 
+    }
 
     @Override
     protected void onDestroy() {
@@ -380,11 +382,11 @@ public class SplashActivity extends BaseActivity {
                     // 读取临时文件的内容
                     FileInputStream fis = new FileInputStream(tempFile);
                     byte[] temp = new byte[1024];
-                    int leng = fis.read(temp);
-                    String downLoadLen = new String(temp, 0, leng);
+                    int len = fis.read(temp);
+                    String downLoadLen = new String(temp, 0, len);
                     int downLoadLenInt = Integer.parseInt(downLoadLen);
-                    int alreadyDownLoatInt = downLoadLenInt - startIndex;
-                    currentProgress += alreadyDownLoatInt;
+                    int alreadyDownLoadInt = downLoadLenInt - startIndex;
+                    currentProgress += alreadyDownLoadInt;
                     startIndex = downLoadLenInt; // 修改下载的真实的开始位置
                     fis.close();
 
@@ -394,7 +396,7 @@ public class SplashActivity extends BaseActivity {
                 URL url = new URL(path);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");
-                // 重要(五颗星):请求服务器下载部分的文件，指定文件的位置
+                // 重要:请求服务器下载部分的文件，指定文件的位置
                 conn.addRequestProperty("Range", "bytes=" + startIndex + "-" + endIndex);
 
                 L.i(TAG, "线程:文件真实的下载位置----->" + startIndex + "------" + endIndex);
@@ -459,8 +461,8 @@ public class SplashActivity extends BaseActivity {
             versionCheck = event.getData();
             if (!TextUtils.isEmpty(versionCheck.filePath)) {
                 fileName = versionCheck.filePath.substring(versionCheck.filePath.lastIndexOf("/") + 1, versionCheck.filePath.lastIndexOf('?'));
-                M6goFile = versionCheck.filePath.substring(versionCheck.filePath.lastIndexOf("/") + 1, versionCheck.filePath.lastIndexOf("apk") - 1);
-                filePath = Environment.getExternalStorageDirectory().getPath() + "/" + M6goFile;
+                MamaFile = versionCheck.filePath.substring(versionCheck.filePath.lastIndexOf("/") + 1, versionCheck.filePath.lastIndexOf("apk") - 1);
+                filePath = Environment.getExternalStorageDirectory().getPath() + "/" + MamaFile;
                 L.i(TAG, "sd卡目录" + filePath);
             }
             // sdCardFilePath =
@@ -548,7 +550,6 @@ public class SplashActivity extends BaseActivity {
                                     downLoadProgress();
                                     downLoadApk(path);
                                 }
-
                             }
 
                         }).show();
@@ -594,5 +595,17 @@ public class SplashActivity extends BaseActivity {
         }
     }
 
+
+    @OnClick({R.id.go_preface})
+    public void doOnClick(View view) {
+        Intent i = new Intent();
+
+        switch (view.getId()) {
+            case R.id.go_preface:
+                i.setClass(this, HomePrefaceActivity.class);
+                break;
+        }
+        startActivity(i);
+    }
 
 }

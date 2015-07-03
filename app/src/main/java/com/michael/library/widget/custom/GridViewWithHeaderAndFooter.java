@@ -27,6 +27,7 @@ import java.util.ArrayList;
  * Time: 10:25
  * To change this template use File | Settings | File and Code Templates.
  */
+
 public class GridViewWithHeaderAndFooter extends GridView {
 
     public static boolean DEBUG = false;
