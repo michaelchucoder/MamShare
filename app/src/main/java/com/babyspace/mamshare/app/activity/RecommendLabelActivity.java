@@ -1,6 +1,5 @@
 package com.babyspace.mamshare.app.activity;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -18,6 +17,7 @@ import com.babyspace.mamshare.adapter.GridViewSearchAdapter;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.babyspace.mamshare.bean.HomeFloatLayerEvent;
 import com.babyspace.mamshare.commons.UrlConstants;
+import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.library.debug.L;
 import com.michael.library.widget.custom.GridViewWithHeaderAndFooter;
@@ -48,10 +48,11 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
     List<String> data;
 
     private int firstVisiblePosition;
-    private int BACK_TOP_COUNT = 5;
+    private final int BACK_TOP_COUNT = 5;
 
-    private final int NUM = 3;
-    private int start = 0;
+    private JsonObject queryParameter;
+    private final int queryNum = 10;
+    private int queryStart = 0;
     private int queryCount = 0;
     private boolean isRefreshAdd = true;
     private boolean isMoreData = true;
@@ -146,8 +147,16 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
         footerProgressBar.setVisibility(View.VISIBLE);
         footerText.setText("正在加载...");
 
-        showLoadingProgress();
-        OkHttpExecutor.query(UrlConstants.HomeFloatLayerActivity, HomeFloatLayerEvent.class, false, this);
+        // 如果是更新策略 则 Start为置为0
+        if (!isRefreshAdd) queryStart = 0;
+
+        queryParameter = new JsonObject();
+
+        queryParameter.addProperty("num", queryNum);
+        queryParameter.addProperty("start", queryStart);
+
+        //showLoadingProgress();
+        OkHttpExecutor.query(UrlConstants.HomeFloatLayerActivity, queryParameter, HomeFloatLayerEvent.class, false, this);
 
     }
 
@@ -178,19 +187,18 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
         List<String> responseData = new ArrayList<>();
 
         if (queryCount <= 6) {
-            for (int i = 0; i < NUM; i++) {
-                responseData.add("tempData" + i);
+            for (int i = 0; i < queryNum; i++) {
+                responseData.add("responseData " + queryCount + " i " + i);
             }
 
         } else {
-            for (int i = 0; i < 1; i++) {
-                responseData.add("tempData" + i);
+            for (int i = 0; i < queryNum-1; i++) {
+                responseData.add("LastData " + queryCount + " i " + i);
             }
 
         }
 
-        if (responseData.size() < NUM) {
-            // 已经没有item了
+        if (responseData.size() < queryNum) {
             footerProgressBar.setVisibility(View.INVISIBLE);
             footerText.setText("本次探险已经结束，暂时没有更多内容了呢~");
             isMoreData = false;
@@ -199,7 +207,16 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
             footerText.setText("");
         }
 
-        data.addAll(responseData);
+        if (isRefreshAdd) {
+            queryStart += queryNum;
+            data.addAll(responseData);
+            isRefreshAdd = false;
+        } else {
+            data = responseData;
+            // 有可能刚刷新完 又上滑刷新添加
+            isMoreData = true;
+            queryStart += queryNum;
+        }
 
         adapter.refresh(data);
 
