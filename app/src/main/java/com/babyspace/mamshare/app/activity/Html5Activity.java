@@ -7,6 +7,7 @@ import com.babyspace.mamshare.basement.BaseActivity;
 
 public class Html5Activity extends BaseActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

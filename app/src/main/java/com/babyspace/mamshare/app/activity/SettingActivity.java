@@ -13,6 +13,7 @@ public class SettingActivity extends BaseActivity {
     @InjectView(R.id.common_title_text)
     TextView common_title_text;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
