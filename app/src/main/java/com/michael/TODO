@@ -1,0 +1,4 @@
+1, ORM 系统
+2, 写成类似于麦乐购 content provider
+3, List<T> 万能adapter
+4, 是否登录     token  interfaceToken
