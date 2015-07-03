@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="30px"
-            android:background="@drawable/shape_rounded_rectangle_red"
+            android:background="@drawable/shape_rounded_rectangle"
             android:text="退出登录"
             android:textSize="30px" />
     </LinearLayout>

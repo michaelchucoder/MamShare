@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:text="结果为空请点击重试"
         android:layout_centerInParent="true"
-        android:background="@drawable/shape_rounded_rectangle_red"
+        android:background="@drawable/shape_rounded_rectangle"
 
         />
 

@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50px"
-        android:background="@drawable/shape_rounded_rectangle_red"
+        android:background="@drawable/shape_rounded_rectangle"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:paddingBottom="80px">
@@ -38,7 +38,7 @@
                 android:id="@+id/btn_left_dl"
                 android:layout_width="191px"
                 android:layout_height="68px"
-                android:background="@drawable/shape_rounded_rectangle_red"
+                android:background="@drawable/shape_rounded_rectangle"
                 android:text="左面"
                 android:textColor="@color/white"
                 android:textSize="26px" />
@@ -48,7 +48,7 @@
                 android:layout_width="191px"
                 android:layout_height="68px"
                 android:layout_marginLeft="10px"
-                android:background="@drawable/shape_rounded_rectangle_red"
+                android:background="@drawable/shape_rounded_rectangle"
                 android:text="右面"
                 android:textColor="#333333"
                 android:textSize="26px" />

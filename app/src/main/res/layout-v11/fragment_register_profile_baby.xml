@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/register_picker"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/shape_rounded_rectangle_red"
+        android:background="@drawable/shape_rounded_rectangle"
         android:text="确定"
         android:textSize="40px" />
 

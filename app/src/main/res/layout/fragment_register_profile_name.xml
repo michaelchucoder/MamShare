@@ -40,7 +40,7 @@
         android:layout_below="@+id/ll_register_name"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20px"
-        android:background="@drawable/shape_rounded_rectangle_red"
+        android:background="@drawable/shape_rounded_rectangle"
         android:text="下一步"
         android:textSize="40px" />
 

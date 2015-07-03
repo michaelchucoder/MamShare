@@ -47,7 +47,7 @@
             android:layout_below="@+id/user_id_show"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25px"
-            android:background="@drawable/shape_rounded_rectangle_red"
+            android:background="@drawable/shape_rounded_rectangle"
             android:text="我要投稿" />
 
 
