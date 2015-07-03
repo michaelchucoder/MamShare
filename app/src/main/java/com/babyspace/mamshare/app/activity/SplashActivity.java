@@ -169,9 +169,9 @@ public class SplashActivity extends BaseActivity {
 
     // 初始化 JPush。如果已经初始化，但没有登录成功，则执行重新登录。
     private void initPush() {
-        JPushInterface.init(getApplicationContext());
-
         registerMessageReceiver();
+
+        JPushInterface.init(getApplicationContext());
     }
 
 

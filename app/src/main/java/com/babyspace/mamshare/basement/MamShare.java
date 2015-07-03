@@ -10,6 +10,7 @@ import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.AppRuntime;
 import com.babyspace.mamshare.framework.eventbus.HttpErrorEvent;
 import com.babyspace.mamshare.framework.utils.UIUtils;
+import com.michael.library.debug.L;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
@@ -26,6 +27,7 @@ import de.greenrobot.event.EventBus;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class MamShare extends BaseApplication {
+    private static final String TAG = "JPush";
 
 
     private static Context mInstance;
@@ -71,6 +73,7 @@ public class MamShare extends BaseApplication {
         //forceUpdateActModel = new ForceUpdateActModel(this);
 
         // 初始化push推送服务
+        L.d(TAG,"MamShareApplication-onCreate");
         JPushInterface.setDebugMode(true);    // 设置开启日志,发布时请关闭日志
         JPushInterface.init(this);            // 初始化 JPush
 

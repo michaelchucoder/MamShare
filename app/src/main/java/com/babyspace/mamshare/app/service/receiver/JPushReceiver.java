@@ -5,9 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.babyspace.mamshare.app.activity.SplashActivity;
+import com.michael.library.debug.L;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,24 +28,24 @@ public class JPushReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Bundle bundle = intent.getExtras();
-        Log.d(TAG, "[JPushReceiver] onReceive - " + intent.getAction() + ", extras: " + printBundle(bundle));
+        L.d(TAG, "[JPushReceiver] onReceive - " + intent.getAction() + ", extras: " + printBundle(bundle));
 
         if (JPushInterface.ACTION_REGISTRATION_ID.equals(intent.getAction())) {
             String regId = bundle.getString(JPushInterface.EXTRA_REGISTRATION_ID);
-            Log.d(TAG, "[JPushReceiver] 接收Registration Id : " + regId);
+            L.d(TAG, "[JPushReceiver] 接收Registration Id : " + regId);
             //TODO send the Registration Id to your server...
 
         } else if (JPushInterface.ACTION_MESSAGE_RECEIVED.equals(intent.getAction())) {
-            Log.d(TAG, "[JPushReceiver] 接收到推送下来的自定义消息: " + bundle.getString(JPushInterface.EXTRA_MESSAGE));
+            L.d(TAG, "[JPushReceiver] 接收到推送下来的自定义消息: " + bundle.getString(JPushInterface.EXTRA_MESSAGE));
             processCustomMessage(context, bundle);
 
         } else if (JPushInterface.ACTION_NOTIFICATION_RECEIVED.equals(intent.getAction())) {
-            Log.d(TAG, "[JPushReceiver] 接收到推送下来的通知");
+            L.d(TAG, "[JPushReceiver] 接收到推送下来的通知");
             int notifactionId = bundle.getInt(JPushInterface.EXTRA_NOTIFICATION_ID);
-            Log.d(TAG, "[JPushReceiver] 接收到推送下来的通知的ID: " + notifactionId);
+            L.d(TAG, "[JPushReceiver] 接收到推送下来的通知的ID: " + notifactionId);
 
         } else if (JPushInterface.ACTION_NOTIFICATION_OPENED.equals(intent.getAction())) {
-            Log.d(TAG, "[JPushReceiver] 用户点击打开了通知");
+            L.d(TAG, "[JPushReceiver] 用户点击打开了通知");
 
             //打开自定义的Activity
             Intent i = new Intent(context, SplashActivity.class);
@@ -55,14 +55,14 @@ public class JPushReceiver extends BroadcastReceiver {
             context.startActivity(i);
 
         } else if (JPushInterface.ACTION_RICHPUSH_CALLBACK.equals(intent.getAction())) {
-            Log.d(TAG, "[JPushReceiver] 用户收到到RICH PUSH CALLBACK: " + bundle.getString(JPushInterface.EXTRA_EXTRA));
+            L.d(TAG, "[JPushReceiver] 用户收到到RICH PUSH CALLBACK: " + bundle.getString(JPushInterface.EXTRA_EXTRA));
             //在这里根据 JPushInterface.EXTRA_EXTRA 的内容处理代码，比如打开新的Activity， 打开一个网页等..
 
         } else if (JPushInterface.ACTION_CONNECTION_CHANGE.equals(intent.getAction())) {
             boolean connected = intent.getBooleanExtra(JPushInterface.EXTRA_CONNECTION_CHANGE, false);
-            Log.w(TAG, "[JPushReceiver]" + intent.getAction() + " connected state change to " + connected);
+            L.e(TAG, "[JPushReceiver]" + intent.getAction() + " connected state change to " + connected);
         } else {
-            Log.d(TAG, "[JPushReceiver] Unhandled intent - " + intent.getAction());
+            L.d(TAG, "[JPushReceiver] Unhandled intent - " + intent.getAction());
         }
     }
 
