@@ -156,8 +156,8 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
         jsonParameter.addProperty("start", queryStart);
 
         //showLoadingProgress();
-        if (queryCall!=null) queryCall.cancel();
-        queryCall=OkHttpExecutor.query(UrlConstants.HomeFloatLayerActivity, jsonParameter, HomeFloatLayerEvent.class, false, this);
+        if (queryCall != null) queryCall.cancel();
+        queryCall = OkHttpExecutor.query(UrlConstants.HomeFloatLayerActivity, jsonParameter, HomeFloatLayerEvent.class, false, this);
 
     }
 
@@ -177,7 +177,6 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
 
     /**
      * EventBus 响应事件
-     *
      * @param event
      */
     public void onEventMainThread(HomeFloatLayerEvent event) {
@@ -193,7 +192,7 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
             }
 
         } else {
-            for (int i = 0; i < queryNum-1; i++) {
+            for (int i = 0; i < queryNum - 1; i++) {
                 responseData.add("LastData " + queryCount + " i " + i);
             }
 
