@@ -163,7 +163,7 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
     @OnClick({R.id.btn_home_back_top})
     public void doOnClick(View view) {
         switch (view.getId()) {
-            case R.id.btn_wel_register:
+            case R.id.btn_home_back_top:
                 if (firstVisiblePosition <= BACK_TOP_COUNT * 2) {// 未超过限定值的两倍
                     gridView.smoothScrollToPosition(0);
                 } else {
