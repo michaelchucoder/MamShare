@@ -51,7 +51,6 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
     private int firstVisiblePosition;
     private final int BACK_TOP_COUNT = 5;
 
-    private JsonObject queryParameter;
     private final int queryNum = 10;
     private int queryStart = 0;
     private int queryCount = 0;
@@ -153,14 +152,14 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
         // 如果是更新策略 则 Start为置为0
         if (!isRefreshAdd) queryStart = 0;
 
-        queryParameter = new JsonObject();
+        JsonObject jsonParameter = new JsonObject();
 
-        queryParameter.addProperty("num", queryNum);
-        queryParameter.addProperty("start", queryStart);
+        jsonParameter.addProperty("num", queryNum);
+        jsonParameter.addProperty("start", queryStart);
 
         //showLoadingProgress();
         if (queryCall!=null) queryCall.cancel();
-        queryCall=OkHttpExecutor.query(UrlConstants.HomeFloatLayerActivity, queryParameter, HomeFloatLayerEvent.class, false, this);
+        queryCall=OkHttpExecutor.query(UrlConstants.HomeFloatLayerActivity, jsonParameter, HomeFloatLayerEvent.class, false, this);
 
     }
 
