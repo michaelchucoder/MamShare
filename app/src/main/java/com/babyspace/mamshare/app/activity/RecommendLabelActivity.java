@@ -67,7 +67,6 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
         data = new ArrayList<>();
         adapter = new GridViewSearchAdapter(this);
 
-
         initView();
         showLoadingProgress();
         queryData();
