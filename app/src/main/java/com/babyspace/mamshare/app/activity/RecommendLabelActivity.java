@@ -21,6 +21,7 @@ import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.library.debug.L;
 import com.michael.library.widget.custom.GridViewWithHeaderAndFooter;
+import com.squareup.okhttp.Call;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +57,7 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
     private int queryCount = 0;
     private boolean isRefreshAdd = true;
     private boolean isMoreData = true;
+    private Call queryCall;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +69,7 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
 
 
         initView();
-
+        showLoadingProgress();
         queryData();
 
     }
@@ -143,6 +145,8 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
 
 
     private void queryData() {
+        //mSwipeLayout.setRefreshing(true);
+
         ++queryCount;
         footerProgressBar.setVisibility(View.VISIBLE);
         footerText.setText("正在加载...");
@@ -156,7 +160,8 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
         queryParameter.addProperty("start", queryStart);
 
         //showLoadingProgress();
-        OkHttpExecutor.query(UrlConstants.HomeFloatLayerActivity, queryParameter, HomeFloatLayerEvent.class, false, this);
+        if (queryCall!=null) queryCall.cancel();
+        queryCall=OkHttpExecutor.query(UrlConstants.HomeFloatLayerActivity, queryParameter, HomeFloatLayerEvent.class, false, this);
 
     }
 
