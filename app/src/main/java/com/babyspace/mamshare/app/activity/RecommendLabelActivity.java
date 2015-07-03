@@ -39,8 +39,6 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
     @InjectView(R.id.btn_home_back_top)
     LinearLayout mBackTop;
 
-    private View mHeader;
-    private View mFooter;
     private ProgressBar footerProgressBar;
     private TextView footerText;
 
@@ -80,8 +78,8 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
         mSwipeLayout.setColorSchemeResources(android.R.color.holo_red_dark,
                 android.R.color.holo_red_light);
 
-        mHeader = View.inflate(this, R.layout.common_title_layout, null);
-        mFooter = View.inflate(this, R.layout.common_refresh_footer, null);
+        View mHeader = View.inflate(this, R.layout.common_title_layout, null);
+        View mFooter = View.inflate(this, R.layout.common_refresh_footer, null);
 
         gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
 
