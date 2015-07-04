@@ -16,7 +16,6 @@ import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.activity.ChatActivity;
 import com.babyspace.mamshare.app.dialog.DialogHelper;
 import com.babyspace.mamshare.app.dialog.PickerDialog;
-import com.babyspace.mamshare.app.dialog.PickerDialogHelper;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.michael.library.widget.custom.DatePicker;
@@ -25,7 +24,7 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 
 
-public class RegisterProfileBabyFragment extends BaseFragment {
+public class RegisterWizardBabyFragment extends BaseFragment {
 
     @InjectView(R.id.btn_register_next)
     Button btn_register_next;
@@ -36,7 +35,7 @@ public class RegisterProfileBabyFragment extends BaseFragment {
 
     ArrayMap<String, String> expressTypes;
 
-    public RegisterProfileBabyFragment() {
+    public RegisterWizardBabyFragment() {
     }
 
     @Override
@@ -50,7 +49,7 @@ public class RegisterProfileBabyFragment extends BaseFragment {
 
     @Override
     public void init(Bundle savedInstanceState) {
-        setContentView(R.layout.fragment_register_profile_baby);
+        setContentView(R.layout.fragment_register_wizard_baby);
 
     }
 
@@ -97,13 +96,13 @@ public class RegisterProfileBabyFragment extends BaseFragment {
                 DialogHelper.getDialog("哈哈哈", new DialogHelper.CallBack("zuo", "you") {
                     @Override
                     public void leftBtnClick(DialogInterface dialog) {
-                        ToastHelper.showToast(getActivity(),"leftBtnClick");
+                        ToastHelper.showToast(getActivity(), "leftBtnClick");
 
                     }
 
                     @Override
                     public void rightBtnClick(DialogInterface dialog) {
-                        ToastHelper.showToast(getActivity(),"rightBtnClick");
+                        ToastHelper.showToast(getActivity(), "rightBtnClick");
 
                     }
                 }).show();

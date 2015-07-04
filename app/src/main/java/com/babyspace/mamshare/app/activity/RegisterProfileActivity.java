@@ -3,9 +3,9 @@ package com.babyspace.mamshare.app.activity;
 import android.os.Bundle;
 
 import com.babyspace.mamshare.R;
-import com.babyspace.mamshare.app.fragment.RegisterProfileBabyFragment;
-import com.babyspace.mamshare.app.fragment.RegisterProfileNameFragment;
-import com.babyspace.mamshare.app.fragment.RegisterProfileRoleFragment;
+import com.babyspace.mamshare.app.fragment.RegisterWizardBabyFragment;
+import com.babyspace.mamshare.app.fragment.RegisterWizardNameFragment;
+import com.babyspace.mamshare.app.fragment.RegisterWizardRoleFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.babyspace.mamshare.listener.RegisterProfileListener;
 
@@ -25,7 +25,7 @@ public class RegisterProfileActivity extends BaseActivity implements RegisterPro
                 return;
             }
 
-            RegisterProfileNameFragment fragment = new RegisterProfileNameFragment();
+            RegisterWizardNameFragment fragment = new RegisterWizardNameFragment();
 
             fragment.setArguments(getIntent().getExtras());
 
@@ -37,7 +37,7 @@ public class RegisterProfileActivity extends BaseActivity implements RegisterPro
     @Override
     public void onRegisterNameSelected() {
 
-        RegisterProfileRoleFragment fragment = new RegisterProfileRoleFragment();
+        RegisterWizardRoleFragment fragment = new RegisterWizardRoleFragment();
 
         fragment.setArguments(getIntent().getExtras());
 
@@ -49,7 +49,7 @@ public class RegisterProfileActivity extends BaseActivity implements RegisterPro
     @Override
     public void onRegisterRoleSelected() {
 
-        RegisterProfileBabyFragment fragment = new RegisterProfileBabyFragment();
+        RegisterWizardBabyFragment fragment = new RegisterWizardBabyFragment();
 
         fragment.setArguments(getIntent().getExtras());
 
