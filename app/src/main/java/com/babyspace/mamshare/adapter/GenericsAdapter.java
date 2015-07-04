@@ -81,7 +81,7 @@ public class GenericsAdapter extends BaseAdapter {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastHelper.showToast(mContext,"进入下一个页面");
+                ToastHelper.showToast(mContext, "进入下一个页面");
             }
         });
         return convertView;
