@@ -2,22 +2,16 @@ package com.babyspace.mamshare.app.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.fragment.RegisterCustomFragment;
 import com.babyspace.mamshare.app.fragment.RegisterFeatureFragment;
 import com.babyspace.mamshare.app.fragment.RegisterNameFragment;
 import com.babyspace.mamshare.app.fragment.RegisterPhoneFragment;
-import com.babyspace.mamshare.app.fragment.RegisterWizardGuideFragment;
-import com.babyspace.mamshare.app.fragment.RegisterWizardPregnantFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.babyspace.mamshare.listener.RegisterListener;
 
-import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class RegisterActivity extends BaseActivity implements RegisterListener {
