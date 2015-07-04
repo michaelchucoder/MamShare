@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.babyspace.mamshare.R;
-import com.babyspace.mamshare.app.activity.RegisterActivity;
 import com.babyspace.mamshare.app.activity.RegisterWizardActivity;
 import com.babyspace.mamshare.basement.BaseFragment;
 

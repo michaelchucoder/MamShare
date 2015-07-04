@@ -595,13 +595,16 @@ public class SplashActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.go_preface})
+    @OnClick({R.id.go_preface,R.id.go_login})
     public void doOnClick(View view) {
         Intent i = new Intent();
 
         switch (view.getId()) {
             case R.id.go_preface:
                 i.setClass(this, HomePrefaceActivity.class);
+                break;
+            case R.id.go_login:
+                i.setClass(this, LoginActivity.class);
                 break;
         }
         startActivity(i);
