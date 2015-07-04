@@ -17,9 +17,10 @@
         android:background="@color/pink_mama_bg"
         android:orientation="vertical">
 
+
         <LinearLayout
             android:id="@+id/ll_reg_verify"
-            android:layout_width="500px"
+            android:layout_width="300px"
             android:layout_height="50px"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="32px"
@@ -34,7 +35,7 @@
 
             <EditText
                 android:id="@+id/register_verify_edit"
-                android:layout_width="match_parent"
+                android:layout_width="300px"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="17px"
                 android:layout_marginRight="17px"
@@ -43,6 +44,7 @@
                 android:hint="请输入验证码"
                 android:textColor="#868686"
                 android:textSize="24px" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -101,7 +103,7 @@
                 android:textSize="24px" />
         </LinearLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/ll_reg_feature"
             android:layout_width="500px"
             android:layout_height="50px"
@@ -111,24 +113,35 @@
             android:background="@drawable/shape_discover_search_bg">
 
             <View
+                android:id="@+id/left_avatar_feature"
                 android:layout_width="24px"
                 android:layout_height="25px"
-                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
                 android:layout_marginLeft="20px"
                 android:background="@drawable/activity_home_btn_search" />
 
             <EditText
                 android:id="@+id/register_feature_edit"
-                android:layout_width="match_parent"
+                android:layout_width="200px"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="17px"
                 android:layout_marginRight="17px"
+                android:layout_toRightOf="@+id/left_avatar_feature"
                 android:background="#00000000"
                 android:gravity="center_vertical"
                 android:hint="海淘妈妈"
                 android:textColor="#868686"
                 android:textSize="24px" />
-        </LinearLayout>
+
+            <View
+                android:layout_width="24px"
+                android:layout_height="25px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="20px"
+                android:background="@drawable/activity_home_btn_search" />
+        </RelativeLayout>
 
 
     </LinearLayout>
