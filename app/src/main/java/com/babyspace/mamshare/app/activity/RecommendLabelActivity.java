@@ -196,12 +196,12 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
 
         if (queryCount <= 6) {
             for (int i = 0; i < queryNum; i++) {
-                responseData.add(new TestBean("responseData " + queryCount + " i " + i, false));
+                responseData.add(new TestBean("More " + queryCount + " i " + i, false));
             }
 
         } else {
             for (int i = 0; i < queryNum - 1; i++) {
-                responseData.add(new TestBean("LastData " + queryCount + " i " + i, false));
+                responseData.add(new TestBean("Last " + queryCount + " i " + i, false));
             }
 
         }

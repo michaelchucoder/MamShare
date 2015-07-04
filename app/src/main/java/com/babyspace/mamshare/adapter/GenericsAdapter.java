@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.TestBean;
 import com.michael.core.tools.ViewRelayoutUtil;
@@ -52,7 +53,7 @@ public class GenericsAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         ViewHolder holder;
         if (convertView == null) {
@@ -68,6 +69,15 @@ public class GenericsAdapter extends BaseAdapter {
 
         holder.txtTitle.setText(data.get(position).getTitle());
         holder.btnLike.setText(data.get(position).isLike() ? "喜欢" : "无视");
+
+        holder.btnLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                data.get(position).setIsLike(!data.get(position).isLike());
+                ToastHelper.showToast(mContext,"like or not");
+                notifyDataSetChanged();
+            }
+        });
         return convertView;
 
     }
