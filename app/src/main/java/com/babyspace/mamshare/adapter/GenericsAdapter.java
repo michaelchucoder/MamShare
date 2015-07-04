@@ -19,7 +19,7 @@ import java.util.List;
  * Time: 9:15
  * To change this template use File | Settings | File and Code Templates.
  */
-public class GenericsAdapter extends BaseAdapter {
+public class GenericsAdapter extends BaseAdapter{
 
     Context mContext;
     List<String> data;
