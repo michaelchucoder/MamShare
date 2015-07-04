@@ -8,10 +8,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.app.activity.RecommendLabelActivity;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.TestBean;
 import com.michael.core.tools.ViewRelayoutUtil;
+import com.michael.library.debug.L;
 
 import java.util.List;
 
@@ -35,6 +37,8 @@ public class GenericsAdapter extends BaseAdapter {
 
     public GenericsAdapter(Context context) {
         mContext = context;
+        L.d("GenericsAdapter",mContext.getPackageName());
+        L.d("GenericsAdapter",mContext.getPackageCodePath());
     }
 
     @Override
