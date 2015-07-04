@@ -14,6 +14,10 @@ public class TestBean {
         this.title = title;
         this.isLike = isLike;
     }
+    public TestBean(String title) {
+        this.title = title;
+        this.isLike = false;
+    }
 
     private String title;
     private boolean isLike;

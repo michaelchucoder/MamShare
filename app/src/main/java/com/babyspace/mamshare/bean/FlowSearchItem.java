@@ -37,5 +37,5 @@ import java.util.List;
 
 public class FlowSearchItem {
     public String mText;
-    public List<String> datas = new ArrayList<String>();
+    public List<TestBean> data = new ArrayList<TestBean>();
 }

@@ -8,8 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
-import com.babyspace.mamshare.basement.MamShare;
-import com.michael.core.tools.ViewRelayoutUtil;
+import com.babyspace.mamshare.bean.TestBean;
 
 import java.util.List;
 
@@ -24,11 +23,11 @@ import java.util.List;
 public class ListViewSearchAdapter extends BaseAdapter {
 
     Context mContext;
-    List<String> datas;
+    List<TestBean> data;
 
-    public ListViewSearchAdapter(Context context, List<String> datas) {
+    public ListViewSearchAdapter(Context context, List<TestBean> data) {
         mContext = context;
-        this.datas = datas;
+        this.data = data;
     }
 
     @Override
@@ -38,12 +37,12 @@ public class ListViewSearchAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return datas.get(position);
+        return data.get(position);
     }
 
     @Override
     public int getCount() {
-        return datas.size();
+        return data.size();
     }
 
     @Override
@@ -54,12 +53,12 @@ public class ListViewSearchAdapter extends BaseAdapter {
         //ViewRelayoutUtil.relayoutViewWithScale(rootView, MamShare.screenWidthScale);
 
         TextView textView = (TextView) rootView.findViewById(R.id.my_txt);
-        textView.setText(datas.get(position));
+        textView.setText(data.get(position).getTitle());
         return rootView;
     }
 
-    public void refresh(List<String> datas) {
-        this.datas = datas;
+    public void refresh(List<TestBean> data) {
+        this.data = data;
         notifyDataSetChanged();
     }
 }
