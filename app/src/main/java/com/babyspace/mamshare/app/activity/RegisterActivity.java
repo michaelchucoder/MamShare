@@ -14,23 +14,12 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class RegisterActivity extends BaseActivity {
-    @InjectView(R.id.edit_phone)
-    EditText edit_phone;
-    @InjectView(R.id.edit_verify)
-    EditText edit_verify;
-    @InjectView(R.id.edit_pwd)
-    EditText edit_pwd;
-    @InjectView(R.id.btn_reg_register)
-    Button btn_reg_register;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
-        edit_pwd.setHint(Html.fromHtml("<font size=\"3\" color=\"blue\">\n" +
-                "This is another paragraph.\n" +
-                "</font>"));
 
 
     }

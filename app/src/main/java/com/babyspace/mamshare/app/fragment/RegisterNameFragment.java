@@ -18,17 +18,10 @@ public class RegisterNameFragment extends BaseFragment {
         // Required empty public constructor
     }
 
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register_name, container, false);
-    }
-
     @Override
     public void init(Bundle savedInstanceState) {
 
+        setContentView(R.layout.fragment_register_name);
     }
 
     @Override
