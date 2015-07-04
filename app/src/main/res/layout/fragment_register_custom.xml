@@ -1,10 +1,82 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
     tools:context="com.babyspace.mamshare.app.fragment.RegisterCustomFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <include
+        android:id="@+id/common_title"
+        layout="@layout/common_title_layout" />
+
+
+    <TextView
+        android:id="@+id/register_custom_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/common_title"
+        android:layout_marginTop="30px"
+        android:text="茫茫妈海, 妈妈名片是你的个性标识" />
+
+    <ImageView
+        android:id="@+id/register_custom_avatar"
+        android:layout_width="300px"
+        android:layout_height="300px"
+        android:layout_below="@id/register_custom_title"
+        android:src="@drawable/push"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30px" />
+
+    <RelativeLayout
+        android:id="@+id/register_custom_feature_container"
+        android:layout_width="500px"
+        android:layout_height="50px"
+        android:layout_below="@+id/register_custom_avatar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32px">
+
+        <LinearLayout
+            android:id="@+id/ll_custom_feature"
+            android:layout_width="300px"
+            android:layout_height="50px"
+            android:background="@drawable/shape_discover_search_bg">
+
+
+            <EditText
+                android:layout_width="300px"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="17px"
+                android:layout_marginRight="17px"
+                android:background="#00000000"
+                android:gravity="center_vertical"
+                android:hint="填入你的专属妈妈"
+                android:textColor="#868686"
+                android:textSize="24px" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/verify_countdown"
+            android:layout_width="130px"
+            android:layout_height="50px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20px"
+            android:background="@drawable/shape_rounded_rectangle"
+            android:text="妈妈" />
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/register_custom_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_custom_feature_container"
+        android:layout_centerHorizontal="true"
+        android:text="确定" />
+
+
+</RelativeLayout>
