@@ -3,22 +3,26 @@ package com.babyspace.mamshare.app.fragment;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.listener.RegisterWizardListener;
 
+import butterknife.InjectView;
 import butterknife.OnClick;
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class RegisterWizardRoleFragment extends BaseFragment {
+public class RegisterWizardGuideFragment extends BaseFragment {
     RegisterWizardListener mCallback;
+    @InjectView(R.id.btn_register_next)
+    Button btn_register_next;
 
-    public RegisterWizardRoleFragment() {
+
+    public RegisterWizardGuideFragment() {
     }
-
 
     @Override
     public void onAttach(Activity activity) {
@@ -30,13 +34,13 @@ public class RegisterWizardRoleFragment extends BaseFragment {
             mCallback = (RegisterWizardListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement OnHeadlineSelectedListener");
+                    + " must implement RegisterProfileListener");
         }
     }
 
     @Override
     public void init(Bundle savedInstanceState) {
-        setContentView(R.layout.fragment_register_wizard_role);
+        setContentView(R.layout.fragment_register_widzard_guide);
 
     }
 
@@ -44,15 +48,18 @@ public class RegisterWizardRoleFragment extends BaseFragment {
     public void initView() {
 
     }
+
     @OnClick({R.id.btn_register_next})
     public void doOnClick(View view) {
 
         switch (view.getId()) {
             case R.id.btn_register_next:
 
-                mCallback.onRegisterRoleSelected();
+                mCallback.onRegisterNameSelected();
                 break;
 
         }
     }
+
+
 }
