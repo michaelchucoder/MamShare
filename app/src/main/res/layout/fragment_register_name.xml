@@ -18,7 +18,7 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/ll_reg_phone"
+            android:id="@+id/ll_reg_verify"
             android:layout_width="500px"
             android:layout_height="50px"
             android:layout_centerHorizontal="true"
