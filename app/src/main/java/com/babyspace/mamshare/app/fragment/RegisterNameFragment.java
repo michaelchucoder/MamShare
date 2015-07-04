@@ -8,7 +8,6 @@ import android.view.View;
 
 
 import com.babyspace.mamshare.R;
-import com.babyspace.mamshare.app.activity.RegisterActivity;
 import com.babyspace.mamshare.app.activity.RegisterWizardActivity;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.listener.RegisterListener;
