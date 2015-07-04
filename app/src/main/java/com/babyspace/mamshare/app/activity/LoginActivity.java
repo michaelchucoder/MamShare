@@ -1,20 +1,12 @@
 package com.babyspace.mamshare.app.activity;
 
 import android.content.Intent;
-import android.content.res.TypedArray;
-import android.graphics.Color;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.OvalShape;
-import android.graphics.drawable.shapes.Shape;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.basement.BaseActivity;
 
-import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class LoginActivity extends BaseActivity {
@@ -27,7 +19,7 @@ public class LoginActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.btn_login_submit,R.id.btn_register_submit})
+    @OnClick({R.id.btn_login_submit, R.id.btn_register_submit})
     public void doOnClick(View view) {
         Intent i = new Intent();
 

@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.babyspace.mamshare.R;
-import com.babyspace.mamshare.app.fragment.HomeGuidanceListFragment;
 import com.babyspace.mamshare.app.fragment.HomeEvaluateListFragment;
+import com.babyspace.mamshare.app.fragment.HomeGuidanceListFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
 
 import butterknife.InjectView;

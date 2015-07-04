@@ -11,10 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.GenericsAdapter;
-import com.babyspace.mamshare.adapter.GridViewSearchAdapter;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.HomeFloatLayerEvent;

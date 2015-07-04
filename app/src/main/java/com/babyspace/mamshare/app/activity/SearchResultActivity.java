@@ -1,22 +1,17 @@
 package com.babyspace.mamshare.app.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.view.View;
-import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.TabPageAdapter;
-import com.babyspace.mamshare.app.fragment.SearchResultGuidanceFragment;
 import com.babyspace.mamshare.app.fragment.SearchResultEvaluateFragment;
+import com.babyspace.mamshare.app.fragment.SearchResultGuidanceFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.viewpagerindicator.TabPageIndicator;
-
-import butterknife.OnClick;
 
 public class SearchResultActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener {
     public static final String[] TITLES = new String[]{"攻略", "评测"};

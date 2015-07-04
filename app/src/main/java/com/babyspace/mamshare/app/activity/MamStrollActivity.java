@@ -13,7 +13,6 @@ import android.widget.LinearLayout;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.basement.BaseActivity;
-import com.michael.library.debug.L;
 import com.michael.library.widget.fancycoverflow.FancyCoverFlow;
 import com.michael.library.widget.fancycoverflow.FancyCoverFlowAdapter;
 
