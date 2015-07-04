@@ -12,8 +12,6 @@ import com.babyspace.mamshare.app.fragment.RegisterPhoneFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.babyspace.mamshare.listener.RegisterListener;
 
-import butterknife.OnClick;
-
 public class RegisterActivity extends BaseActivity implements RegisterListener {
 
 
@@ -39,19 +37,6 @@ public class RegisterActivity extends BaseActivity implements RegisterListener {
         }
 
     }
-
-    @OnClick({R.id.btn_reg_register})
-    public void doOnClick(View view) {
-        Intent i = new Intent();
-
-        switch (view.getId()) {
-            case R.id.btn_reg_register:
-                i.setClass(this, RegisterWizardActivity.class);
-                break;
-        }
-        startActivity(i);
-    }
-
 
     @Override
     public void onRegisterNameSelected() {

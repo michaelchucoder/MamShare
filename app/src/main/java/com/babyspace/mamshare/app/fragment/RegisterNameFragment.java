@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.activity.RegisterActivity;
+import com.babyspace.mamshare.app.activity.RegisterWizardActivity;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.listener.RegisterListener;
 
@@ -55,7 +56,7 @@ public class RegisterNameFragment extends BaseFragment {
 
         switch (view.getId()) {
             case R.id.btn_register_submit:
-                i.setClass(getActivity(), RegisterActivity.class);
+                i.setClass(getActivity(), RegisterWizardActivity.class);
                 startActivity(i);
                 break;
             case R.id.ll_reg_feature:

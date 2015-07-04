@@ -76,19 +76,6 @@ public class MamaProfileAdapter extends BaseAdapter {
             convertView = View.inflate(context, resource, null);
             ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
 
-            holder.iv_sale_img = (ImageView) convertView.findViewById(R.id.iv_sale_list_img);
-            holder.tv_sale_goods_name = (TextView) convertView.findViewById(R.id.tv_sale_goods_name);
-            holder.tv_sale_price = (TextView) convertView.findViewById(R.id.tv_sale_price);
-            holder.tv_sale_marketprice = (TextView) convertView.findViewById(R.id.tv_sale_marketprice);
-            holder.tv_sale_zhekou = (TextView) convertView.findViewById(R.id.tv_sale_zhekou);
-
-            holder.layout2 = (RelativeLayout) convertView.findViewById(R.id.layout2);
-            holder.iv_sale_img2 = (ImageView) convertView.findViewById(R.id.iv_sale_list_img2);
-            holder.tv_sale_goods_name2 = (TextView) convertView.findViewById(R.id.tv_sale_goods_name2);
-            holder.tv_sale_price2 = (TextView) convertView.findViewById(R.id.tv_sale_price2);
-            holder.tv_sale_marketprice2 = (TextView) convertView.findViewById(R.id.tv_sale_marketprice2);
-            holder.tv_sale_zhekou2 = (TextView) convertView.findViewById(R.id.tv_sale_zhekou2);
-
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
