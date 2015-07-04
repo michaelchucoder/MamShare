@@ -77,6 +77,7 @@ public class GenericsAdapter extends BaseAdapter {
         holder.btnLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //状态改变后刷新数据
                 data.get(position).setIsLike(!data.get(position).isLike());
                 notifyDataSetChanged();
             }
