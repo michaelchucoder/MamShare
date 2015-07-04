@@ -304,10 +304,7 @@
         <activity android:name=".app.activity.EvaluateDetailActivity" />
         <activity android:name=".app.activity.RecommendLabelActivity" />
         <activity android:name=".app.activity.LabelEvaluateListActivity" />
-        <activity
-            android:name=".app.activity.ResetPasswordActivity"
-            android:label="@string/title_activity_reset_password" >
-        </activity>
+        <activity android:name=".app.activity.ResetPasswordActivity" />
     </application>
 
 </manifest>
