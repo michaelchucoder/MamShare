@@ -5,68 +5,88 @@
     android:background="@color/pink_mama_bg"
     tools:context="com.babyspace.mamshare.app.activity.LoginActivity">
 
-    <Button
-        android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <include
+        android:id="@+id/common_title"
+        layout="@layout/common_title_layout" />
 
-    <RelativeLayout
-        android:id="@+id/rl_login_container"
+    <LinearLayout
+        android:id="@+id/ll_login_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/back"
+        android:layout_below="@+id/common_title"
         android:layout_centerHorizontal="true"
-        android:background="@color/ripple_material_dark"
-        android:padding="@dimen/activity_horizontal_margin">
+        android:layout_marginBottom="30px"
+        android:layout_marginTop="30px"
+        android:background="@color/pink_mama_bg"
+        android:orientation="vertical">
+
 
         <LinearLayout
             android:id="@+id/ll_login_account"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_width="500px"
+            android:layout_height="50px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32px"
+            android:background="@drawable/shape_discover_search_bg">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="手机号/邮箱"
-                android:textSize="30px" />
+            <View
+                android:layout_width="24px"
+                android:layout_height="25px"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20px"
+                android:background="@drawable/activity_home_btn_search" />
 
             <EditText
-                android:id="@+id/edit_login_account"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/push"
-                android:text="请输入手机号或邮箱"
-                android:textSize="30px" />
+                android:id="@+id/login_account_edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="17px"
+                android:layout_marginRight="17px"
+                android:background="#00000000"
+                android:gravity="center_vertical"
+                android:hint="手机号/邮箱/账户名"
+                android:textColor="#868686"
+                android:textSize="24px" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ll_login_pwd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/ll_login_account"
-            android:orientation="horizontal">
+            android:id="@+id/ll_login_password"
+            android:layout_width="500px"
+            android:layout_height="50px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="32px"
+            android:layout_marginTop="32px"
+            android:background="@drawable/shape_discover_search_bg">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="密码"
-                android:textSize="30px" />
+            <View
+                android:layout_width="24px"
+                android:layout_height="25px"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20px"
+                android:background="@drawable/activity_home_btn_search" />
 
             <EditText
-                android:id="@+id/edit_login_pwd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="密码由6-16个字符组成"
-                android:textSize="30px" />
+                android:id="@+id/login_password_edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="17px"
+                android:layout_marginRight="17px"
+                android:background="#00000000"
+                android:gravity="center_vertical"
+                android:hint="密码"
+                android:textColor="#868686"
+                android:textSize="24px" />
         </LinearLayout>
-    </RelativeLayout>
+
+
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/btn_login_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/rl_login_container"
+        android:layout_below="@id/ll_login_container"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20px"
         android:background="@drawable/shape_rounded_rectangle"
@@ -101,6 +121,7 @@
             android:text="第三方登录"
             android:textColor="#676767"
             android:textSize="22px" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="2px"
@@ -108,6 +129,7 @@
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@id/tv_login_thirdparty"
             android:background="#dfe2e1" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="2px"

@@ -36,17 +36,22 @@ public class LoginActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.btn_login_submit})
+    @OnClick({R.id.btn_login_submit,R.id.btn_register_submit})
     public void doOnClick(View view) {
         Intent i = new Intent();
 
         switch (view.getId()) {
             case R.id.btn_login_submit:
-                i.setClass(this, HomeGroupActivity.class);
+                i.setClass(this, HomePrefaceActivity.class);
+                break;
+            case R.id.btn_register_submit:
+                i.setClass(this, RegisterActivity.class);
                 break;
         }
         startActivity(i);
     }
+
+
 
     private void makeShapes() {
 
