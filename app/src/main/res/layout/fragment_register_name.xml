@@ -17,35 +17,49 @@
         android:background="@color/pink_mama_bg"
         android:orientation="vertical">
 
-
-        <LinearLayout
-            android:id="@+id/ll_reg_verify"
-            android:layout_width="300px"
+        <RelativeLayout
+            android:layout_width="500px"
             android:layout_height="50px"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="32px"
-            android:background="@drawable/shape_discover_search_bg">
+            android:layout_marginTop="32px">
 
-            <View
-                android:layout_width="24px"
-                android:layout_height="25px"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="20px"
-                android:background="@drawable/activity_home_btn_search" />
-
-            <EditText
-                android:id="@+id/register_verify_edit"
+            <LinearLayout
+                android:id="@+id/ll_reg_verify"
                 android:layout_width="300px"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="17px"
-                android:layout_marginRight="17px"
-                android:background="#00000000"
-                android:gravity="center_vertical"
-                android:hint="请输入验证码"
-                android:textColor="#868686"
-                android:textSize="24px" />
+                android:layout_height="50px"
+                android:background="@drawable/shape_discover_search_bg">
 
-        </LinearLayout>
+                <View
+                    android:layout_width="24px"
+                    android:layout_height="25px"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20px"
+                    android:background="@drawable/activity_home_btn_search" />
+
+                <EditText
+                    android:id="@+id/register_verify_edit"
+                    android:layout_width="300px"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="17px"
+                    android:layout_marginRight="17px"
+                    android:background="#00000000"
+                    android:gravity="center_vertical"
+                    android:hint="请输入验证码"
+                    android:textColor="#868686"
+                    android:textSize="24px" />
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="130px"
+                android:layout_height="50px"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20px"
+                android:background="@drawable/shape_rounded_rectangle"
+                android:text="60s" />
+
+
+        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/ll_reg_password"
