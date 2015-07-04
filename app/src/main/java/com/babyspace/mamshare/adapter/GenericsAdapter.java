@@ -3,6 +3,7 @@ package com.babyspace.mamshare.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.accessibility.AccessibilityManager;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
@@ -74,8 +75,13 @@ public class GenericsAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 data.get(position).setIsLike(!data.get(position).isLike());
-                ToastHelper.showToast(mContext,"like or not");
                 notifyDataSetChanged();
+            }
+        });
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastHelper.showToast(mContext,"进入下一个页面");
             }
         });
         return convertView;
