@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.activity.SettingActivity;
 import com.babyspace.mamshare.basement.MamShare;
-import com.babyspace.mamshare.bean.SaleProductEntity;
+import com.babyspace.mamshare.bean.TestBean;
 import com.michael.core.tools.ViewRelayoutUtil;
 import com.michael.library.debug.L;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -33,14 +33,13 @@ import java.util.List;
  * Time: 11:55
  * To change this template use File | Settings | File and Code Templates.
  */
-public class SaleProductAdapter extends BaseAdapter {
-    private List<SaleProductEntity> data = new ArrayList<SaleProductEntity>();
+public class MamaProfileAdapter extends BaseAdapter {
+    private List<TestBean> data = new ArrayList<TestBean>();
     private Context context;
-    private int resource = R.layout.item_sale_product;
+    private int resource = R.layout.item_mama_profile;
     private DisplayImageOptions options;
-    private int saleId;
 
-    public SaleProductAdapter(Context context) {
+    public MamaProfileAdapter(Context context) {
         this.context = context;
         options = new DisplayImageOptions.Builder().showImageOnLoading(R.drawable.img_default_loading)
                 // 在ImageView加载过程中显示图片
@@ -52,16 +51,10 @@ public class SaleProductAdapter extends BaseAdapter {
                 .displayer(new SimpleBitmapDisplayer()).build();
     }
 
-    public void resetData(List<SaleProductEntity> result) {
-        data.clear();
-        data.addAll(result);
-        this.notifyDataSetChanged();
-    }
 
-    public void refresh(List<SaleProductEntity> result, int saleId) {
+    public void refresh(List<TestBean> result) {
         L.d("Michael", "dataList:" + result.size());
         this.data = result;
-        this.saleId = saleId;
         notifyDataSetChanged();
     }
 
@@ -115,8 +108,8 @@ public class SaleProductAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        final SaleProductEntity productList = data.get(2 * (position));
-        SaleProductEntity productList2 = null;
+        final TestBean productList = data.get(2 * (position));
+        TestBean productList2 = null;
 
         ImageLoader.getInstance().displayImage(productList.DefaultPhotoUrl, holder.iv_sale_img, options);
         holder.tv_sale_goods_name.setText(productList.GoodsName);
@@ -149,7 +142,7 @@ public class SaleProductAdapter extends BaseAdapter {
             }
         });
 
-        final SaleProductEntity finalProductList = productList2;
+        final TestBean finalProductList = productList2;
         holder.iv_sale_img2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -160,7 +153,7 @@ public class SaleProductAdapter extends BaseAdapter {
         return convertView;
     }
 
-    public void goGoodDetilsActivity(SaleProductEntity productList) {
+    public void goGoodDetilsActivity(TestBean productList) {
         Intent intent = new Intent(context, SettingActivity.class);
 
         context.startActivity(intent);
