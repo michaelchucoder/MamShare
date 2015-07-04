@@ -3,7 +3,6 @@ package com.babyspace.mamshare.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.accessibility.AccessibilityManager;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
