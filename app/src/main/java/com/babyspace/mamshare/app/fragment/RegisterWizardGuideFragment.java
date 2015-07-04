@@ -55,7 +55,7 @@ public class RegisterWizardGuideFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.btn_register_next:
 
-                mCallback.onRegisterNameSelected();
+                mCallback.onRegisterBabySelected();
                 break;
 
         }

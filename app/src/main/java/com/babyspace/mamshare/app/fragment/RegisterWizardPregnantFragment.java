@@ -50,7 +50,7 @@ public class RegisterWizardPregnantFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.btn_register_next:
 
-                mCallback.onRegisterRoleSelected();
+                mCallback.onRegisterPregnantSelected();
                 break;
 
         }

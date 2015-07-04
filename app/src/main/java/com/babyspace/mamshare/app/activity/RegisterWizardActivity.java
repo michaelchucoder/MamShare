@@ -35,7 +35,7 @@ public class RegisterWizardActivity extends BaseActivity implements RegisterWiza
     }
 
     @Override
-    public void onRegisterNameSelected() {
+    public void onRegisterBabySelected() {
 
         RegisterWizardPregnantFragment fragment = new RegisterWizardPregnantFragment();
 
@@ -47,7 +47,7 @@ public class RegisterWizardActivity extends BaseActivity implements RegisterWiza
     }
 
     @Override
-    public void onRegisterRoleSelected() {
+    public void onRegisterPregnantSelected() {
 
         RegisterWizardBabyFragment fragment = new RegisterWizardBabyFragment();
 

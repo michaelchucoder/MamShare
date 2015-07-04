@@ -9,6 +9,6 @@ package com.babyspace.mamshare.listener;
  * To change this template use File | Settings | File and Code Templates.
  */
 public interface RegisterWizardListener {
-    void onRegisterNameSelected();
-    void onRegisterRoleSelected();
+    void onRegisterBabySelected();
+    void onRegisterPregnantSelected();
 }
