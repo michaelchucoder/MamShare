@@ -16,11 +16,13 @@ import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.GenericsAdapter;
 import com.babyspace.mamshare.adapter.GridViewSearchAdapter;
 import com.babyspace.mamshare.basement.BaseActivity;
+import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.HomeFloatLayerEvent;
 import com.babyspace.mamshare.bean.TestBean;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
+import com.michael.core.tools.ViewRelayoutUtil;
 import com.michael.library.debug.L;
 import com.michael.library.widget.custom.GridViewWithHeaderAndFooter;
 import com.squareup.okhttp.Call;
@@ -82,6 +84,9 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
 
         View mHeader = View.inflate(this, R.layout.common_title_layout, null);
         View mFooter = View.inflate(this, R.layout.common_refresh_footer, null);
+
+        ViewRelayoutUtil.relayoutViewWithScale(mHeader, MamShare.screenWidthScale);
+        ViewRelayoutUtil.relayoutViewWithScale(mFooter, MamShare.screenWidthScale);
 
         gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
 
