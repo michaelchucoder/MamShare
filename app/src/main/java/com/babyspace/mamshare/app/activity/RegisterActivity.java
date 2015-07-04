@@ -1,8 +1,6 @@
 package com.babyspace.mamshare.app.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.fragment.RegisterCustomFragment;
