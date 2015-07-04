@@ -5,9 +5,18 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/my_txt"
+        android:id="@+id/like"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_rounded_rectangle"></Button>
+        android:background="@drawable/shape_rounded_rectangle">
+
+    </Button>
+    <TextView
+        android:id="@+id/my_txt"
+        android:text="gagg"
+        android:background="@color/yellow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
 
 </LinearLayout>

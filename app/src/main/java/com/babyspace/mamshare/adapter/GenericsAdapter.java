@@ -1,13 +1,15 @@
 package com.babyspace.mamshare.adapter;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.basement.MamShare;
+import com.michael.core.tools.ViewRelayoutUtil;
 
 import java.util.List;
 
@@ -19,7 +21,7 @@ import java.util.List;
  * Time: 9:15
  * To change this template use File | Settings | File and Code Templates.
  */
-public class GenericsAdapter extends BaseAdapter{
+public class GenericsAdapter extends BaseAdapter {
 
     Context mContext;
     List<String> data;
@@ -51,17 +53,30 @@ public class GenericsAdapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        View rootView = LayoutInflater.from(mContext).inflate(R.layout.gridview_search_item,
-                parent, false);
-        //ViewRelayoutUtil.relayoutViewWithScale(rootView, MamShare.screenWidthScale);
-        Button textView = (Button) rootView.findViewById(R.id.my_txt);
-        textView.setText(data.get(position));
-        return rootView;
+        ViewHolder holder;
+        if (convertView == null) {
+            holder = new ViewHolder();
+            convertView = View.inflate(mContext, R.layout.gridview_search_item, null);
+            ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
+            holder.btn_txt = (Button) convertView.findViewById(R.id.my_txt);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
+
+        holder.btn_txt.setText(data.get(position));
+        return convertView;
+
     }
 
     public void refresh(List<String> data) {
         this.data = data;
         notifyDataSetChanged();
+    }
+
+
+    static class ViewHolder {
+        Button btn_txt;
     }
 
 }
