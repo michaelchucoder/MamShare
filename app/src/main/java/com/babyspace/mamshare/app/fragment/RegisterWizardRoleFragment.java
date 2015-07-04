@@ -6,7 +6,7 @@ import android.view.View;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.basement.BaseFragment;
-import com.babyspace.mamshare.listener.RegisterProfileListener;
+import com.babyspace.mamshare.listener.RegisterWizardListener;
 
 import butterknife.OnClick;
 
@@ -14,7 +14,7 @@ import butterknife.OnClick;
  * A placeholder fragment containing a simple view.
  */
 public class RegisterWizardRoleFragment extends BaseFragment {
-    RegisterProfileListener mCallback;
+    RegisterWizardListener mCallback;
 
     public RegisterWizardRoleFragment() {
     }
@@ -27,7 +27,7 @@ public class RegisterWizardRoleFragment extends BaseFragment {
         // This makes sure that the container activity has implemented
         // the callback interface. If not, it throws an exception.
         try {
-            mCallback = (RegisterProfileListener) activity;
+            mCallback = (RegisterWizardListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnHeadlineSelectedListener");

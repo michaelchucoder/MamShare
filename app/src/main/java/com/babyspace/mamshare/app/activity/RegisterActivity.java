@@ -41,7 +41,7 @@ public class RegisterActivity extends BaseActivity {
 
         switch (view.getId()) {
             case R.id.btn_reg_register:
-                i.setClass(this, RegisterProfileActivity.class);
+                i.setClass(this, RegisterWizardActivity.class);
                 break;
         }
         startActivity(i);

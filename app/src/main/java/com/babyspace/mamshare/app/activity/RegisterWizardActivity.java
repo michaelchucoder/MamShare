@@ -7,14 +7,14 @@ import com.babyspace.mamshare.app.fragment.RegisterWizardBabyFragment;
 import com.babyspace.mamshare.app.fragment.RegisterWizardNameFragment;
 import com.babyspace.mamshare.app.fragment.RegisterWizardRoleFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
-import com.babyspace.mamshare.listener.RegisterProfileListener;
+import com.babyspace.mamshare.listener.RegisterWizardListener;
 
-public class RegisterProfileActivity extends BaseActivity implements RegisterProfileListener {
+public class RegisterWizardActivity extends BaseActivity implements RegisterWizardListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_profile);
+        setContentView(R.layout.activity_register_wizard);
 
         if (getActionBar() != null) getActionBar().hide();
 

@@ -1,73 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.babyspace.mamshare.app.activity.SettingActivity">
+    android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/common_title"
-        layout="@layout/common_title_layout" />
 
-    <LinearLayout
-        android:id="@+id/layout_setting_content"
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/common_title"
-        android:orientation="vertical"
-        android:paddingLeft="50px"
-        android:paddingRight="50px">
+        android:layout_below="@+id/common_title" />
 
-        <TextView
-            android:id="@+id/setting_about"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="30px"
-            android:text="关于妈妈说"
-            android:textSize="30px" />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/yellow" />
-
-        <TextView
-            android:id="@+id/setting_feedback"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:layout_margin="30px"
-            android:text="反馈"
-            android:textSize="30px" />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/yellow" />
-
-        <TextView
-            android:id="@+id/setting_clear"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="30px"
-            android:text="清楚缓存"
-            android:textSize="30px" />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/yellow" />
-
-
-        <Button
-            android:id="@+id/setting_logout_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="30px"
-            android:background="@drawable/shape_rounded_rectangle"
-            android:text="退出登录"
-            android:textSize="30px" />
-    </LinearLayout>
 
 
 </RelativeLayout>

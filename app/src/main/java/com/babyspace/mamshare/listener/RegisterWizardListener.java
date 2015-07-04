@@ -8,7 +8,7 @@ package com.babyspace.mamshare.listener;
  * Time: 23:43
  * To change this template use File | Settings | File and Code Templates.
  */
-public interface RegisterProfileListener {
+public interface RegisterWizardListener {
     void onRegisterNameSelected();
     void onRegisterRoleSelected();
 }

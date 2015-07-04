@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.basement.BaseFragment;
-import com.babyspace.mamshare.listener.RegisterProfileListener;
+import com.babyspace.mamshare.listener.RegisterWizardListener;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -16,7 +16,7 @@ import butterknife.OnClick;
  * A placeholder fragment containing a simple view.
  */
 public class RegisterWizardNameFragment extends BaseFragment {
-    RegisterProfileListener mCallback;
+    RegisterWizardListener mCallback;
     @InjectView(R.id.btn_register_next)
     Button btn_register_next;
 
@@ -31,7 +31,7 @@ public class RegisterWizardNameFragment extends BaseFragment {
         // This makes sure that the container activity has implemented
         // the callback interface. If not, it throws an exception.
         try {
-            mCallback = (RegisterProfileListener) activity;
+            mCallback = (RegisterWizardListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement RegisterProfileListener");

@@ -297,7 +297,7 @@
         </activity>
         <activity android:name=".app.activity.Html5Activity" />
         <activity
-            android:name=".app.activity.RegisterProfileActivity"
+            android:name=".app.activity.RegisterWizardActivity"
             android:theme="@style/AppBaseTheme" />
         <activity android:name=".app.activity.DiscoverSearchActivity" />
         <activity android:name=".app.activity.SearchResultActivity" />

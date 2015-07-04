@@ -1,10 +1,120 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.babyspace.mamshare.app.fragment.SettingGuideFragment">
+    tools:context="com.babyspace.mamshare.app.activity.SettingActivity">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <include
+        android:id="@+id/common_title"
+        layout="@layout/common_title_layout" />
 
-</FrameLayout>
+    <LinearLayout
+        android:id="@+id/layout_setting_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/common_title"
+        android:orientation="vertical"
+        android:paddingLeft="50px"
+        android:paddingRight="50px">
+
+        <RelativeLayout
+            android:id="@+id/about_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/setting_about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="30px"
+                android:text="关于妈妈说"
+                android:textSize="30px" />
+
+            <Button
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@color/red" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_below="@+id/setting_about"
+                android:background="@color/red" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/feedback_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/setting_feedback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="30px"
+                android:text="反馈"
+                android:textSize="30px" />
+
+            <Button
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@color/red" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_below="@+id/setting_feedback"
+                android:background="@color/red" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/clear_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/setting_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="30px"
+                android:text="清楚缓存"
+                android:textSize="30px" />
+
+            <Button
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@color/red" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_below="@+id/setting_clear"
+                android:background="@color/red" />
+
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/setting_logout_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="30px"
+            android:background="@drawable/shape_rounded_rectangle"
+            android:text="退出登录"
+            android:textSize="30px" />
+    </LinearLayout>
+
+
+</RelativeLayout>

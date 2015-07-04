@@ -1,0 +1,23 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.babyspace.mamshare.app.fragment.SettingAboutFragment">
+
+    <include
+        android:id="@+id/common_title"
+        layout="@layout/common_title_layout" />
+
+
+    <EditText
+        android:id="@+id/app_icon"
+        android:layout_width="500px"
+        android:layout_height="300px"
+        android:layout_below="@id/common_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20px"
+        android:background="@color/pink_mama_bg"
+        android:text="你的意见或建议是妈妈前进的动力" />
+
+
+</RelativeLayout>
