@@ -33,5 +33,4 @@ public class TestBean {
     public void setIsLike(boolean isLike) {
         this.isLike = isLike;
     }
-
 }

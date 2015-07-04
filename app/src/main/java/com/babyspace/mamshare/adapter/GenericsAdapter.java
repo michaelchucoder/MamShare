@@ -1,14 +1,15 @@
 package com.babyspace.mamshare.adapter;
 
 import android.content.Context;
-import android.graphics.Paint;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.TextView;
+
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.basement.MamShare;
+import com.babyspace.mamshare.bean.TestBean;
 import com.michael.core.tools.ViewRelayoutUtil;
 
 import java.util.List;
@@ -24,9 +25,9 @@ import java.util.List;
 public class GenericsAdapter extends BaseAdapter {
 
     Context mContext;
-    List<String> data;
+    List<TestBean> data;
 
-    public GenericsAdapter(Context context, List<String> data) {
+    public GenericsAdapter(Context context, List<TestBean> data) {
         mContext = context;
         this.data = data;
     }
@@ -58,25 +59,28 @@ public class GenericsAdapter extends BaseAdapter {
             holder = new ViewHolder();
             convertView = View.inflate(mContext, R.layout.gridview_search_item, null);
             ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
-            holder.btn_txt = (Button) convertView.findViewById(R.id.my_txt);
+            holder.txtTitle = (TextView) convertView.findViewById(R.id.title);
+            holder.btnLike = (Button) convertView.findViewById(R.id.like);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.btn_txt.setText(data.get(position));
+        holder.txtTitle.setText(data.get(position).getTitle());
+        holder.btnLike.setText(data.get(position).isLike() ? "喜欢" : "无视");
         return convertView;
 
     }
 
-    public void refresh(List<String> data) {
+    public void refresh(List<TestBean> data) {
         this.data = data;
         notifyDataSetChanged();
     }
 
 
     static class ViewHolder {
-        Button btn_txt;
+        TextView txtTitle;
+        Button btnLike;
     }
 
 }

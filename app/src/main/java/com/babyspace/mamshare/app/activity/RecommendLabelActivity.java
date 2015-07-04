@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.adapter.GenericsAdapter;
 import com.babyspace.mamshare.adapter.GridViewSearchAdapter;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.babyspace.mamshare.bean.HomeFloatLayerEvent;
@@ -42,7 +43,7 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
     private ProgressBar footerProgressBar;
     private TextView footerText;
 
-    GridViewSearchAdapter adapter;
+    GenericsAdapter adapter;
 
     List<String> data;
 
@@ -62,7 +63,7 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
         setContentView(R.layout.activity_recommend_label);
 
         data = new ArrayList<>();
-        adapter = new GridViewSearchAdapter(this);
+        adapter = new GenericsAdapter(this);
 
         initView();
         showLoadingProgress();
