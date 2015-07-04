@@ -259,14 +259,15 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
             switch (pagePosition) {
                 case 0:
                     i.setClass(this, RecommendLabelActivity.class);
+                    this.overridePendingTransition(R.anim.umeng_fb_slide_in_from_left, R.anim.umeng_fb_slide_out_from_right);
+                    startActivity(i);
                     break;
                 case 1:
                     i.setClass(this, HomeUserCenterActivity.class);
+                    this.overridePendingTransition(R.anim.umeng_fb_slide_in_from_right, R.anim.umeng_fb_slide_out_from_left);
+                    startActivity(i);
                     break;
-
             }
-            startActivity(i);
-
         }
         lastState = state;
     }
