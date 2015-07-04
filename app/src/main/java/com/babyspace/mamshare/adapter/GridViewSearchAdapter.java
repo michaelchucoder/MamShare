@@ -1,13 +1,18 @@
 package com.babyspace.mamshare.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.basement.MamShare;
+import com.babyspace.mamshare.bean.TestBean;
+import com.michael.core.tools.ViewRelayoutUtil;
 
 import java.util.List;
 
@@ -22,12 +27,13 @@ import java.util.List;
 public class GridViewSearchAdapter extends BaseAdapter {
 
     Context mContext;
-    List<String> data;
+    List<TestBean> data;
 
-    public GridViewSearchAdapter(Context context, List<String> data) {
+    public GridViewSearchAdapter(Context context, List<TestBean> data) {
         mContext = context;
         this.data = data;
     }
+
     public GridViewSearchAdapter(Context context) {
         mContext = context;
     }
@@ -50,15 +56,18 @@ public class GridViewSearchAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
+        @SuppressLint("ViewHolder")
         View rootView = LayoutInflater.from(mContext).inflate(R.layout.gridview_search_item,
                 parent, false);
-        //ViewRelayoutUtil.relayoutViewWithScale(rootView, MamShare.screenWidthScale);
-        Button textView = (Button) rootView.findViewById(R.id.my_txt);
-        textView.setText(data.get(position));
+        ViewRelayoutUtil.relayoutViewWithScale(rootView, MamShare.screenWidthScale);
+        TextView txtTitle = (TextView) rootView.findViewById(R.id.title);
+        Button btnLike = (Button) rootView.findViewById(R.id.like);
+        txtTitle.setText(data.get(position).getTitle());
+        btnLike.setText(data.get(position).isLike() ? "喜欢" : "无视");
         return rootView;
     }
 
-    public void refresh(List<String> data) {
+    public void refresh(List<TestBean> data) {
         this.data = data;
         notifyDataSetChanged();
     }

@@ -17,6 +17,7 @@ import com.babyspace.mamshare.adapter.GenericsAdapter;
 import com.babyspace.mamshare.adapter.GridViewSearchAdapter;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.babyspace.mamshare.bean.HomeFloatLayerEvent;
+import com.babyspace.mamshare.bean.TestBean;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
@@ -45,7 +46,7 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
 
     GenericsAdapter adapter;
 
-    List<String> data;
+    List<TestBean> data;
 
     private int firstVisiblePosition;
     private final int BACK_TOP_COUNT = 5;
@@ -178,6 +179,7 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
 
     /**
      * EventBus 响应事件
+     *
      * @param event
      */
     public void onEventMainThread(HomeFloatLayerEvent event) {
@@ -185,16 +187,16 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
         hideLoadingProgress();
         L.d(OkHttpExecutor.TAG, "onEventMainThread-RecommendLabelActivity>" + event.getData().getActivityEnable());
 
-        List<String> responseData = new ArrayList<>();
+        List<TestBean> responseData = new ArrayList<>();
 
         if (queryCount <= 6) {
             for (int i = 0; i < queryNum; i++) {
-                responseData.add("responseData " + queryCount + " i " + i);
+                responseData.add(new TestBean("responseData " + queryCount + " i " + i, false));
             }
 
         } else {
             for (int i = 0; i < queryNum - 1; i++) {
-                responseData.add("LastData " + queryCount + " i " + i);
+                responseData.add(new TestBean("LastData " + queryCount + " i " + i, false));
             }
 
         }
