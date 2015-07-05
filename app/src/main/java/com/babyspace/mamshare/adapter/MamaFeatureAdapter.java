@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.TestBean;
 import com.michael.core.tools.ViewRelayoutUtil;
@@ -62,7 +63,7 @@ public class MamaFeatureAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         ViewHolder holder;
 
@@ -96,7 +97,7 @@ public class MamaFeatureAdapter extends BaseAdapter {
         holder.btn_avatar_1.setText(testBean1.isLike() ? "喜欢" : "无视");
         holder.btn_title_1.setText(testBean1.getTitle());
 
-        L.d("FeatureAdapter"+"data.size "+data.size()+" position "+position);
+        L.d("FeatureAdapter" + "data.size " + data.size() + " position " + position);
 
 
         if (data.size() <= 3 * (position) + 1) {
@@ -119,6 +120,27 @@ public class MamaFeatureAdapter extends BaseAdapter {
             holder.btn_avatar_3.setText(testBean3.isLike() ? "喜欢" : "无视");
             holder.btn_title_3.setText(testBean3.getTitle());
         }
+        holder.ll_container_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastHelper.showToast(context,"位置: "+3*position);
+
+            }
+        });
+        holder.ll_container_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastHelper.showToast(context,"位置: "+3*position+1);
+
+            }
+        });
+        holder.ll_container_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastHelper.showToast(context,"位置: "+3*position+2);
+
+            }
+        });
 
         return convertView;
     }
