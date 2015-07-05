@@ -25,7 +25,7 @@ import java.util.List;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class CommonAdapter extends BaseAdapter {
-    int gvSearch=R.layout.item_gridview_search;
+    int pageFlaglayout=R.layout.item_gridview_search;
 
     int pageFlag;
     Context mContext;
