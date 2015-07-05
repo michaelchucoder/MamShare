@@ -25,6 +25,7 @@ import java.util.List;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
+import de.greenrobot.event.EventBus;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -41,7 +42,7 @@ public class RegisterFeatureFragment extends BaseFragment {
     List<TestBean> data;
 
 
-    private final int queryNum = 10;
+    private final int queryNum = 9;
     private int queryStart = 0;
     private int queryCount = 0;
     private boolean isRefreshAdd = false;
@@ -71,6 +72,8 @@ public class RegisterFeatureFragment extends BaseFragment {
     public void init(Bundle savedInstanceState) {
 
         setContentView(R.layout.fragment_register_feature);
+
+        EventBus.getDefault().register(this);
 
         data = new ArrayList<>();
         adapter = new MamaFeatureAdapter(getActivity());
