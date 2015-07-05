@@ -73,6 +73,7 @@ public class RegisterFeatureFragment extends BaseFragment {
 
         setContentView(R.layout.fragment_register_feature);
 
+        //TODO 从custom返回 时崩溃
         EventBus.getDefault().register(this);
 
         data = new ArrayList<>();
