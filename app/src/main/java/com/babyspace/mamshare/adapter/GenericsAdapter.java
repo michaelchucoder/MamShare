@@ -26,7 +26,7 @@ import java.util.List;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class GenericsAdapter extends BaseAdapter {
-
+int tag;
     Context mContext;
     List<TestBean> data;
 
