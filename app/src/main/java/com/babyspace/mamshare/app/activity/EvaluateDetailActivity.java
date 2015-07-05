@@ -11,7 +11,7 @@ public class EvaluateDetailActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evaluate_detail);
-        //TODO 动画效果的listview
+        //TODO 动画效果的listview  github上面的实例
     }
 
 }
