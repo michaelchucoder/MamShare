@@ -101,7 +101,7 @@ public class MamaFeatureAdapter extends BaseAdapter {
             holder.btn_avatar_1.setText(testBean2.isLike() ? "喜欢" : "无视");
             holder.btn_title_1.setText(testBean2.getTitle());
 
-            holder.ll_container_3.setVisibility(View.VISIBLE);
+            holder.ll_container_3.setVisibility(View.INVISIBLE);
 
         } else {
             testBean2 = data.get(3 * (position) + 1);
