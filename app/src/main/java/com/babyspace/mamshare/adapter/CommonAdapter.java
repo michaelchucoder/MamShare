@@ -25,6 +25,7 @@ import java.util.List;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class CommonAdapter extends BaseAdapter {
+
     int pageFlag;
     Context mContext;
     List<?> data;
