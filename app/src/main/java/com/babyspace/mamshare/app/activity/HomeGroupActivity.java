@@ -30,10 +30,8 @@ public class HomeGroupActivity extends ActivityGroup {
     private int page = PAGE_SPECIAL_TOPIC;
     public static final int PAGE_USER_CENTER = 1003;
 
-
     @InjectView(R.id.specialTopic_image)
     ImageView specialTopicImage;
-
 
     @InjectView(R.id.userCenter_image)
     ImageView userCenterImage;
@@ -41,10 +39,8 @@ public class HomeGroupActivity extends ActivityGroup {
     @InjectView(R.id.specialTopic_text)
     TextView specialTopicText;
 
-
     @InjectView(R.id.userCenter_text)
     TextView userCenterText;
-
 
     @InjectView(R.id.specialTopic_layout)
     View specialTopic_layout;
