@@ -2,3 +2,9 @@
 2, 写成类似于麦乐购 content provider
 3, List<T> 万能adapter
 4, 是否登录     token  interfaceToken
+
+
+3个类型的 listview-->复杂列表形式
+
+pageFlag
+
