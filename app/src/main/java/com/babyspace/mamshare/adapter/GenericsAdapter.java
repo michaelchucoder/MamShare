@@ -25,19 +25,23 @@ import java.util.List;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class GenericsAdapter extends BaseAdapter {
-    int tag;
-    Context mContext;
-    List<TestBean> data;
+    int pageFlaglayout=R.layout.item_gridview_search;
 
-    public GenericsAdapter(Context context, List<TestBean> data) {
+    int pageFlag;
+    Context mContext;
+    List<?> data;
+
+    public GenericsAdapter(Context context, List<?> data) {
         mContext = context;
         this.data = data;
     }
 
-    public GenericsAdapter(Context context) {
+    public GenericsAdapter(Context context,int pageFlag) {
         mContext = context;
-        L.d("GenericsAdapter",mContext.getPackageName());
-        L.d("GenericsAdapter",mContext.getPackageCodePath());
+        this.pageFlag = pageFlag;
+
+        L.d("CommonAdapter",mContext.getPackageName());
+        L.d("CommonAdapter",mContext.getPackageCodePath());
     }
 
     @Override
@@ -70,14 +74,14 @@ public class GenericsAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.txtTitle.setText(data.get(position).getTitle());
-        holder.btnLike.setText(data.get(position).isLike() ? "喜欢" : "无视");
+        holder.txtTitle.setText(((List<TestBean>) data).get(position).getTitle());
+        holder.btnLike.setText(((List<TestBean>) data).get(position).isLike() ? "喜欢" : "无视");
 
         holder.btnLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //状态改变后刷新数据
-                data.get(position).setIsLike(!data.get(position).isLike());
+                ((List<TestBean>) data).get(position).setIsLike(!((List<TestBean>) data).get(position).isLike());
                 notifyDataSetChanged();
             }
         });
@@ -91,11 +95,13 @@ public class GenericsAdapter extends BaseAdapter {
 
     }
 
-    public void refresh(List<TestBean> data) {
+    public void refresh(int pageFlag,List<?> data) {
+        this.pageFlag=pageFlag;
         this.data = data;
         notifyDataSetChanged();
     }
 
+    //TODO 可以写一个并集类, 方便使用
 
     static class ViewHolder {
         TextView txtTitle;
