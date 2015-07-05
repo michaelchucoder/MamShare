@@ -99,7 +99,8 @@ public class CommonAdapter extends BaseAdapter {
 
     }
 
-    public void refresh(List<TestBean> data) {
+    public void refresh(int pageFlag,List<TestBean> data) {
+        this.pageFlag=pageFlag;
         this.data = data;
         notifyDataSetChanged();
     }
