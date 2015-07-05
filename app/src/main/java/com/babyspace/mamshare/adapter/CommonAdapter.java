@@ -108,4 +108,6 @@ public class CommonAdapter extends BaseAdapter {
         Button btnLike;
     }
 
+    //TODO  长度为空时  用空fragment或者 新的item代替
+
 }
