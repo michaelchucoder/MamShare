@@ -8,8 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
-import com.babyspace.mamshare.app.activity.RecommendLabelActivity;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
+import com.babyspace.mamshare.basement.BaseResponseBean;
 import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.TestBean;
 import com.michael.core.tools.ViewRelayoutUtil;
@@ -25,17 +25,23 @@ import java.util.List;
  * Time: 9:15
  * To change this template use File | Settings | File and Code Templates.
  */
-public class GenericsAdapter extends BaseAdapter {
+public class CommonAdapter extends BaseAdapter {
     int tag;
     Context mContext;
     List<TestBean> data;
+    BaseResponseBean responseBean;
 
-    public GenericsAdapter(Context context, List<TestBean> data) {
+    public CommonAdapter(Context context, List<TestBean> data) {
         mContext = context;
         this.data = data;
     }
+    public CommonAdapter(Context context, BaseResponseBean responseBean) {
+        mContext = context;
+        this.responseBean = responseBean;
+        responseBean.getData()
+    }
 
-    public GenericsAdapter(Context context) {
+    public CommonAdapter(Context context) {
         mContext = context;
         L.d("GenericsAdapter",mContext.getPackageName());
         L.d("GenericsAdapter",mContext.getPackageCodePath());
