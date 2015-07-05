@@ -105,6 +105,7 @@ public class CommonAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
+    //TODO 可以写一个并集类, 方便使用
 
     static class ViewHolder {
         TextView txtTitle;
