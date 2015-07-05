@@ -71,6 +71,10 @@ public class MamaFeatureAdapter extends BaseAdapter {
             convertView = View.inflate(context, resource, null);
             ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
 
+            holder.ll_container_1= (LinearLayout) convertView.findViewById(R.id.ll_container_1);
+            holder.ll_container_2= (LinearLayout) convertView.findViewById(R.id.ll_container_2);
+            holder.ll_container_3= (LinearLayout) convertView.findViewById(R.id.ll_container_3);
+
             holder.btn_avatar_1 = (Button) convertView.findViewById(R.id.btn_avatar_1);
             holder.btn_avatar_2 = (Button) convertView.findViewById(R.id.btn_avatar_2);
             holder.btn_avatar_3 = (Button) convertView.findViewById(R.id.btn_avatar_3);
