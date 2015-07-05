@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
-import com.babyspace.mamshare.basement.BaseResponseBean;
 import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.TestBean;
 import com.michael.core.tools.ViewRelayoutUtil;
@@ -28,24 +27,19 @@ import java.util.List;
 public class CommonAdapter extends BaseAdapter {
     int pageFlag;
     Context mContext;
-    List<TestBean> data;
-    BaseResponseBean responseBean;
+    List<?> data;
 
-    public CommonAdapter(Context context, List<TestBean> data) {
+    public CommonAdapter(Context context, List<?> data) {
         mContext = context;
         this.data = data;
-    }
-    public CommonAdapter(Context context, BaseResponseBean responseBean) {
-        mContext = context;
-        this.responseBean = responseBean;
     }
 
     public CommonAdapter(Context context,int pageFlag) {
         mContext = context;
         this.pageFlag = pageFlag;
 
-        L.d("GenericsAdapter",mContext.getPackageName());
-        L.d("GenericsAdapter",mContext.getPackageCodePath());
+        L.d("CommonAdapter",mContext.getPackageName());
+        L.d("CommonAdapter",mContext.getPackageCodePath());
     }
 
     @Override
@@ -78,14 +72,14 @@ public class CommonAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.txtTitle.setText(data.get(position).getTitle());
-        holder.btnLike.setText(data.get(position).isLike() ? "喜欢" : "无视");
+        holder.txtTitle.setText(((List<TestBean>)data).get(position).getTitle());
+        holder.btnLike.setText(((List<TestBean>)data).get(position).isLike() ? "喜欢" : "无视");
 
         holder.btnLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //状态改变后刷新数据
-                data.get(position).setIsLike(!data.get(position).isLike());
+                ((List<TestBean>)data).get(position).setIsLike(!((List<TestBean>)data).get(position).isLike());
                 notifyDataSetChanged();
             }
         });
@@ -99,7 +93,7 @@ public class CommonAdapter extends BaseAdapter {
 
     }
 
-    public void refresh(int pageFlag,List<TestBean> data) {
+    public void refresh(int pageFlag,List<?> data) {
         this.pageFlag=pageFlag;
         this.data = data;
         notifyDataSetChanged();
