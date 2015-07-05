@@ -22,7 +22,6 @@ public class TextFromRender extends BaseTypeRender<ChatMessage> {
         super(context, baseTypeAdapter, R.layout.chat_text_from_item);
     }
 
-
     @Override
     public void bindEvents() {
         //监听器
