@@ -101,19 +101,19 @@ public class MamaFeatureAdapter extends BaseAdapter {
 
         } else if ((data.size() <= 3 * (position) + 2)) {
             testBean2 = data.get(3 * (position) + 1);
-            holder.btn_avatar_1.setText(testBean2.isLike() ? "喜欢" : "无视");
-            holder.btn_title_1.setText(testBean2.getTitle());
+            holder.btn_avatar_2.setText(testBean2.isLike() ? "喜欢" : "无视");
+            holder.btn_title_2.setText(testBean2.getTitle());
 
-            //holder.ll_container_3.setVisibility(View.INVISIBLE);
+            holder.ll_container_3.setVisibility(View.INVISIBLE);
 
         } else {
             testBean2 = data.get(3 * (position) + 1);
-            holder.btn_avatar_1.setText(testBean2.isLike() ? "喜欢" : "无视");
-            holder.btn_title_1.setText(testBean2.getTitle());
+            holder.btn_avatar_2.setText(testBean2.isLike() ? "喜欢" : "无视");
+            holder.btn_title_2.setText(testBean2.getTitle());
 
             testBean3 = data.get(3 * (position) + 2);
-            holder.btn_avatar_1.setText(testBean3.isLike() ? "喜欢" : "无视");
-            holder.btn_title_1.setText(testBean3.getTitle());
+            holder.btn_avatar_3.setText(testBean3.isLike() ? "喜欢" : "无视");
+            holder.btn_title_3.setText(testBean3.getTitle());
         }
 
         return convertView;
