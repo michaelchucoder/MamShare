@@ -12,13 +12,13 @@
         android:id="@+id/common_title"
         layout="@layout/common_title_layout" />
 
-    <GridView
+    <ListView
         android:id="@+id/register_feature_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/common_title">
 
-    </GridView>
+    </ListView>
 
     <Button
         android:id="@+id/register_feature_again"
