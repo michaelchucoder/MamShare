@@ -99,7 +99,6 @@ public class MamaFeatureAdapter extends BaseAdapter {
         holder.btn_title_1.setText(testBean1.getTitle());
 
 
-
         if (data.size() <= typeNum * (position) + 1) {
             holder.ll_container_2.setVisibility(View.INVISIBLE);
             holder.ll_container_3.setVisibility(View.INVISIBLE);
