@@ -25,6 +25,7 @@ import java.util.List;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class CommonAdapter extends BaseAdapter {
+    int pageFlaglayout=R.layout.gridview_search_item;
 
     int pageFlag;
     Context mContext;
@@ -73,14 +74,14 @@ public class CommonAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.txtTitle.setText(((List<TestBean>)data).get(position).getTitle());
-        holder.btnLike.setText(((List<TestBean>)data).get(position).isLike() ? "喜欢" : "无视");
+        holder.txtTitle.setText(((List<TestBean>) data).get(position).getTitle());
+        holder.btnLike.setText(((List<TestBean>) data).get(position).isLike() ? "喜欢" : "无视");
 
         holder.btnLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //状态改变后刷新数据
-                ((List<TestBean>)data).get(position).setIsLike(!((List<TestBean>)data).get(position).isLike());
+                ((List<TestBean>) data).get(position).setIsLike(!((List<TestBean>) data).get(position).isLike());
                 notifyDataSetChanged();
             }
         });
