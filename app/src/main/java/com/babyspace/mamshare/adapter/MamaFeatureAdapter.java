@@ -147,8 +147,6 @@ public class MamaFeatureAdapter extends BaseAdapter {
         LinearLayout ll_container_3;
         Button btn_avatar_3;
         Button btn_title_3;
-
-
     }
 
 }
