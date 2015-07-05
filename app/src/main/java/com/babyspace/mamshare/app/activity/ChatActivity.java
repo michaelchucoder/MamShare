@@ -42,7 +42,6 @@ public class ChatActivity extends BaseActivity {
                 Toast.makeText(ChatActivity.this, "from chat message:" + chatMessage.getContent(), Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 
     private void initData() {
