@@ -8,3 +8,5 @@
 
 pageFlag
 
+在 basefragment onStop 里面加入 hideProgress
+

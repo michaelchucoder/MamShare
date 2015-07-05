@@ -11,6 +11,7 @@ import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.TestBean;
 import com.michael.core.tools.ViewRelayoutUtil;
+import com.michael.library.debug.L;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,6 +91,8 @@ public class MamaFeatureAdapter extends BaseAdapter {
 
         holder.btn_avatar_1.setText(testBean1.isLike() ? "喜欢" : "无视");
         holder.btn_title_1.setText(testBean1.getTitle());
+
+        L.d("FeatureAdapter"+"data.size "+data.size()+" position "+position);
 
 
         if (data.size() <= 3 * (position) + 1) {
