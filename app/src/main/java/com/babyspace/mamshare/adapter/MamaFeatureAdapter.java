@@ -124,21 +124,21 @@ public class MamaFeatureAdapter extends BaseAdapter {
         holder.ll_container_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastHelper.showToast(context,"位置: "+3*position);
+                ToastHelper.showToast(context,"位置: "+typeNum*position);
 
             }
         });
         holder.ll_container_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastHelper.showToast(context,"位置: "+3*position+1);
+                ToastHelper.showToast(context,"位置: "+typeNum*position+1);
 
             }
         });
         holder.ll_container_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastHelper.showToast(context,"位置: "+3*position+2);
+                ToastHelper.showToast(context,"位置: "+typeNum*position+2);
 
             }
         });
