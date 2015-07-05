@@ -4,19 +4,19 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/left_container"
+        android:id="@+id/ll_container_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/left_avatar"
+            android:id="@+id/btn_avatar_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="左边" />
 
         <Button
-            android:id="@+id/left_title"
+            android:id="@+id/btn_title_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="瑜伽妈妈" />
@@ -24,20 +24,20 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/right_container"
+        android:id="@+id/ll_container_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/right_avatar"
+            android:id="@+id/btn_avatar_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="右边" />
 
         <Button
-            android:id="@+id/right_title"
+            android:id="@+id/btn_title_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="瑜伽妈妈" />
@@ -45,24 +45,25 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/middle_container"
+        android:id="@+id/ll_container_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/left_container"
+        android:layout_below="@+id/ll_container_1"
         android:layout_centerHorizontal="true"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/middle_avatar"
+            android:id="@+id/btn_avatar_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="中间" />
 
         <Button
-            android:id="@+id/middle_title"
+            android:id="@+id/btn_title_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="瑜伽妈妈" />
 
     </LinearLayout>
+
 </RelativeLayout>
