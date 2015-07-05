@@ -38,8 +38,6 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
         setContentView(R.layout.activity_home_preface);
         //strollFancyCoverFlowAdapter = new StrollFancyCoverFlowAdapter(this);
         initView();
-
-
     }
 
     private void initView() {
