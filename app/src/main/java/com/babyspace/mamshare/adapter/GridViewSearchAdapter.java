@@ -57,7 +57,7 @@ public class GridViewSearchAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         @SuppressLint("ViewHolder")
-        View rootView = LayoutInflater.from(mContext).inflate(R.layout.gridview_search_item,
+        View rootView = LayoutInflater.from(mContext).inflate(R.layout.item_gridview_search,
                 parent, false);
         ViewRelayoutUtil.relayoutViewWithScale(rootView, MamShare.screenWidthScale);
         TextView txtTitle = (TextView) rootView.findViewById(R.id.title);

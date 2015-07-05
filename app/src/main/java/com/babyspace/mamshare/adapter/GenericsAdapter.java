@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
-import com.babyspace.mamshare.app.activity.RecommendLabelActivity;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.TestBean;
@@ -62,7 +61,7 @@ public class GenericsAdapter extends BaseAdapter {
         ViewHolder holder;
         if (convertView == null) {
             holder = new ViewHolder();
-            convertView = View.inflate(mContext, R.layout.gridview_search_item, null);
+            convertView = View.inflate(mContext, R.layout.item_gridview_search, null);
             ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
             holder.txtTitle = (TextView) convertView.findViewById(R.id.title);
             holder.btnLike = (Button) convertView.findViewById(R.id.like);

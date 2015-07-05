@@ -25,7 +25,7 @@ import java.util.List;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class CommonAdapter extends BaseAdapter {
-    int pageFlaglayout=R.layout.gridview_search_item;
+    int gvSearch=R.layout.item_gridview_search;
 
     int pageFlag;
     Context mContext;
@@ -65,7 +65,7 @@ public class CommonAdapter extends BaseAdapter {
         ViewHolder holder;
         if (convertView == null) {
             holder = new ViewHolder();
-            convertView = View.inflate(mContext, R.layout.gridview_search_item, null);
+            convertView = View.inflate(mContext, R.layout.item_gridview_search, null);
             ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
             holder.txtTitle = (TextView) convertView.findViewById(R.id.title);
             holder.btnLike = (Button) convertView.findViewById(R.id.like);
