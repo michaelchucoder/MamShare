@@ -24,7 +24,7 @@ import java.util.List;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class MamaFeatureAdapter extends BaseAdapter {
-    private List<TestBean> data = new ArrayList<TestBean>();
+    private List<TestBean> data = new ArrayList<>();
     private Context context;
     private int resource = R.layout.item_mama_feature;
 
@@ -112,24 +112,6 @@ public class MamaFeatureAdapter extends BaseAdapter {
             holder.btn_avatar_1.setText(testBean3.isLike() ? "喜欢" : "无视");
             holder.btn_title_1.setText(testBean3.getTitle());
         }
-
-
-        holder.ll_container_1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            }
-        });
-
-        holder.ll_container_2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            }
-        });
-        holder.ll_container_3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            }
-        });
 
         return convertView;
     }
