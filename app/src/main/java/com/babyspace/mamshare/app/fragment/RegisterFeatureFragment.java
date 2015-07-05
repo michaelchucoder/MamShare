@@ -9,9 +9,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.adapter.GenericsAdapter;
+import com.babyspace.mamshare.adapter.MamaFeatureAdapter;
 import com.babyspace.mamshare.basement.BaseFragment;
+import com.babyspace.mamshare.bean.TestBean;
 import com.babyspace.mamshare.listener.RegisterListener;
+import com.michael.library.widget.custom.GridViewWithHeaderAndFooter;
 
+import java.util.List;
+
+import butterknife.InjectView;
 import butterknife.OnClick;
 
 /**
@@ -19,6 +26,15 @@ import butterknife.OnClick;
  */
 public class RegisterFeatureFragment extends BaseFragment {
     RegisterListener mCallback;
+
+    @InjectView(R.id.label_gridView)
+    GridViewWithHeaderAndFooter gridView;
+
+    MamaFeatureAdapter adapter;
+
+    List<TestBean> data;
+
+
 
 
     public RegisterFeatureFragment() {
