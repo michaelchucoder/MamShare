@@ -133,7 +133,7 @@ public class RegisterFeatureFragment extends BaseFragment {
 
         List<TestBean> responseData = new ArrayList<>();
 
-        if (queryCount <= 6) {
+        if (queryCount <= 4) {
             for (int i = 0; i < queryNum; i++) {
                 responseData.add(new TestBean("More " + queryCount + " i " + i, false));
             }
