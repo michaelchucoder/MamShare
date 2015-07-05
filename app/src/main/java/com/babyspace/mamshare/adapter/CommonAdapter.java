@@ -26,7 +26,7 @@ import java.util.List;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class CommonAdapter extends BaseAdapter {
-    int tag;
+    int pageFlag;
     Context mContext;
     List<TestBean> data;
     BaseResponseBean responseBean;
@@ -38,11 +38,12 @@ public class CommonAdapter extends BaseAdapter {
     public CommonAdapter(Context context, BaseResponseBean responseBean) {
         mContext = context;
         this.responseBean = responseBean;
-        responseBean.getData()
     }
 
-    public CommonAdapter(Context context) {
+    public CommonAdapter(Context context,int pageFlag) {
         mContext = context;
+        this.pageFlag = pageFlag;
+
         L.d("GenericsAdapter",mContext.getPackageName());
         L.d("GenericsAdapter",mContext.getPackageCodePath());
     }

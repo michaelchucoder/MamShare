@@ -27,4 +27,14 @@ public class AppConstants {
 
     public static final String DATA_PATH = "";
     public static final String DATA_PATH_GBADATA = "";
+
+
+
+
+    public static final int page_recommend_label=1001;
+    public static final int page_evaluate_list=1002;
+    public static final int page_guidance_list=1003;
+    public static final int page_search_result_evaluate=1004;
+    public static final int page_search_result_guidance=1005;
+
 }
