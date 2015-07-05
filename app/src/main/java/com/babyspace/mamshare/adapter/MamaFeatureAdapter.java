@@ -26,6 +26,7 @@ import java.util.List;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class MamaFeatureAdapter extends BaseAdapter {
+    private final int typeNum=3;
     private List<TestBean> data = new ArrayList<>();
     private Context context;
     private int resource = R.layout.item_mama_feature;
@@ -43,10 +44,10 @@ public class MamaFeatureAdapter extends BaseAdapter {
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        if (data.size() % 3 > 0) {
-            return data.size() / 3 + 1;
+        if (data.size() % typeNum > 0) {
+            return data.size() / typeNum + 1;
         } else {
-            return data.size() / 3;
+            return data.size() / typeNum;
         }
     }
 
@@ -89,7 +90,7 @@ public class MamaFeatureAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        TestBean testBean1 = data.get(3 * (position));
+        TestBean testBean1 = data.get(typeNum * (position));
         TestBean testBean2;
         TestBean testBean3;
 
@@ -100,23 +101,23 @@ public class MamaFeatureAdapter extends BaseAdapter {
         L.d("FeatureAdapter" + "data.size " + data.size() + " position " + position);
 
 
-        if (data.size() <= 3 * (position) + 1) {
+        if (data.size() <= typeNum * (position) + 1) {
             holder.ll_container_2.setVisibility(View.INVISIBLE);
             holder.ll_container_3.setVisibility(View.INVISIBLE);
 
-        } else if ((data.size() <= 3 * (position) + 2)) {
-            testBean2 = data.get(3 * (position) + 1);
+        } else if ((data.size() <= typeNum * (position) + 2)) {
+            testBean2 = data.get(typeNum * (position) + 1);
             holder.btn_avatar_2.setText(testBean2.isLike() ? "喜欢" : "无视");
             holder.btn_title_2.setText(testBean2.getTitle());
 
             holder.ll_container_3.setVisibility(View.INVISIBLE);
 
         } else {
-            testBean2 = data.get(3 * (position) + 1);
+            testBean2 = data.get(typeNum * (position) + 1);
             holder.btn_avatar_2.setText(testBean2.isLike() ? "喜欢" : "无视");
             holder.btn_title_2.setText(testBean2.getTitle());
 
-            testBean3 = data.get(3 * (position) + 2);
+            testBean3 = data.get(typeNum * (position) + 2);
             holder.btn_avatar_3.setText(testBean3.isLike() ? "喜欢" : "无视");
             holder.btn_title_3.setText(testBean3.getTitle());
         }
