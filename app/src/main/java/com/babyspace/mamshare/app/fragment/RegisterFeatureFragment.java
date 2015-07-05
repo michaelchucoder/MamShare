@@ -90,6 +90,7 @@ public class RegisterFeatureFragment extends BaseFragment {
 
     private void queryData() {
         //mSwipeLayout.setRefreshing(true);
+        showLoadingProgress();
 
         ++queryCount;
 
@@ -125,7 +126,7 @@ public class RegisterFeatureFragment extends BaseFragment {
      */
     public void onEventMainThread(HomeFloatLayerEvent event) {
         hideLoadingProgress();
-        L.d(OkHttpExecutor.TAG, "onEventMainThread-RecommendLabelActivity>" + event.getData().getActivityEnable());
+        L.d(OkHttpExecutor.TAG, "onEventMainThread-RegisterFeatureFragment>" + event.getData().getActivityEnable());
 
         List<TestBean> responseData = new ArrayList<>();
 
