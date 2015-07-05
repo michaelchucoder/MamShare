@@ -15,6 +15,7 @@ import com.babyspace.mamshare.basement.BaseActivity;
 
 
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
+    //TODO 妈妈说原先的设计
 
     private MamSpecialTopicFragment specialTopicFragment;
 
