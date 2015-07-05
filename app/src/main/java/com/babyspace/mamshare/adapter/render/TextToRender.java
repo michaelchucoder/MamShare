@@ -19,7 +19,6 @@ public class TextToRender extends BaseTypeRender<ChatMessage> {
     }
     @Override
     public void bindEvents() {
-
     }
     @Override
     public void bindDatas(ChatMessage item) {
