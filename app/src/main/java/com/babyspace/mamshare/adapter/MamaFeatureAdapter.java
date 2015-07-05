@@ -85,7 +85,7 @@ public class MamaFeatureAdapter extends BaseAdapter {
 
         TestBean testBean1 = data.get(3 * (position));
         TestBean testBean2;
-        TestBean testBean3 = null;
+        TestBean testBean3;
 
 
         holder.btn_avatar_1.setText(testBean1.isLike() ? "喜欢" : "无视");
