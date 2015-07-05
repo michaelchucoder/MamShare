@@ -12,11 +12,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.adapter.CommonAdapter;
 import com.babyspace.mamshare.adapter.GenericsAdapter;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.HomeFloatLayerEvent;
 import com.babyspace.mamshare.bean.TestBean;
+import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
@@ -44,7 +46,7 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
     private ProgressBar footerProgressBar;
     private TextView footerText;
 
-    GenericsAdapter adapter;
+    CommonAdapter adapter;
 
     List<TestBean> data;
 
@@ -64,7 +66,7 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
         setContentView(R.layout.activity_recommend_label);
 
         data = new ArrayList<>();
-        adapter = new GenericsAdapter(this);
+        adapter = new CommonAdapter(this, AppConstants.page_recommend_label);
 
         initView();
         showLoadingProgress();
@@ -88,7 +90,7 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
 
         gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
 
-        adapter.refresh(data);
+        adapter.refresh(AppConstants.page_recommend_label,data);
         gridView.addHeaderView(mHeader);
         gridView.addFooterView(mFooter);
         gridView.setAdapter(adapter);
@@ -224,7 +226,7 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
             queryStart += queryNum;
         }
 
-        adapter.refresh(data);
+        adapter.refresh(AppConstants.page_recommend_label, data);
 
     }
 
