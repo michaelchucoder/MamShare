@@ -44,8 +44,8 @@ public class RegisterFeatureFragment extends BaseFragment {
     private final int queryNum = 10;
     private int queryStart = 0;
     private int queryCount = 0;
-    private boolean isRefreshAdd = true;
-    private boolean isMoreData = false;
+    private boolean isRefreshAdd = false;
+    private boolean isMoreData = true;
     private Call queryCall;
 
     public RegisterFeatureFragment() {
@@ -151,7 +151,7 @@ public class RegisterFeatureFragment extends BaseFragment {
 
         if (isRefreshAdd) {
             queryStart += queryNum;
-            data.addAll(responseData);
+            data=responseData;
             isRefreshAdd = false;
         } else {
             data = responseData;
