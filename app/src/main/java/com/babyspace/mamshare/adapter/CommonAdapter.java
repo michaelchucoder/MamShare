@@ -25,7 +25,7 @@ import java.util.List;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class CommonAdapter extends BaseAdapter {
-    int pageFlaglayout=R.layout.item_gridview_search;
+    int pageFlaglayout = R.layout.item_gridview_search;
 
     int pageFlag;
     Context mContext;
@@ -36,12 +36,12 @@ public class CommonAdapter extends BaseAdapter {
         this.data = data;
     }
 
-    public CommonAdapter(Context context,int pageFlag) {
+    public CommonAdapter(Context context, int pageFlag) {
         mContext = context;
         this.pageFlag = pageFlag;
 
-        L.d("CommonAdapter",mContext.getPackageName());
-        L.d("CommonAdapter",mContext.getPackageCodePath());
+        L.d("CommonAdapter", mContext.getPackageName());
+        L.d("CommonAdapter", mContext.getPackageCodePath());
     }
 
     @Override
@@ -95,8 +95,8 @@ public class CommonAdapter extends BaseAdapter {
 
     }
 
-    public void refresh(int pageFlag,List<?> data) {
-        this.pageFlag=pageFlag;
+    public void refresh(int pageFlag, List<?> data) {
+        this.pageFlag = pageFlag;
         this.data = data;
         notifyDataSetChanged();
     }

@@ -46,7 +46,7 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
     private ProgressBar footerProgressBar;
     private TextView footerText;
 
-    CommonAdapter adapter;
+    GenericsAdapter adapter;
 
     List<TestBean> data;
 
@@ -66,7 +66,7 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
         setContentView(R.layout.activity_recommend_label);
 
         data = new ArrayList<>();
-        adapter = new CommonAdapter(this, AppConstants.page_recommend_label);
+        adapter = new GenericsAdapter(this, AppConstants.page_recommend_label);
 
         initView();
         showLoadingProgress();
