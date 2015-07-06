@@ -33,18 +33,13 @@ public class RecommendLabelFragment extends BaseFragment {
     @Override
     public void init(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_recommend_label);
-
-        if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
-                    .add(R.id.container, new RecommendLabelFragment())
-                    .commit();
-        }
     }
 
     @Override
     public void initView() {
 
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

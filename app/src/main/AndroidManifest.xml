@@ -305,6 +305,7 @@
         <activity android:name=".app.activity.RecommendLabelActivity" />
         <activity android:name=".app.activity.LabelEvaluateListActivity" />
         <activity android:name=".app.activity.ResetPasswordActivity" />
+        <activity android:name=".app.activity.CommentActivity" />
     </application>
 
 </manifest>

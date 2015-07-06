@@ -595,7 +595,7 @@ public class SplashActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.go_preface,R.id.go_login})
+    @OnClick({R.id.go_preface,R.id.go_login,R.id.go_test})
     public void doOnClick(View view) {
         Intent i = new Intent();
 
@@ -605,6 +605,9 @@ public class SplashActivity extends BaseActivity {
                 break;
             case R.id.go_login:
                 i.setClass(this, LoginActivity.class);
+                break;
+            case R.id.go_test:
+                i.setClass(this, CommentActivity.class);
                 break;
         }
         startActivity(i);
