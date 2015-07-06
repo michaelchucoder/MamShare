@@ -30,19 +30,28 @@ public class AppConstants {
     public static final String DATA_PATH_GBADATA = "";
 
 
-
     /**
      * michael flow data
      */
-    public static final int page_discover_search = 1001;
+    public static final int page_home_guidance = 2001;
+    public static final int page_home_evaluate = 2002;
+
+    public static final int page_collect_guidance = 2003;
+    public static final int page_collect_evaluate = 2004;
+
+
+    public static final int page_discover_search = 2005;
     public static final int item_discover_search = R.layout.item_discover_search;
 
-    public static final int page_recommend_label = 1002;
+    public static final int page_recommend_label = 2006;
     public static final int item_recommend_label = R.layout.item_recommend_label;
 
-    public static final int page_evaluate_list = 1003;
-    public static final int page_guidance_list = 1004;
-    public static final int page_search_result_evaluate = 1005;
-    public static final int page_search_result_guidance = 1006;
+    public static final int page_search_guidance = 2007;
+    public static final int page_search_evaluate = 2008;
+    public static final int page_search_keyword = 2009;
+
+    public static final int page_label_evaluate = 2010;
+    public static final int page_user_evaluate = 2011;
+
 
 }
