@@ -1,5 +1,4 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:imagecontrol="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#eee"
@@ -35,7 +34,7 @@
                 android:layout_marginRight="17px"
                 android:background="#00000000"
                 android:gravity="center_vertical"
-                android:hint="为宝宝找到世界上最好用的"
+                android:hint="关键词1"
                 android:textColor="#868686"
                 android:textSize="24px" />
         </LinearLayout>
@@ -49,7 +48,6 @@
             android:text="取消"
             android:textSize="40px" />
     </RelativeLayout>
-
 
 
     <com.viewpagerindicator.TabPageIndicator
