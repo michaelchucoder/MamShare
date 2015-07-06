@@ -90,7 +90,6 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
         gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
 
         adapter.refresh(AppConstants.page_recommend_label,data);
-        gridView.addHeaderView(mHeader);
         gridView.addFooterView(mFooter);
         gridView.setAdapter(adapter);
 
