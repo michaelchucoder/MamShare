@@ -33,6 +33,7 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class DiscoverSearchActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener {
+    //TODO P4
     @InjectView(R.id.swipe_container)
     SwipeRefreshLayout mSwipeLayout;
 
