@@ -33,6 +33,8 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class RecommendLabelActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener {
+    //TODO P5
+
     @InjectView(R.id.swipe_container)
     SwipeRefreshLayout mSwipeLayout;
 
