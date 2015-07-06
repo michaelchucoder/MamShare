@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="330px"
+    android:layout_height="330px"
+    android:background="@color/pink_mama_bg"
+    android:orientation="vertical"
+    android:padding="20px">
+
+    <ImageView
+        android:id="@+id/title"
+        android:layout_width="250px"
+        android:layout_height="250px"
+        android:layout_centerHorizontal="true"
+        android:src="@color/yellow"
+        android:text="我是标题大人" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="250px"
+        android:layout_height="100px"
+        android:layout_below="@+id/title"
+        android:gravity="center"
+        android:text="标题" />
+
+
+    <Button
+        android:id="@+id/like"
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:layout_above="@+id/tv_title"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20px"
+        android:background="@drawable/shape_rounded_rectangle"
+        android:text="45">
+
+    </Button>
+
+</RelativeLayout>
