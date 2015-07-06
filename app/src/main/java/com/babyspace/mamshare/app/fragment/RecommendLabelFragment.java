@@ -18,24 +18,25 @@ import com.babyspace.mamshare.bean.TestBean;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DiscoverSearchFragment extends BaseFragment {
+public class RecommendLabelFragment extends BaseFragment {
 
     //TODO 的有多中类型的item 为listview 或gridview的情况
 
     ListView mListView;
 
-    public DiscoverSearchFragment() {
+
+    public RecommendLabelFragment() {
         // Required empty public constructor
     }
 
 
     @Override
     public void init(Bundle savedInstanceState) {
-        setContentView(R.layout.fragment_discover_search);
+        setContentView(R.layout.fragment_recommend_label);
 
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
-                    .add(R.id.container, new DiscoverSearchFragment())
+                    .add(R.id.container, new RecommendLabelFragment())
                     .commit();
         }
     }
@@ -47,7 +48,7 @@ public class DiscoverSearchFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_discover_search, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_recommend_label, container, false);
 
         mListView = (ListView) rootView.findViewById(R.id.my_listview);
         // 设置Adapter

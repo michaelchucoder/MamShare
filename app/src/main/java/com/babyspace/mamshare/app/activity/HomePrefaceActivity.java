@@ -256,7 +256,7 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
 
             switch (pagePosition) {
                 case 0:
-                    i.setClass(this, RecommendLabelActivity.class);
+                    i.setClass(this, DiscoverSearchActivity.class);
                     startActivity(i);
                     this.overridePendingTransition(R.anim.umeng_fb_slide_in_from_left, R.anim.umeng_fb_slide_out_from_right);
                     break;
