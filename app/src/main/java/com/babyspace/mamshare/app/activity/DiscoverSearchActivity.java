@@ -63,7 +63,7 @@ public class DiscoverSearchActivity extends BaseActivity implements SwipeRefresh
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recommend_label);
+        setContentView(R.layout.activity_discover_search);
 
         data = new ArrayList<>();
         adapter = new GenericsAdapter(this, AppConstants.page_recommend_label);
