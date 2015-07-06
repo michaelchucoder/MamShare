@@ -11,6 +11,7 @@ import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.TestBean;
+import com.babyspace.mamshare.commons.AppConstants;
 import com.michael.core.tools.ViewRelayoutUtil;
 import com.michael.library.debug.L;
 
@@ -25,7 +26,6 @@ import java.util.List;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class GenericsAdapter extends BaseAdapter {
-    int pageFlaglayout=R.layout.item_gridview_search;
 
     int pageFlag;
     Context mContext;
@@ -65,7 +65,7 @@ public class GenericsAdapter extends BaseAdapter {
         ViewHolder holder;
         if (convertView == null) {
             holder = new ViewHolder();
-            convertView = View.inflate(mContext, R.layout.item_gridview_search, null);
+            convertView = View.inflate(mContext, AppConstants.item_recommend_label, null);
             ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
             holder.txtTitle = (TextView) convertView.findViewById(R.id.title);
             holder.btnLike = (Button) convertView.findViewById(R.id.like);

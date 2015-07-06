@@ -1,5 +1,7 @@
 package com.babyspace.mamshare.commons;
 
+import com.babyspace.mamshare.R;
+
 /**
  * Created with Android Studio
  * Package name: com.babyspace.mamshare.commons
@@ -32,6 +34,8 @@ public class AppConstants {
 
 
     public static final int page_recommend_label=1001;
+    public static final int item_recommend_label= R.layout.item_gridview_search;
+
     public static final int page_evaluate_list=1002;
     public static final int page_guidance_list=1003;
     public static final int page_search_result_evaluate=1004;
