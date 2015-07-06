@@ -20,6 +20,8 @@ import java.util.List;
 
 public class DiscoverSearchFragment extends BaseFragment {
 
+    //TODO 的有多中类型的item 为listview 或gridview的情况
+
     ListView mListView;
 
     public DiscoverSearchFragment() {
