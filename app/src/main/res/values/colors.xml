@@ -7,4 +7,10 @@
     <color name="transparent">#00000000</color>
     <color name="red">#ffff0000</color>
     <color name="pink_mama_bg">#66ff6666</color>
+
+
+    <color name="primary">#009688</color>
+    <color name="primaryDark">#00796b</color>
+    <color name="accent">#eeff41</color>
+    <color name="accentLight">#F4FF81</color>
 </resources>
