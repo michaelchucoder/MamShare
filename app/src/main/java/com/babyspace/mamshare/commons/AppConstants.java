@@ -31,8 +31,10 @@ public class AppConstants {
 
 
     /**
-     * michael flow data
+     * michael adapter 制作
      */
+    public static final int page_empty = 2000;
+
     public static final int page_home_guidance = 2001;
     public static final int page_home_evaluate = 2002;
     public static final int page_collect_guidance = 2003;
