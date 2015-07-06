@@ -13,7 +13,6 @@ import com.babyspace.mamshare.basement.BaseFragment;
 public class HomeEvaluateListFragment extends BaseFragment {
 
 
-
     public HomeEvaluateListFragment() {
         // Required empty public constructor
     }
@@ -25,7 +24,6 @@ public class HomeEvaluateListFragment extends BaseFragment {
 
     @Override
     public void initView() {
-
 
 
     }

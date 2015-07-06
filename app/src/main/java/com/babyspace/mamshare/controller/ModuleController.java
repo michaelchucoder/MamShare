@@ -1,16 +1,16 @@
 package com.babyspace.mamshare.controller;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map.Entry;
-import java.util.Set;
-
 import android.content.Context;
 
 import com.babyspace.mamshare.basement.IModule;
 import com.babyspace.mamshare.framework.db.DataCacheManager;
 import com.babyspace.mamshare.framework.model.UpdateDBModule;
 import com.umeng.analytics.MobclickAgent;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.Set;
 
 /**
  * 第三方组件管理
@@ -21,7 +21,6 @@ public class ModuleController {
     private static HashMap<Class<? extends IModule<?>>, IModule<?>> map = new HashMap<Class<? extends IModule<?>>, IModule<?>>();
 
     public static void initModuleInApplication(Context context) {
-
 
 
         // // 微信

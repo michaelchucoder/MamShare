@@ -12,7 +12,6 @@ import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.TestBean;
 import com.michael.core.tools.ViewRelayoutUtil;
-import com.michael.library.debug.L;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +25,7 @@ import java.util.List;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class MamaFeatureAdapter extends BaseAdapter {
-    private final int typeNum=3;
+    private final int typeNum = 3;
     private List<TestBean> data = new ArrayList<>();
     private Context context;
     private int resource = R.layout.item_mama_feature;
@@ -73,9 +72,9 @@ public class MamaFeatureAdapter extends BaseAdapter {
             convertView = View.inflate(context, resource, null);
             ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
 
-            holder.ll_container_1= (LinearLayout) convertView.findViewById(R.id.ll_container_1);
-            holder.ll_container_2= (LinearLayout) convertView.findViewById(R.id.ll_container_2);
-            holder.ll_container_3= (LinearLayout) convertView.findViewById(R.id.ll_container_3);
+            holder.ll_container_1 = (LinearLayout) convertView.findViewById(R.id.ll_container_1);
+            holder.ll_container_2 = (LinearLayout) convertView.findViewById(R.id.ll_container_2);
+            holder.ll_container_3 = (LinearLayout) convertView.findViewById(R.id.ll_container_3);
 
             holder.btn_avatar_1 = (Button) convertView.findViewById(R.id.btn_avatar_1);
             holder.btn_avatar_2 = (Button) convertView.findViewById(R.id.btn_avatar_2);
@@ -122,21 +121,21 @@ public class MamaFeatureAdapter extends BaseAdapter {
         holder.ll_container_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastHelper.showToast(context,"位置: "+typeNum*position);
+                ToastHelper.showToast(context, "位置: " + typeNum * position);
 
             }
         });
         holder.ll_container_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastHelper.showToast(context,"位置: "+typeNum*position+1);
+                ToastHelper.showToast(context, "位置: " + typeNum * position + 1);
 
             }
         });
         holder.ll_container_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastHelper.showToast(context,"位置: "+typeNum*position+2);
+                ToastHelper.showToast(context, "位置: " + typeNum * position + 2);
 
             }
         });

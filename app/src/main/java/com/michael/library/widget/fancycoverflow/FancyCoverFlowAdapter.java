@@ -1,4 +1,3 @@
-
 package com.michael.library.widget.fancycoverflow;
 
 import android.view.View;

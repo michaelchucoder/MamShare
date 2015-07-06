@@ -18,7 +18,7 @@ public abstract class BaseTypeAdapter<T> extends BaseAdapter {
     protected Context mContext;
 
 
-    public BaseTypeAdapter( Context context,List<T> list) {
+    public BaseTypeAdapter(Context context, List<T> list) {
         mContext = context;
         mList = list;
 
@@ -27,17 +27,17 @@ public abstract class BaseTypeAdapter<T> extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         AdapterTypeRender typeRender;
-        if(null==convertView){
-            typeRender=getAdapterTypeRender(position);
-            convertView=typeRender.getConvertView();
-            convertView.setTag(R.id.item_render_type,typeRender);
+        if (null == convertView) {
+            typeRender = getAdapterTypeRender(position);
+            convertView = typeRender.getConvertView();
+            convertView.setTag(R.id.item_render_type, typeRender);
             typeRender.bindEvents();
-        }else{
-            typeRender= (AdapterTypeRender) convertView.getTag(R.id.item_render_type);
+        } else {
+            typeRender = (AdapterTypeRender) convertView.getTag(R.id.item_render_type);
         }
-        convertView.setTag(R.id.item_position,position);
-        if(null!=typeRender){
-            T item=(T)getItem(position);
+        convertView.setTag(R.id.item_position, position);
+        if (null != typeRender) {
+            T item = (T) getItem(position);
             typeRender.bindDatas(item);
         }
         return convertView;
@@ -60,7 +60,6 @@ public abstract class BaseTypeAdapter<T> extends BaseAdapter {
 
 
     public abstract AdapterTypeRender getAdapterTypeRender(int position);
-
 
 
 }

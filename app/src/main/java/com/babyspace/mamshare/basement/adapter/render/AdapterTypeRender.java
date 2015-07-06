@@ -7,6 +7,8 @@ import android.view.View;
  */
 public interface AdapterTypeRender<T> {
     View getConvertView();
+
     void bindEvents();
+
     void bindDatas(T item);
 }

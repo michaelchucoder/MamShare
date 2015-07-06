@@ -1,16 +1,9 @@
 package com.babyspace.mamshare.framework.model;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 import android.content.Context;
-
 
 import com.babyspace.mamshare.basement.BaseModule;
 import com.babyspace.mamshare.bean.AdvertEvent;
-import com.babyspace.mamshare.bean.PlaneCity2;
-import com.babyspace.mamshare.bean.TableRegion;
 import com.babyspace.mamshare.bean.TableVersion;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.UrlConstants;
@@ -18,6 +11,10 @@ import com.babyspace.mamshare.controller.ModuleController;
 import com.babyspace.mamshare.framework.db.DataCacheManager;
 import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.library.debug.L;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import de.greenrobot.event.EventBus;
 
@@ -58,7 +55,8 @@ public class UpdateDBModule extends BaseModule<Void> {
                 e.printStackTrace();
             }
 
-        }}
+        }
+    }
 
     // 城市基础数据
     private void queryCityBaseData() {

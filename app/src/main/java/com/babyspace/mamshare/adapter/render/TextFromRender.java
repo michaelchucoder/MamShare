@@ -18,6 +18,7 @@ import com.babyspace.mamshare.bean.ChatMessage;
 public class TextFromRender extends BaseTypeRender<ChatMessage> {
     private TextView from;
     private ImageView photo;
+
     public TextFromRender(Context context, BaseTypeAdapter baseTypeAdapter) {
         super(context, baseTypeAdapter, R.layout.chat_text_from_item);
     }
@@ -25,13 +26,13 @@ public class TextFromRender extends BaseTypeRender<ChatMessage> {
     @Override
     public void bindEvents() {
         //监听器
-        OnCovertViewClickListener listener=new OnCovertViewClickListener(mConvertView,R.id.item_position) {
+        OnCovertViewClickListener listener = new OnCovertViewClickListener(mConvertView, R.id.item_position) {
             @Override
             public void onClickCallBack(View convertView, int position) {
-                switch (convertView.getId()){
+                switch (convertView.getId()) {
                     case R.id.photo:
                         //如果点击的是头像
-                        ChatAdapter.OnMessageItemListener messageItemListener=((ChatAdapter) mBaseTypeAdapter).getOnMessageItemListener();
+                        ChatAdapter.OnMessageItemListener messageItemListener = ((ChatAdapter) mBaseTypeAdapter).getOnMessageItemListener();
                         if (null != messageItemListener) {
                             messageItemListener.onPhotoClicked(position);
                             //回调
@@ -39,7 +40,7 @@ public class TextFromRender extends BaseTypeRender<ChatMessage> {
                         break;
                     case R.id.from:
                         //如果点击的是消息
-                        ChatAdapter.OnMessageItemListener messageItemListener1=((ChatAdapter) mBaseTypeAdapter).getOnMessageItemListener();
+                        ChatAdapter.OnMessageItemListener messageItemListener1 = ((ChatAdapter) mBaseTypeAdapter).getOnMessageItemListener();
                         if (null != messageItemListener1) {
                             messageItemListener1.onMessageClicked(position);
                             //回调
@@ -50,15 +51,15 @@ public class TextFromRender extends BaseTypeRender<ChatMessage> {
             }
         };
         //设置监听器
-        obtainView(mConvertView,R.id.photo).setOnClickListener(listener);
-        obtainView(mConvertView,R.id.from).setOnClickListener(listener);
+        obtainView(mConvertView, R.id.photo).setOnClickListener(listener);
+        obtainView(mConvertView, R.id.from).setOnClickListener(listener);
     }
 
 
     @Override
     public void bindDatas(ChatMessage item) {
         //绑定数据
-        from= obtainView(mConvertView,R.id.from);
+        from = obtainView(mConvertView, R.id.from);
 
         from.setText(item.getContent());
     }

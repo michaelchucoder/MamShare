@@ -14,15 +14,18 @@ import com.babyspace.mamshare.bean.ChatMessage;
  */
 public class TextToRender extends BaseTypeRender<ChatMessage> {
     private TextView to;
+
     public TextToRender(Context context, BaseTypeAdapter baseTypeAdapter) {
         super(context, baseTypeAdapter, R.layout.chat_text_to_item);
     }
+
     @Override
     public void bindEvents() {
     }
+
     @Override
     public void bindDatas(ChatMessage item) {
-        to= obtainView(mConvertView,R.id.to);
+        to = obtainView(mConvertView, R.id.to);
         to.setText(item.getContent());
     }
 }

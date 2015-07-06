@@ -10,5 +10,6 @@ package com.babyspace.mamshare.listener;
  */
 public interface RegisterWizardListener {
     void onRegisterBabySelected();
+
     void onRegisterPregnantSelected();
 }

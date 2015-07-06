@@ -32,7 +32,7 @@ public class DownloadBreakpointAsyncTask extends AsyncTask<Void, Long, Boolean> 
     public static String app_name;
 
 
-    public DownloadBreakpointAsyncTask(Context mContext, int threadID, String url,CallBack callBack,boolean isInitData) {
+    public DownloadBreakpointAsyncTask(Context mContext, int threadID, String url, CallBack callBack, boolean isInitData) {
         this.mContext = mContext;
         this.outputFileName = url.substring(url.lastIndexOf("/") + 1);
         this.downloadUrl = url;
@@ -66,7 +66,7 @@ public class DownloadBreakpointAsyncTask extends AsyncTask<Void, Long, Boolean> 
     @Override
     protected void onProgressUpdate(Long... values) {
         if (mContext instanceof BaseActivity) {
-            int progress=(int) (downloadBytes * 100 / packageLength);
+            int progress = (int) (downloadBytes * 100 / packageLength);
 
         }
         super.onProgressUpdate(values);
@@ -118,8 +118,6 @@ public class DownloadBreakpointAsyncTask extends AsyncTask<Void, Long, Boolean> 
                 outputStream.close();
         }
     }
-
-
 
 
     @Override

@@ -87,7 +87,7 @@ public abstract class CacheFragmentStatePagerAdapter extends FragmentStatePagerA
      * so you don't have to do it by yourself.
      * If you want to implement instantiation of Fragments,
      * you should override {@link #createItem(int)} instead.
-     *
+     * <p/>
      * {@inheritDoc}
      *
      * @param position position of the item in the adapter

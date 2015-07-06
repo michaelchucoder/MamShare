@@ -1,4 +1,3 @@
-
 package com.michael.library.widget.custom;
 
 import android.content.Context;

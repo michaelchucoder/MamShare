@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
-
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.listener.SettingGuideListener;

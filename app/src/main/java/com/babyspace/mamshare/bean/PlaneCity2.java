@@ -1,15 +1,14 @@
 package com.babyspace.mamshare.bean;
 
-import java.io.Serializable;
-import java.util.HashMap;
-import java.util.List;
-
 import com.babyspace.mamshare.controller.ModuleController;
 import com.babyspace.mamshare.framework.db.DataCacheManager;
 import com.google.gson.annotations.SerializedName;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.List;
 
 
 @DatabaseTable(tableName = "cities")

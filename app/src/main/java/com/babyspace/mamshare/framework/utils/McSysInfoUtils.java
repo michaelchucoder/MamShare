@@ -1,8 +1,5 @@
 package com.babyspace.mamshare.framework.utils;
 
-import java.lang.reflect.Method;
-import java.util.HashMap;
-
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -26,6 +23,9 @@ import android.view.WindowManager;
 import com.babyspace.mamshare.commons.AppRuntime;
 import com.babyspace.mamshare.controller.DEBUGController;
 import com.michael.library.debug.L;
+
+import java.lang.reflect.Method;
+import java.util.HashMap;
 
 /**
  * 安卓系统相关信息

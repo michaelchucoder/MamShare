@@ -202,6 +202,7 @@ public class ViewUtils {
 
         listView.setLayoutParams(params);
     }
+
     public static void showToast(Context ctx, String toastTxt) {
         String fontBase = "<font color=\"#0F1099\">contentPosition</font>";
 

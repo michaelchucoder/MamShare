@@ -1,29 +1,5 @@
 package com.babyspace.mamshare.app.service;
 
-import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.os.Handler;
-import android.os.Message;
-import android.widget.ImageView;
-
-import com.babyspace.mamshare.bean.VersionCheck;
-import com.michael.library.debug.L;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.RandomAccessFile;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 /**
  * Created with Android Studio
  * Package name: com.babyspace.mamshare.app.service

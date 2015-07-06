@@ -1,8 +1,5 @@
 package com.michael.library.widget.custom;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-
 import android.annotation.TargetApi;
 import android.app.DatePickerDialog;
 import android.content.Context;
@@ -12,6 +9,9 @@ import android.text.format.DateFormat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.EditText;
+
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class DatePicker extends EditText implements DatePickerDialog.OnDateSetListener {
     public interface OnDateSetListener {

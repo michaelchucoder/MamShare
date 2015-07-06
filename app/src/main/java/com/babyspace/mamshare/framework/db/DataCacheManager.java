@@ -1,12 +1,5 @@
 package com.babyspace.mamshare.framework.db;
 
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 import android.content.Context;
 
 import com.babyspace.mamshare.basement.BaseModule;
@@ -16,6 +9,13 @@ import com.babyspace.mamshare.framework.db.cache.SelectAllDataCacheRequest;
 import com.babyspace.mamshare.framework.db.utils.DBUtils;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.table.TableUtils;
+
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 public class DataCacheManager extends BaseModule<Void> {

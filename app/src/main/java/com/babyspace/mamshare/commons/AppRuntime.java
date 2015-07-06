@@ -1,9 +1,5 @@
 package com.babyspace.mamshare.commons;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
-
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -14,6 +10,10 @@ import android.text.TextUtils;
 
 import com.babyspace.mamshare.controller.DEBUGController;
 import com.babyspace.mamshare.framework.utils.McSysInfoUtils;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
 
 
 public class AppRuntime {

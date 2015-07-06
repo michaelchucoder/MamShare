@@ -16,8 +16,9 @@ public abstract class OnCovertViewClickListener implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
-        int position=(int)mConvertView.getTag(positionId);
-        onClickCallBack(v,position);
+        int position = (int) mConvertView.getTag(positionId);
+        onClickCallBack(v, position);
     }
+
     public abstract void onClickCallBack(View convertView, int position);
 }

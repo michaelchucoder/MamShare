@@ -595,7 +595,7 @@ public class SplashActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.go_preface,R.id.go_login,R.id.go_test})
+    @OnClick({R.id.go_preface, R.id.go_login, R.id.go_test})
     public void doOnClick(View view) {
         Intent i = new Intent();
 

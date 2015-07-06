@@ -44,6 +44,7 @@ public class RegisterWizardPregnantFragment extends BaseFragment {
     public void initView() {
 
     }
+
     @OnClick({R.id.btn_register_next})
     public void doOnClick(View view) {
 

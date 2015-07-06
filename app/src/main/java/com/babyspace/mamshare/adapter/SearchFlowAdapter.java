@@ -117,6 +117,7 @@ public class SearchFlowAdapter extends BaseAdapter {
         NoStrollListView noStrollListView;
         TextView mTextView;
     }
+
     public void refresh(List<FlowSearchItem> items) {
         this.items = items;
         notifyDataSetChanged();

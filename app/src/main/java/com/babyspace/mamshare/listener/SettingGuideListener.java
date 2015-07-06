@@ -10,5 +10,6 @@ package com.babyspace.mamshare.listener;
  */
 public interface SettingGuideListener {
     void onSettingAboutSelected();
+
     void onSettingFeedbackSelected();
 }

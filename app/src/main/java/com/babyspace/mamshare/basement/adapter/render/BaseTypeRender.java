@@ -16,7 +16,7 @@ public abstract class BaseTypeRender<T> implements AdapterTypeRender<T> {
     public BaseTypeRender(Context context, BaseTypeAdapter<T> baseTypeAdapter, int resID) {
         mContext = context;
         mBaseTypeAdapter = baseTypeAdapter;
-        mConvertView = ((LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(resID,null);
+        mConvertView = ((LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(resID, null);
     }
 
     @Override

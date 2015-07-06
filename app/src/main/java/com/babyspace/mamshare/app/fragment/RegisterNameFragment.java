@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.activity.RegisterWizardActivity;
 import com.babyspace.mamshare.basement.BaseFragment;

@@ -111,7 +111,8 @@ public class RegisterFeatureFragment extends BaseFragment {
         queryCall = OkHttpExecutor.query(UrlConstants.HomeFloatLayerActivity, jsonParameter, HomeFloatLayerEvent.class, false, this);
 
     }
-    @OnClick({R.id.register_feature_custom,R.id.register_feature_again})
+
+    @OnClick({R.id.register_feature_custom, R.id.register_feature_again})
     public void doOnClick(View view) {
 
         switch (view.getId()) {
@@ -123,6 +124,7 @@ public class RegisterFeatureFragment extends BaseFragment {
                 break;
         }
     }
+
     /**
      * EventBus 响应事件
      *
@@ -147,7 +149,7 @@ public class RegisterFeatureFragment extends BaseFragment {
         }
 
         if (responseData.size() < queryNum) {
-            ToastHelper.showToast(getActivity(),"最后数据");
+            ToastHelper.showToast(getActivity(), "最后数据");
             isMoreData = false;
         } else {
 
@@ -155,7 +157,7 @@ public class RegisterFeatureFragment extends BaseFragment {
 
         if (isRefreshAdd) {
             queryStart += queryNum;
-            data=responseData;
+            data = responseData;
             isRefreshAdd = false;
         } else {
             data = responseData;

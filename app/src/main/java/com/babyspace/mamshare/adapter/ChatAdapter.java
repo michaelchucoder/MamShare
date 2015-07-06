@@ -22,14 +22,14 @@ public class ChatAdapter extends BaseTypeAdapter<ChatMessage> {
 
     @Override
     public AdapterTypeRender getAdapterTypeRender(int position) {
-        AdapterTypeRender<ChatMessage> typeRender=null;
-        switch (getItemViewType(position)){
+        AdapterTypeRender<ChatMessage> typeRender = null;
+        switch (getItemViewType(position)) {
             case ChatMessage.TYPE_FROM:
-                typeRender=new TextFromRender(mContext,this);
+                typeRender = new TextFromRender(mContext, this);
 
                 break;
             case ChatMessage.TYPE_TO:
-                typeRender=new TextToRender(mContext,this);
+                typeRender = new TextToRender(mContext, this);
                 break;
         }
         return typeRender;
@@ -45,14 +45,18 @@ public class ChatAdapter extends BaseTypeAdapter<ChatMessage> {
         return ChatMessage.TOTAL;
     }
 
-    public interface OnMessageItemListener{
+    public interface OnMessageItemListener {
         void onPhotoClicked(int position);
+
         void onMessageClicked(int position);
     }
+
     private OnMessageItemListener onChatItemListener;
+
     public void setOnMessageItemListener(OnMessageItemListener onChatItemListener) {
         this.onChatItemListener = onChatItemListener;
     }
+
     public OnMessageItemListener getOnMessageItemListener() {
         return onChatItemListener;
     }

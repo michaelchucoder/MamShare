@@ -22,6 +22,7 @@ public class RegisterPhoneFragment extends BaseFragment {
     public RegisterPhoneFragment() {
         // Required empty public constructor
     }
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);

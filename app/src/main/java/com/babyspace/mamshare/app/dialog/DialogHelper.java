@@ -5,8 +5,6 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.framework.utils.UIUtils;

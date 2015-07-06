@@ -10,6 +10,8 @@ package com.babyspace.mamshare.listener;
  */
 public interface RegisterListener {
     void onRegisterNameSelected();
+
     void onRegisterFeatureSelected();
+
     void onRegisterCustomSelected();
 }

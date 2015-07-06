@@ -36,12 +36,12 @@ public class GenericsAdapter extends BaseAdapter {
         this.data = data;
     }
 
-    public GenericsAdapter(Context context,int pageFlag) {
+    public GenericsAdapter(Context context, int pageFlag) {
         mContext = context;
         this.pageFlag = pageFlag;
 
-        L.d("CommonAdapter",mContext.getPackageName());
-        L.d("CommonAdapter",mContext.getPackageCodePath());
+        L.d("CommonAdapter", mContext.getPackageName());
+        L.d("CommonAdapter", mContext.getPackageCodePath());
     }
 
     @Override
@@ -95,8 +95,8 @@ public class GenericsAdapter extends BaseAdapter {
 
     }
 
-    public void refresh(int pageFlag,List<?> data) {
-        this.pageFlag=pageFlag;
+    public void refresh(int pageFlag, List<?> data) {
+        this.pageFlag = pageFlag;
         this.data = data;
         notifyDataSetChanged();
     }
