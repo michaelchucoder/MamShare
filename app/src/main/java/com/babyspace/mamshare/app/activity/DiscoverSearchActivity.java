@@ -1,5 +1,6 @@
 package com.babyspace.mamshare.app.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -90,7 +91,7 @@ public class DiscoverSearchActivity extends BaseActivity implements SwipeRefresh
 
         gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
 
-        adapter.refresh(AppConstants.page_recommend_label,data);
+        adapter.refresh(AppConstants.page_recommend_label, data);
         gridView.addFooterView(mFooter);
         gridView.setAdapter(adapter);
 
@@ -167,7 +168,7 @@ public class DiscoverSearchActivity extends BaseActivity implements SwipeRefresh
 
     }
 
-    @OnClick({R.id.btn_home_back_top})
+    @OnClick({R.id.btn_home_back_top, R.id.ll_label_search})
     public void doOnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_home_back_top:
@@ -176,6 +177,10 @@ public class DiscoverSearchActivity extends BaseActivity implements SwipeRefresh
                 } else {
                     gridView.setSelection(0);
                 }
+                break;
+            case R.id.ll_label_search:
+                Intent i = new Intent(this, RecommendLabelActivity.class);
+                startActivity(i);
                 break;
         }
     }
