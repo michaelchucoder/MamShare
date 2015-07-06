@@ -26,13 +26,14 @@ public class AppConstants {
     public static final String KEY_PROTECT_APP = "KEY_PROTECT_APP";
     public static final String KEY_CLOSE_APP = "KEY_CLOSE_APP";
 
-
     public static final String DATA_PATH = "";
     public static final String DATA_PATH_GBADATA = "";
 
 
 
-
+    /**
+     * michael flow data
+     */
     public static final int page_discover_search = 1001;
     public static final int item_discover_search = R.layout.item_discover_search;
 
