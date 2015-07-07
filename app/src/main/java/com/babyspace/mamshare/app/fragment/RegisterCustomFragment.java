@@ -14,9 +14,7 @@ import com.babyspace.mamshare.basement.BaseFragment;
 
 import butterknife.OnClick;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class RegisterCustomFragment extends BaseFragment {
 
 
