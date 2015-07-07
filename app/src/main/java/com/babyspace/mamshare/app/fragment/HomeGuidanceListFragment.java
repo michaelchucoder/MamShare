@@ -32,6 +32,7 @@ import java.util.List;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
+import de.greenrobot.event.EventBus;
 
 public class HomeGuidanceListFragment extends BaseFragment  implements SwipeRefreshLayout.OnRefreshListener{
 
@@ -40,7 +41,7 @@ public class HomeGuidanceListFragment extends BaseFragment  implements SwipeRefr
     SwipeRefreshLayout mSwipeLayout;
 
     @InjectView(R.id.label_gridView)
-    ListView gridView;
+    ListView listView;
 
     @InjectView(R.id.btn_home_back_top)
     LinearLayout mBackTop;
@@ -70,12 +71,15 @@ public class HomeGuidanceListFragment extends BaseFragment  implements SwipeRefr
     public void init(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_home_guidance_list);
 
+        EventBus.getDefault().register(this);
+
         data = new ArrayList<>();
         adapter = new GenericsAdapter(getActivity(), AppConstants.page_recommend_label);
     }
 
     @Override
     public void initView() {
+
         mSwipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
         mSwipeLayout.setOnRefreshListener(this);
         mSwipeLayout.setColorSchemeResources(android.R.color.holo_red_dark,
@@ -87,24 +91,24 @@ public class HomeGuidanceListFragment extends BaseFragment  implements SwipeRefr
         ViewRelayoutUtil.relayoutViewWithScale(mHeader, MamShare.screenWidthScale);
         ViewRelayoutUtil.relayoutViewWithScale(mFooter, MamShare.screenWidthScale);
 
-        gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
+        listView.setSelector(new ColorDrawable(Color.TRANSPARENT));
 
         adapter.refresh(AppConstants.page_recommend_label, data);
-        gridView.addFooterView(mFooter);
-        gridView.setAdapter(adapter);
+        listView.addFooterView(mFooter);
+        listView.setAdapter(adapter);
 
         footerProgressBar = (ProgressBar) mFooter.findViewById(R.id.footer_progressbar);
         footerText = (TextView) mFooter.findViewById(R.id.footer_txt);
 
 
-        gridView.setOnScrollListener(new AbsListView.OnScrollListener() {
+        listView.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
                 switch (scrollState) {
                     //当不滚动时@
                     case AbsListView.OnScrollListener.SCROLL_STATE_IDLE:
                         // 判断滚动到底部
-                        if (gridView.getLastVisiblePosition() == (gridView.getCount() - 1)) {
+                        if (listView.getLastVisiblePosition() == (listView.getCount() - 1)) {
                             if (isMoreData) {
                                 // 当到底部时刷新 如果还有数据
                                 isRefreshAdd = true;
@@ -113,7 +117,7 @@ public class HomeGuidanceListFragment extends BaseFragment  implements SwipeRefr
 
                         }
                         // 判断滚动到顶部
-                        if (gridView.getFirstVisiblePosition() == 0) {
+                        if (listView.getFirstVisiblePosition() == 0) {
                             L.d("Michael", "滚动到顶部");
                             //mSwipeLayout.setRefreshing(true);
 
@@ -132,7 +136,7 @@ public class HomeGuidanceListFragment extends BaseFragment  implements SwipeRefr
 
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                firstVisiblePosition = gridView.getFirstVisiblePosition();
+                firstVisiblePosition = listView.getFirstVisiblePosition();
                 if (firstVisiblePosition > BACK_TOP_COUNT) {
                     mBackTop.setVisibility(View.VISIBLE);
                 } else {
@@ -141,6 +145,9 @@ public class HomeGuidanceListFragment extends BaseFragment  implements SwipeRefr
 
             }
         });
+
+        queryData();
+
     }
 
 
@@ -170,9 +177,9 @@ public class HomeGuidanceListFragment extends BaseFragment  implements SwipeRefr
         switch (view.getId()) {
             case R.id.btn_home_back_top:
                 if (firstVisiblePosition <= BACK_TOP_COUNT * 2) {// 未超过限定值的两倍
-                    gridView.smoothScrollToPosition(0);
+                    listView.smoothScrollToPosition(0);
                 } else {
-                    gridView.setSelection(0);
+                    listView.setSelection(0);
                 }
                 break;
         }
@@ -187,7 +194,7 @@ public class HomeGuidanceListFragment extends BaseFragment  implements SwipeRefr
     public void onEventMainThread(HomeFloatLayerEvent event) {
         mSwipeLayout.setRefreshing(false);
         hideLoadingProgress();
-        L.d(OkHttpExecutor.TAG, "onEventMainThread-RecommendLabelActivity>" + event.getData().getActivityEnable());
+        L.d(OkHttpExecutor.TAG, "onEventMainThread-HomeGuidanceListFragment>" + event.getData().getActivityEnable());
 
         List<TestBean> responseData = new ArrayList<>();
 
