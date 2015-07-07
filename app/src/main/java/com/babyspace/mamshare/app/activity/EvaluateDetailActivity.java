@@ -84,6 +84,10 @@ public class EvaluateDetailActivity extends BaseActivity implements ObservableSc
     }
 
     /**
+     * // 无参数调用
+     * contentWebView.loadUrl("javascript:javaCalljs()");
+     * // 传递参数调用
+     * contentWebView.loadUrl("javascript:javaCalljswithargs(" + "'hello world'" + ")");
      * webView初始设置
      */
     private void initWebViewSettings() {
@@ -117,9 +121,34 @@ public class EvaluateDetailActivity extends BaseActivity implements ObservableSc
         public void AppShowAlert(String alertText) {
             Toast.makeText(EvaluateDetailActivity.this, alertText, Toast.LENGTH_SHORT).show();
         }
+
         @JavascriptInterface
         public void AppShowAlert() {
             Toast.makeText(EvaluateDetailActivity.this, "AppShowAlert", Toast.LENGTH_SHORT).show();
+        }
+
+        public void startFunction() {
+            Toast.makeText(EvaluateDetailActivity.this, "js调用了java函数", Toast.LENGTH_SHORT).show();
+            runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+                    //msgView.setText(msgView.getText() + "\njs调用了java函数");
+
+                }
+            });
+        }
+
+        public void startFunction(final String str) {
+            Toast.makeText(EvaluateDetailActivity.this, str, Toast.LENGTH_SHORT).show();
+            runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+                    //msgView.setText(msgView.getText() + "\njs调用了java函数传递参数：" + str);
+
+                }
+            });
         }
 
     }
