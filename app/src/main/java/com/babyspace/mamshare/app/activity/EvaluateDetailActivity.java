@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.app.fragment.RecommendLabelFragment;
 import com.babyspace.mamshare.app.fragment.RegisterPhoneFragment;
 import com.babyspace.mamshare.app.fragment.SettingAboutFragment;
 import com.michael.library.debug.L;
@@ -69,7 +70,7 @@ public class EvaluateDetailActivity extends BaseActivity implements ObservableSc
                 return;
             }
 
-            SettingAboutFragment fragment = new SettingAboutFragment();
+            RecommendLabelFragment fragment = new RecommendLabelFragment();
 
             fragment.setArguments(getIntent().getExtras());
 
