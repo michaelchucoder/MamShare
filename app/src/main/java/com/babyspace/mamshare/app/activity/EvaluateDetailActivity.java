@@ -85,9 +85,9 @@ public class EvaluateDetailActivity extends BaseActivity implements ObservableSc
 
     /**
      * // 无参数调用
-     * contentWebView.loadUrl("javascript:javaCalljs()");
+     * webView.loadUrl("javascript:javaCallJs()");
      * // 传递参数调用
-     * contentWebView.loadUrl("javascript:javaCalljswithargs(" + "'hello world'" + ")");
+     * webView.loadUrl("javascript:javaCallJsWithArgs(" + "'hello world'" + ")");
      * webView初始设置
      */
     private void initWebViewSettings() {
