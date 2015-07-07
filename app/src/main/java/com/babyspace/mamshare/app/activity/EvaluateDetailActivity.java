@@ -47,7 +47,7 @@ public class EvaluateDetailActivity extends BaseActivity implements ObservableSc
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
 
         webView = (WebView) findViewById(R.id.html5_body);
-        //progressBar = (ProgressBar) findViewById(R.id.html5_pb);
+        progressBar = (ProgressBar) findViewById(R.id.html5_pb);
         mImageView = findViewById(R.id.image);
         mToolbarView = findViewById(R.id.toolbar);
         mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(0, getResources().getColor(R.color.primary)));
@@ -123,10 +123,10 @@ public class EvaluateDetailActivity extends BaseActivity implements ObservableSc
     class Html5WebChromeClient extends WebChromeClient {
         @Override
         public void onProgressChanged(WebView view, int newProgress) {
-/*            progressBar.setProgress(newProgress);
+            progressBar.setProgress(newProgress);
             if (newProgress == 100) {
                 progressBar.setVisibility(View.GONE);
-            }*/
+            }
         }
 
         @Override
@@ -140,7 +140,7 @@ public class EvaluateDetailActivity extends BaseActivity implements ObservableSc
     class Html5WebViewClient extends WebViewClient {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            //progressBar.setVisibility(View.VISIBLE);
+            progressBar.setVisibility(View.VISIBLE);
             view.loadUrl(url);// 使用自己的WebView组件来响应Url加载事件，而不是使用默认浏览器器加载页面
             return true;// 消耗掉这个事件。Android中返回True的即到此为止吧,事件就会不会冒泡传递了，我们称之为消耗掉
         }
