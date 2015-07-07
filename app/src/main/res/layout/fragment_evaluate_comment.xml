@@ -57,5 +57,37 @@
 
     </ListView>
 
+    <LinearLayout
+        android:id="@+id/evaluate_comment_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/specialTopic_layout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/specialTopic_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/tab_message_selected" />
+
+            <TextView
+                android:id="@+id/specialTopic_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="专题"
+                android:textColor="#82858b" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
 
 </RelativeLayout>
