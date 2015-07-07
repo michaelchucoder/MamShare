@@ -168,7 +168,7 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
 
     }
 
-    @OnClick({R.id.btn_home_back_top})
+    @OnClick({R.id.btn_home_back_top,R.id.tv_label_search})
     public void doOnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_home_back_top:
@@ -177,6 +177,9 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
                 } else {
                     gridView.setSelection(0);
                 }
+                break;
+            case R.id.tv_label_search:
+
                 break;
         }
     }
