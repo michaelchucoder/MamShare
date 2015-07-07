@@ -14,9 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
-import com.babyspace.mamshare.app.fragment.RecommendLabelFragment;
-import com.babyspace.mamshare.app.fragment.RegisterPhoneFragment;
-import com.babyspace.mamshare.app.fragment.SettingAboutFragment;
+import com.babyspace.mamshare.app.fragment.EvaluateCommentFragment;
 import com.michael.library.debug.L;
 import com.michael.library.widget.ParallaxToolbar.BaseActivity;
 import com.michael.library.widget.ParallaxToolbar.observablescrollview.ObservableScrollView;
@@ -70,7 +68,7 @@ public class EvaluateDetailActivity extends BaseActivity implements ObservableSc
                 return;
             }
 
-            RecommendLabelFragment fragment = new RecommendLabelFragment();
+            EvaluateCommentFragment fragment = new EvaluateCommentFragment();
 
             fragment.setArguments(getIntent().getExtras());
 
