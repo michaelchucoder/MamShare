@@ -1,7 +1,8 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.babyspace.mamshare.app.fragment.EvaluateCommentFragment">
 
 
@@ -9,7 +10,6 @@
         android:id="@+id/label_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/evaluate_comment_list"
         android:orientation="horizontal">
 
         <TextView
@@ -33,7 +33,6 @@
         android:id="@+id/comment_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/label_title"
         android:orientation="vertical">
 
         <View
@@ -61,7 +60,7 @@
         android:id="@+id/evaluate_comment_bottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
         android:orientation="horizontal">
 
         <RelativeLayout
@@ -86,8 +85,6 @@
                 android:textColor="#82858b" />
         </RelativeLayout>
 
-
     </LinearLayout>
 
-
-</RelativeLayout>
+</LinearLayout>
