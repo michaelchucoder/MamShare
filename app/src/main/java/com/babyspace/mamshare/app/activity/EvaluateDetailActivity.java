@@ -12,6 +12,7 @@ import com.michael.library.widget.ParallaxToolbar.observablescrollview.ScrollSta
 import com.michael.library.widget.ParallaxToolbar.observablescrollview.ScrollUtils;
 import com.nineoldandroids.view.ViewHelper;
 
+
 public class EvaluateDetailActivity extends BaseActivity implements ObservableScrollViewCallbacks {
 
     private View mImageView;
