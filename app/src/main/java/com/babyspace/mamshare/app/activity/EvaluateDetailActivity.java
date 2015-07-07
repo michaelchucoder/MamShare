@@ -115,19 +115,11 @@ public class EvaluateDetailActivity extends BaseActivity implements ObservableSc
         /**
          * 客户端弹窗提示
          *
-         * @param alertText 提示
+         * javaScript 调用原生函数
          */
-        @JavascriptInterface
-        public void AppShowAlert(String alertText) {
-            Toast.makeText(EvaluateDetailActivity.this, alertText, Toast.LENGTH_SHORT).show();
-        }
 
         @JavascriptInterface
-        public void AppShowAlert() {
-            Toast.makeText(EvaluateDetailActivity.this, "AppShowAlert", Toast.LENGTH_SHORT).show();
-        }
-
-        public void startFunction() {
+        public void startAppFunc() {
             Toast.makeText(EvaluateDetailActivity.this, "js调用了java函数", Toast.LENGTH_SHORT).show();
             runOnUiThread(new Runnable() {
 
@@ -138,8 +130,8 @@ public class EvaluateDetailActivity extends BaseActivity implements ObservableSc
                 }
             });
         }
-
-        public void startFunction(final String str) {
+        @JavascriptInterface
+        public void startAppFunc(final String str) {
             Toast.makeText(EvaluateDetailActivity.this, str, Toast.LENGTH_SHORT).show();
             runOnUiThread(new Runnable() {
 
