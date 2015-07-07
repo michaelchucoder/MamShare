@@ -14,6 +14,8 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.app.fragment.RegisterPhoneFragment;
+import com.babyspace.mamshare.app.fragment.SettingAboutFragment;
 import com.michael.library.debug.L;
 import com.michael.library.widget.ParallaxToolbar.BaseActivity;
 import com.michael.library.widget.ParallaxToolbar.observablescrollview.ObservableScrollView;
@@ -59,6 +61,21 @@ public class EvaluateDetailActivity extends BaseActivity implements ObservableSc
 
 
         initWebViewSettings();
+
+
+        if (findViewById(R.id.fragment_container) != null) {
+
+            if (savedInstanceState != null) {
+                return;
+            }
+
+            SettingAboutFragment fragment = new SettingAboutFragment();
+
+            fragment.setArguments(getIntent().getExtras());
+
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragment_container, fragment).commit();
+        }
     }
 
     @Override
