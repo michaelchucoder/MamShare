@@ -117,6 +117,10 @@ public class EvaluateDetailActivity extends BaseActivity implements ObservableSc
         public void AppShowAlert(String alertText) {
             Toast.makeText(EvaluateDetailActivity.this, alertText, Toast.LENGTH_SHORT).show();
         }
+        @JavascriptInterface
+        public void AppShowAlert() {
+            Toast.makeText(EvaluateDetailActivity.this, "AppShowAlert", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
