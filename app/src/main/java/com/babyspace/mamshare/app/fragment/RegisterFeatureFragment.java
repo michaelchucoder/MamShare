@@ -3,7 +3,6 @@ package com.babyspace.mamshare.app.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.ListView;
 
@@ -27,9 +26,6 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class RegisterFeatureFragment extends BaseFragment {
     RegisterListener mCallback;
 
