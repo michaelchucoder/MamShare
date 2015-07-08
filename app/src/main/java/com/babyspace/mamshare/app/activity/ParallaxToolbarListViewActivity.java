@@ -21,10 +21,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AbsListView;
 
-import com.github.ksoichiro.android.observablescrollview.ObservableListView;
-import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
-import com.github.ksoichiro.android.observablescrollview.ScrollState;
-import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
+import com.babyspace.mamshare.R;
+import com.michael.library.widget.ParallaxToolbar.BaseActivity;
+import com.michael.library.widget.ParallaxToolbar.observablescrollview.ObservableListView;
+import com.michael.library.widget.ParallaxToolbar.observablescrollview.ObservableScrollViewCallbacks;
+import com.michael.library.widget.ParallaxToolbar.observablescrollview.ScrollState;
+import com.michael.library.widget.ParallaxToolbar.observablescrollview.ScrollUtils;
 import com.nineoldandroids.view.ViewHelper;
 
 public class ParallaxToolbarListViewActivity extends BaseActivity implements ObservableScrollViewCallbacks {
