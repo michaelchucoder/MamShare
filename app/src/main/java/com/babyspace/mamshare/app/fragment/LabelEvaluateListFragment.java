@@ -3,6 +3,8 @@ package com.babyspace.mamshare.app.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.GenericsAdapter;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
@@ -70,13 +72,16 @@ public class LabelEvaluateListFragment extends BaseFragment {
         data = new ArrayList<>();
         adapter = new GenericsAdapter(getActivity(), AppConstants.page_recommend_label);
 
-
     }
 
     @Override
     public void initView() {
 
         adapter.refresh(AppConstants.page_recommend_label, data);
+        View mHeader = View.inflate(getActivity(), R.layout.common_title_layout, null);
+        View mFooter = View.inflate(getActivity(), R.layout.common_refresh_footer, null);
+        listView.addHeaderView(mHeader);
+        listView.addFooterView(mFooter);
         listView.setAdapter(adapter);
         queryData();
 
@@ -147,7 +152,6 @@ public class LabelEvaluateListFragment extends BaseFragment {
         adapter.refresh(AppConstants.page_recommend_label, data);
 
     }
-
 
 
 }
