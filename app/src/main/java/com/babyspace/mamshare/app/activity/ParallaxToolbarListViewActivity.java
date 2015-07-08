@@ -66,6 +66,18 @@ public class ParallaxToolbarListViewActivity extends BaseActivity implements Obs
 
         // mListBackgroundView makes ListView's background except header view.
         mListBackgroundView = findViewById(R.id.list_background);
+
+        mListView.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+            }
+        });
     }
 
     @Override
@@ -76,6 +88,7 @@ public class ParallaxToolbarListViewActivity extends BaseActivity implements Obs
 
     @Override
     public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
+
         int baseColor = getResources().getColor(R.color.primary);
         float alpha = Math.min(1, (float) scrollY / mParallaxImageHeight);
         mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(alpha, baseColor));
