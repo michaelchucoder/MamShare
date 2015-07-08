@@ -4,6 +4,7 @@ package com.babyspace.mamshare.app.fragment;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AbsListView;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.GenericsAdapter;
@@ -60,7 +61,6 @@ public class LabelEvaluateListFragment extends BaseFragment {
         }
     }
 
-
     @Override
     public void init(Bundle savedInstanceState) {
 
@@ -84,6 +84,20 @@ public class LabelEvaluateListFragment extends BaseFragment {
         listView.addFooterView(mFooter);
         listView.setAdapter(adapter);
         queryData();
+
+        listView.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+                L.d("LabelEvaluateListFragment","scrollState "+scrollState);
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                L.d("LabelEvaluateListFragment","firstVisibleItem "+firstVisibleItem
+                        +" visibleItemCount "+visibleItemCount+" totalItemCount "+totalItemCount);
+
+            }
+        });
 
     }
 
