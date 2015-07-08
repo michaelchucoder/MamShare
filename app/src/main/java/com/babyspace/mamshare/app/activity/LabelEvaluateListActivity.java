@@ -31,6 +31,9 @@ public class LabelEvaluateListActivity extends BaseActivity implements Observabl
 
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
 
+        /**
+         * 动态设置label
+         */
 
         mImageView = findViewById(R.id.image);
         mToolbarView = findViewById(R.id.toolbar);
