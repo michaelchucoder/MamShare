@@ -128,7 +128,7 @@ public class EvaluateCommentFragment extends BaseFragment {
      */
     public void onEventMainThread(HomeFloatLayerEvent event) {
         hideLoadingProgress();
-        L.d(OkHttpExecutor.TAG, "onEventMainThread-RegisterFeatureFragment>" + event.getData().getActivityEnable());
+        L.d(OkHttpExecutor.TAG, "onEventMainThread-EvaluateCommentFragment>" + event.getData().getActivityEnable());
 
         List<TestBean> responseData = new ArrayList<>();
 
