@@ -85,16 +85,19 @@ public class LabelEvaluateListFragment extends BaseFragment {
         listView.setAdapter(adapter);
         queryData();
 
+        /**
+         * 已经无法滑动了
+         */
         listView.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
-                L.d("LabelEvaluateListFragment","scrollState "+scrollState);
+                L.d("LabelEvaluateListFragment", "scrollState " + scrollState);
             }
 
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                L.d("LabelEvaluateListFragment","firstVisibleItem "+firstVisibleItem
-                        +" visibleItemCount "+visibleItemCount+" totalItemCount "+totalItemCount);
+                L.d("LabelEvaluateListFragment", "firstVisibleItem " + firstVisibleItem
+                        + " visibleItemCount " + visibleItemCount + " totalItemCount " + totalItemCount);
 
             }
         });
