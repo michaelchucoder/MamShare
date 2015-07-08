@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.fragment.LabelEvaluateListFragment;
+import com.michael.library.debug.L;
 import com.michael.library.widget.ParallaxToolbar.BaseActivity;
 import com.michael.library.widget.ParallaxToolbar.observablescrollview.ObservableScrollView;
 import com.michael.library.widget.ParallaxToolbar.observablescrollview.ObservableScrollViewCallbacks;
@@ -52,6 +53,7 @@ public class LabelEvaluateListActivity extends BaseActivity implements Observabl
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fragment_container, fragment).commit();
         }
+
     }
 
     @Override
@@ -62,6 +64,8 @@ public class LabelEvaluateListActivity extends BaseActivity implements Observabl
 
     @Override
     public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
+
+        L.d("LabelEvaluateListActivity", "scrollY " + scrollY+" firstScroll "+firstScroll+" dragging "+dragging);
         int baseColor = getResources().getColor(R.color.primary);
         float alpha = Math.min(1, (float) scrollY / mParallaxImageHeight);
         mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(alpha, baseColor));
