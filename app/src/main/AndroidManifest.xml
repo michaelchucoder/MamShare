@@ -304,9 +304,11 @@
         <activity
             android:name=".app.activity.EvaluateDetailActivity"
             android:theme="@style/AppTheme.Toolbar"/>
+        <activity
+            android:name=".app.activity.LabelEvaluateListActivity"
+            android:theme="@style/AppTheme.Toolbar"/>
 
         <activity android:name=".app.activity.RecommendLabelActivity" />
-        <activity android:name=".app.activity.LabelEvaluateListActivity" />
         <activity android:name=".app.activity.ResetPasswordActivity" />
         <activity android:name=".app.activity.CommentActivity" />
     </application>
