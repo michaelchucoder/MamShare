@@ -184,7 +184,6 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
         }
     }
 
-
     /**
      * EventBus 响应事件
      *
