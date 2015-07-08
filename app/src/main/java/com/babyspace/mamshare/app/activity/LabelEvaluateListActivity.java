@@ -78,10 +78,15 @@ public class LabelEvaluateListActivity extends BaseActivity implements Observabl
 
     @Override
     public void onDownMotionEvent() {
+        L.d("LabelEvaluateListActivity", "onDownMotionEvent " );
+
     }
+
 
     @Override
     public void onUpOrCancelMotionEvent(ScrollState scrollState) {
+        L.d("LabelEvaluateListActivity", "onUpOrCancelMotionEvent " );
+
     }
 
 
