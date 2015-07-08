@@ -77,7 +77,6 @@ public class DiscoverSearchActivity extends BaseActivity implements SwipeRefresh
 
     private void initView() {
 
-
         mSwipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
         mSwipeLayout.setOnRefreshListener(this);
         mSwipeLayout.setColorSchemeResources(android.R.color.holo_red_dark,
