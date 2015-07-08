@@ -31,10 +31,11 @@
         android:layout_height="wrap_content"
         android:background="@android:color/white" />
 
-    <com.github.ksoichiro.android.observablescrollview.ObservableListView
+    <com.michael.library.widget.ParallaxToolbar.observablescrollview.ObservableListView
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 
     <include layout="@layout/gradient_header" />
 
