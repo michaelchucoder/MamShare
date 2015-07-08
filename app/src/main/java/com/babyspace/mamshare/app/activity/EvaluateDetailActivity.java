@@ -25,6 +25,7 @@ import com.nineoldandroids.view.ViewHelper;
 
 
 public class EvaluateDetailActivity extends BaseActivity implements ObservableScrollViewCallbacks {
+
     private static final String JS_OBJECT_NAME = "MamaShareApp";
     private static final String TAG = "EvaluateDetailActivity";
     private static final int ANDROID = 2;
