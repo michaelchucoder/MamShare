@@ -70,7 +70,7 @@ public class UserCenterGuidanceFragment extends BaseFragment implements SwipeRef
 
     @Override
     public void init(Bundle savedInstanceState) {
-        setContentView(R.layout.fragment_user_center_guidance);
+        setContentView(R.layout.fragment_gridview_guidance);
 
         EventBus.getDefault().register(this);
 

@@ -74,7 +74,7 @@ public class SearchResultGuidanceFragment extends BaseFragment implements SwipeR
 
     @Override
     public void init(Bundle savedInstanceState) {
-        setContentView(R.layout.fragment_search_result_guidance);
+        setContentView(R.layout.fragment_gridview_guidance);
 
         EventBus.getDefault().register(this);
 

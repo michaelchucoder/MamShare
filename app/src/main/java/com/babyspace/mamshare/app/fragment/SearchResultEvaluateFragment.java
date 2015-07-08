@@ -10,7 +10,6 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -73,7 +72,7 @@ public class SearchResultEvaluateFragment extends BaseFragment implements SwipeR
 
     @Override
     public void init(Bundle savedInstanceState) {
-        setContentView(R.layout.fragment_search_result_evaluate);
+        setContentView(R.layout.fragment_gridview_evaluate);
 
         EventBus.getDefault().register(this);
 

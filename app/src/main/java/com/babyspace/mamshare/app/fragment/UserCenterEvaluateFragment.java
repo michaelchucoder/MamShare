@@ -68,7 +68,7 @@ public class UserCenterEvaluateFragment extends BaseFragment implements SwipeRef
 
     @Override
     public void init(Bundle savedInstanceState) {
-        setContentView(R.layout.fragment_user_center_evaluate);
+        setContentView(R.layout.fragment_gridview_evaluate);
 
         EventBus.getDefault().register(this);
 

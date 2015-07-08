@@ -12,7 +12,6 @@
         android:layout_marginRight="0px"
         android:background="#f4f4f5">
 
-
         <com.michael.library.widget.custom.GridViewWithHeaderAndFooter
             android:id="@+id/label_gridView"
             android:layout_width="match_parent"
