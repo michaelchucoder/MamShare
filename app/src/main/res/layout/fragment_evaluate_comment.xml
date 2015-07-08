@@ -48,13 +48,13 @@
     </LinearLayout>
 
 
-    <ListView
+    <com.michael.library.widget.custom.NoStrollListView
         android:id="@+id/evaluate_comment_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/comment_title">
 
-    </ListView>
+    </com.michael.library.widget.custom.NoStrollListView>
 
     <LinearLayout
         android:id="@+id/evaluate_comment_bottom"
