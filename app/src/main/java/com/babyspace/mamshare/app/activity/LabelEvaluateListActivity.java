@@ -31,6 +31,7 @@ public class LabelEvaluateListActivity extends BaseActivity implements Observabl
 
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
 
+
         mImageView = findViewById(R.id.image);
         mToolbarView = findViewById(R.id.toolbar);
         mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(0, getResources().getColor(R.color.primary)));
