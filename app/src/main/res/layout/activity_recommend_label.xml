@@ -5,7 +5,8 @@
     <RelativeLayout
         android:id="@+id/label_title"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/pink_mama_bg">
 
         <View
             android:id="@+id/back"
@@ -32,7 +33,7 @@
                 android:layout_marginLeft="20px"
                 android:background="@drawable/activity_home_btn_search" />
 
-            <TextView
+            <EditText
                 android:id="@+id/register_name_edit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -40,7 +41,7 @@
                 android:layout_marginRight="17px"
                 android:background="#00000000"
                 android:gravity="center_vertical"
-                android:hint="给自己起个好听的名字吧"
+                android:hint="搜攻略或评测(P5)"
                 android:textColor="#868686"
                 android:textSize="24px" />
         </LinearLayout>
@@ -55,11 +56,19 @@
             android:text="搜索" />
     </RelativeLayout>
 
+    <TextView
+        android:id="@+id/hot_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/label_title"
+        android:layout_margin="50px"
+        android:text="热门搜索" />
+
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/label_title"
+        android:layout_below="@id/hot_search"
         android:layout_marginLeft="0px"
         android:layout_marginRight="0px"
         android:background="#f4f4f5">

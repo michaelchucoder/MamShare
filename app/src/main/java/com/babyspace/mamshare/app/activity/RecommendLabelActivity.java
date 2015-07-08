@@ -1,5 +1,6 @@
 package com.babyspace.mamshare.app.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -168,7 +169,7 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
 
     }
 
-    @OnClick({R.id.btn_home_back_top,R.id.tv_label_search})
+    @OnClick({R.id.btn_home_back_top, R.id.tv_label_search, R.id.back})
     public void doOnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_home_back_top:
@@ -180,6 +181,10 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
                 break;
             case R.id.tv_label_search:
 
+                Intent i = new Intent(this, SearchResultActivity.class);
+                startActivity(i);
+            case R.id.back:
+                onBackPressed();
                 break;
         }
     }

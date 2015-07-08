@@ -166,7 +166,7 @@ public class DiscoverSearchActivity extends BaseActivity implements SwipeRefresh
 
     }
 
-    @OnClick({R.id.btn_home_back_top, R.id.ll_label_search})
+    @OnClick({R.id.btn_home_back_top, R.id.ll_label_search, R.id.tv_label_search, R.id.back})
     public void doOnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_home_back_top:
@@ -177,8 +177,12 @@ public class DiscoverSearchActivity extends BaseActivity implements SwipeRefresh
                 }
                 break;
             case R.id.ll_label_search:
+            case R.id.tv_label_search:
                 Intent i = new Intent(this, RecommendLabelActivity.class);
                 startActivity(i);
+                break;
+            case R.id.back:
+                onBackPressed();
                 break;
         }
     }

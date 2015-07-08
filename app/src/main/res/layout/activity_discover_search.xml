@@ -19,7 +19,7 @@
             android:id="@+id/ll_label_search"
             android:layout_width="400px"
             android:layout_height="50px"
-            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="40px"
             android:layout_marginTop="32px"
@@ -40,10 +40,19 @@
                 android:layout_marginRight="17px"
                 android:background="#00000000"
                 android:gravity="center_vertical"
-                android:hint="给自己起个好听的名字吧"
+                android:hint="搜攻略或评测-P4"
                 android:textColor="#868686"
                 android:textSize="24px" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_label_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="40px"
+            android:text="搜索" />
     </RelativeLayout>
 
     <android.support.v4.widget.SwipeRefreshLayout

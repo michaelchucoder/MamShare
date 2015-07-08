@@ -12,7 +12,6 @@
         android:layout_marginRight="0px"
         android:background="#f4f4f5">
 
-
         <ListView
             android:id="@+id/label_gridView"
             android:layout_width="match_parent"
@@ -22,7 +21,7 @@
             android:clickable="false"
             android:focusable="false"
             android:horizontalSpacing="10dp"
-            android:numColumns="3"
+            android:numColumns="2"
             android:padding="10dp"
             android:verticalSpacing="5dp" />
     </android.support.v4.widget.SwipeRefreshLayout>

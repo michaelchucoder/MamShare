@@ -1,10 +1,48 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.babyspace.mamshare.app.fragment.UserCenterGuidanceFragment">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="UserCenterGuidanceFragment" />
 
-</FrameLayout>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/label_title"
+        android:layout_marginLeft="0px"
+        android:layout_marginRight="0px"
+        android:background="#f4f4f5">
+
+        <com.michael.library.widget.custom.GridViewWithHeaderAndFooter
+            android:id="@+id/label_gridView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:background="#aaaaaa"
+            android:clickable="false"
+            android:focusable="false"
+            android:horizontalSpacing="10dp"
+            android:numColumns="2"
+            android:padding="10dp"
+            android:verticalSpacing="5dp" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <LinearLayout
+        android:id="@+id/btn_home_back_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="25px"
+        android:layout_marginRight="15px"
+        android:orientation="horizontal"
+        android:paddingLeft="30px"
+        android:paddingTop="30px">
+
+        <ImageView
+            android:layout_width="59px"
+            android:layout_height="58px"
+            android:src="@drawable/back_top" />
+    </LinearLayout>
+
+</RelativeLayout>

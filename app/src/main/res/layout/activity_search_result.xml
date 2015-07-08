@@ -5,48 +5,67 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="96px"
-        android:background="#fff33f">
+        android:id="@+id/label_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/pink_mama_bg">
 
-        <LinearLayout
-            android:id="@+id/layout_home_search"
-            android:layout_width="500px"
-            android:layout_height="50px"
+        <View
+            android:id="@+id/back"
+            android:layout_width="44px"
+            android:layout_height="55px"
             android:layout_centerVertical="true"
             android:layout_marginLeft="40px"
-            android:layout_marginTop="2px"
-            android:background="@drawable/shape_discover_search_bg"
-            android:gravity="center_vertical">
+            android:background="@drawable/activity_home_btn_search" />
+
+        <RelativeLayout
+            android:id="@+id/ll_label_search"
+            android:layout_width="400px"
+            android:layout_height="50px"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="40px"
+            android:layout_marginTop="32px"
+            android:background="@drawable/shape_discover_search_bg">
 
             <View
-                android:id="@+id/view_search_aas"
                 android:layout_width="24px"
                 android:layout_height="25px"
-                android:layout_marginLeft="20px"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30px"
                 android:background="@drawable/activity_home_btn_search" />
 
-            <TextView
-                android:id="@+id/et_search"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+            <EditText
+                android:id="@+id/register_name_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="17px"
                 android:layout_marginRight="17px"
                 android:background="#00000000"
+                android:layout_centerHorizontal="true"
                 android:gravity="center_vertical"
-                android:hint="关键词1"
+                android:hint="搜攻略或评测(P5)"
                 android:textColor="#868686"
                 android:textSize="24px" />
-        </LinearLayout>
+            <View
+                android:id="@+id/clear_txt"
+                android:layout_width="24px"
+                android:layout_height="25px"
+                android:layout_marginRight="30px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/activity_home_btn_search" />
+        </RelativeLayout>
 
         <TextView
+            android:id="@+id/tv_label_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="40px"
-            android:text="取消"
-            android:textSize="40px" />
+            android:text="搜索" />
     </RelativeLayout>
 
 
