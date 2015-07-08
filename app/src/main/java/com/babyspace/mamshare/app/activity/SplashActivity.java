@@ -607,7 +607,7 @@ public class SplashActivity extends BaseActivity {
                 i.setClass(this, LoginActivity.class);
                 break;
             case R.id.go_test:
-                i.setClass(this, LabelEvaluateListActivity.class);
+                i.setClass(this, ParallaxToolbarListViewActivity.class);
                 break;
         }
         startActivity(i);

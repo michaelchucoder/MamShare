@@ -308,6 +308,10 @@
             android:name=".app.activity.LabelEvaluateListActivity"
             android:label="hehehehe"
             android:theme="@style/AppTheme.Toolbar"/>
+        <activity
+            android:name=".app.activity.ParallaxToolbarListViewActivity"
+            android:label="hehehehe"
+            android:theme="@style/AppTheme.Toolbar"/>
 
         <activity android:name=".app.activity.RecommendLabelActivity" />
         <activity android:name=".app.activity.ResetPasswordActivity" />
