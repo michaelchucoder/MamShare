@@ -5,6 +5,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.app.fragment.LabelEvaluateListFragment;
 import com.michael.library.debug.L;
 import com.michael.library.widget.ParallaxToolbar.BaseActivity;
@@ -64,6 +65,9 @@ public class LabelEvaluateListActivity extends BaseActivity implements Observabl
 
     @Override
     public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
+        if(scrollY==0&&dragging){
+            ToastHelper.showToast(this,"0000");
+        }
 
         L.d("LabelEvaluateListActivity", "scrollY " + scrollY+" firstScroll "+firstScroll+" dragging "+dragging);
         int baseColor = getResources().getColor(R.color.primary);
