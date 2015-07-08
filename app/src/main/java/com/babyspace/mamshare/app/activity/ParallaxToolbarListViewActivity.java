@@ -71,6 +71,8 @@ public class ParallaxToolbarListViewActivity extends BaseActivity implements Obs
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parallaxtoolbarlistview) ;
         EventBus.getDefault().register(this);
+        data = new ArrayList<>();
+        adapter = new GenericsAdapter(this, AppConstants.page_recommend_label);
 
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
 
@@ -90,6 +92,7 @@ public class ParallaxToolbarListViewActivity extends BaseActivity implements Obs
 
         // This is required to disable header's list selector effect
         paddingView.setClickable(true);
+
 
         listView.addHeaderView(paddingView);
         listView.setSelector(new ColorDrawable(Color.TRANSPARENT));
@@ -202,7 +205,7 @@ public class ParallaxToolbarListViewActivity extends BaseActivity implements Obs
      * @param event
      */
     public void onEventMainThread(HomeFloatLayerEvent event) {
-        L.d(OkHttpExecutor.TAG, "onEventMainThread-HomeEvaluateListFragment>" + event.getData().getActivityEnable());
+        L.d(OkHttpExecutor.TAG, "onEventMainThread-ParallaxToolbarListViewActivity>" + event.getData().getActivityEnable());
 
         List<TestBean> responseData = new ArrayList<>();
 
