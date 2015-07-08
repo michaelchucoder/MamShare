@@ -145,7 +145,6 @@ public class DiscoverSearchActivity extends BaseActivity implements SwipeRefresh
 
     }
 
-
     private void queryData() {
         //mSwipeLayout.setRefreshing(true);
 
