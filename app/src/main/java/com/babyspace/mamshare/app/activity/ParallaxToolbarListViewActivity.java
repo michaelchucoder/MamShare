@@ -46,6 +46,7 @@ import java.util.List;
 import de.greenrobot.event.EventBus;
 
 public class ParallaxToolbarListViewActivity extends BaseActivity implements ObservableScrollViewCallbacks {
+    // 可以抛弃 BaseActivity 直接覆盖 AppCompatActivity 然后再
 
     private View mImageView;
     private View mToolbarView;
