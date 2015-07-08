@@ -3,11 +3,6 @@ package com.babyspace.mamshare.app.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.GenericsAdapter;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
@@ -31,11 +26,8 @@ import de.greenrobot.event.EventBus;
 
 public class LabelEvaluateListFragment extends BaseFragment {
 
-
-
     @InjectView(R.id.evaluate_comment_list)
     NoStrollListView listView;
-
 
     GenericsAdapter adapter;
 
