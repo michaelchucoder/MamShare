@@ -32,7 +32,6 @@ public class EvaluateDetailActivity extends BaseActivity implements ObservableSc
     private ProgressBar progressBar;
     private boolean clearHistory = false;
 
-
     private View mImageView;
     private View mToolbarView;
     private ObservableScrollView mScrollView;
