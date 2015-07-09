@@ -13,12 +13,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+            <ProgressBar
+                android:id="@+id/html5_pb"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="3px"
+                android:layout_below="@id/anchor" />
 
-            <TextView
-                android:id="@+id/text_tt"
+            <WebView
+                android:id="@+id/html5_body"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="333\n\n\n\n\n\n33\n\n\n\n\n\n33\n\n\n\n\n\n33\n\n\n\n\n\n\n33\n\n\n\n\n\n33\n\n\n\n\n\n33\n\n\n\n\n\n" />
+                android:layout_below="@id/anchor">
+
+            </WebView>
+
 
         </LinearLayout>
 
