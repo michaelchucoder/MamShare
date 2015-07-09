@@ -11,7 +11,7 @@ public class PreferencesUtil {
     public static final String SP_FIRST_LOGIN = "first_login";
     public static final String sp_userName = "first_login";
     public static final String sp_password = "first_login";
-    public static final String sp_userId = "first_login";
+    public static final String sp_userid = "first_login";
     public static final String sp_token = "first_login";
 
 
