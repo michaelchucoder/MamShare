@@ -119,6 +119,7 @@ public class EvaluateCommentFragment extends BaseFragment {
                 break;
             case R.id.more_comment:
                 adapter.refresh(AppConstants.page_recommend_label, data);
+
                 break;
         }
     }
@@ -171,9 +172,10 @@ public class EvaluateCommentFragment extends BaseFragment {
 
             List<TestBean> tempData=new ArrayList<>();
 
-            tempData.add(tempData.get(0));
-            tempData.add(tempData.get(1));
-            tempData.add(tempData.get(3));
+            tempData.add(new TestBean("More " + queryCount + " i ", false));
+            tempData.add(new TestBean("More " + queryCount + " i ", false));
+            tempData.add(new TestBean("More " + queryCount + " i ", false));
+
             adapter.refresh(AppConstants.page_recommend_label, tempData);
 
         }else {
