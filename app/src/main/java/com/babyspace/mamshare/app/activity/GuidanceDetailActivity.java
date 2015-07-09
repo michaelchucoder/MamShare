@@ -16,6 +16,7 @@ import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
@@ -38,16 +39,20 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
     private int lastStrollState=0;
     boolean isViewShow=true;
 
+    RelativeLayout common_title;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppThemeRed);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guidance_detail);
 
-        initToolbar();
+        //initToolbar();
         mFabButton = (ImageButton) findViewById(R.id.fabButton);
         webView = (WebView) findViewById(R.id.html5_body);
         progressBar = (ProgressBar) findViewById(R.id.html5_pb);
+
+        common_title = (RelativeLayout) findViewById(R.id.common_title);
 
         my_scrollView = (MichaelScrollView) findViewById(R.id.my_scrollView);
         my_scrollView.setOnScrollListener(this);
@@ -62,7 +67,7 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
     }
 
     private void hideViews() {
-        mToolbar.animate().translationY(-mToolbar.getHeight()).setInterpolator(new AccelerateInterpolator(2));
+        common_title.animate().translationY(-common_title.getHeight()).setInterpolator(new AccelerateInterpolator(2));
 
         FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) mFabButton.getLayoutParams();
         int fabBottomMargin = lp.bottomMargin;
@@ -72,7 +77,7 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
 
 
     private void showViews() {
-        mToolbar.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
+        common_title.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
         mFabButton.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
         isViewShow=true;
 

@@ -33,11 +33,19 @@
 
     </com.michael.library.widget.custom.MichaelScrollView>
 
+<!--
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary" />
+-->
+
+
+    <include
+        android:id="@+id/common_title"
+        layout="@layout/common_title_layout" />
+
 
     <ImageButton
         android:id="@+id/fabButton"
