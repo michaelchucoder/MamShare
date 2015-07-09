@@ -58,9 +58,7 @@ public class EvaluateDetailActivity extends BaseActivity implements ObservableSc
 
         mParallaxImageHeight = getResources().getDimensionPixelSize(R.dimen.parallax_image_height);
 
-
         initWebViewSettings();
-
 
         if (findViewById(R.id.fragment_container) != null) {
 
