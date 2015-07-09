@@ -45,7 +45,8 @@
 
     <!--GuidanceDetailActivity-->
 
-    <style name="AppThemeRed" parent="AppTheme">
+    <style name="AppThemeRed" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowActionBar">false</item>
         <item name="colorPrimary">@color/color_primary_red</item>
         <item name="colorPrimaryDark">@color/color_primary_red_dark</item>
     </style>
