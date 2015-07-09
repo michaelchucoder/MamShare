@@ -3,6 +3,7 @@ package com.michael.library.widget.custom;
 import android.content.Context;
 import android.os.Handler;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.ScrollView;
 
@@ -53,7 +54,7 @@ public class MichaelScrollView extends ScrollView {
             //此时的距离和记录下的距离不相等，在隔5毫秒给handler发送消息
             if(lastScrollY != scrollY){
                 lastScrollY = scrollY;
-                handler.sendMessageDelayed(handler.obtainMessage(), 5);
+                handler.sendMessageDelayed(handler.obtainMessage(), 200);
             }
             if(onScrollListener != null){
                 onScrollListener.onScroll(scrollY);
@@ -71,17 +72,31 @@ public class MichaelScrollView extends ScrollView {
      */
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
+        Log.d("onScroll", "getAction " + ev.getAction());
+        Log.d("onScroll", "lastScrollY " + lastScrollY);
+        Log.d("onScroll", "getScrollY " + this.getScrollY());
+        int mScrollY=this.getScrollY();
+        int mLastScrollY=lastScrollY;
+
         if(onScrollListener != null){
             onScrollListener.onScroll(lastScrollY = this.getScrollY());
         }
+
         switch(ev.getAction()){
             case MotionEvent.ACTION_UP:
                 handler.sendMessageDelayed(handler.obtainMessage(), 5);
+
+                /**
+                 * 朱小辉
+                 */
+                if(mScrollY-mLastScrollY>22)   onScrollListener.onScrollUp();
+                if(mLastScrollY-mScrollY>22)   onScrollListener.onScrollDown();
+
                 break;
+
         }
         return super.onTouchEvent(ev);
     }
-
 
     /**
      *
@@ -97,6 +112,8 @@ public class MichaelScrollView extends ScrollView {
          *         
          */
         void onScroll(int scrollY);
+        void onScrollUp();
+        void onScrollDown();
     }
 
 

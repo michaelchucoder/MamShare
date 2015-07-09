@@ -56,6 +56,7 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
 
         my_scrollView = (MichaelScrollView) findViewById(R.id.my_scrollView);
         my_scrollView.setOnScrollListener(this);
+
         initWebViewSettings();
     }
 
@@ -89,15 +90,21 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
      */
     @Override
     public void onScroll(int scrollY) {
-        Log.d("onScroll", "scrollY " + scrollY);
 
-        if(scrollY-lastStrollState>20){
-            //TODO 向上滑动
-            showViews();
-        }else {
-            hideViews();
-        }
-        lastStrollState=scrollY;
+    }
+
+    @Override
+    public void onScrollUp() {
+        showViews();
+
+        Log.d("onScroll", "scrollY " + "onScrollUp");
+
+    }
+
+    @Override
+    public void onScrollDown() {
+        hideViews();
+        Log.d("onScroll", "scrollY " + "onScrollDown");
 
     }
 
