@@ -171,7 +171,7 @@ public class EvaluateCommentFragment extends BaseFragment {
         /**
          * 先加载3个，点击加载更多
          */
-        tv_comment_num.setText("评论 (4"+data.size()+")");
+        tv_comment_num.setText("评论 ("+data.size()+")");
         if(data.size()>3){
 
             List<TestBean> tempData=new ArrayList<>();
