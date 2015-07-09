@@ -124,7 +124,6 @@ public class LabelEvaluateListFragment extends BaseFragment {
 
     }
 
-
     /**
      * EventBus 响应事件
      *
