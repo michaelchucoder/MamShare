@@ -96,7 +96,6 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
 
     }
 
-
     /**
      * // 无参数调用
      * webView.loadUrl("javascript:javaCallJs()");
