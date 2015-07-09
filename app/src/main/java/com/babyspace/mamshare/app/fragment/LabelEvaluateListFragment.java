@@ -29,7 +29,6 @@ import de.greenrobot.event.EventBus;
 
 public class LabelEvaluateListFragment extends BaseFragment {
 
-
     @InjectView(R.id.evaluate_comment_list)
     NoStrollListView listView;
 
