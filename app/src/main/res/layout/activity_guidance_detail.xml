@@ -1,0 +1,43 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/recyclerView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.michael.library.widget.custom.MichaelScrollView
+        android:id="@+id/my_scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_tt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="333\n\n\n\n\n\n33\n\n\n\n\n\n33\n\n\n\n\n\n33\n\n\n\n\n\n\n33\n\n\n\n\n\n33\n\n\n\n\n\n33\n\n\n\n\n\n" />
+
+        </LinearLayout>
+
+    </com.michael.library.widget.custom.MichaelScrollView>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary" />
+
+    <ImageButton
+        android:id="@+id/fabButton"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/fab_bcg"
+        android:contentDescription="FAB button description"
+        android:src="@drawable/ic_favorite_outline_white_24dp" />
+</FrameLayout>

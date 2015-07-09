@@ -1,6 +1,7 @@
 package com.babyspace.mamshare.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -8,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.app.activity.GuidanceDetailActivity;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.TestBean;
@@ -88,7 +90,9 @@ public class GenericsAdapter extends BaseAdapter {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastHelper.showToast(mContext, "进入下一个页面");
+                Intent i=new Intent();
+                i.setClass(mContext, GuidanceDetailActivity.class);
+                mContext.startActivity(i);
             }
         });
         return convertView;
