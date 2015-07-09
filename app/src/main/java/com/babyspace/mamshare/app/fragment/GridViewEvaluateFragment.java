@@ -35,9 +35,6 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener{
 
     private static final String ARG_PARAM1 = "pageFlag";
