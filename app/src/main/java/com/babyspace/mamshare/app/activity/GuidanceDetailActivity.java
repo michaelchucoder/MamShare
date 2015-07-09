@@ -16,7 +16,6 @@ import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
@@ -61,7 +60,6 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
         setTitle(getString(R.string.app_name));
         mToolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
     }
-
 
     private void hideViews() {
         mToolbar.animate().translationY(-mToolbar.getHeight()).setInterpolator(new AccelerateInterpolator(2));
