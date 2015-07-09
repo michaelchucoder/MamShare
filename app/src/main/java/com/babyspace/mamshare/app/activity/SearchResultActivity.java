@@ -10,9 +10,10 @@ import android.widget.EditText;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.TabPageAdapter;
-import com.babyspace.mamshare.app.fragment.SearchResultEvaluateFragment;
-import com.babyspace.mamshare.app.fragment.SearchResultGuidanceFragment;
+import com.babyspace.mamshare.app.fragment.GridViewEvaluateFragment;
+import com.babyspace.mamshare.app.fragment.GridViewGuidanceFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
+import com.babyspace.mamshare.commons.AppConstants;
 import com.viewpagerindicator.TabPageIndicator;
 
 import butterknife.InjectView;
@@ -22,7 +23,8 @@ public class SearchResultActivity extends BaseActivity {
     @InjectView(R.id.register_name_edit)
     EditText register_name_edit;
     public static final String[] TITLES = new String[]{"攻略", "评测"};
-    public static final Fragment[] FRAGMENTS = new Fragment[]{new SearchResultGuidanceFragment(), new SearchResultEvaluateFragment()};
+    public static final Fragment[] FRAGMENTS = new Fragment[]{GridViewGuidanceFragment.newInstance(AppConstants.page_search_guidance)
+            , GridViewEvaluateFragment.newInstance(AppConstants.page_search_evaluate)};
 
     private TabPageIndicator mIndicator;
     private ViewPager mViewPager;

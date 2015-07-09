@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 import android.widget.AbsListView;
@@ -35,11 +34,10 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class SearchResultGuidanceFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
+public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 
+    private static final String ARG_PARAM1 = "pageFlag";
+    private int pageFlag;
 
     @InjectView(R.id.swipe_container)
     SwipeRefreshLayout mSwipeLayout;
@@ -67,19 +65,32 @@ public class SearchResultGuidanceFragment extends BaseFragment implements SwipeR
     private boolean isMoreData = true;
     private Call queryCall;
 
-    public SearchResultGuidanceFragment() {
+    public GridViewGuidanceFragment() {
         // Required empty public constructor
     }
 
+    // TODO: Rename and change types and number of parameters
+    public static GridViewGuidanceFragment newInstance(int pageFlag) {
+        GridViewGuidanceFragment fragment = new GridViewGuidanceFragment();
+        Bundle args = new Bundle();
+        args.putInt(ARG_PARAM1, pageFlag);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public void init(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_gridview_guidance);
 
         EventBus.getDefault().register(this);
+        if (getArguments() != null) {
+            pageFlag = getArguments().getInt(ARG_PARAM1);
+        }
+        L.d("GridViewGuidanceFragment", " pageFlag " + pageFlag);
 
         data = new ArrayList<>();
-        adapter = new GenericsAdapter(getActivity(), AppConstants.page_recommend_label);
+        adapter = new GenericsAdapter(getActivity(), pageFlag);
+
     }
 
     @Override

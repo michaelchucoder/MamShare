@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 import android.widget.AbsListView;
@@ -34,9 +35,13 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener{
 
-public class UserCenterGuidanceFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener{
-
+    private static final String ARG_PARAM1 = "pageFlag";
+    private int pageFlag;
 
     @InjectView(R.id.swipe_container)
     SwipeRefreshLayout mSwipeLayout;
@@ -63,21 +68,33 @@ public class UserCenterGuidanceFragment extends BaseFragment implements SwipeRef
     private boolean isRefreshAdd = true;
     private boolean isMoreData = true;
     private Call queryCall;
-    public UserCenterGuidanceFragment() {
+    public GridViewEvaluateFragment() {
         // Required empty public constructor
     }
 
+    // TODO: Rename and change types and number of parameters
+    public static GridViewEvaluateFragment newInstance(int pageFlag) {
+        GridViewEvaluateFragment fragment = new GridViewEvaluateFragment();
+        Bundle args = new Bundle();
+        args.putInt(ARG_PARAM1, pageFlag);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public void init(Bundle savedInstanceState) {
-        setContentView(R.layout.fragment_gridview_guidance);
+        setContentView(R.layout.fragment_gridview_evaluate);
 
         EventBus.getDefault().register(this);
+        if (getArguments() != null) {
+            pageFlag = getArguments().getInt(ARG_PARAM1);
+        }
+        L.d("GridViewEvaluateFragment", " pageFlag " + pageFlag);
 
         data = new ArrayList<>();
-        adapter = new GenericsAdapter(getActivity(), AppConstants.page_recommend_label);
-    }
+        adapter = new GenericsAdapter(getActivity(), pageFlag);
 
+    }
     @Override
     public void initView() {
 
@@ -195,7 +212,7 @@ public class UserCenterGuidanceFragment extends BaseFragment implements SwipeRef
     public void onEventMainThread(HomeFloatLayerEvent event) {
         mSwipeLayout.setRefreshing(false);
         hideLoadingProgress();
-        L.d(OkHttpExecutor.TAG, "onEventMainThread-UserCenterGuidanceFragment>" + event.getData().getActivityEnable());
+        L.d(OkHttpExecutor.TAG, "onEventMainThread-SearchResultEvaluateFragment>" + event.getData().getActivityEnable());
 
         List<TestBean> responseData = new ArrayList<>();
 

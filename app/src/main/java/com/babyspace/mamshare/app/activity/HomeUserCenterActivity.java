@@ -12,9 +12,10 @@ import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.TabPageAdapter;
-import com.babyspace.mamshare.app.fragment.UserCenterEvaluateFragment;
-import com.babyspace.mamshare.app.fragment.UserCenterGuidanceFragment;
+import com.babyspace.mamshare.app.fragment.GridViewEvaluateFragment;
+import com.babyspace.mamshare.app.fragment.GridViewGuidanceFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
+import com.babyspace.mamshare.commons.AppConstants;
 import com.michael.library.widget.roundimage.RoundImageView;
 import com.viewpagerindicator.TabPageIndicator;
 
@@ -23,7 +24,8 @@ import butterknife.OnClick;
 
 public class HomeUserCenterActivity extends BaseActivity {
     public static final String[] TITLES = new String[]{"攻略", "评测"};
-    public static final Fragment[] FRAGMENTS = new Fragment[]{new UserCenterGuidanceFragment(), new UserCenterEvaluateFragment()};
+    public static final Fragment[] FRAGMENTS = new Fragment[]{GridViewGuidanceFragment.newInstance(AppConstants.page_collect_guidance)
+            , GridViewEvaluateFragment.newInstance(AppConstants.page_collect_evaluate)};
 
     private TabPageIndicator mIndicator;
     private ViewPager mViewPager;
