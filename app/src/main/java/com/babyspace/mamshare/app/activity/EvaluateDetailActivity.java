@@ -2,8 +2,6 @@ package com.babyspace.mamshare.app.activity;
 
 import android.net.http.SslError;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.SslErrorHandler;
@@ -19,7 +17,6 @@ import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.fragment.EvaluateCommentFragment;
 import com.babyspace.mamshare.basement.BaseCompatActivity;
 import com.michael.library.debug.L;
-import com.michael.library.widget.ParallaxToolbar.BaseActivity;
 import com.michael.library.widget.ParallaxToolbar.observablescrollview.ObservableScrollView;
 import com.michael.library.widget.ParallaxToolbar.observablescrollview.ObservableScrollViewCallbacks;
 import com.michael.library.widget.ParallaxToolbar.observablescrollview.ScrollState;

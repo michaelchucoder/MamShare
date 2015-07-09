@@ -37,7 +37,6 @@ public class EvaluateCommentFragment extends BaseFragment {
 
     List<TestBean> data;
 
-
     private final int queryNum = 9;
     private int queryStart = 0;
     private int queryCount = 0;
@@ -106,7 +105,7 @@ public class EvaluateCommentFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.tab_collect_layout, R.id.tab_like_layout, R.id.tab_comment_layout, R.id.tab_cart_layout})
+    @OnClick({R.id.tab_collect_layout, R.id.tab_like_layout, R.id.tab_comment_layout, R.id.tab_cart_layout, R.id.more_comment})
     public void doOnClick(View view) {
 
         switch (view.getId()) {
@@ -117,6 +116,9 @@ public class EvaluateCommentFragment extends BaseFragment {
             case R.id.tab_comment_layout:
                 break;
             case R.id.tab_cart_layout:
+                break;
+            case R.id.more_comment:
+                adapter.refresh(AppConstants.page_recommend_label, data);
                 break;
         }
     }
@@ -162,7 +164,23 @@ public class EvaluateCommentFragment extends BaseFragment {
             queryStart += queryNum;
         }
 
-        adapter.refresh(AppConstants.page_recommend_label, data);
+        /**
+         * 先加载3个，点击加载更多
+         */
+        if(data.size()>3){
+
+            List<TestBean> tempData=new ArrayList<>();
+
+            tempData.add(tempData.get(0));
+            tempData.add(tempData.get(1));
+            tempData.add(tempData.get(3));
+            adapter.refresh(AppConstants.page_recommend_label, tempData);
+
+        }else {
+
+            adapter.refresh(AppConstants.page_recommend_label, data);
+        }
+
 
     }
 
