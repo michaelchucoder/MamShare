@@ -2,6 +2,7 @@ package com.babyspace.mamshare.app.activity;
 
 import android.net.http.SslError;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.webkit.JavascriptInterface;
@@ -11,10 +12,12 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.fragment.EvaluateCommentFragment;
+import com.babyspace.mamshare.basement.BaseCompatActivity;
 import com.michael.library.debug.L;
 import com.michael.library.widget.ParallaxToolbar.BaseActivity;
 import com.michael.library.widget.ParallaxToolbar.observablescrollview.ObservableScrollView;
@@ -24,7 +27,7 @@ import com.michael.library.widget.ParallaxToolbar.observablescrollview.ScrollUti
 import com.nineoldandroids.view.ViewHelper;
 
 
-public class EvaluateDetailActivity extends BaseActivity implements ObservableScrollViewCallbacks {
+public class EvaluateDetailActivity extends BaseCompatActivity implements ObservableScrollViewCallbacks {
 
     private static final String JS_OBJECT_NAME = "MamaShareApp";
     private static final String TAG = "EvaluateDetailActivity";
@@ -34,24 +37,26 @@ public class EvaluateDetailActivity extends BaseActivity implements ObservableSc
     private boolean clearHistory = false;
 
     private View mImageView;
-    private View mToolbarView;
+    //private View mToolbarView;
     private ObservableScrollView mScrollView;
     private int mParallaxImageHeight;
 
     private WebView webView;
+    private RelativeLayout common_title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evaluate_detail);
 
-        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+        //setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
 
         webView = (WebView) findViewById(R.id.html5_body);
         progressBar = (ProgressBar) findViewById(R.id.html5_pb);
         mImageView = findViewById(R.id.image);
-        mToolbarView = findViewById(R.id.toolbar);
-        mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(0, getResources().getColor(R.color.primary)));
+        common_title = (RelativeLayout) findViewById(R.id.common_title);
+        //mToolbarView = findViewById(R.id.toolbar);
+        common_title.setBackgroundColor(ScrollUtils.getColorWithAlpha(0, getResources().getColor(R.color.primary)));
 
         mScrollView = (ObservableScrollView) findViewById(R.id.scroll);
         mScrollView.setScrollViewCallbacks(this);
@@ -85,7 +90,7 @@ public class EvaluateDetailActivity extends BaseActivity implements ObservableSc
     public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
         int baseColor = getResources().getColor(R.color.primary);
         float alpha = Math.min(1, (float) scrollY / mParallaxImageHeight);
-        mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(alpha, baseColor));
+        common_title.setBackgroundColor(ScrollUtils.getColorWithAlpha(alpha, baseColor));
         ViewHelper.setTranslationY(mImageView, scrollY / 2);
     }
 
