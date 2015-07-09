@@ -4,6 +4,7 @@ package com.babyspace.mamshare.app.fragment;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.GenericsAdapter;
@@ -31,6 +32,8 @@ public class EvaluateCommentFragment extends BaseFragment {
 
     @InjectView(R.id.evaluate_comment_list)
     NoStrollListView listView;
+    @InjectView(R.id.tv_comment_num)
+    TextView tv_comment_num;
 
 
     GenericsAdapter adapter;
@@ -168,6 +171,7 @@ public class EvaluateCommentFragment extends BaseFragment {
         /**
          * 先加载3个，点击加载更多
          */
+        tv_comment_num.setText("评论 (4"+data.size()+")");
         if(data.size()>3){
 
             List<TestBean> tempData=new ArrayList<>();
@@ -175,6 +179,7 @@ public class EvaluateCommentFragment extends BaseFragment {
             tempData.add(new TestBean("More " + queryCount + " i ", false));
             tempData.add(new TestBean("More " + queryCount + " i ", false));
             tempData.add(new TestBean("More " + queryCount + " i ", false));
+            tempData.add(data.get(0));
 
             adapter.refresh(AppConstants.page_recommend_label, tempData);
 
