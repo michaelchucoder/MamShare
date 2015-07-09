@@ -317,9 +317,7 @@
         <activity android:name=".app.activity.RecommendLabelActivity" />
         <activity android:name=".app.activity.ResetPasswordActivity" />
         <activity android:name=".app.activity.CommentActivity" />
-        <activity
-            android:name=".app.activity.GuidanceDetailActivity"
-            android:label="@string/title_activity_guidance_detail"></activity>
+        <activity android:name=".app.activity.GuidanceDetailActivity" />
     </application>
 
 </manifest>
