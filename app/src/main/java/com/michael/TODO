@@ -10,3 +10,8 @@ pageFlag
 
 在 basefragment onStop 里面加入 hideProgress
 
+
+
+缓存机制
+解决eventbus 崩溃问题
+
