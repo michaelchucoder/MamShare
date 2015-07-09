@@ -18,7 +18,6 @@ public class RegisterWizardActivity extends BaseActivity implements RegisterWiza
 
         if (getActionBar() != null) getActionBar().hide();
 
-
         if (findViewById(R.id.fragment_container) != null) {
 
             if (savedInstanceState != null) {
