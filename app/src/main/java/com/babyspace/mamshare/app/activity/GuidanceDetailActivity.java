@@ -1,7 +1,6 @@
 package com.babyspace.mamshare.app.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +14,7 @@ import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.basement.BaseCompatActivity;
 import com.michael.library.widget.custom.MichaelScrollView;
 
-public class GuidanceDetailActivity extends AppCompatActivity implements MichaelScrollView.OnScrollListener {
+public class GuidanceDetailActivity extends BaseCompatActivity implements MichaelScrollView.OnScrollListener {
 
     private Toolbar mToolbar;
     private ImageButton mFabButton;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.babyspace.mamshare" >
+    package="com.babyspace.mamshare">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -62,7 +62,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
 
         <!-- ***************添加UmengAppKey************ -->
         <activity android:name="com.umeng.fb.ConversationActivity" />
@@ -93,7 +93,7 @@
         <activity
             android:name="cn.jpush.android.ui.PushActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
             <intent-filter>
                 <action android:name="cn.jpush.android.ui.PushActivity" />
 
@@ -111,7 +111,7 @@
         <service
             android:name="cn.jpush.android.service.PushService"
             android:enabled="true"
-            android:exported="false" >
+            android:exported="false">
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.REGISTER" />
                 <action android:name="cn.jpush.android.intent.REPORT" />
@@ -123,8 +123,8 @@
         <!-- Required SDK核心功能 -->
         <receiver
             android:name="cn.jpush.android.service.PushReceiver"
-            android:enabled="true" >
-            <intent-filter android:priority="1000" >
+            android:enabled="true">
+            <intent-filter android:priority="1000">
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
                 <!-- Required  显示通知栏 -->
                 <category android:name="com.babyspace.mamshare" />
@@ -148,7 +148,7 @@
         <!-- User defined.  For test only  用户自定义的广播接收器 -->
         <receiver
             android:name=".app.service.receiver.JPushReceiver"
-            android:enabled="true" >
+            android:enabled="true">
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.REGISTRATION" />
                 <!-- Required  用户注册SDK的intent -->
@@ -169,7 +169,7 @@
 
         <activity
             android:name=".app.activity.WelcomeActivity"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -189,7 +189,7 @@
         <activity
             android:name=".app.activity.HomeActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -210,7 +210,7 @@
             android:name=".app.activity.HomeGroupActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@style/MyTheme" >
+            android:theme="@style/MyTheme">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -231,7 +231,7 @@
             android:name=".app.activity.HomePrefaceActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@style/MyTheme" >
+            android:theme="@style/MyTheme">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -251,7 +251,7 @@
         <activity
             android:name=".app.activity.SplashActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -276,7 +276,7 @@
             android:name=".app.activity.HomeUserCenterActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@style/MyTheme" >
+            android:theme="@style/MyTheme">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -294,9 +294,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".app.activity.Html5Activity" />
-        <activity
-            android:name=".app.activity.RegisterWizardActivity"
-            android:theme="@style/AppBaseTheme" />
+        <!--        <activity
+                    android:name=".app.activity.RegisterWizardActivity"
+                    android:theme="@style/AppBaseTheme"
+                    />    -->
+        <activity android:name=".app.activity.RegisterWizardActivity" />
         <activity android:name=".app.activity.DiscoverSearchActivity" />
         <activity android:name=".app.activity.SearchResultActivity" />
         <activity android:name=".app.activity.UserEvaluateListActivity" />
@@ -317,8 +319,7 @@
         <activity android:name=".app.activity.CommentActivity" />
         <activity
             android:name=".app.activity.GuidanceDetailActivity"
-            android:label="@string/title_activity_guidance_detail" >
-        </activity>
+            android:label="@string/title_activity_guidance_detail"></activity>
     </application>
 
 </manifest>

@@ -5,7 +5,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="MyTheme" parent="AppBaseTheme">
+    <style name="MyTheme" parent="AppTheme">
         <item name="vpiTabPageIndicatorStyle">@style/MyWidget.TabPageIndicator</item>
 <!--
         <item name="android:windowBackground">@drawable/tab_home_bg</item>
