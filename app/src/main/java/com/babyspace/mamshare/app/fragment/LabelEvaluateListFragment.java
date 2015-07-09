@@ -37,7 +37,6 @@ public class LabelEvaluateListFragment extends BaseFragment {
 
     List<TestBean> data;
 
-
     private final int queryNum = 9;
     private int queryStart = 0;
     private int queryCount = 0;
