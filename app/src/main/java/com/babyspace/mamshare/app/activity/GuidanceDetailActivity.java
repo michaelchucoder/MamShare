@@ -95,7 +95,7 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
 
     @Override
     public void onScrollUp() {
-        showViews();
+        hideViews();
 
         Log.d("onScroll", "scrollY " + "onScrollUp");
 
@@ -103,7 +103,8 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
 
     @Override
     public void onScrollDown() {
-        hideViews();
+        showViews();
+
         Log.d("onScroll", "scrollY " + "onScrollDown");
 
     }
