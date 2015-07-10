@@ -38,13 +38,13 @@ public class PreferencesUtil {
         if (value instanceof String) {
             o = BaseApplication.preferences.getString(key, value.toString());
         } else if (value instanceof Boolean) {
-            o = BaseApplication.preferences.getBoolean(key, ((Boolean) value).booleanValue());
+            o = BaseApplication.preferences.getBoolean(key, (Boolean) value);
         } else if (value instanceof Integer) {
-            o = BaseApplication.preferences.getInt(key, ((Integer) value).intValue());
+            o = BaseApplication.preferences.getInt(key, (Integer) value);
         } else if (value instanceof Float) {
-            o = BaseApplication.preferences.getFloat(key, ((Float) value).floatValue());
+            o = BaseApplication.preferences.getFloat(key, (Float) value);
         } else if (value instanceof Long) {
-            o = BaseApplication.preferences.getLong(key, ((Long) value).longValue());
+            o = BaseApplication.preferences.getLong(key, (Long) value);
         }
         T t = (T) o;
         L.d("getPreferences->" + key + ":" + value);
