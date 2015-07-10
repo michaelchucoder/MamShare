@@ -21,15 +21,15 @@ public class PreferencesUtil {
         if (value instanceof String) {
             editor.putString(key, value.toString());
         } else if (value instanceof Boolean) {
-            editor.putBoolean(key, ((Boolean) value).booleanValue());
+            editor.putBoolean(key, (Boolean) value);
         } else if (value instanceof Integer) {
-            editor.putInt(key, ((Integer) value).intValue());
+            editor.putInt(key, (Integer) value);
         } else if (value instanceof Float) {
-            editor.putFloat(key, ((Float) value).floatValue());
+            editor.putFloat(key, (Float) value);
         } else if (value instanceof Long) {
-            editor.putLong(key, ((Long) value).longValue());
+            editor.putLong(key, (Long) value);
         }
-        editor.commit();
+        editor.apply();
         L.d("putPreferences->" + key + ":" + value);
     }
 
