@@ -26,10 +26,10 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 
-public class RegisterFeatureFragment extends BaseFragment {
+public class RegisterRoleFragment extends BaseFragment {
     RegisterListener mCallback;
 
-    @InjectView(R.id.register_feature_list)
+    @InjectView(R.id.register_role_list)
     ListView listView;
 
 
@@ -45,7 +45,7 @@ public class RegisterFeatureFragment extends BaseFragment {
     private boolean isMoreData = true;
     private Call queryCall;
 
-    public RegisterFeatureFragment() {
+    public RegisterRoleFragment() {
         // Required empty public constructor
     }
 
@@ -63,11 +63,10 @@ public class RegisterFeatureFragment extends BaseFragment {
         }
     }
 
-
     @Override
     public void init(Bundle savedInstanceState) {
 
-        setContentView(R.layout.fragment_register_feature);
+        setContentView(R.layout.fragment_register_role);
 
         //TODO 从custom返回 时崩溃
         EventBus.getDefault().register(this);
@@ -108,14 +107,14 @@ public class RegisterFeatureFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.register_feature_custom, R.id.register_feature_again})
+    @OnClick({R.id.register_role_custom, R.id.register_role_again})
     public void doOnClick(View view) {
 
         switch (view.getId()) {
-            case R.id.register_feature_custom:
+            case R.id.register_role_custom:
                 mCallback.onRegisterCustomSelected();
                 break;
-            case R.id.register_feature_again:
+            case R.id.register_role_again:
                 queryData();
                 break;
         }

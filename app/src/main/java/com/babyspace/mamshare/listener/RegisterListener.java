@@ -11,7 +11,7 @@ package com.babyspace.mamshare.listener;
 public interface RegisterListener {
     void onRegisterNameSelected();
 
-    void onRegisterFeatureSelected();
+    void onRegisterRoleSelected();
 
     void onRegisterCustomSelected();
 }

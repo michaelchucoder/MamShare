@@ -58,7 +58,7 @@ public class RegisterNameFragment extends BaseFragment {
                 startActivity(i);
                 break;
             case R.id.ll_reg_feature:
-                mCallback.onRegisterFeatureSelected();
+                mCallback.onRegisterRoleSelected();
                 break;
         }
     }

@@ -5,7 +5,7 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    tools:context="com.babyspace.mamshare.app.fragment.RegisterFeatureFragment">
+    tools:context="com.babyspace.mamshare.app.fragment.RegisterRoleFragment">
 
 
     <include
@@ -13,7 +13,7 @@
         layout="@layout/common_title_layout" />
 
     <ListView
-        android:id="@+id/register_feature_list"
+        android:id="@+id/register_role_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/common_title">
@@ -21,7 +21,7 @@
     </ListView>
 
     <Button
-        android:id="@+id/register_feature_again"
+        android:id="@+id/register_role_again"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -29,7 +29,7 @@
         android:text="换一批"
         />
     <Button
-        android:id="@+id/register_feature_custom"
+        android:id="@+id/register_role_custom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

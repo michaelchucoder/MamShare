@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.fragment.RegisterCustomFragment;
-import com.babyspace.mamshare.app.fragment.RegisterFeatureFragment;
+import com.babyspace.mamshare.app.fragment.RegisterRoleFragment;
 import com.babyspace.mamshare.app.fragment.RegisterNameFragment;
 import com.babyspace.mamshare.app.fragment.RegisterPhoneFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
@@ -48,8 +48,8 @@ public class RegisterActivity extends BaseActivity implements RegisterListener {
     }
 
     @Override
-    public void onRegisterFeatureSelected() {
-        RegisterFeatureFragment fragment = new RegisterFeatureFragment();
+    public void onRegisterRoleSelected() {
+        RegisterRoleFragment fragment = new RegisterRoleFragment();
 
         fragment.setArguments(getIntent().getExtras());
 
