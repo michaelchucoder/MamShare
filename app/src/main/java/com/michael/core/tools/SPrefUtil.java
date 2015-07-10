@@ -23,6 +23,7 @@ public class SPrefUtil {
     public static final String SP_TOKEN = "token";
     public static final String SP_AUTH = "auth";
     public static final String SP_AUTO_LOGIN = "auto_login";
+    public static final String SP_PUSHID = "pushId";
 
 
     //TODO
