@@ -2,12 +2,8 @@ package com.babyspace.mamshare.framework.db;
 
 import android.database.sqlite.SQLiteDatabase;
 
-import com.babyspace.mamshare.bean.Customer;
-import com.babyspace.mamshare.bean.CustomerDao;
 import com.babyspace.mamshare.bean.GreenNote;
 import com.babyspace.mamshare.bean.GreenNoteDao;
-import com.babyspace.mamshare.bean.Order;
-import com.babyspace.mamshare.bean.OrderDao;
 
 import java.util.Map;
 
@@ -27,12 +23,12 @@ import de.greenrobot.dao.internal.DaoConfig;
 public class DaoSession extends AbstractDaoSession {
 
     private final DaoConfig noteDaoConfig;
-    private final DaoConfig customerDaoConfig;
-    private final DaoConfig orderDaoConfig;
+    //private final DaoConfig customerDaoConfig;
+    //private final DaoConfig orderDaoConfig;
 
     private final GreenNoteDao noteDao;
-    private final CustomerDao customerDao;
-    private final OrderDao orderDao;
+    //private final CustomerDao customerDao;
+    //private final OrderDao orderDao;
 
     public DaoSession(SQLiteDatabase db, IdentityScopeType type, Map<Class<? extends AbstractDao<?, ?>>, DaoConfig>
             daoConfigMap) {
@@ -40,38 +36,38 @@ public class DaoSession extends AbstractDaoSession {
 
         noteDaoConfig = daoConfigMap.get(GreenNoteDao.class).clone();
         noteDaoConfig.initIdentityScope(type);
+        noteDao = new GreenNoteDao(noteDaoConfig, this);
+        registerDao(GreenNote.class, noteDao);
 
-        customerDaoConfig = daoConfigMap.get(CustomerDao.class).clone();
+/*        customerDaoConfig = daoConfigMap.get(CustomerDao.class).clone();
         customerDaoConfig.initIdentityScope(type);
 
         orderDaoConfig = daoConfigMap.get(OrderDao.class).clone();
-        orderDaoConfig.initIdentityScope(type);
+        orderDaoConfig.initIdentityScope(type);*/
 
-        noteDao = new GreenNoteDao(noteDaoConfig, this);
-        customerDao = new CustomerDao(customerDaoConfig, this);
-        orderDao = new OrderDao(orderDaoConfig, this);
+        //customerDao = new CustomerDao(customerDaoConfig, this);
+        //orderDao = new OrderDao(orderDaoConfig, this);
 
-        registerDao(GreenNote.class, noteDao);
-        registerDao(Customer.class, customerDao);
-        registerDao(Order.class, orderDao);
+        //registerDao(Customer.class, customerDao);
+        //registerDao(Order.class, orderDao);
     }
     
     public void clear() {
         noteDaoConfig.getIdentityScope().clear();
-        customerDaoConfig.getIdentityScope().clear();
-        orderDaoConfig.getIdentityScope().clear();
+        //customerDaoConfig.getIdentityScope().clear();
+        //orderDaoConfig.getIdentityScope().clear();
     }
 
     public GreenNoteDao getNoteDao() {
         return noteDao;
     }
 
-    public CustomerDao getCustomerDao() {
+/*    public CustomerDao getCustomerDao() {
         return customerDao;
     }
 
     public OrderDao getOrderDao() {
         return orderDao;
-    }
+    }*/
 
 }

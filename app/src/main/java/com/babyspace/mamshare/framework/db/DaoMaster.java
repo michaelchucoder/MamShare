@@ -6,9 +6,7 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.babyspace.mamshare.bean.CustomerDao;
 import com.babyspace.mamshare.bean.GreenNoteDao;
-import com.babyspace.mamshare.bean.OrderDao;
 
 import de.greenrobot.dao.AbstractDaoMaster;
 import de.greenrobot.dao.identityscope.IdentityScopeType;
@@ -24,15 +22,15 @@ public class DaoMaster extends AbstractDaoMaster {
     /** Creates underlying database table using DAOs. */
     public static void createAllTables(SQLiteDatabase db, boolean ifNotExists) {
         GreenNoteDao.createTable(db, ifNotExists);
-        CustomerDao.createTable(db, ifNotExists);
-        OrderDao.createTable(db, ifNotExists);
+        //CustomerDao.createTable(db, ifNotExists);
+        //OrderDao.createTable(db, ifNotExists);
     }
     
     /** Drops underlying database table using DAOs. */
     public static void dropAllTables(SQLiteDatabase db, boolean ifExists) {
         GreenNoteDao.dropTable(db, ifExists);
-        CustomerDao.dropTable(db, ifExists);
-        OrderDao.dropTable(db, ifExists);
+        //CustomerDao.dropTable(db, ifExists);
+        //OrderDao.dropTable(db, ifExists);
     }
     
     public static abstract class OpenHelper extends SQLiteOpenHelper {
@@ -65,8 +63,8 @@ public class DaoMaster extends AbstractDaoMaster {
     public DaoMaster(SQLiteDatabase db) {
         super(db, SCHEMA_VERSION);
         registerDaoClass(GreenNoteDao.class);
-        registerDaoClass(CustomerDao.class);
-        registerDaoClass(OrderDao.class);
+        //registerDaoClass(CustomerDao.class);
+        //registerDaoClass(OrderDao.class);
     }
     
     public DaoSession newSession() {
