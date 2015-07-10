@@ -29,7 +29,7 @@ import com.babyspace.mamshare.framework.utils.NetWorkUtil;
 import com.babyspace.mamshare.framework.utils.UiHelper;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
-import com.michael.core.tools.PreferencesUtil;
+import com.michael.core.tools.SPrefUtil;
 import com.michael.library.debug.L;
 
 import java.io.File;
@@ -260,7 +260,7 @@ public class SplashActivity extends BaseActivity {
     }
 
     public void toHomeGroupActivity() {
-        boolean isFirstLogin = PreferencesUtil.getPreferences(PreferencesUtil.SP_FIRST_LOGIN, true);
+        boolean isFirstLogin = SPrefUtil.getPreferences(SPrefUtil.SP_FIRST_LOGIN, true);
         if (isFirstLogin) {
 
         } else {

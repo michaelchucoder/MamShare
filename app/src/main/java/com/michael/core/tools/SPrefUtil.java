@@ -7,7 +7,7 @@ import com.babyspace.mamshare.basement.BaseApplication;
 import com.michael.library.debug.L;
 
 
-public class PreferencesUtil {
+public class SPrefUtil {
 
     public static final String SP_FIRST_LOGIN = "first_login";
     public static final String SP_USER_NAME = "user_name";
@@ -17,9 +17,11 @@ public class PreferencesUtil {
     public static final String SP_AUTH = "auth";
     public static final String SP_AUTO_LOGIN = "auto_login";
 
+
+
     //TODO
 
-    public static <T> void putPreferences(String key, T value) {
+    public static <T> void putSPref(String key, T value) {
         SharedPreferences.Editor editor = BaseApplication.preferences.edit();
         if (value instanceof String) {
             editor.putString(key, value.toString());
@@ -36,7 +38,7 @@ public class PreferencesUtil {
         L.d("putPreferences->" + key + ":" + value);
     }
 
-    public static <T> T getPreferences(String key, T value) {
+    public static <T> T getSPref(String key, T value) {
         Object o = null;
         if (value instanceof String) {
             o = BaseApplication.preferences.getString(key, value.toString());
