@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.bean.GreenNote;
 import com.babyspace.mamshare.bean.GreenNoteDao;
+import com.babyspace.mamshare.controller.DBController;
 import com.babyspace.mamshare.framework.db.DaoMaster;
 import com.babyspace.mamshare.framework.db.DaoSession;
 
@@ -33,6 +34,7 @@ public class GreenDaoActivity extends ListActivity {
     private DaoMaster daoMaster;
     private DaoSession daoSession;
     private GreenNoteDao noteDao;
+    private GreenNoteDao noteDao2;
 
     private Cursor cursor;
 
@@ -54,8 +56,9 @@ public class GreenDaoActivity extends ListActivity {
         String[] from = { textColumn, GreenNoteDao.Properties.Comment.columnName };
 
 
+        noteDao2= DBController.getGreenNoteDao(this);
         // Select
-        for(GreenNote note :noteDao.loadAll()){
+        for(GreenNote note :noteDao2.loadAll()){
             Log.d("NoteActivityOnCreate", note.toString());
 
         }

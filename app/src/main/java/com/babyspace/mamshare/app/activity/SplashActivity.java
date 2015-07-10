@@ -260,7 +260,7 @@ public class SplashActivity extends BaseActivity {
     }
 
     public void toHomeGroupActivity() {
-        boolean isFirstLogin = SPrefUtil.getPreferences(SPrefUtil.SP_FIRST_LOGIN, true);
+        boolean isFirstLogin = SPrefUtil.getSPref(SPrefUtil.SP_FIRST_LOGIN, true);
         if (isFirstLogin) {
 
         } else {
