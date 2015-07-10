@@ -64,10 +64,13 @@ import java.util.List;
 public class EvaluateDetail implements Serializable {
     @SerializedName("PageUrl")
     private String pageUrl;
+
     @SerializedName("MamRoleName")
     private String mamaRoleName;
+
     @SerializedName("CommentNum")
     private String commentNum;
+
     @SerializedName("Comment")
     private List<Comment> commentList;
 
