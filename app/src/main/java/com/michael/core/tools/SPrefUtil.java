@@ -6,7 +6,14 @@ import android.content.SharedPreferences;
 import com.babyspace.mamshare.basement.BaseApplication;
 import com.michael.library.debug.L;
 
-
+/**
+ * Created with Android Studio
+ * Package name: com.michael.core.tools
+ * Author: MichaelChuCoder
+ * Date: 2015/6/29
+ * Time: 19:56
+ * To change this template use File | Settings | File and Code Templates.
+ */
 public class SPrefUtil {
 
     public static final String SP_FIRST_LOGIN = "first_login";
@@ -16,7 +23,6 @@ public class SPrefUtil {
     public static final String SP_TOKEN = "token";
     public static final String SP_AUTH = "auth";
     public static final String SP_AUTO_LOGIN = "auto_login";
-
 
 
     //TODO
