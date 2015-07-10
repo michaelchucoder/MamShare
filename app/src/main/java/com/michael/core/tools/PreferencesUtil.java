@@ -8,6 +8,7 @@ import com.michael.library.debug.L;
 
 
 public class PreferencesUtil {
+
     public static final String SP_FIRST_LOGIN = "first_login";
     public static final String SP_USERNAME = "user_name";
     public static final String sp_password = "password";
