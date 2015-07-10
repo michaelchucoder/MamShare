@@ -3,8 +3,6 @@ package com.babyspace.mamshare.controller;
 import android.content.Context;
 
 import com.babyspace.mamshare.basement.IModule;
-import com.babyspace.mamshare.framework.db.DataCacheManager;
-import com.babyspace.mamshare.framework.model.UpdateDBModule;
 import com.umeng.analytics.MobclickAgent;
 
 import java.util.HashMap;
@@ -28,21 +26,11 @@ public class ModuleController {
         // wxModule.onCreate(context);
         // map.put(WXModule.class, wxModule);
 
-
-        // 数据库cache管理器
-        DataCacheManager dataCacheManager = new DataCacheManager();
-        dataCacheManager.onCreate(context);
-        map.put(DataCacheManager.class, dataCacheManager);
-
-
     }
 
     public static void initModuleInFirstActivity(Context context) {
 
-        // 数据库cache管理器
-        UpdateDBModule updateDBModule = new UpdateDBModule();
-        updateDBModule.onCreate(context);
-        map.put(UpdateDBModule.class, updateDBModule);
+
     }
 
     public static void initModuleInMainActvity(Context context) {

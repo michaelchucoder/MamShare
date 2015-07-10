@@ -14,4 +14,5 @@
         nterdum in, neque vehicula ultrices varius in quam, pede tellus pellentesque sed nullam quis.</string>
     <string name="lipsum_short">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam cursus sem et ante rhoncus pharetra. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur lacinia mattis quam, non laoreet felis vestibulum ac. Curabitur pharetra vel est quis cursus. Etiam faucibus turpis in nunc semper sollicitudin. Nam fermentum commodo ligula. Aliquam a tellus sollicitudin, ultricies est ac, porta ante. Nam aliquet mi nulla, ut laoreet nunc vestibulum ut. Quisque non purus urna. Aliquam sed porta lectus. In a ipsum varius, imperdiet magna in, hendrerit arcu. Donec porta, nulla non viverra sollicitudin, nisl mi suscipit nisl, nec pellentesque est mi ut neque. Duis viverra laoreet nibh at malesuada.</string>
     <string name="sticky_header">Sticky</string>
+    <string name="title_activity_green_dao">GreenDaoActivity</string>
 </resources>

@@ -260,7 +260,7 @@ public class SplashActivity extends BaseActivity {
     }
 
     public void toHomeGroupActivity() {
-        boolean isFirstLogin = PreferencesUtil.getPreferences(PreferencesUtil.FIRST_LOGIN, true);
+        boolean isFirstLogin = PreferencesUtil.getPreferences(PreferencesUtil.SP_FIRST_LOGIN, true);
         if (isFirstLogin) {
 
         } else {
@@ -607,7 +607,7 @@ public class SplashActivity extends BaseActivity {
                 i.setClass(this, LoginActivity.class);
                 break;
             case R.id.go_test:
-                i.setClass(this, EvaluateDetailActivity.class);
+                i.setClass(this, GreenDaoActivity.class);
                 break;
         }
         startActivity(i);
