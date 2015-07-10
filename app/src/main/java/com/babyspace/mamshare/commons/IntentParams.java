@@ -6,6 +6,4 @@ public interface IntentParams {
     String nextPage = "nextPage";
     String currentPage = "currentPage";
 
-
-
 }
