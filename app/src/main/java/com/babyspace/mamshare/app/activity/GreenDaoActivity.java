@@ -119,6 +119,7 @@ public class GreenDaoActivity extends ListActivity {
         String comment = "Added on " + df.format(new Date());
         GreenNote note = new GreenNote(null, noteText, comment, new Date());
         noteDao.insert(note);
+        noteDao2.insert(note);
         Log.d("DaoExample", "Inserted new note, ID: " + note.getId());
 
         cursor.requery();
@@ -127,6 +128,7 @@ public class GreenDaoActivity extends ListActivity {
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         noteDao.deleteByKey(id);
+        noteDao2.deleteByKey(id);
         Log.d("DaoExample", "Deleted note, ID: " + id);
         cursor.requery();
     }

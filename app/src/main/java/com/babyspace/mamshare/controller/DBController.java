@@ -19,7 +19,7 @@ public class DBController {
 
     public static DaoMaster.DevOpenHelper getHelper(Context context) {
 
-        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context, "notes-db", null);
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context, "notes-sqlDb", null);
         return helper;
 
     }
@@ -30,7 +30,7 @@ public class DBController {
         DaoSession daoSession;
         GreenNoteDao noteDao;
 
-        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context, "notes-db", null);
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context, "notes-sqlDb", null);
 
         db = helper.getWritableDatabase();
         daoMaster = new DaoMaster(db);
