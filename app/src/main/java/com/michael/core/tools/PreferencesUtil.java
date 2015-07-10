@@ -14,6 +14,8 @@ public class PreferencesUtil {
     public static final String SP_PASSWORD = "password";
     public static final String SP_USERID = "userId";
     public static final String SP_TOKEN = "token";
+    public static final String SP_AUTH = "auth";
+    public static final String SP_AUTO_LOGIN = "auto_login";
 
     //TODO
 
