@@ -14,7 +14,6 @@ public class PreferencesUtil {
     public static final String sp_userid = "userId";
     public static final String sp_token = "token";
 
-
     //TODO
 
     public static <T> void putPreferences(String key, T value) {
