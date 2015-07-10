@@ -62,6 +62,7 @@ import java.util.List;
  * }
  */
 public class EvaluateDetail implements Serializable {
+
     @SerializedName("PageUrl")
     private String pageUrl;
 
