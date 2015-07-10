@@ -22,6 +22,7 @@ import java.util.List;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class AutoSearchAdapter extends BaseAdapter {
+
     private Context context;
     private int resource = R.layout.item_auto_search;
     private List<String> data = new ArrayList<String>();
