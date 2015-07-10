@@ -8,25 +8,40 @@
         android:layout_height="match_parent"
         android:layout_alignParentTop="true">
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/tab_title"
-            android:layout_width="wrap_content"
+            android:layout_width="220px"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true">
 
-            <Button
+            <TextView
                 android:id="@+id/tab_guidance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="攻略" />
 
-            <Button
+            <View
+                android:layout_width="100px"
+                android:layout_height="2px"
+                android:layout_below="@+id/tab_guidance"
+                android:background="@color/red" />
+
+            <TextView
                 android:id="@+id/tab_evaluate"
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
                 android:text="评测" />
-        </LinearLayout>
+
+            <View
+                android:layout_width="100px"
+                android:layout_height="2px"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/tab_guidance"
+                android:background="@color/red" />
+
+        </RelativeLayout>
 
 
         <RelativeLayout
@@ -41,6 +56,7 @@
                 android:layout_height="@dimen/title_view_height"
                 android:layout_centerVertical="true"
                 android:background="@color/yellow" />
+
 
             <Button
                 android:id="@+id/front"

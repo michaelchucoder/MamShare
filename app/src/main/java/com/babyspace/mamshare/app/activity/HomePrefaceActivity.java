@@ -1,12 +1,14 @@
 package com.babyspace.mamshare.app.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.fragment.HomeEvaluateListFragment;
@@ -19,9 +21,9 @@ import butterknife.OnClick;
 public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPageChangeListener {
     // 加上fragment
     @InjectView(R.id.tab_guidance)
-    Button tab_guidance;
+    TextView tab_guidance;
     @InjectView(R.id.tab_evaluate)
-    Button tab_evaluate;
+    TextView tab_evaluate;
 
     private static int pagePosition = 0;
     private static int lastState = 0;
@@ -219,13 +221,19 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
         int id = view.getId();
         switch (id) {
             case R.id.tab_guidance:
-                tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_selected);
-                tab_evaluate.setBackgroundResource(R.drawable.tab_shape_right_blue_unselect);
+                tab_guidance.setTextColor(Color.BLUE);
+                tab_evaluate.setTextColor(Color.BLACK);
+
+                //tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_selected);
+                //tab_evaluate.setBackgroundResource(R.drawable.tab_shape_right_blue_unselect);
                 mPager.setCurrentItem(0);
                 break;
             case R.id.tab_evaluate:
-                tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_unselect);
-                tab_evaluate.setBackgroundResource(R.drawable.tab_shape_right_blue_selected);
+                tab_evaluate.setTextColor(Color.BLUE);
+                tab_guidance.setTextColor(Color.BLACK);
+
+                //tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_unselect);
+                //tab_evaluate.setBackgroundResource(R.drawable.tab_shape_right_blue_selected);
                 mPager.setCurrentItem(1);
                 break;
         }
@@ -241,11 +249,17 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
         pagePosition = position;
 
         if (position == 0) {
-            tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_selected);
-            tab_evaluate.setBackgroundResource(R.drawable.tab_shape_right_blue_unselect);
+            tab_guidance.setTextColor(Color.BLUE);
+            tab_evaluate.setTextColor(Color.BLACK);
+
+            //tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_selected);
+            //tab_evaluate.setBackgroundResource(R.drawable.tab_shape_right_blue_unselect);
         } else {
-            tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_unselect);
-            tab_evaluate.setBackgroundResource(R.drawable.tab_shape_right_blue_selected);
+            tab_evaluate.setTextColor(Color.BLUE);
+            tab_guidance.setTextColor(Color.BLACK);
+
+            //tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_unselect);
+            //tab_evaluate.setBackgroundResource(R.drawable.tab_shape_right_blue_selected);
         }
     }
 
