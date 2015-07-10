@@ -62,7 +62,7 @@ public class HomeEvaluate implements Serializable {
     @SerializedName("Tags")
     private List<Tags> tagList;
 
-    static class Tags implements Serializable {
+    public static class Tags implements Serializable {
         @SerializedName("TagId")
         int tagId;
         @SerializedName("TagName")
