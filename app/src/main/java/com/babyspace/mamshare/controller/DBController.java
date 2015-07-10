@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.babyspace.mamshare.bean.GreenNoteDao;
+import com.babyspace.mamshare.bean.MAreaDao;
+import com.babyspace.mamshare.framework.db.AssetsDatabaseManager;
 import com.babyspace.mamshare.framework.db.DaoMaster;
 import com.babyspace.mamshare.framework.db.DaoSession;
 
@@ -38,6 +40,22 @@ public class DBController {
         daoSession = daoMaster.newSession();
         noteDao = daoSession.getNoteDao();
         return noteDao;
+
+    }
+    public static MAreaDao getMAreaDao(Context context) {
+        SQLiteDatabase db;
+        DaoMaster daoMaster;
+        DaoSession daoSession;
+        MAreaDao mAreaDao;
+
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context, "m6goDBData.sqlite3", null);
+
+        db = helper.getWritableDatabase();
+        daoMaster = new DaoMaster(db);
+
+        daoSession = daoMaster.newSession();
+        mAreaDao = daoSession.getMAreaDao();
+        return mAreaDao;
 
     }
 

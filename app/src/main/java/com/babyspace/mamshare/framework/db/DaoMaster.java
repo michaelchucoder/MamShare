@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.babyspace.mamshare.bean.GreenNoteDao;
+import com.babyspace.mamshare.bean.MAreaDao;
 
 import de.greenrobot.dao.AbstractDaoMaster;
 import de.greenrobot.dao.identityscope.IdentityScopeType;
@@ -22,14 +23,14 @@ public class DaoMaster extends AbstractDaoMaster {
     /** Creates underlying database table using DAOs. */
     public static void createAllTables(SQLiteDatabase db, boolean ifNotExists) {
         GreenNoteDao.createTable(db, ifNotExists);
-        //CustomerDao.createTable(db, ifNotExists);
+        MAreaDao.createTable(db, ifNotExists);
         //OrderDao.createTable(db, ifNotExists);
     }
     
     /** Drops underlying database table using DAOs. */
     public static void dropAllTables(SQLiteDatabase db, boolean ifExists) {
         GreenNoteDao.dropTable(db, ifExists);
-        //CustomerDao.dropTable(db, ifExists);
+        MAreaDao.dropTable(db, ifExists);
         //OrderDao.dropTable(db, ifExists);
     }
     
@@ -63,7 +64,7 @@ public class DaoMaster extends AbstractDaoMaster {
     public DaoMaster(SQLiteDatabase db) {
         super(db, SCHEMA_VERSION);
         registerDaoClass(GreenNoteDao.class);
-        //registerDaoClass(CustomerDao.class);
+        registerDaoClass(MAreaDao.class);
         //registerDaoClass(OrderDao.class);
     }
     

@@ -1,6 +1,7 @@
 package com.babyspace.mamshare.basement;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
@@ -8,6 +9,7 @@ import android.widget.Toast;
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.AppRuntime;
+import com.babyspace.mamshare.framework.db.AssetsDatabaseManager;
 import com.babyspace.mamshare.framework.eventbus.HttpErrorEvent;
 import com.babyspace.mamshare.framework.utils.UIUtils;
 import com.michael.library.debug.L;
@@ -83,6 +85,15 @@ public class MamShare extends BaseApplication {
             // 全局引用application
             GlobalContainer.getInstance().initApplication(this);
         }
+
+        // 初始化，只需要调用一次
+        AssetsDatabaseManager.initManager(context);
+        // 获取管理对象，因为数据库需要通过管理对象才能够获取
+        AssetsDatabaseManager mg = AssetsDatabaseManager.getManager();
+        // 通过管理对象获取数据库
+        SQLiteDatabase db = mg.getDatabase("m6goDBData.sqlite3");
+
+
     }
 
     private void initImageLoader() {

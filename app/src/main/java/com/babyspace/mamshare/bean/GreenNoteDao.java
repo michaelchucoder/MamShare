@@ -28,8 +28,7 @@ public class GreenNoteDao extends AbstractDao<GreenNote, Long> {
         public final static Property Text = new Property(1, String.class, "text", false, "TEXT");
         public final static Property Comment = new Property(2, String.class, "comment", false, "COMMENT");
         public final static Property Date = new Property(3, java.util.Date.class, "date", false, "DATE");
-    };
-
+    }
 
     public GreenNoteDao(DaoConfig config) {
         super(config);

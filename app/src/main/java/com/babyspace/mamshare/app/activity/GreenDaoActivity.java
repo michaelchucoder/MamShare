@@ -18,9 +18,12 @@ import android.widget.TextView;
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.bean.GreenNote;
 import com.babyspace.mamshare.bean.GreenNoteDao;
+import com.babyspace.mamshare.bean.MArea;
+import com.babyspace.mamshare.bean.MAreaDao;
 import com.babyspace.mamshare.controller.DBController;
 import com.babyspace.mamshare.framework.db.DaoMaster;
 import com.babyspace.mamshare.framework.db.DaoSession;
+import com.michael.library.debug.L;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -35,6 +38,7 @@ public class GreenDaoActivity extends ListActivity {
     private DaoSession daoSession;
     private GreenNoteDao noteDao;
     private GreenNoteDao noteDao2;
+    private MAreaDao mAreaDao;
 
     private Cursor cursor;
 
@@ -53,18 +57,22 @@ public class GreenDaoActivity extends ListActivity {
         String textColumn = GreenNoteDao.Properties.Text.columnName;
         String orderBy = textColumn + " COLLATE LOCALIZED ASC";
         cursor = db.query(noteDao.getTablename(), noteDao.getAllColumns(), null, null, null, null, orderBy);
-        String[] from = { textColumn, GreenNoteDao.Properties.Comment.columnName };
+        String[] from = {textColumn, GreenNoteDao.Properties.Comment.columnName};
 
 
-        noteDao2= DBController.getGreenNoteDao(this);
+        noteDao2 = DBController.getGreenNoteDao(this);
+        mAreaDao = DBController.getMAreaDao(this);
         // Select
-        for(GreenNote note :noteDao2.loadAll()){
-            Log.d("NoteActivityOnCreate", note.toString());
-
+        for (GreenNote note : noteDao2.loadAll()) {
+            L.d("NoteActivityOnCreate", note.toString());
         }
 
-        Log.d("NoteActivityOnCreate",textColumn+" "+ GreenNoteDao.Properties.Comment.columnName );
-        int[] to = { android.R.id.text1, android.R.id.text2 };
+        for (MArea note : mAreaDao.loadAll()) {
+            L.d("GreenDaoActivityMArea", note.toString());
+        }
+
+        Log.d("NoteActivityOnCreate", textColumn + " " + GreenNoteDao.Properties.Comment.columnName);
+        int[] to = {android.R.id.text1, android.R.id.text2};
 
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_2, cursor, from,
                 to);

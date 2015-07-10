@@ -4,6 +4,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.babyspace.mamshare.bean.GreenNote;
 import com.babyspace.mamshare.bean.GreenNoteDao;
+import com.babyspace.mamshare.bean.MArea;
+import com.babyspace.mamshare.bean.MAreaDao;
 
 import java.util.Map;
 
@@ -17,18 +19,16 @@ import de.greenrobot.dao.internal.DaoConfig;
 
 /**
  * {@inheritDoc}
- * 
+ *
  * @see AbstractDaoSession
  */
 public class DaoSession extends AbstractDaoSession {
 
     private final DaoConfig noteDaoConfig;
-    //private final DaoConfig customerDaoConfig;
-    //private final DaoConfig orderDaoConfig;
+    private final DaoConfig mAreaDaoConfig;
 
     private final GreenNoteDao noteDao;
-    //private final CustomerDao customerDao;
-    //private final OrderDao orderDao;
+    private final MAreaDao mAreaDao;
 
     public DaoSession(SQLiteDatabase db, IdentityScopeType type, Map<Class<? extends AbstractDao<?, ?>>, DaoConfig>
             daoConfigMap) {
@@ -39,35 +39,24 @@ public class DaoSession extends AbstractDaoSession {
         noteDao = new GreenNoteDao(noteDaoConfig, this);
         registerDao(GreenNote.class, noteDao);
 
-/*        customerDaoConfig = daoConfigMap.get(CustomerDao.class).clone();
-        customerDaoConfig.initIdentityScope(type);
-
-        orderDaoConfig = daoConfigMap.get(OrderDao.class).clone();
-        orderDaoConfig.initIdentityScope(type);*/
-
-        //customerDao = new CustomerDao(customerDaoConfig, this);
-        //orderDao = new OrderDao(orderDaoConfig, this);
-
-        //registerDao(Customer.class, customerDao);
-        //registerDao(Order.class, orderDao);
+        mAreaDaoConfig = daoConfigMap.get(MAreaDao.class).clone();
+        mAreaDaoConfig.initIdentityScope(type);
+        mAreaDao = new MAreaDao(mAreaDaoConfig, this);
+        registerDao(MArea.class, mAreaDao);
     }
-    
+
     public void clear() {
         noteDaoConfig.getIdentityScope().clear();
-        //customerDaoConfig.getIdentityScope().clear();
-        //orderDaoConfig.getIdentityScope().clear();
+        mAreaDaoConfig.getIdentityScope().clear();
     }
 
     public GreenNoteDao getNoteDao() {
         return noteDao;
     }
 
-/*    public CustomerDao getCustomerDao() {
-        return customerDao;
+    public MAreaDao getMAreaDao() {
+        return mAreaDao;
     }
 
-    public OrderDao getOrderDao() {
-        return orderDao;
-    }*/
 
 }
