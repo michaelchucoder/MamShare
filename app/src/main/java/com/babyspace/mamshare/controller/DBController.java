@@ -3,6 +3,7 @@ package com.babyspace.mamshare.controller;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.babyspace.mamshare.bean.CityAreaDao;
 import com.babyspace.mamshare.bean.GreenNoteDao;
 import com.babyspace.mamshare.bean.MAreaDao;
 import com.babyspace.mamshare.framework.db.DaoMaster;
@@ -48,6 +49,23 @@ public class DBController {
 
         daoSession = daoMaster.newSession();
         dao = daoSession.getMAreaDao();
+        return dao;
+
+    }
+
+    public static CityAreaDao getCityAreaDao(Context context) {
+        SQLiteDatabase db;
+        DaoMaster daoMaster;
+        DaoSession daoSession;
+        CityAreaDao dao;
+
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context, "Areas-sqlDb", null);
+
+        db = helper.getWritableDatabase();
+        daoMaster = new DaoMaster(db);
+
+        daoSession = daoMaster.newSession();
+        dao = daoSession.getCityAreaDao();
         return dao;
 
     }

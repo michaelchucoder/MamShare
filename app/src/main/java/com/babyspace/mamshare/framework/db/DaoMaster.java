@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.babyspace.mamshare.bean.CityAreaDao;
 import com.babyspace.mamshare.bean.GreenNoteDao;
 import com.babyspace.mamshare.bean.MAreaDao;
 
@@ -24,14 +25,14 @@ public class DaoMaster extends AbstractDaoMaster {
     public static void createAllTables(SQLiteDatabase db, boolean ifNotExists) {
         GreenNoteDao.createTable(db, ifNotExists);
         MAreaDao.createTable(db, ifNotExists);
-        //OrderDao.createTable(db, ifNotExists);
+        CityAreaDao.createTable(db, ifNotExists);
     }
     
     /** Drops underlying database table using DAOs. */
     public static void dropAllTables(SQLiteDatabase db, boolean ifExists) {
         GreenNoteDao.dropTable(db, ifExists);
         MAreaDao.dropTable(db, ifExists);
-        //OrderDao.dropTable(db, ifExists);
+        CityAreaDao.dropTable(db, ifExists);
     }
     
     public static abstract class OpenHelper extends SQLiteOpenHelper {
@@ -65,7 +66,7 @@ public class DaoMaster extends AbstractDaoMaster {
         super(db, SCHEMA_VERSION);
         registerDaoClass(GreenNoteDao.class);
         registerDaoClass(MAreaDao.class);
-        //registerDaoClass(OrderDao.class);
+        registerDaoClass(CityAreaDao.class);
     }
     
     public DaoSession newSession() {

@@ -16,11 +16,10 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
-import com.babyspace.mamshare.app.service.DBService;
+import com.babyspace.mamshare.bean.CityArea;
+import com.babyspace.mamshare.bean.CityAreaDao;
 import com.babyspace.mamshare.bean.GreenNote;
 import com.babyspace.mamshare.bean.GreenNoteDao;
-import com.babyspace.mamshare.bean.MArea;
-import com.babyspace.mamshare.bean.MAreaDao;
 import com.babyspace.mamshare.controller.DBController;
 import com.babyspace.mamshare.framework.db.DaoMaster;
 import com.babyspace.mamshare.framework.db.DaoSession;
@@ -39,7 +38,7 @@ public class GreenDaoActivity extends ListActivity {
     private DaoSession daoSession;
     private GreenNoteDao noteDao;
     private GreenNoteDao noteDao2;
-    private MAreaDao mAreaDao;
+    private CityAreaDao cityAreaDao;
 
     private Cursor cursor;
 
@@ -62,31 +61,16 @@ public class GreenDaoActivity extends ListActivity {
 
 
         noteDao2 = DBController.getGreenNoteDao(this);
-        mAreaDao = DBController.getMAreaDao(this);
+        cityAreaDao = DBController.getCityAreaDao(this);
         // Select
         for (GreenNote note : noteDao2.loadAll()) {
             L.d("NoteActivityOnCreate", note.toString());
         }
 
-        for (MArea note : mAreaDao.loadAll()) {
+        for (CityArea note : cityAreaDao.loadAll()) {
             L.d("GreenDaoActivityMArea", note.toString());
         }
 
-        for (MArea note : DBService.getMAreaList("1")) {
-            L.d("GreenDaoActivityMArea", note.toString());
-        }
-
-        for (MArea note : DBService.getAllArea("1")) {
-            L.d("GreenDaoActivityMArea-all", note.toString());
-        }
-
-        L.d("GreenDaoActivityMArea", MAreaDao.Properties.areaId.columnName);
-        L.d("GreenDaoActivityMArea", MAreaDao.Properties.Id.columnName);
-
-
-
-
-        Log.d("NoteActivityOnCreate", textColumn + " " + GreenNoteDao.Properties.Comment.columnName);
         int[] to = {android.R.id.text1, android.R.id.text2};
 
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_2, cursor, from,
