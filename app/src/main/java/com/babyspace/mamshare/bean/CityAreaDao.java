@@ -46,10 +46,10 @@ public class CityAreaDao extends AbstractDao<CityArea, String> {
     public static void createTable(SQLiteDatabase db, boolean ifNotExists) {
         String constraint = ifNotExists ? "IF NOT EXISTS " : "";
         db.execSQL("CREATE TABLE " + constraint + "'MArea' (" + //
-                "'areaId' TEXT PRIMARY KEY ," + // 1: 哈哈
+                "'areaId' TEXT NOT NULL PRIMARY KEY ," + // 1: 哈哈
                 "'areaType' TEXT," + // 2: 类型
-                "'areaName' TEXT," + // 3: 名字
-                "'parentId' TEXT," + // 4: 上一个
+                "'areaName' TEXT NOT NULL," + // 3: 名字
+                "'parentId' TEXT NOT NULL," + // 4: 上一个
                 "'zip' TEXT);"); // 5: 邮编
     }
 

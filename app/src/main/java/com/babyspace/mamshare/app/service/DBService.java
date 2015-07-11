@@ -71,14 +71,12 @@ public class DBService {
         L.d("DBService:", "count " + count);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            Long id = cursor.getLong(cursor.getColumnIndex("_id"));
             String areaId = cursor.getString(cursor.getColumnIndex("areaId"));
             String areaType = cursor.getString(cursor.getColumnIndex("areaType"));
             String areaName = cursor.getString(cursor.getColumnIndex("areaName"));
             String parentId = cursor.getString(cursor.getColumnIndex("parentId"));
             String zip = cursor.getString(cursor.getColumnIndex("zip"));
             MArea area = new MArea();
-            area.setId(id);
             area.setAreaId(areaId);
             area.setAreaType(areaType);
             area.setAreaName(areaName);
