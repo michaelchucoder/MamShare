@@ -46,14 +46,8 @@ public class GenericsAdapter extends BaseAdapter {
      * public static final int page_user_evaluate = 2010;
      */
 
-    /**
-     * 无法解决同步问题， 所有暂时弃用GenericsAdapter
-     * 07-11 16:58:26.029  14842-14842/com.babyspace.mamshare I/GenericsAdapter﹕ pageFlag 2006
-     * 07-11 16:58:59.055  17951-17951/com.babyspace.mamshare I/GenericsAdapter﹕ pageFlag 2006
-     * 07-11 17:00:57.960  21812-21812/com.babyspace.mamshare I/GenericsAdapter﹕ construct-pageFlag 2001
-     * 07-11 17:00:58.070  21812-21812/com.babyspace.mamshare I/GenericsAdapter﹕ construct-pageFlag 2002
-     * 07-11 17:00:58.201  21812-21812/com.babyspace.mamshare I/GenericsAdapter﹕ getView-pageFlag 2006
-     */
+
+    List<TestBean> testBeans;
 
     int pageFlag;
     Context mContext;
@@ -93,6 +87,8 @@ public class GenericsAdapter extends BaseAdapter {
         switch (pageFlag) {
             case AppConstants.page_home_guidance:
                 HomeGuidanceHolder homeGuidanceHolder;
+                List<HomeGuidance> homeGuidanceList = (List<HomeGuidance>) data;
+
                 if (convertView == null) {
                     homeGuidanceHolder = new HomeGuidanceHolder();
                     convertView = View.inflate(mContext, AppConstants.item_home_guidance, null);
@@ -102,25 +98,27 @@ public class GenericsAdapter extends BaseAdapter {
                 } else {
                     homeGuidanceHolder = (HomeGuidanceHolder) convertView.getTag();
                 }
-                ImageLoader.getInstance().displayImage(((List<HomeGuidance>) data).get(position).getImageUrl(), homeGuidanceHolder.iv_guidance);
+                ImageLoader.getInstance().displayImage(homeGuidanceList.get(position).getImageUrl(), homeGuidanceHolder.iv_guidance);
                 break;
+
             case AppConstants.page_home_evaluate:
-                ViewHolder holder;
+                ViewHolder homeEvaluateHolder;
+
                 if (convertView == null) {
-                    holder = new ViewHolder();
-                    convertView = View.inflate(mContext, AppConstants.item_recommend_label, null);
+                    homeEvaluateHolder = new ViewHolder();
+                    convertView = View.inflate(mContext, AppConstants.item_home_evaluate, null);
                     ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
-                    holder.txtTitle = (TextView) convertView.findViewById(R.id.title);
-                    holder.btnLike = (Button) convertView.findViewById(R.id.like);
-                    convertView.setTag(holder);
+                    homeEvaluateHolder.txtTitle = (TextView) convertView.findViewById(R.id.title);
+                    homeEvaluateHolder.btnLike = (Button) convertView.findViewById(R.id.like);
+                    convertView.setTag(homeEvaluateHolder);
                 } else {
-                    holder = (ViewHolder) convertView.getTag();
+                    homeEvaluateHolder = (ViewHolder) convertView.getTag();
                 }
 
-                holder.txtTitle.setText(((List<TestBean>) data).get(position).getTitle());
-                holder.btnLike.setText(((List<TestBean>) data).get(position).isLike() ? "喜欢" : "无视");
+                homeEvaluateHolder.txtTitle.setText(((List<TestBean>) data).get(position).getTitle());
+                homeEvaluateHolder.btnLike.setText(((List<TestBean>) data).get(position).isLike() ? "喜欢" : "无视");
 
-                holder.btnLike.setOnClickListener(new View.OnClickListener() {
+                homeEvaluateHolder.btnLike.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         //状态改变后刷新数据
@@ -129,7 +127,11 @@ public class GenericsAdapter extends BaseAdapter {
                     }
                 });
                 break;
+
             default:
+                /**
+                 * 这里可以为空
+                 */
                 ViewHolder defaultHolder;
 
                 if (convertView == null) {
