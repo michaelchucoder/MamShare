@@ -72,14 +72,14 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1px"
+            android:layout_height="11px"
             android:layout_below="@+id/tab_title"
-            android:background="@color/plane_red_color" />
+            android:background="@color/material_blue_grey_800" />
 
         <android.support.v4.view.ViewPager
             android:id="@+id/pager"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_below="@+id/tab_title" />
 
     </RelativeLayout>

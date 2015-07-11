@@ -68,7 +68,7 @@ public class HomeEvaluateListFragment extends BaseFragment  implements SwipeRefr
 
     @Override
     public void init(Bundle savedInstanceState) {
-        setContentView(R.layout.fragment_home_guidance_list);
+        setContentView(R.layout.fragment_home_evaluate_list);
 
         EventBus.getDefault().register(this);
 
