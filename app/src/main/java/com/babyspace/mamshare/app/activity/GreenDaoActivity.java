@@ -16,6 +16,7 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.app.service.DBService;
 import com.babyspace.mamshare.bean.GreenNote;
 import com.babyspace.mamshare.bean.GreenNoteDao;
 import com.babyspace.mamshare.bean.MArea;
@@ -70,8 +71,19 @@ public class GreenDaoActivity extends ListActivity {
         for (MArea note : mAreaDao.loadAll()) {
             L.d("GreenDaoActivityMArea", note.toString());
         }
+
+        for (MArea note : DBService.getMAreaList("1")) {
+            L.d("GreenDaoActivityMArea", note.toString());
+        }
+
+        for (MArea note : DBService.getAllArea("1")) {
+            L.d("GreenDaoActivityMArea-all", note.toString());
+        }
+
         L.d("GreenDaoActivityMArea", MAreaDao.Properties.areaId.columnName);
         L.d("GreenDaoActivityMArea", MAreaDao.Properties.Id.columnName);
+
+
 
 
         Log.d("NoteActivityOnCreate", textColumn + " " + GreenNoteDao.Properties.Comment.columnName);
