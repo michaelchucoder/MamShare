@@ -92,7 +92,7 @@ public class HomeEvaluateListFragment extends BaseFragment  implements SwipeRefr
 
         listView.setSelector(new ColorDrawable(Color.TRANSPARENT));
 
-        adapter.refresh(AppConstants.page_recommend_label, data);
+        adapter.refresh(AppConstants.page_home_evaluate, data);
         listView.addFooterView(mFooter);
         listView.setAdapter(adapter);
 
@@ -229,7 +229,7 @@ public class HomeEvaluateListFragment extends BaseFragment  implements SwipeRefr
             queryStart += queryNum;
         }
 
-        adapter.refresh(AppConstants.page_recommend_label, data);
+        adapter.refresh(AppConstants.page_home_evaluate, data);
 
     }
 
