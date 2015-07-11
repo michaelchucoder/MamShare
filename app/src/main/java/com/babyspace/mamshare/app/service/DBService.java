@@ -1,6 +1,5 @@
 package com.babyspace.mamshare.app.service;
 
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -43,13 +42,13 @@ public class DBService {
             String areaName = cursor.getString(cursor.getColumnIndex("areaName"));
             String parentId = cursor.getString(cursor.getColumnIndex("parentId"));
             String zip = cursor.getString(cursor.getColumnIndex("zip"));
-            MArea marea = new MArea();
-            marea.setAreaId(areaId);
-            marea.setAreaType(areaType);
-            marea.setAreaName(areaName);
-            marea.setParentId(parentId);
-            marea.setAreaType(zip);
-            resultList.add(marea);
+            MArea area = new MArea();
+            area.setAreaId(areaId);
+            area.setAreaType(areaType);
+            area.setAreaName(areaName);
+            area.setParentId(parentId);
+            area.setAreaType(zip);
+            resultList.add(area);
             cursor.moveToNext();
         }
         cursor.close();
@@ -78,14 +77,14 @@ public class DBService {
             String areaName = cursor.getString(cursor.getColumnIndex("areaName"));
             String parentId = cursor.getString(cursor.getColumnIndex("parentId"));
             String zip = cursor.getString(cursor.getColumnIndex("zip"));
-            MArea marea = new MArea();
-            marea.setId(id);
-            marea.setAreaId(areaId);
-            marea.setAreaType(areaType);
-            marea.setAreaName(areaName);
-            marea.setParentId(parentId);
-            marea.setAreaType(zip);
-            resultList.add(marea);
+            MArea area = new MArea();
+            area.setId(id);
+            area.setAreaId(areaId);
+            area.setAreaType(areaType);
+            area.setAreaName(areaName);
+            area.setParentId(parentId);
+            area.setAreaType(zip);
+            resultList.add(area);
             cursor.moveToNext();
         }
         cursor.close();
