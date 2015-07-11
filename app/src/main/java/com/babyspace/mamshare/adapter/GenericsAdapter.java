@@ -48,12 +48,11 @@ public class GenericsAdapter extends BaseAdapter {
 
     /**
      * 无法解决同步问题， 所有暂时弃用GenericsAdapter
-     07-11 16:58:26.029  14842-14842/com.babyspace.mamshare I/GenericsAdapter﹕ pageFlag 2006
-     07-11 16:58:59.055  17951-17951/com.babyspace.mamshare I/GenericsAdapter﹕ pageFlag 2006
-     07-11 17:00:57.960  21812-21812/com.babyspace.mamshare I/GenericsAdapter﹕ construct-pageFlag 2001
-     07-11 17:00:58.070  21812-21812/com.babyspace.mamshare I/GenericsAdapter﹕ construct-pageFlag 2002
-     07-11 17:00:58.201  21812-21812/com.babyspace.mamshare I/GenericsAdapter﹕ getView-pageFlag 2006
-
+     * 07-11 16:58:26.029  14842-14842/com.babyspace.mamshare I/GenericsAdapter﹕ pageFlag 2006
+     * 07-11 16:58:59.055  17951-17951/com.babyspace.mamshare I/GenericsAdapter﹕ pageFlag 2006
+     * 07-11 17:00:57.960  21812-21812/com.babyspace.mamshare I/GenericsAdapter﹕ construct-pageFlag 2001
+     * 07-11 17:00:58.070  21812-21812/com.babyspace.mamshare I/GenericsAdapter﹕ construct-pageFlag 2002
+     * 07-11 17:00:58.201  21812-21812/com.babyspace.mamshare I/GenericsAdapter﹕ getView-pageFlag 2006
      */
 
     int pageFlag;
@@ -66,7 +65,7 @@ public class GenericsAdapter extends BaseAdapter {
     }
 
     public GenericsAdapter(Context context, int pageFlag) {
-        L.d("GenericsAdapter","construct-pageFlag "+pageFlag);
+        L.d("GenericsAdapter", "construct-pageFlag " + pageFlag);
 
         mContext = context;
         this.pageFlag = pageFlag;
@@ -90,7 +89,7 @@ public class GenericsAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        L.d("GenericsAdapter","getView-pageFlag "+pageFlag);
+        L.d("GenericsAdapter", "getView-pageFlag " + pageFlag);
         switch (pageFlag) {
             case AppConstants.page_home_guidance:
                 HomeGuidanceHolder homeGuidanceHolder;
@@ -131,23 +130,23 @@ public class GenericsAdapter extends BaseAdapter {
                 });
                 break;
             default:
-                ViewHolder holderD;
+                ViewHolder defaultHolder;
 
                 if (convertView == null) {
-                    holderD = new ViewHolder();
+                    defaultHolder = new ViewHolder();
                     convertView = View.inflate(mContext, AppConstants.item_recommend_label, null);
                     ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
-                    holderD.txtTitle = (TextView) convertView.findViewById(R.id.title);
-                    holderD.btnLike = (Button) convertView.findViewById(R.id.like);
-                    convertView.setTag(holderD);
+                    defaultHolder.txtTitle = (TextView) convertView.findViewById(R.id.title);
+                    defaultHolder.btnLike = (Button) convertView.findViewById(R.id.like);
+                    convertView.setTag(defaultHolder);
                 } else {
-                    holderD = (ViewHolder) convertView.getTag();
+                    defaultHolder = (ViewHolder) convertView.getTag();
                 }
 
-                holderD.txtTitle.setText(((List<TestBean>) data).get(position).getTitle());
-                holderD.btnLike.setText(((List<TestBean>) data).get(position).isLike() ? "喜欢" : "无视");
+                defaultHolder.txtTitle.setText(((List<TestBean>) data).get(position).getTitle());
+                defaultHolder.btnLike.setText(((List<TestBean>) data).get(position).isLike() ? "喜欢" : "无视");
 
-                holderD.btnLike.setOnClickListener(new View.OnClickListener() {
+                defaultHolder.btnLike.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         //状态改变后刷新数据
