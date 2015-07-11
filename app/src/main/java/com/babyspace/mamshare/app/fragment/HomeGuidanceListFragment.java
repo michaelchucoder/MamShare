@@ -74,7 +74,7 @@ public class HomeGuidanceListFragment extends BaseFragment  implements SwipeRefr
         EventBus.getDefault().register(this);
 
         data = new ArrayList<>();
-        adapter = new GenericsAdapter(getActivity(), AppConstants.page_recommend_label);
+        adapter = new GenericsAdapter(getActivity(), AppConstants.page_home_guidance);
     }
 
     @Override
