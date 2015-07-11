@@ -5,7 +5,6 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.babyspace.mamshare.bean.GreenNoteDao;
 import com.babyspace.mamshare.bean.MAreaDao;
-import com.babyspace.mamshare.framework.db.AssetsDatabaseManager;
 import com.babyspace.mamshare.framework.db.DaoMaster;
 import com.babyspace.mamshare.framework.db.DaoSession;
 
@@ -18,13 +17,6 @@ import com.babyspace.mamshare.framework.db.DaoSession;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class DBController {
-
-    public static DaoMaster.DevOpenHelper getHelper(Context context) {
-
-        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context, "notes-sqlDb", null);
-        return helper;
-
-    }
 
     public static GreenNoteDao getGreenNoteDao(Context context) {
         SQLiteDatabase db;
@@ -42,6 +34,7 @@ public class DBController {
         return noteDao;
 
     }
+
     public static MAreaDao getMAreaDao(Context context) {
         SQLiteDatabase db;
         DaoMaster daoMaster;
