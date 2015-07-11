@@ -1,29 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="330px"
-    android:layout_height="330px"
+    android:layout_width="680px"
+    android:layout_height="1000px"
     android:background="@color/pink_mama_bg"
     android:orientation="vertical"
     android:padding="20px">
 
     <ImageView
-        android:id="@+id/title"
-        android:layout_width="300px"
-        android:layout_height="300px"
+        android:id="@+id/iv_guidance"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:src="@color/yellow"
         android:text="我是标题大人" />
-
-
-    <Button
-        android:id="@+id/like"
-        android:layout_width="50px"
-        android:layout_height="50px"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="20px"
-        android:background="@drawable/shape_rounded_rectangle"
-        android:text="45">
-
-    </Button>
 
 </RelativeLayout>

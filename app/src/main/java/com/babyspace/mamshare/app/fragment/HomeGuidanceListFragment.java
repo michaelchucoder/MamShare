@@ -18,6 +18,7 @@ import com.babyspace.mamshare.adapter.GenericsAdapter;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.HomeFloatLayerEvent;
+import com.babyspace.mamshare.bean.HomeGuidance;
 import com.babyspace.mamshare.bean.TestBean;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.UrlConstants;
@@ -34,7 +35,7 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 
-public class HomeGuidanceListFragment extends BaseFragment  implements SwipeRefreshLayout.OnRefreshListener{
+public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 
 
     @InjectView(R.id.swipe_container)
@@ -51,7 +52,7 @@ public class HomeGuidanceListFragment extends BaseFragment  implements SwipeRefr
 
     GenericsAdapter adapter;
 
-    List<TestBean> data;
+    List<HomeGuidance> data;
 
     private int firstVisiblePosition;
     private final int BACK_TOP_COUNT = 5;
@@ -62,6 +63,7 @@ public class HomeGuidanceListFragment extends BaseFragment  implements SwipeRefr
     private boolean isRefreshAdd = true;
     private boolean isMoreData = true;
     private Call queryCall;
+
     public HomeGuidanceListFragment() {
         // Required empty public constructor
     }
@@ -93,7 +95,7 @@ public class HomeGuidanceListFragment extends BaseFragment  implements SwipeRefr
 
         listView.setSelector(new ColorDrawable(Color.TRANSPARENT));
 
-        adapter.refresh(AppConstants.page_recommend_label, data);
+        adapter.refresh(AppConstants.page_home_guidance, data);
         listView.addFooterView(mFooter);
         listView.setAdapter(adapter);
 
@@ -196,16 +198,35 @@ public class HomeGuidanceListFragment extends BaseFragment  implements SwipeRefr
         hideLoadingProgress();
         L.d(OkHttpExecutor.TAG, "onEventMainThread-HomeGuidanceListFragment>" + event.getData().getActivityEnable());
 
-        List<TestBean> responseData = new ArrayList<>();
+        List<HomeGuidance> responseData = new ArrayList<>();
 
+        /**
+          {
+         "code": 200,
+         "msg": [
+         {
+         "StrategyId": 1,
+         "Title": "标题1",
+         "ImageUrl": "http://file6.m6go.com/pFYGyGOH1~Iu5S_VK1mR9W",
+         "PageUrl": "http://m.gou.com/product_17123.html"
+         },
+         {
+         "StrategyId": 2,
+         "Title": "标题2",
+         "ImageUrl": "http://file9.m6go.com/wIbVjP3h04aAsYZsQloxCW",
+         "PageUrl": "http://m.gou.com/product_17123.html"
+         }
+         ]
+         }
+         */
         if (queryCount <= 6) {
             for (int i = 0; i < queryNum; i++) {
-                responseData.add(new TestBean("More " + queryCount + " i " + i, false));
+                responseData.add(new HomeGuidance(1,"标题1","http://file6.m6go.com/pFYGyGOH1~Iu5S_VK1mR9W","http://m.gou.com/product_17123.html"));
             }
 
         } else {
             for (int i = 0; i < queryNum - 1; i++) {
-                responseData.add(new TestBean("Last " + queryCount + " i " + i, false));
+                responseData.add(new HomeGuidance(1,"标题2","http://file6.m6go.com/pFYGyGOH1~Iu5S_VK1mR9W","http://m.gou.com/product_17123.html"));
             }
 
         }
@@ -230,7 +251,7 @@ public class HomeGuidanceListFragment extends BaseFragment  implements SwipeRefr
             queryStart += queryNum;
         }
 
-        adapter.refresh(AppConstants.page_recommend_label, data);
+        adapter.refresh(AppConstants.page_home_guidance, data);
 
     }
 

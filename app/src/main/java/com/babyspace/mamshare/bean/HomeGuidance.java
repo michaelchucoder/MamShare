@@ -39,10 +39,16 @@ public class HomeGuidance  implements Serializable {
     @SerializedName("Title")
     private String guidanceTitle;
     @SerializedName("ImageUrl")
-    private int imageUrl;
+    private String imageUrl;
     @SerializedName("PageUrl")
     private String pageUrl;
 
+    public HomeGuidance(int guidanceId, String guidanceTitle, String imageUrl, String pageUrl) {
+        this.guidanceId = guidanceId;
+        this.guidanceTitle = guidanceTitle;
+        this.imageUrl = imageUrl;
+        this.pageUrl = pageUrl;
+    }
 
     public int getGuidanceId() {
         return guidanceId;
@@ -60,11 +66,11 @@ public class HomeGuidance  implements Serializable {
         this.guidanceTitle = guidanceTitle;
     }
 
-    public int getImageUrl() {
+    public String getImageUrl() {
         return imageUrl;
     }
 
-    public void setImageUrl(int imageUrl) {
+    public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
 
