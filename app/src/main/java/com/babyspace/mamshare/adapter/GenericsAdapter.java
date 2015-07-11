@@ -10,7 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.app.activity.EvaluateDetailActivity;
 import com.babyspace.mamshare.app.activity.GuidanceDetailActivity;
+import com.babyspace.mamshare.app.activity.ParallaxToolbarListViewActivity;
 import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.HomeGuidance;
 import com.babyspace.mamshare.bean.TestBean;
@@ -163,9 +165,13 @@ public class GenericsAdapter extends BaseAdapter {
                 Intent i = new Intent();
                 switch (pageFlag) {
                     case AppConstants.page_home_evaluate:
+                        i.setClass(mContext, EvaluateDetailActivity.class);
                         break;
                     case AppConstants.page_home_guidance:
                         i.setClass(mContext, GuidanceDetailActivity.class);
+                        break;
+                    default:
+                        i.setClass(mContext, ParallaxToolbarListViewActivity.class);
                         break;
                 }
                 mContext.startActivity(i);

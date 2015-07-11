@@ -184,7 +184,6 @@ public class HomeEvaluateListFragment extends BaseFragment  implements SwipeRefr
         }
     }
 
-
     /**
      * EventBus 响应事件
      *
