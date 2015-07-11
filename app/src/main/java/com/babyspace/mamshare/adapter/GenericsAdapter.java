@@ -2,6 +2,7 @@ package com.babyspace.mamshare.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -85,7 +86,18 @@ public class GenericsAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         L.d("GenericsAdapter", "getView-pageFlag " + pageFlag);
 
-        if (pageFlag== AppConstants.page_home_guidance) { //TODO 这是
+        if (pageFlag == AppConstants.page_empty) { //TODO 这是
+            if (convertView == null) {
+
+                convertView = LayoutInflater.from(mContext).inflate(AppConstants.item_empty,
+                        parent, false);
+                ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
+            }
+            TextView txtTitle = (TextView) convertView.findViewById(R.id.iv_empty);
+            txtTitle.setText("哈哈哈，走错路啦");
+
+
+        } else if (pageFlag == AppConstants.page_home_guidance) { //TODO 这是
             HomeGuidanceHolder holder;
             List<HomeGuidance> list = (List<HomeGuidance>) data;
 
@@ -99,7 +111,7 @@ public class GenericsAdapter extends BaseAdapter {
                 holder = (HomeGuidanceHolder) convertView.getTag();
             }
             ImageLoader.getInstance().displayImage(list.get(position).getImageUrl(), holder.iv_guidance);
-        }else if (pageFlag==AppConstants.page_home_evaluate){ //TODO 这是
+        } else if (pageFlag == AppConstants.page_home_evaluate) { //TODO 这是
             ViewHolder holder;
             final List<TestBean> list = (List<TestBean>) data;
 
@@ -125,7 +137,7 @@ public class GenericsAdapter extends BaseAdapter {
                     notifyDataSetChanged();
                 }
             });
-        }else {
+        } else {
             ViewHolder holder;
             final List<TestBean> list = (List<TestBean>) data;
 
@@ -154,7 +166,6 @@ public class GenericsAdapter extends BaseAdapter {
         }
 
 
-
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -178,7 +189,10 @@ public class GenericsAdapter extends BaseAdapter {
     }
 
     public void refresh(int pageFlag, List<?> data) {
-        this.pageFlag = pageFlag;
+        if (data.size() < 4)
+            this.pageFlag = AppConstants.page_empty;
+        else
+            this.pageFlag = pageFlag;
         this.data = data;
         notifyDataSetChanged();
     }
@@ -193,6 +207,7 @@ public class GenericsAdapter extends BaseAdapter {
     static class HomeGuidanceHolder {
         ImageView iv_guidance;
     }
+
     static class HomeEvaluateHolder {
         ImageView iv_evaluate;
     }

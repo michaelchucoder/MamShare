@@ -46,6 +46,8 @@ public class AppConstants {
     public static final int page_label_evaluate = 2009;
     public static final int page_user_evaluate = 2010;
 
+    public static final int item_empty = R.layout.item_empty;
+
     public static final int item_home_guidance = R.layout.item_home_guidance;
     public static final int item_home_evaluate = R.layout.item_home_evaluate;
     public static final int item_collect_guidance = R.layout.item_guidance;

@@ -202,7 +202,7 @@ public class HomeEvaluateListFragment extends BaseFragment  implements SwipeRefr
             }
 
         } else {
-            for (int i = 0; i < queryNum - 1; i++) {
+            for (int i = 0; i < queryNum - 3; i++) {
                 responseData.add(new TestBean("Last " + queryCount + " i " + i, false));
             }
 
