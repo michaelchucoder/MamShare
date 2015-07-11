@@ -192,7 +192,9 @@ public class GenericsAdapter extends BaseAdapter {
 
     static class HomeGuidanceHolder {
         ImageView iv_guidance;
-
+    }
+    static class HomeEvaluateHolder {
+        ImageView iv_evaluate;
     }
 
 }
