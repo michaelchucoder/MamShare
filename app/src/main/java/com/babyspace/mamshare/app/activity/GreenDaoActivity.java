@@ -70,6 +70,9 @@ public class GreenDaoActivity extends ListActivity {
         for (MArea note : mAreaDao.loadAll()) {
             L.d("GreenDaoActivityMArea", note.toString());
         }
+        L.d("GreenDaoActivityMArea", MAreaDao.Properties.areaId.columnName);
+        L.d("GreenDaoActivityMArea", MAreaDao.Properties.Id.columnName);
+
 
         Log.d("NoteActivityOnCreate", textColumn + " " + GreenNoteDao.Properties.Comment.columnName);
         int[] to = {android.R.id.text1, android.R.id.text2};

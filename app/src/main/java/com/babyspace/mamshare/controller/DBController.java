@@ -7,8 +7,6 @@ import com.babyspace.mamshare.bean.GreenNoteDao;
 import com.babyspace.mamshare.bean.MAreaDao;
 import com.babyspace.mamshare.framework.db.DaoMaster;
 import com.babyspace.mamshare.framework.db.DaoSession;
-import com.babyspace.mamshare.framework.utils.FileUtils;
-import com.michael.library.debug.L;
 
 /**
  * Created with Android Studio
@@ -43,7 +41,7 @@ public class DBController {
         DaoSession daoSession;
         MAreaDao dao;
 
-        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context, "m6goDBData", null);
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context, "Areas-sqlDb", null);
 
         db = helper.getWritableDatabase();
         daoMaster = new DaoMaster(db);

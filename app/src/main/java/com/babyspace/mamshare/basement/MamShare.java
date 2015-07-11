@@ -95,7 +95,7 @@ public class MamShare extends BaseApplication {
         // 获取管理对象，因为数据库需要通过管理对象才能够获取
         AssetsDatabaseManager mg = AssetsDatabaseManager.getManager();
         // 通过管理对象获取数据库
-        SQLiteDatabase db = mg.getDatabase("m6goDBData");
+        SQLiteDatabase db = mg.getDatabase("Areas-sqlDb");
 
 
         String tmp2= FileUtils.readAppDbNames(context);
