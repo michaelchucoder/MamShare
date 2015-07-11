@@ -96,7 +96,6 @@ public class GenericsAdapter extends BaseAdapter {
             TextView txtTitle = (TextView) convertView.findViewById(R.id.iv_empty);
             txtTitle.setText("哈哈哈，走错路啦");
 
-
         } else if (pageFlag == AppConstants.page_home_guidance) { //TODO 这是
             HomeGuidanceHolder holder;
             List<HomeGuidance> list = (List<HomeGuidance>) data;
