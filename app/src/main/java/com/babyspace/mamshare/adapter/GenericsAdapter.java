@@ -84,81 +84,77 @@ public class GenericsAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         L.d("GenericsAdapter", "getView-pageFlag " + pageFlag);
-        switch (pageFlag) {
-            case AppConstants.page_home_guidance:
-                HomeGuidanceHolder homeGuidanceHolder;
-                List<HomeGuidance> homeGuidanceList = (List<HomeGuidance>) data;
 
-                if (convertView == null) {
-                    homeGuidanceHolder = new HomeGuidanceHolder();
-                    convertView = View.inflate(mContext, AppConstants.item_home_guidance, null);
-                    ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
-                    homeGuidanceHolder.iv_guidance = (ImageView) convertView.findViewById(R.id.iv_guidance);
-                    convertView.setTag(homeGuidanceHolder);
-                } else {
-                    homeGuidanceHolder = (HomeGuidanceHolder) convertView.getTag();
+        if (pageFlag== AppConstants.page_home_guidance) {
+            HomeGuidanceHolder holder;
+            List<HomeGuidance> list = (List<HomeGuidance>) data;
+
+            if (convertView == null) {
+                holder = new HomeGuidanceHolder();
+                convertView = View.inflate(mContext, AppConstants.item_home_guidance, null);
+                ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
+                holder.iv_guidance = (ImageView) convertView.findViewById(R.id.iv_guidance);
+                convertView.setTag(holder);
+            } else {
+                holder = (HomeGuidanceHolder) convertView.getTag();
+            }
+            ImageLoader.getInstance().displayImage(list.get(position).getImageUrl(), holder.iv_guidance);
+        }else if (pageFlag==AppConstants.page_home_evaluate){
+            ViewHolder holder;
+            final List<TestBean> list = (List<TestBean>) data;
+
+            if (convertView == null) {
+                holder = new ViewHolder();
+                convertView = View.inflate(mContext, AppConstants.item_home_evaluate, null);
+                ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
+                holder.txtTitle = (TextView) convertView.findViewById(R.id.title);
+                holder.btnLike = (Button) convertView.findViewById(R.id.like);
+                convertView.setTag(holder);
+            } else {
+                holder = (ViewHolder) convertView.getTag();
+            }
+
+            holder.txtTitle.setText(list.get(position).getTitle());
+            holder.btnLike.setText((list.get(position).isLike() ? "喜欢" : "无视"));
+
+            holder.btnLike.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //状态改变后刷新数据
+                    list.get(position).setIsLike(!list.get(position).isLike());
+                    notifyDataSetChanged();
                 }
-                ImageLoader.getInstance().displayImage(homeGuidanceList.get(position).getImageUrl(), homeGuidanceHolder.iv_guidance);
-                break;
+            });
+        }else {
+            ViewHolder holder;
+            final List<TestBean> list = (List<TestBean>) data;
 
-            case AppConstants.page_home_evaluate:
-                ViewHolder homeEvaluateHolder;
+            if (convertView == null) {
+                holder = new ViewHolder();
+                convertView = View.inflate(mContext, AppConstants.item_home_evaluate, null);
+                ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
+                holder.txtTitle = (TextView) convertView.findViewById(R.id.title);
+                holder.btnLike = (Button) convertView.findViewById(R.id.like);
+                convertView.setTag(holder);
+            } else {
+                holder = (ViewHolder) convertView.getTag();
+            }
 
-                if (convertView == null) {
-                    homeEvaluateHolder = new ViewHolder();
-                    convertView = View.inflate(mContext, AppConstants.item_home_evaluate, null);
-                    ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
-                    homeEvaluateHolder.txtTitle = (TextView) convertView.findViewById(R.id.title);
-                    homeEvaluateHolder.btnLike = (Button) convertView.findViewById(R.id.like);
-                    convertView.setTag(homeEvaluateHolder);
-                } else {
-                    homeEvaluateHolder = (ViewHolder) convertView.getTag();
+            holder.txtTitle.setText(list.get(position).getTitle());
+            holder.btnLike.setText((list.get(position).isLike() ? "喜欢" : "无视"));
+
+            holder.btnLike.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //状态改变后刷新数据
+                    list.get(position).setIsLike(!list.get(position).isLike());
+                    notifyDataSetChanged();
                 }
-
-                homeEvaluateHolder.txtTitle.setText(((List<TestBean>) data).get(position).getTitle());
-                homeEvaluateHolder.btnLike.setText(((List<TestBean>) data).get(position).isLike() ? "喜欢" : "无视");
-
-                homeEvaluateHolder.btnLike.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        //状态改变后刷新数据
-                        ((List<TestBean>) data).get(position).setIsLike(!((List<TestBean>) data).get(position).isLike());
-                        notifyDataSetChanged();
-                    }
-                });
-                break;
-
-            default:
-                /**
-                 * 这里可以为空
-                 */
-                ViewHolder defaultHolder;
-
-                if (convertView == null) {
-                    defaultHolder = new ViewHolder();
-                    convertView = View.inflate(mContext, AppConstants.item_recommend_label, null);
-                    ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
-                    defaultHolder.txtTitle = (TextView) convertView.findViewById(R.id.title);
-                    defaultHolder.btnLike = (Button) convertView.findViewById(R.id.like);
-                    convertView.setTag(defaultHolder);
-                } else {
-                    defaultHolder = (ViewHolder) convertView.getTag();
-                }
-
-                defaultHolder.txtTitle.setText(((List<TestBean>) data).get(position).getTitle());
-                defaultHolder.btnLike.setText(((List<TestBean>) data).get(position).isLike() ? "喜欢" : "无视");
-
-                defaultHolder.btnLike.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        //状态改变后刷新数据
-                        ((List<TestBean>) data).get(position).setIsLike(!((List<TestBean>) data).get(position).isLike());
-                        notifyDataSetChanged();
-                    }
-                });
-                break;
-
+            });
         }
+
+
+
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
