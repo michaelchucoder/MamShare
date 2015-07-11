@@ -85,7 +85,7 @@ public class GenericsAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         L.d("GenericsAdapter", "getView-pageFlag " + pageFlag);
 
-        if (pageFlag== AppConstants.page_home_guidance) {
+        if (pageFlag== AppConstants.page_home_guidance) { //TODO 这是
             HomeGuidanceHolder holder;
             List<HomeGuidance> list = (List<HomeGuidance>) data;
 
@@ -99,13 +99,13 @@ public class GenericsAdapter extends BaseAdapter {
                 holder = (HomeGuidanceHolder) convertView.getTag();
             }
             ImageLoader.getInstance().displayImage(list.get(position).getImageUrl(), holder.iv_guidance);
-        }else if (pageFlag==AppConstants.page_home_evaluate){
+        }else if (pageFlag==AppConstants.page_home_evaluate){ //TODO 这是
             ViewHolder holder;
             final List<TestBean> list = (List<TestBean>) data;
 
             if (convertView == null) {
                 holder = new ViewHolder();
-                convertView = View.inflate(mContext, AppConstants.item_home_evaluate, null);
+                convertView = View.inflate(mContext, AppConstants.item_recommend_label, null);
                 ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
                 holder.txtTitle = (TextView) convertView.findViewById(R.id.title);
                 holder.btnLike = (Button) convertView.findViewById(R.id.like);
@@ -131,7 +131,7 @@ public class GenericsAdapter extends BaseAdapter {
 
             if (convertView == null) {
                 holder = new ViewHolder();
-                convertView = View.inflate(mContext, AppConstants.item_home_evaluate, null);
+                convertView = View.inflate(mContext, AppConstants.item_recommend_label, null);
                 ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
                 holder.txtTitle = (TextView) convertView.findViewById(R.id.title);
                 holder.btnLike = (Button) convertView.findViewById(R.id.like);
@@ -152,7 +152,6 @@ public class GenericsAdapter extends BaseAdapter {
                 }
             });
         }
-
 
 
 
