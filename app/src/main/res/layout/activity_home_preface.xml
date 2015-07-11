@@ -10,17 +10,19 @@
 
         <RelativeLayout
             android:id="@+id/tab_title"
-            android:layout_width="220px"
+            android:layout_width="290px"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true">
 
             <TextView
                 android:id="@+id/tab_guidance"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="88px"
+                android:layout_height="100px"
+                android:gravity="center"
                 android:text="攻略" />
 
             <View
+                android:id="@+id/line_guidance"
                 android:layout_width="100px"
                 android:layout_height="2px"
                 android:layout_below="@+id/tab_guidance"
@@ -28,13 +30,15 @@
 
             <TextView
                 android:id="@+id/tab_evaluate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="88px"
+                android:layout_height="100px"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
+                android:gravity="center"
                 android:text="评测" />
 
             <View
+                android:id="@+id/line_evaluate"
                 android:layout_width="100px"
                 android:layout_height="2px"
                 android:layout_alignParentRight="true"

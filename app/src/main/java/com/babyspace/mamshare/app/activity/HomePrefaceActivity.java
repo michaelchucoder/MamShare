@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
@@ -24,6 +23,10 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
     TextView tab_guidance;
     @InjectView(R.id.tab_evaluate)
     TextView tab_evaluate;
+    @InjectView(R.id.line_guidance)
+    View line_guidance;
+    @InjectView(R.id.line_evaluate)
+    View line_evaluate;
 
     private static int pagePosition = 0;
     private static int lastState = 0;
@@ -224,6 +227,9 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
                 tab_guidance.setTextColor(Color.BLUE);
                 tab_evaluate.setTextColor(Color.BLACK);
 
+                line_guidance.setVisibility(View.VISIBLE);
+                line_evaluate.setVisibility(View.INVISIBLE);
+
                 //tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_selected);
                 //tab_evaluate.setBackgroundResource(R.drawable.tab_shape_right_blue_unselect);
                 mPager.setCurrentItem(0);
@@ -231,6 +237,9 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
             case R.id.tab_evaluate:
                 tab_evaluate.setTextColor(Color.BLUE);
                 tab_guidance.setTextColor(Color.BLACK);
+
+                line_evaluate.setVisibility(View.VISIBLE);
+                line_guidance.setVisibility(View.INVISIBLE);
 
                 //tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_unselect);
                 //tab_evaluate.setBackgroundResource(R.drawable.tab_shape_right_blue_selected);
@@ -252,12 +261,17 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
             tab_guidance.setTextColor(Color.BLUE);
             tab_evaluate.setTextColor(Color.BLACK);
 
+            line_guidance.setVisibility(View.VISIBLE);
+            line_evaluate.setVisibility(View.INVISIBLE);
+
             //tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_selected);
             //tab_evaluate.setBackgroundResource(R.drawable.tab_shape_right_blue_unselect);
         } else {
             tab_evaluate.setTextColor(Color.BLUE);
             tab_guidance.setTextColor(Color.BLACK);
 
+            line_evaluate.setVisibility(View.VISIBLE);
+            line_guidance.setVisibility(View.INVISIBLE);
             //tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_unselect);
             //tab_evaluate.setBackgroundResource(R.drawable.tab_shape_right_blue_selected);
         }
