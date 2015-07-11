@@ -11,6 +11,7 @@ import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.AppRuntime;
 import com.babyspace.mamshare.framework.db.AssetsDatabaseManager;
 import com.babyspace.mamshare.framework.eventbus.HttpErrorEvent;
+import com.babyspace.mamshare.framework.utils.FileUtils;
 import com.babyspace.mamshare.framework.utils.UIUtils;
 import com.michael.library.debug.L;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -86,13 +87,19 @@ public class MamShare extends BaseApplication {
             GlobalContainer.getInstance().initApplication(this);
         }
 
+        String tmp1= FileUtils.readAppDbNames(context);
+        L.d("DBController-before",tmp1);
+
         // 初始化，只需要调用一次
         AssetsDatabaseManager.initManager(context);
         // 获取管理对象，因为数据库需要通过管理对象才能够获取
         AssetsDatabaseManager mg = AssetsDatabaseManager.getManager();
         // 通过管理对象获取数据库
-        SQLiteDatabase db = mg.getDatabase("m6goDBData.sqlite3");
+        SQLiteDatabase db = mg.getDatabase("m6goDBData");
 
+
+        String tmp2= FileUtils.readAppDbNames(context);
+        L.d("DBController-after",tmp2);
 
     }
 

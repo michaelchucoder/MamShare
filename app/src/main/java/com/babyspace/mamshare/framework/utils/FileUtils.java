@@ -1,6 +1,9 @@
 package com.babyspace.mamshare.framework.utils;
 
+import android.content.Context;
+
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -44,5 +47,28 @@ public class FileUtils {
         StringBuffer sb = new StringBuffer();
         FileUtils.readToBuffer(sb, filePath);
         return sb.toString();
+    }
+
+    public static String readAppDbNames(Context context) {
+        String dbNames = "";
+
+        File file = new File("/data/data/"
+                + context.getPackageName() + "/databases");
+
+        File[] files = file.listFiles();
+
+        if (files==null) return "亲没有喔";
+
+        for (int i = 0; i < files.length; i++) {
+
+            if (!files[i].isDirectory()) {
+
+                dbNames = dbNames + "\n" + files[i].getName();
+
+            }
+
+        }
+
+        return dbNames;
     }
 }
