@@ -25,6 +25,7 @@ public class CityAreaDao extends AbstractDao<CityArea, String> {
      * Can be used for QueryBuilder and for referencing column names.
      */
     public static class Properties {
+
         public final static Property areaId = new Property(0, String.class, "areaId", false, "areaId");
         public final static Property areaType = new Property(1, String.class, "areaType", false, "areaType");
         public final static Property areaName = new Property(2, String.class, "areaName", false, "areaName");
