@@ -47,9 +47,6 @@ public class GenericsAdapter extends BaseAdapter {
      * public static final int page_user_evaluate = 2010;
      */
 
-
-    List<TestBean> testBeans;
-
     int pageFlag;
     Context mContext;
     List<?> data;
