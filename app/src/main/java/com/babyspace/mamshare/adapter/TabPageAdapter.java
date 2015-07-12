@@ -19,7 +19,6 @@ public class TabPageAdapter extends FragmentPagerAdapter {
     public Fragment[] FRAGMENTS;
 
     public TabPageAdapter(FragmentManager fm, String[] TITLES, Fragment[] FRAGMENTS) {
-
         super(fm);
         this.TITLES = TITLES;
         this.FRAGMENTS = FRAGMENTS;
