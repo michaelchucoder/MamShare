@@ -188,10 +188,10 @@ public class GenericsAdapter extends BaseAdapter {
     }
 
     public void refresh(int pageFlag, List<?> data) {
-        if (data.size() < 4)
+/*        if (data.size() < 4)
             this.pageFlag = AppConstants.page_empty;
         else
-            this.pageFlag = pageFlag;
+            this.pageFlag = pageFlag;*/
         this.data = data;
         notifyDataSetChanged();
     }
