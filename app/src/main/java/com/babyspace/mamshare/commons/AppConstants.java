@@ -19,7 +19,6 @@ public class AppConstants {
 
     public static final String RESPONSE_OK = "200";
 
-
     /**
      * michael 防止应用崩溃导致数据丢失
      */
@@ -28,7 +27,6 @@ public class AppConstants {
 
     public static final String DATA_PATH = "";
     public static final String DATA_PATH_GBADATA = "";
-
 
     /**
      * michael adapter 制作
