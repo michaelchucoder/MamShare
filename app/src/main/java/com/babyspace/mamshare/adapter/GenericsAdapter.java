@@ -64,9 +64,7 @@ public class GenericsAdapter extends BaseAdapter {
 
         mContext = context;
         this.pageFlag = pageFlag;
-
     }
-
     @Override
     public long getItemId(int position) {
         return position;
