@@ -86,7 +86,7 @@ public class GenericsAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         L.d("GenericsAdapter", "getView-pageFlag " + pageFlag);
 
-        if (pageFlag == AppConstants.page_empty) { //TODO 这是
+        if (pageFlag == AppConstants.page_empty) { //TODO 这是如果为空
             if (convertView == null) {
 
                 convertView = LayoutInflater.from(mContext).inflate(AppConstants.item_empty,
@@ -96,7 +96,7 @@ public class GenericsAdapter extends BaseAdapter {
             TextView txtTitle = (TextView) convertView.findViewById(R.id.iv_empty);
             txtTitle.setText("哈哈哈，走错路啦");
 
-        } else if (pageFlag == AppConstants.page_home_guidance) { //TODO 这是
+        } else if (pageFlag == AppConstants.page_home_guidance) { //TODO 这是的情况首页 攻略
             HomeGuidanceHolder holder;
             List<HomeGuidance> list = (List<HomeGuidance>) data;
 
