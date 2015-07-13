@@ -12,9 +12,6 @@ import com.babyspace.mamshare.listener.RegisterListener;
 
 import butterknife.OnClick;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class RegisterPhoneFragment extends BaseFragment {
     private static final String PAGE_FLAG = "pageFlag";
     private int pageFlag;
