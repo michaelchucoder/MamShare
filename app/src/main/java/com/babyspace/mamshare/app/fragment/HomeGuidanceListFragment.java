@@ -1,6 +1,7 @@
 package com.babyspace.mamshare.app.fragment;
 
 
+import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import com.babyspace.mamshare.bean.HomeGuidance;
 import com.babyspace.mamshare.bean.HomeGuidanceEvent;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.UrlConstants;
+import com.babyspace.mamshare.listener.EmptyListener;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.core.tools.ViewRelayoutUtil;
@@ -37,6 +39,7 @@ import de.greenrobot.event.EventBus;
 public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
     private static final String PAGE_FLAG = "pageFlag";
     private int pageFlag;
+    EmptyListener mCallback;
 
     @InjectView(R.id.swipe_container)
     SwipeRefreshLayout mSwipeLayout;
@@ -76,6 +79,20 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
         fragment.setArguments(args);
         return fragment;
     }
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        // This makes sure that the container activity has implemented
+        // the callback interface. If not, it throws an exception.
+        try {
+            mCallback = (EmptyListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement EmptyListener");
+        }
+    }
+
     @Override
     public void init(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_home_guidance_list);
@@ -259,9 +276,16 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
             isMoreData = true;
             queryStart += queryNum;
         }
+        /**
+         * 如果为空， 则加载 空的fragment
+         */
 
-        adapter.refresh(AppConstants.page_home_guidance, data);
+        if (data.size() >= 5) {
 
+            adapter.refresh(AppConstants.page_home_guidance, data);
+        } else {
+            mCallback.onDataEmpty();
+        }
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.babyspace.mamshare.app.fragment;
 
 
+import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import com.babyspace.mamshare.bean.HomeGuidanceEvent;
 import com.babyspace.mamshare.bean.TestBean;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.UrlConstants;
+import com.babyspace.mamshare.listener.EmptyListener;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.core.tools.ViewRelayoutUtil;
@@ -34,9 +36,10 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 
-public class HomeEvaluateListFragment extends BaseFragment  implements SwipeRefreshLayout.OnRefreshListener{
+public class HomeEvaluateListFragment extends BaseFragment  implements SwipeRefreshLayout.OnRefreshListener ,EmptyListener{
     private static final String PAGE_FLAG = "pageFlag";
     private int pageFlag;
+    EmptyListener mCallback;
 
     @InjectView(R.id.swipe_container)
     SwipeRefreshLayout mSwipeLayout;
@@ -74,6 +77,20 @@ public class HomeEvaluateListFragment extends BaseFragment  implements SwipeRefr
         fragment.setArguments(args);
         return fragment;
     }
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        // This makes sure that the container activity has implemented
+        // the callback interface. If not, it throws an exception.
+        try {
+            mCallback = (EmptyListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement EmptyListener");
+        }
+    }
+
     @Override
     public void init(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_home_evaluate_list);
@@ -236,8 +253,16 @@ public class HomeEvaluateListFragment extends BaseFragment  implements SwipeRefr
             isMoreData = true;
             queryStart += queryNum;
         }
+        /**
+         * 如果为空， 则加载 空的fragment
+         */
 
-        adapter.refresh(AppConstants.page_home_evaluate, data);
+        if (data.size() >= 5) {
+
+            adapter.refresh(AppConstants.page_home_evaluate, data);
+        } else {
+            mCallback.onDataEmpty();
+        }
 
     }
 
@@ -250,5 +275,10 @@ public class HomeEvaluateListFragment extends BaseFragment  implements SwipeRefr
             }
         }, 2000);
         queryData();
+    }
+
+    @Override
+    public void onDataEmpty() {
+
     }
 }
