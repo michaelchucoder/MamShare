@@ -18,8 +18,8 @@ import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.GenericsAdapter;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.basement.MamShare;
-import com.babyspace.mamshare.bean.HomeGuidanceEvent;
-import com.babyspace.mamshare.bean.TestBean;
+import com.babyspace.mamshare.bean.HomeEvaluate;
+import com.babyspace.mamshare.bean.HomeEvaluateEvent;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.babyspace.mamshare.listener.EmptyListener;
@@ -36,7 +36,7 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 
-public class HomeEvaluateListFragment extends BaseFragment  implements SwipeRefreshLayout.OnRefreshListener ,EmptyListener{
+public class HomeEvaluateListFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener, EmptyListener {
     private static final String PAGE_FLAG = "pageFlag";
     private int pageFlag;
     EmptyListener mCallback;
@@ -49,13 +49,15 @@ public class HomeEvaluateListFragment extends BaseFragment  implements SwipeRefr
 
     @InjectView(R.id.btn_home_back_top)
     LinearLayout mBackTop;
+    View mHeader;
+    View mFooter;
 
     private ProgressBar footerProgressBar;
     private TextView footerText;
 
     GenericsAdapter adapter;
 
-    List<TestBean> data;
+    List<HomeEvaluate> data;
 
     private int firstVisiblePosition;
     private final int BACK_TOP_COUNT = 5;
@@ -66,9 +68,11 @@ public class HomeEvaluateListFragment extends BaseFragment  implements SwipeRefr
     private boolean isRefreshAdd = true;
     private boolean isMoreData = true;
     private Call queryCall;
+
     public HomeEvaluateListFragment() {
         // Required empty public constructor
     }
+
     // TODO: Rename and change types and number of parameters
     public static HomeEvaluateListFragment newInstance(int pageFlag) {
         HomeEvaluateListFragment fragment = new HomeEvaluateListFragment();
@@ -77,6 +81,7 @@ public class HomeEvaluateListFragment extends BaseFragment  implements SwipeRefr
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -111,8 +116,8 @@ public class HomeEvaluateListFragment extends BaseFragment  implements SwipeRefr
         mSwipeLayout.setColorSchemeResources(android.R.color.holo_red_dark,
                 android.R.color.holo_red_light);
 
-        View mHeader = View.inflate(getActivity(), R.layout.common_title_layout, null);
-        View mFooter = View.inflate(getActivity(), R.layout.common_refresh_footer, null);
+        mHeader = View.inflate(getActivity(), R.layout.common_title_layout, null);
+        mFooter = View.inflate(getActivity(), R.layout.common_refresh_footer, null);
 
         ViewRelayoutUtil.relayoutViewWithScale(mHeader, MamShare.screenWidthScale);
         ViewRelayoutUtil.relayoutViewWithScale(mFooter, MamShare.screenWidthScale);
@@ -193,7 +198,7 @@ public class HomeEvaluateListFragment extends BaseFragment  implements SwipeRefr
 
         //showLoadingProgress();
         if (queryCall != null) queryCall.cancel();
-        queryCall = OkHttpExecutor.query(UrlConstants.HomeGuidanceList, jsonParameter, HomeGuidanceEvent.class, false, this);
+        queryCall = OkHttpExecutor.query(UrlConstants.HomeEvaluateList, jsonParameter, HomeEvaluateEvent.class, false, this);
 
     }
 
@@ -215,24 +220,12 @@ public class HomeEvaluateListFragment extends BaseFragment  implements SwipeRefr
      *
      * @param event
      */
-    public void onEventMainThread(HomeGuidanceEvent event) {
+    public void onEventMainThread(HomeEvaluateEvent event) {
         mSwipeLayout.setRefreshing(false);
         hideLoadingProgress();
-        L.d(OkHttpExecutor.TAG, "onEventMainThread-HomeEvaluateListFragment>" + event.getResultStr());
+        L.d(OkHttpExecutor.TAG, "onEventMainThread-HomeGuidanceListFragment>" + event.getResultStr());
 
-        List<TestBean> responseData = new ArrayList<>();
-
-        if (queryCount <= 6) {
-            for (int i = 0; i < queryNum; i++) {
-                responseData.add(new TestBean("More " + queryCount + " i " + i, false));
-            }
-
-        } else {
-            for (int i = 0; i < queryNum - 3; i++) {
-                responseData.add(new TestBean("Last " + queryCount + " i " + i, false));
-            }
-
-        }
+        List<HomeEvaluate> responseData = event.getData();
 
         if (responseData.size() < queryNum) {
             footerProgressBar.setVisibility(View.INVISIBLE);
@@ -253,16 +246,15 @@ public class HomeEvaluateListFragment extends BaseFragment  implements SwipeRefr
             isMoreData = true;
             queryStart += queryNum;
         }
-        /**
-         * 如果为空， 则加载 空的fragment
-         */
 
-        if (data.size() >= 5) {
-
+        if (queryCount > 2) {
+            data.clear();
+            data.add(responseData.get(0));
+            adapter.refresh(AppConstants.page_empty, data);
+            mFooter.setVisibility(View.GONE);
+        } else
             adapter.refresh(AppConstants.page_home_evaluate, data);
-        } else {
-            mCallback.onDataEmpty();
-        }
+
 
     }
 

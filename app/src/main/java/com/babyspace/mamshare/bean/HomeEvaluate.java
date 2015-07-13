@@ -59,6 +59,90 @@ public class HomeEvaluate implements Serializable {
     private String avatar;
     @SerializedName("Nickname")
     private String nickName;
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public int getLikeNum() {
+        return likeNum;
+    }
+
+    public void setLikeNum(int likeNum) {
+        this.likeNum = likeNum;
+    }
+
+    public int getEvaluateID() {
+        return evaluateID;
+    }
+
+    public void setEvaluateID(int evaluateID) {
+        this.evaluateID = evaluateID;
+    }
+
+    public String getEvaluateTitle() {
+        return evaluateTitle;
+    }
+
+    public void setEvaluateTitle(String evaluateTitle) {
+        this.evaluateTitle = evaluateTitle;
+    }
+
+    public String getHeadUrl() {
+        return headUrl;
+    }
+
+    public void setHeadUrl(String headUrl) {
+        this.headUrl = headUrl;
+    }
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public String getTags() {
+        return tagList.get(0).tagName;
+    }
+    public List<Tags> getTagList() {
+        return tagList;
+    }
+
+    public void setTagList(List<Tags> tagList) {
+        this.tagList = tagList;
+    }
+
     @SerializedName("Tags")
     private List<Tags> tagList;
 

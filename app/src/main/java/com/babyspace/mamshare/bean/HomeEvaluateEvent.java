@@ -12,5 +12,5 @@ import java.util.List;
  * Time: 11:03
  * To change this template use File | Settings | File and Code Templates.
  */
-public class HomeEvaluateEvent extends BaseResponseBean<List<HomeEvaluateEvent>> {
+public class HomeEvaluateEvent extends BaseResponseBean<List<HomeEvaluate>> {
 }

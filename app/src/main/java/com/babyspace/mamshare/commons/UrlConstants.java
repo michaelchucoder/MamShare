@@ -24,6 +24,6 @@ public class UrlConstants {
     public static final String VersionCheck ="" ;
 
     public static final String HomeGuidanceList = "/strategy";
-
+    public static final String HomeEvaluateList = "/eval ";
 
 }

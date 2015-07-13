@@ -14,7 +14,9 @@ import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.activity.EvaluateDetailActivity;
 import com.babyspace.mamshare.app.activity.GuidanceDetailActivity;
 import com.babyspace.mamshare.app.activity.ParallaxToolbarListViewActivity;
+import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.MamShare;
+import com.babyspace.mamshare.bean.HomeEvaluate;
 import com.babyspace.mamshare.bean.HomeGuidance;
 import com.babyspace.mamshare.bean.TestBean;
 import com.babyspace.mamshare.commons.AppConstants;
@@ -105,28 +107,38 @@ public class GenericsAdapter extends BaseAdapter {
             }
             ImageLoader.getInstance().displayImage(list.get(position).getImageUrl(), holder.iv_guidance);
         } else if (pageFlag == AppConstants.page_home_evaluate) { //TODO 这是首页 评测
-            ViewHolder holder;
-            final List<TestBean> list = (List<TestBean>) data;
+            HomeEvaluateHolder holder;
+            final List<HomeEvaluate> list = (List<HomeEvaluate>) data;
 
             if (convertView == null) {
-                holder = new ViewHolder();
-                convertView = View.inflate(mContext, AppConstants.item_recommend_label, null);
+                holder = new HomeEvaluateHolder();
+                convertView = View.inflate(mContext, AppConstants.item_home_evaluate, null);
                 ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
-                holder.txtTitle = (TextView) convertView.findViewById(R.id.title);
-                holder.btnLike = (Button) convertView.findViewById(R.id.like);
+                holder.tv_title = (TextView) convertView.findViewById(R.id.tv_title);
+                holder.tv_desc = (TextView) convertView.findViewById(R.id.tv_desc);
+                holder.tv_nickname = (TextView) convertView.findViewById(R.id.tv_nickname);
+                holder.tv_role = (TextView) convertView.findViewById(R.id.tv_role);
+                holder.tv_label = (TextView) convertView.findViewById(R.id.tv_label);
+                holder.iv_avatar = (ImageView) convertView.findViewById(R.id.iv_avatar);
+                holder.btn_like = (Button) convertView.findViewById(R.id.btn_like);
                 convertView.setTag(holder);
             } else {
-                holder = (ViewHolder) convertView.getTag();
+                holder = (HomeEvaluateHolder) convertView.getTag();
             }
+            holder.tv_title.setText(list.get(position).getEvaluateTitle());
+            holder.tv_desc.setText(list.get(position).getRemark());
+            holder.tv_nickname.setText(list.get(position).getNickName());
+            holder.tv_role.setText(list.get(position).getRoleName());
+            holder.tv_label.setText(list.get(position).getTags());
+            holder.btn_like.setText("" + list.get(position).getLikeNum());
 
-            holder.txtTitle.setText(list.get(position).getTitle());
-            holder.btnLike.setText((list.get(position).isLike() ? "喜欢" : "无视"));
+            ImageLoader.getInstance().displayImage(list.get(position).getAvatar(), holder.iv_avatar);
 
-            holder.btnLike.setOnClickListener(new View.OnClickListener() {
+            holder.btn_like.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //状态改变后刷新数据
-                    list.get(position).setIsLike(!list.get(position).isLike());
+                    ToastHelper.showToast(mContext, "喜欢还是讨厌");
                     notifyDataSetChanged();
                 }
             });
@@ -199,7 +211,13 @@ public class GenericsAdapter extends BaseAdapter {
     }
 
     static class HomeEvaluateHolder {
-        ImageView iv_evaluate;
+        TextView tv_title;
+        TextView tv_desc;
+        TextView tv_nickname;
+        TextView tv_role;
+        TextView tv_label;
+        ImageView iv_avatar;
+        Button btn_like;
     }
 
 }
