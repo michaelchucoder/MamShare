@@ -4,20 +4,26 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.adapter.TabPageAdapter;
+import com.babyspace.mamshare.app.dialog.ToastHelper;
+import com.babyspace.mamshare.app.fragment.EmptyFragment;
 import com.babyspace.mamshare.app.fragment.HomeEvaluateListFragment;
 import com.babyspace.mamshare.app.fragment.HomeGuidanceListFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
+import com.babyspace.mamshare.listener.EmptyListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPageChangeListener {
+public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPageChangeListener, EmptyListener {
     // 加上fragment
     @InjectView(R.id.tab_guidance)
     TextView tab_guidance;
@@ -34,32 +40,26 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
     //StrollFancyCoverFlowAdapter strollFancyCoverFlowAdapter;
     private ViewPager mPager;
     //private AbsPagerTab mTab;
-    public static final String[] TITLES = {"攻略", "评测"};
-    public static final Fragment[] FRAGMENTS = {new HomeGuidanceListFragment(), new HomeEvaluateListFragment()};
+    public static String[] TITLES = {"攻略", "评测"};
+    public static List<Fragment> FRAGMENTS = new ArrayList<>();
+    private TabPageAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_preface);
+        FRAGMENTS.add(new HomeGuidanceListFragment());
+        FRAGMENTS.add(new HomeEvaluateListFragment());
         //strollFancyCoverFlowAdapter = new StrollFancyCoverFlowAdapter(this);
         initView();
     }
 
     private void initView() {
         mPager = (ViewPager) findViewById(R.id.pager);
+        mAdapter = new TabPageAdapter(getSupportFragmentManager(), TITLES, FRAGMENTS);
 
         // 给ViewPager添加适配器
-        mPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
-            @Override
-            public Fragment getItem(int position) {
-                return FRAGMENTS[position];
-            }
-
-            @Override
-            public int getCount() {
-                return FRAGMENTS.length;
-            }
-        });
+        mPager.setAdapter(mAdapter);
         // 设置监听获得回调
         mPager.setOnPageChangeListener(this);
 
@@ -219,7 +219,14 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
 
 */
 
-    @OnClick({R.id.tab_guidance, R.id.tab_evaluate})
+    @Override
+    protected void onResume() {
+
+        super.onResume();
+
+    }
+
+    @OnClick({R.id.tab_guidance, R.id.tab_evaluate, R.id.back})
     public void doOnClick(View view) {
         int id = view.getId();
         switch (id) {
@@ -244,6 +251,9 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
                 //tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_unselect);
                 //tab_evaluate.setBackgroundResource(R.drawable.tab_shape_right_blue_selected);
                 mPager.setCurrentItem(1);
+                break;
+            case R.id.back:
+
                 break;
         }
     }
@@ -296,5 +306,10 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
             }
         }
         lastState = state;
+    }
+
+    @Override
+    public void onDataEmpty() {
+
     }
 }

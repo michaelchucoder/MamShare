@@ -21,13 +21,15 @@ import com.babyspace.mamshare.listener.EmptyListener;
 import com.michael.library.widget.roundimage.RoundImageView;
 import com.viewpagerindicator.TabPageIndicator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class HomeUserCenterActivity extends BaseActivity implements EmptyListener {
     public static final String[] TITLES = new String[]{"攻略", "评测"};
-    public static final Fragment[] FRAGMENTS = new Fragment[]{GridViewGuidanceFragment.newInstance(AppConstants.page_collect_guidance)
-            , GridViewEvaluateFragment.newInstance(AppConstants.page_collect_evaluate)};
+    public static final List<Fragment> FRAGMENTS = new ArrayList<>();
 
     private TabPageIndicator mIndicator;
     private ViewPager mViewPager;
@@ -46,6 +48,9 @@ public class HomeUserCenterActivity extends BaseActivity implements EmptyListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_user_center);
+
+        FRAGMENTS.add(GridViewGuidanceFragment.newInstance(AppConstants.page_collect_guidance));
+        FRAGMENTS.add(GridViewEvaluateFragment.newInstance(AppConstants.page_collect_evaluate));
 
         mIndicator = (TabPageIndicator) findViewById(R.id.id_indicator);
         mViewPager = (ViewPager) findViewById(R.id.id_pager);
@@ -75,11 +80,6 @@ public class HomeUserCenterActivity extends BaseActivity implements EmptyListene
 
     @Override
     public void onDataEmpty() {
-        EmptyFragment fragment = new EmptyFragment();
 
-        fragment.setArguments(getIntent().getExtras());
-
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
     }
 }

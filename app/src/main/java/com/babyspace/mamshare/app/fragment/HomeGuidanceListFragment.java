@@ -251,7 +251,7 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
             }
 
         } else {
-            for (int i = 0; i < queryNum - 1; i++) {
+            for (int i = 0; i < queryNum - 3; i++) {
                 responseData.add(new HomeGuidance(1,"标题2","http://file6.m6go.com/pFYGyGOH1~Iu5S_VK1mR9W","http://m.gou.com/product_17123.html"));
             }
 
@@ -284,6 +284,7 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
 
             adapter.refresh(AppConstants.page_home_guidance, data);
         } else {
+            L.d("mCallback","onDataEmpty "+data.size());
             mCallback.onDataEmpty();
         }
     }

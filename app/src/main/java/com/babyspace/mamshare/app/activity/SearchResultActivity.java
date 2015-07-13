@@ -18,6 +18,9 @@ import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.listener.EmptyListener;
 import com.viewpagerindicator.TabPageIndicator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.InjectView;
 import butterknife.OnClick;
 
@@ -26,18 +29,20 @@ public class SearchResultActivity extends BaseActivity implements EmptyListener 
     @InjectView(R.id.register_name_edit)
     EditText register_name_edit;
     public static final String[] TITLES = new String[]{"攻略", "评测"};
-    public static final Fragment[] FRAGMENTS = new Fragment[]{GridViewGuidanceFragment.newInstance(AppConstants.page_search_guidance)
-            , GridViewEvaluateFragment.newInstance(AppConstants.page_search_evaluate)};
+    public static final List<Fragment> FRAGMENTS = new ArrayList<>();
 
     private TabPageIndicator mIndicator;
     private ViewPager mViewPager;
-    private FragmentPagerAdapter mAdapter;
+    private TabPageAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
         setTheme(R.style.MyTheme);
+
+        FRAGMENTS.add(GridViewGuidanceFragment.newInstance(AppConstants.page_search_guidance));
+        FRAGMENTS.add(GridViewEvaluateFragment.newInstance(AppConstants.page_search_evaluate));
 
         mIndicator = (TabPageIndicator) findViewById(R.id.id_indicator);
         mViewPager = (ViewPager) findViewById(R.id.id_pager);
@@ -65,11 +70,6 @@ public class SearchResultActivity extends BaseActivity implements EmptyListener 
 
     @Override
     public void onDataEmpty() {
-        EmptyFragment fragment = new EmptyFragment();
 
-        fragment.setArguments(getIntent().getExtras());
-
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
     }
 }

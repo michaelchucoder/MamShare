@@ -12,21 +12,26 @@ package com.babyspace.mamshare.adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
+
+import java.util.List;
 
 public class TabPageAdapter extends FragmentPagerAdapter {
 
     public String[] TITLES;
-    public Fragment[] FRAGMENTS;
+    public List<Fragment> FRAGMENTS;
+    private FragmentManager fm;
 
-    public TabPageAdapter(FragmentManager fm, String[] TITLES, Fragment[] FRAGMENTS) {
+    public TabPageAdapter(FragmentManager fm, String[] TITLES, List<Fragment> FRAGMENTS) {
         super(fm);
+        this.fm=fm;
         this.TITLES = TITLES;
         this.FRAGMENTS = FRAGMENTS;
     }
 
     @Override
     public Fragment getItem(int arg0) {
-        return FRAGMENTS[arg0];
+        return FRAGMENTS.get(arg0);
     }
 
     @Override
@@ -36,7 +41,31 @@ public class TabPageAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return TITLES.length;
+        return FRAGMENTS.size();
     }
+
+    @Override
+    public int getItemPosition(Object object) {
+        return POSITION_NONE;
+    }
+
+    /**
+     * 会出问题 虽然能刷新，但当重新进入时，出现问题
+     *
+     * @param FRAGMENTS
+     */
+    public void refresh(List<Fragment> FRAGMENTS) {
+        if (this.FRAGMENTS != null) {
+            FragmentTransaction ft = fm.beginTransaction();
+            for (Fragment f : this.FRAGMENTS) {
+                ft.remove(f);
+            }
+            ft.commit();
+            fm.executePendingTransactions();
+        }
+        this.FRAGMENTS = FRAGMENTS;
+        notifyDataSetChanged();
+    }
+
 
 }
