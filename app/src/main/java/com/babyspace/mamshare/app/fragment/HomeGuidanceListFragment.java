@@ -50,6 +50,9 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
     @InjectView(R.id.btn_home_back_top)
     LinearLayout mBackTop;
 
+    View mHeader;
+    View mFooter;
+
     private ProgressBar footerProgressBar;
     private TextView footerText;
 
@@ -114,8 +117,8 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
         mSwipeLayout.setColorSchemeResources(android.R.color.holo_red_dark,
                 android.R.color.holo_red_light);
 
-        View mHeader = View.inflate(getActivity(), R.layout.common_title_layout, null);
-        View mFooter = View.inflate(getActivity(), R.layout.common_refresh_footer, null);
+        mHeader = View.inflate(getActivity(), R.layout.common_title_layout, null);
+        mFooter = View.inflate(getActivity(), R.layout.common_refresh_footer, null);
 
         ViewRelayoutUtil.relayoutViewWithScale(mHeader, MamShare.screenWidthScale);
         ViewRelayoutUtil.relayoutViewWithScale(mFooter, MamShare.screenWidthScale);
@@ -246,7 +249,14 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
             queryStart += queryNum;
         }
 
-        adapter.refresh(AppConstants.page_home_guidance, data);
+        if (queryCount > 2){
+            data.clear();
+            data.add(responseData.get(0));
+            adapter.refresh(AppConstants.page_empty,data );
+            mFooter.setVisibility(View.GONE);
+        }
+        else
+            adapter.refresh(AppConstants.page_home_guidance, data);
 
 
     }

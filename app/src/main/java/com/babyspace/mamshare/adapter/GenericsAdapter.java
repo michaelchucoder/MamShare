@@ -83,12 +83,10 @@ public class GenericsAdapter extends BaseAdapter {
         L.d("GenericsAdapter", "getView-pageFlag " + pageFlag);
 
         if (pageFlag == AppConstants.page_empty) { //TODO 这是如果为空
-            if (convertView == null) {
 
-                convertView = LayoutInflater.from(mContext).inflate(AppConstants.item_empty,
-                        parent, false);
-                ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
-            }
+            convertView = LayoutInflater.from(mContext).inflate(AppConstants.item_empty,
+                    parent, false);
+            ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
             TextView txtTitle = (TextView) convertView.findViewById(R.id.iv_empty);
             txtTitle.setText("哈哈哈，走错路啦");
 
