@@ -253,6 +253,7 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
                 mPager.setCurrentItem(1);
                 break;
             case R.id.back:
+                ToastHelper.showToast(this, "back");
 
                 break;
         }

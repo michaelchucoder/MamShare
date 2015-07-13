@@ -50,7 +50,7 @@ public class TabPageAdapter extends FragmentPagerAdapter {
     }
 
     /**
-     * 会出问题 虽然能刷新，但当重新进入时，出现问题
+     * 会出问题 虽然能刷新，但当重新进入时
      *
      * @param FRAGMENTS
      */
