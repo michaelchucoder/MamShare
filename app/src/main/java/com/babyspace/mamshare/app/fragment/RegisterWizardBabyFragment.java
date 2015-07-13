@@ -25,6 +25,8 @@ import butterknife.OnClick;
 
 
 public class RegisterWizardBabyFragment extends BaseFragment {
+    private static final String PAGE_FLAG = "pageFlag";
+    private int pageFlag;
 
     @InjectView(R.id.btn_register_next)
     Button btn_register_next;
@@ -37,7 +39,14 @@ public class RegisterWizardBabyFragment extends BaseFragment {
 
     public RegisterWizardBabyFragment() {
     }
-
+    // TODO: Rename and change types and number of parameters
+    public static RegisterWizardBabyFragment newInstance(int pageFlag) {
+        RegisterWizardBabyFragment fragment = new RegisterWizardBabyFragment();
+        Bundle args = new Bundle();
+        args.putInt(PAGE_FLAG, pageFlag);
+        fragment.setArguments(args);
+        return fragment;
+    }
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -50,7 +59,9 @@ public class RegisterWizardBabyFragment extends BaseFragment {
     @Override
     public void init(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_register_wizard_baby);
-
+        if (getArguments() != null) {
+            pageFlag = getArguments().getInt(PAGE_FLAG);
+        }
     }
 
     @Override

@@ -28,6 +28,8 @@ import de.greenrobot.event.EventBus;
 
 
 public class LabelEvaluateListFragment extends BaseFragment {
+    private static final String PAGE_FLAG = "pageFlag";
+    private int pageFlag;
 
     @InjectView(R.id.evaluate_comment_list)
     NoStrollListView listView;
@@ -46,7 +48,14 @@ public class LabelEvaluateListFragment extends BaseFragment {
     public LabelEvaluateListFragment() {
         // Required empty public constructor
     }
-
+    // TODO: Rename and change types and number of parameters
+    public static LabelEvaluateListFragment newInstance(int pageFlag) {
+        LabelEvaluateListFragment fragment = new LabelEvaluateListFragment();
+        Bundle args = new Bundle();
+        args.putInt(PAGE_FLAG, pageFlag);
+        fragment.setArguments(args);
+        return fragment;
+    }
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -67,7 +76,9 @@ public class LabelEvaluateListFragment extends BaseFragment {
 
         //TODO 从custom返回 时崩溃
         EventBus.getDefault().register(this);
-
+        if (getArguments() != null) {
+            pageFlag = getArguments().getInt(PAGE_FLAG);
+        }
         data = new ArrayList<>();
         adapter = new GenericsAdapter(getActivity(), AppConstants.page_recommend_label);
 

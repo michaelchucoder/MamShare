@@ -14,11 +14,20 @@ import butterknife.OnClick;
  * A placeholder fragment containing a simple view.
  */
 public class RegisterWizardPregnantFragment extends BaseFragment {
+    private static final String PAGE_FLAG = "pageFlag";
+    private int pageFlag;
     RegisterWizardListener mCallback;
 
     public RegisterWizardPregnantFragment() {
     }
-
+    // TODO: Rename and change types and number of parameters
+    public static RegisterWizardPregnantFragment newInstance(int pageFlag) {
+        RegisterWizardPregnantFragment fragment = new RegisterWizardPregnantFragment();
+        Bundle args = new Bundle();
+        args.putInt(PAGE_FLAG, pageFlag);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public void onAttach(Activity activity) {
@@ -37,7 +46,9 @@ public class RegisterWizardPregnantFragment extends BaseFragment {
     @Override
     public void init(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_register_wizard_pregnant);
-
+        if (getArguments() != null) {
+            pageFlag = getArguments().getInt(PAGE_FLAG);
+        }
     }
 
     @Override

@@ -16,6 +16,9 @@ import butterknife.OnClick;
  * A placeholder fragment containing a simple view.
  */
 public class RegisterWizardGuideFragment extends BaseFragment {
+    private static final String PAGE_FLAG = "pageFlag";
+    private int pageFlag;
+
     RegisterWizardListener mCallback;
     @InjectView(R.id.btn_register_next)
     Button btn_register_next;
@@ -23,7 +26,14 @@ public class RegisterWizardGuideFragment extends BaseFragment {
 
     public RegisterWizardGuideFragment() {
     }
-
+    // TODO: Rename and change types and number of parameters
+    public static RegisterWizardGuideFragment newInstance(int pageFlag) {
+        RegisterWizardGuideFragment fragment = new RegisterWizardGuideFragment();
+        Bundle args = new Bundle();
+        args.putInt(PAGE_FLAG, pageFlag);
+        fragment.setArguments(args);
+        return fragment;
+    }
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -41,7 +51,9 @@ public class RegisterWizardGuideFragment extends BaseFragment {
     @Override
     public void init(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_register_widzard_guide);
-
+        if (getArguments() != null) {
+            pageFlag = getArguments().getInt(PAGE_FLAG);
+        }
     }
 
     @Override

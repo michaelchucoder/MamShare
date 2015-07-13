@@ -36,7 +36,8 @@ import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 
 public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
-
+    private static final String PAGE_FLAG = "pageFlag";
+    private int pageFlag;
 
     @InjectView(R.id.swipe_container)
     SwipeRefreshLayout mSwipeLayout;
@@ -68,13 +69,22 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
         // Required empty public constructor
     }
 
-
+    // TODO: Rename and change types and number of parameters
+    public static HomeGuidanceListFragment newInstance(int pageFlag) {
+        HomeGuidanceListFragment fragment = new HomeGuidanceListFragment();
+        Bundle args = new Bundle();
+        args.putInt(PAGE_FLAG, pageFlag);
+        fragment.setArguments(args);
+        return fragment;
+    }
     @Override
     public void init(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_home_guidance_list);
 
         EventBus.getDefault().register(this);
-
+        if (getArguments() != null) {
+            pageFlag = getArguments().getInt(PAGE_FLAG);
+        }
         data = new ArrayList<>();
         adapter = new GenericsAdapter(getActivity(), AppConstants.page_home_guidance);
     }

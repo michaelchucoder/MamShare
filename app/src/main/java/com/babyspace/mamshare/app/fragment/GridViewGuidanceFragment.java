@@ -36,7 +36,7 @@ import de.greenrobot.event.EventBus;
 
 public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 
-    private static final String ARG_PARAM1 = "pageFlag";
+    private static final String PAGE_FLAG = "pageFlag";
     private int pageFlag;
 
     @InjectView(R.id.swipe_container)
@@ -73,7 +73,7 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
     public static GridViewGuidanceFragment newInstance(int pageFlag) {
         GridViewGuidanceFragment fragment = new GridViewGuidanceFragment();
         Bundle args = new Bundle();
-        args.putInt(ARG_PARAM1, pageFlag);
+        args.putInt(PAGE_FLAG, pageFlag);
         fragment.setArguments(args);
         return fragment;
     }
@@ -84,7 +84,7 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
 
         EventBus.getDefault().register(this);
         if (getArguments() != null) {
-            pageFlag = getArguments().getInt(ARG_PARAM1);
+            pageFlag = getArguments().getInt(PAGE_FLAG);
         }
         L.d("GridViewGuidanceFragment", " pageFlag " + pageFlag);
 

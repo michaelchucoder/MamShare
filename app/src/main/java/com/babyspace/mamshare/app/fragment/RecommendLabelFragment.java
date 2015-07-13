@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecommendLabelFragment extends BaseFragment {
+    private static final String PAGE_FLAG = "pageFlag";
+    private int pageFlag;
 
     //TODO 的有多中类型的item 为listview 或gridview的情况
 
@@ -28,11 +30,21 @@ public class RecommendLabelFragment extends BaseFragment {
     public RecommendLabelFragment() {
         // Required empty public constructor
     }
-
-
+    // TODO: Rename and change types and number of parameters
+    public static RecommendLabelFragment newInstance(int pageFlag) {
+        RecommendLabelFragment fragment = new RecommendLabelFragment();
+        Bundle args = new Bundle();
+        args.putInt(PAGE_FLAG, pageFlag);
+        fragment.setArguments(args);
+        return fragment;
+    }
     @Override
     public void init(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_recommend_label);
+
+        if (getArguments() != null) {
+            pageFlag = getArguments().getInt(PAGE_FLAG);
+        }
     }
 
     @Override

@@ -27,6 +27,9 @@ import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 
 public class RegisterRoleFragment extends BaseFragment {
+    private static final String PAGE_FLAG = "pageFlag";
+    private int pageFlag;
+
     RegisterListener mCallback;
 
     @InjectView(R.id.register_role_list)
@@ -48,7 +51,14 @@ public class RegisterRoleFragment extends BaseFragment {
     public RegisterRoleFragment() {
         // Required empty public constructor
     }
-
+    // TODO: Rename and change types and number of parameters
+    public static RegisterPhoneFragment newInstance(int pageFlag) {
+        RegisterPhoneFragment fragment = new RegisterPhoneFragment();
+        Bundle args = new Bundle();
+        args.putInt(PAGE_FLAG, pageFlag);
+        fragment.setArguments(args);
+        return fragment;
+    }
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -70,7 +80,9 @@ public class RegisterRoleFragment extends BaseFragment {
 
         //TODO 从custom返回 时崩溃
         EventBus.getDefault().register(this);
-
+        if (getArguments() != null) {
+            pageFlag = getArguments().getInt(PAGE_FLAG);
+        }
         data = new ArrayList<>();
         adapter = new MamaFeatureAdapter(getActivity());
 

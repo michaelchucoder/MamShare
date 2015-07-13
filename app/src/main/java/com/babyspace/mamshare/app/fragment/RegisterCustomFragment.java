@@ -3,9 +3,7 @@ package com.babyspace.mamshare.app.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.activity.RegisterWizardActivity;
@@ -16,22 +14,27 @@ import butterknife.OnClick;
 
 public class RegisterCustomFragment extends BaseFragment {
 
+    private static final String PAGE_FLAG = "pageFlag";
+    private int pageFlag;
 
     public RegisterCustomFragment() {
         // Required empty public constructor
     }
-
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register_custom, container, false);
+    // TODO: Rename and change types and number of parameters
+    public static RegisterCustomFragment newInstance(int pageFlag) {
+        RegisterCustomFragment fragment = new RegisterCustomFragment();
+        Bundle args = new Bundle();
+        args.putInt(PAGE_FLAG, pageFlag);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
     public void init(Bundle savedInstanceState) {
-
+        setContentView(R.layout.fragment_register_custom);
+        if (getArguments() != null) {
+            pageFlag = getArguments().getInt(PAGE_FLAG);
+        }
     }
 
     @Override

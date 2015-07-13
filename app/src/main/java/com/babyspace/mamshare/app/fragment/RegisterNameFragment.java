@@ -16,13 +16,23 @@ import butterknife.OnClick;
 /**
  */
 public class RegisterNameFragment extends BaseFragment {
+    private static final String PAGE_FLAG = "pageFlag";
+    private int pageFlag;
+
     RegisterListener mCallback;
 
 
     public RegisterNameFragment() {
         // Required empty public constructor
     }
-
+    // TODO: Rename and change types and number of parameters
+    public static RegisterNameFragment newInstance(int pageFlag) {
+        RegisterNameFragment fragment = new RegisterNameFragment();
+        Bundle args = new Bundle();
+        args.putInt(PAGE_FLAG, pageFlag);
+        fragment.setArguments(args);
+        return fragment;
+    }
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -41,6 +51,10 @@ public class RegisterNameFragment extends BaseFragment {
     public void init(Bundle savedInstanceState) {
 
         setContentView(R.layout.fragment_register_name);
+        if (getArguments() != null) {
+            pageFlag = getArguments().getInt(PAGE_FLAG);
+        }
+
     }
 
     @Override
