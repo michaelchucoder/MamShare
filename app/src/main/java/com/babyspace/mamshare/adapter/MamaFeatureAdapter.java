@@ -27,11 +27,11 @@ import java.util.List;
 public class MamaFeatureAdapter extends BaseAdapter {
     private final int typeNum = 3;
     private List<TestBean> data = new ArrayList<>();
-    private Context context;
+    private Context ctx;
     private int resource = R.layout.item_mama_feature;
 
-    public MamaFeatureAdapter(Context context) {
-        this.context = context;
+    public MamaFeatureAdapter(Context ctx) {
+        this.ctx = ctx;
     }
 
 
@@ -69,7 +69,7 @@ public class MamaFeatureAdapter extends BaseAdapter {
 
         if (convertView == null) {
             holder = new ViewHolder();
-            convertView = View.inflate(context, resource, null);
+            convertView = View.inflate(ctx, resource, null);
             ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
 
             holder.ll_container_1 = (LinearLayout) convertView.findViewById(R.id.ll_container_1);
@@ -121,21 +121,21 @@ public class MamaFeatureAdapter extends BaseAdapter {
         holder.ll_container_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastHelper.showToast(context, "位置: " + typeNum * position);
+                ToastHelper.showToast(ctx, "位置: " + typeNum * position);
 
             }
         });
         holder.ll_container_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastHelper.showToast(context, "位置: " + typeNum * position + 1);
+                ToastHelper.showToast(ctx, "位置: " + typeNum * position + 1);
 
             }
         });
         holder.ll_container_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastHelper.showToast(context, "位置: " + typeNum * position + 2);
+                ToastHelper.showToast(ctx, "位置: " + typeNum * position + 2);
 
             }
         });

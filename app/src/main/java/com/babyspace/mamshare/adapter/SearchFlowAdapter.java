@@ -29,10 +29,10 @@ public class SearchFlowAdapter extends BaseAdapter {
 
     List<FlowSearchItem> items = new ArrayList<FlowSearchItem>();
     LayoutInflater mInflater;
-    Context mContext;
+    Context ctx;
 
     public SearchFlowAdapter(Context context, List<FlowSearchItem> items) {
-        mContext = context;
+        ctx = context;
         this.items = items;
         mInflater = LayoutInflater.from(context);
     }
@@ -74,7 +74,7 @@ public class SearchFlowAdapter extends BaseAdapter {
             }
 
             // 设置GridView的Adapter
-            viewHolder.noStrollGridView.setAdapter(new GridViewSearchAdapter(mContext, item.data));
+            viewHolder.noStrollGridView.setAdapter(new GridViewSearchAdapter(ctx, item.data));
             // 计算GridView宽度, 设置默认为numColumns为3.
             //GridViewUtils.updateGridViewLayoutParams(viewHolder.noStrollGridView, 3);
             viewHolder.mTextView.setText(item.mText);
@@ -95,7 +95,7 @@ public class SearchFlowAdapter extends BaseAdapter {
             }
 
             // 设置LIstView的Adapter
-            viewHolder.noStrollListView.setAdapter(new ListViewSearchAdapter(mContext, item.data));
+            viewHolder.noStrollListView.setAdapter(new ListViewSearchAdapter(ctx, item.data));
             // 计算GridView宽度, 设置默认为numColumns为3.
             //GridViewUtils.updateGridViewLayoutParams(viewHolder.noStrollGridView, 3);
             viewHolder.mTextView.setText(item.mText);

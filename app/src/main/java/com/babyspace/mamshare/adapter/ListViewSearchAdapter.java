@@ -22,11 +22,11 @@ import java.util.List;
  */
 public class ListViewSearchAdapter extends BaseAdapter {
 
-    Context mContext;
+    Context ctx;
     List<TestBean> data;
 
     public ListViewSearchAdapter(Context context, List<TestBean> data) {
-        mContext = context;
+        ctx = context;
         this.data = data;
     }
 
@@ -48,7 +48,7 @@ public class ListViewSearchAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        View rootView = LayoutInflater.from(mContext).inflate(R.layout.listview_search_item,
+        View rootView = LayoutInflater.from(ctx).inflate(R.layout.listview_search_item,
                 parent, false);
         //ViewRelayoutUtil.relayoutViewWithScale(rootView, MamShare.screenWidthScale);
 

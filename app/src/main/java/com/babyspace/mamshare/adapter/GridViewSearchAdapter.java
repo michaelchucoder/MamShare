@@ -26,16 +26,16 @@ import java.util.List;
  */
 public class GridViewSearchAdapter extends BaseAdapter {
 
-    Context mContext;
+    Context ctx;
     List<TestBean> data;
 
     public GridViewSearchAdapter(Context context, List<TestBean> data) {
-        mContext = context;
+        ctx = context;
         this.data = data;
     }
 
     public GridViewSearchAdapter(Context context) {
-        mContext = context;
+        ctx = context;
     }
 
     @Override
@@ -57,7 +57,7 @@ public class GridViewSearchAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         @SuppressLint("ViewHolder")
-        View rootView = LayoutInflater.from(mContext).inflate(R.layout.item_recommend_label,
+        View rootView = LayoutInflater.from(ctx).inflate(R.layout.item_recommend_label,
                 parent, false);
         ViewRelayoutUtil.relayoutViewWithScale(rootView, MamShare.screenWidthScale);
         TextView txtTitle = (TextView) rootView.findViewById(R.id.title);

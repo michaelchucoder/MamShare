@@ -20,15 +20,15 @@ import java.util.ArrayList;
 
 
 public class CommentExListViewAdapter extends BaseExpandableListAdapter implements View.OnClickListener {
-    private Context mContext;
+    private Context ctx;
     private LayoutInflater mInflater;
     private ArrayList<CommentItem> mCommentItemList;
     private AlertDialog mCommentEditDialog;
     private int mCurrentGroupPosition = 0;
 
     public CommentExListViewAdapter(Context context, ArrayList<CommentItem> commentItemList) {
-        mContext = context;
-        mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        ctx = context;
+        mInflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mCommentItemList = commentItemList;
 
         createCommentEditDialog();
@@ -38,7 +38,7 @@ public class CommentExListViewAdapter extends BaseExpandableListAdapter implemen
         View commentInputView = mInflater.inflate(R.layout.dialog_sub_comment, null);
         final EditText commentEdit = (EditText) commentInputView.findViewById(R.id.dialogSubComment_commentContentInput_edt);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+        AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
         builder.setTitle("请输入内容");
         builder.setView(commentInputView);
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {

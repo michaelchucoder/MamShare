@@ -23,12 +23,12 @@ import java.util.List;
  */
 public class AutoSearchAdapter extends BaseAdapter {
 
-    private Context context;
+    private Context ctx;
     private int resource = R.layout.item_auto_search;
     private List<String> data = new ArrayList<String>();
 
     public AutoSearchAdapter(Context context) {
-        this.context = context;
+        this.ctx = context;
     }
 
     public void resetData(List<String> newData) {
@@ -64,7 +64,7 @@ public class AutoSearchAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         // TODO Auto-generated method stub
         if (convertView == null) {
-            convertView = View.inflate(context, resource, null);
+            convertView = View.inflate(ctx, resource, null);
             ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
         }
         String keyword = data.get(position);
