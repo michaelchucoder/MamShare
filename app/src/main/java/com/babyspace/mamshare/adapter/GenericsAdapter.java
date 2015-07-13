@@ -50,18 +50,18 @@ public class GenericsAdapter extends BaseAdapter {
      */
 
     int pageFlag;
-    Context mContext;
+    Context ctx;
     List<?> data;
 
-    public GenericsAdapter(Context context, List<?> data) {
-        mContext = context;
+    public GenericsAdapter(Context ctx, List<?> data) {
+        ctx = ctx;
         this.data = data;
     }
 
-    public GenericsAdapter(Context context, int pageFlag) {
+    public GenericsAdapter(Context ctx, int pageFlag) {
         L.d("GenericsAdapter", "construct-pageFlag " + pageFlag);
 
-        mContext = context;
+        ctx = ctx;
         this.pageFlag = pageFlag;
     }
 
@@ -86,7 +86,7 @@ public class GenericsAdapter extends BaseAdapter {
 
         if (pageFlag == AppConstants.page_empty) { //TODO 这是如果为空
 
-            convertView = LayoutInflater.from(mContext).inflate(AppConstants.item_empty,
+            convertView = LayoutInflater.from(ctx).inflate(AppConstants.item_empty,
                     parent, false);
             ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
             TextView txtTitle = (TextView) convertView.findViewById(R.id.iv_empty);
@@ -98,7 +98,7 @@ public class GenericsAdapter extends BaseAdapter {
 
             if (convertView == null) {
                 holder = new HomeGuidanceHolder();
-                convertView = View.inflate(mContext, AppConstants.item_home_guidance, null);
+                convertView = View.inflate(ctx, AppConstants.item_home_guidance, null);
                 ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
                 holder.iv_guidance = (ImageView) convertView.findViewById(R.id.iv_guidance);
                 convertView.setTag(holder);
@@ -112,7 +112,7 @@ public class GenericsAdapter extends BaseAdapter {
 
             if (convertView == null) {
                 holder = new HomeEvaluateHolder();
-                convertView = View.inflate(mContext, AppConstants.item_home_evaluate, null);
+                convertView = View.inflate(ctx, AppConstants.item_home_evaluate, null);
                 ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
                 holder.tv_title = (TextView) convertView.findViewById(R.id.tv_title);
                 holder.tv_desc = (TextView) convertView.findViewById(R.id.tv_desc);
@@ -138,7 +138,7 @@ public class GenericsAdapter extends BaseAdapter {
                 @Override
                 public void onClick(View v) {
                     //状态改变后刷新数据
-                    ToastHelper.showToast(mContext, "喜欢还是讨厌");
+                    ToastHelper.showToast(ctx, "喜欢还是讨厌");
                     notifyDataSetChanged();
                 }
             });
@@ -148,7 +148,7 @@ public class GenericsAdapter extends BaseAdapter {
 
             if (convertView == null) {
                 holder = new ViewHolder();
-                convertView = View.inflate(mContext, AppConstants.item_recommend_label, null);
+                convertView = View.inflate(ctx, AppConstants.item_recommend_label, null);
                 ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
                 holder.tv_title = (TextView) convertView.findViewById(R.id.title);
                 holder.btn_like = (Button) convertView.findViewById(R.id.like);
@@ -176,16 +176,16 @@ public class GenericsAdapter extends BaseAdapter {
                 Intent i = new Intent();
                 switch (pageFlag) {
                     case AppConstants.page_home_evaluate:
-                        i.setClass(mContext, EvaluateDetailActivity.class);
+                        i.setClass(ctx, EvaluateDetailActivity.class);
                         break;
                     case AppConstants.page_home_guidance:
-                        i.setClass(mContext, GuidanceDetailActivity.class);
+                        i.setClass(ctx, GuidanceDetailActivity.class);
                         break;
                     default:
-                        i.setClass(mContext, ParallaxToolbarListViewActivity.class);
+                        i.setClass(ctx, ParallaxToolbarListViewActivity.class);
                         break;
                 }
-                mContext.startActivity(i);
+                ctx.startActivity(i);
             }
         });
         return convertView;
