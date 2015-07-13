@@ -150,17 +150,17 @@ public class GenericsAdapter extends BaseAdapter {
                 holder = new ViewHolder();
                 convertView = View.inflate(mContext, AppConstants.item_recommend_label, null);
                 ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
-                holder.txtTitle = (TextView) convertView.findViewById(R.id.title);
-                holder.btnLike = (Button) convertView.findViewById(R.id.like);
+                holder.tv_title = (TextView) convertView.findViewById(R.id.title);
+                holder.btn_like = (Button) convertView.findViewById(R.id.like);
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
 
-            holder.txtTitle.setText(list.get(position).getTitle());
-            holder.btnLike.setText((list.get(position).isLike() ? "喜欢" : "无视"));
+            holder.tv_title.setText(list.get(position).getTitle());
+            holder.btn_like.setText((list.get(position).isLike() ? "喜欢" : "无视"));
 
-            holder.btnLike.setOnClickListener(new View.OnClickListener() {
+            holder.btn_like.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //状态改变后刷新数据
@@ -201,8 +201,19 @@ public class GenericsAdapter extends BaseAdapter {
     //TODO 可以写一个并集类, 方便使用 为什么要static类型呢 可以试试
 
     static class ViewHolder {
-        TextView txtTitle;
-        Button btnLike;
+        TextView tv_title;
+        Button btn_like;
+    }
+
+    static class GuidanceHolder {
+        Button btn_like;
+        ImageView iv_cover;
+    }
+
+    static class EvaluateHolder {
+        TextView tv_title;
+        Button btn_like;
+        ImageView iv_cover;
     }
 
     static class HomeGuidanceHolder {
