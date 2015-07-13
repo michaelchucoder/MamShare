@@ -41,23 +41,23 @@ import java.util.List;
  */
 public class HomeEvaluate implements Serializable {
 
-    @SerializedName("Remark")
+    @SerializedName("remark")
     private String remark;
-    @SerializedName("PraiseNum")
+    @SerializedName("praiseNum")
     private int likeNum;
-    @SerializedName("EvalID")
+    @SerializedName("evalID")
     private int evaluateID;
-    @SerializedName("Title")
+    @SerializedName("title")
     private String evaluateTitle;
-    @SerializedName("HeadUrl")
+    @SerializedName("headUrl")
     private String headUrl;
-    @SerializedName("UserID")
+    @SerializedName("userID")
     private int userID;
-    @SerializedName("MamRoleName")
+    @SerializedName("mamRoleName")
     private String roleName;
-    @SerializedName("HeadIcon")
+    @SerializedName("headIcon")
     private String avatar;
-    @SerializedName("Nickname")
+    @SerializedName("nickname")
     private String nickName;
 
     public String getRemark() {
@@ -143,13 +143,13 @@ public class HomeEvaluate implements Serializable {
         this.tagList = tagList;
     }
 
-    @SerializedName("Tags")
+    @SerializedName("tags")
     private List<Tags> tagList;
 
     public static class Tags implements Serializable {
-        @SerializedName("TagId")
+        @SerializedName("tagId")
         int tagId;
-        @SerializedName("TagName")
+        @SerializedName("tagName")
         String tagName;
     }
 
