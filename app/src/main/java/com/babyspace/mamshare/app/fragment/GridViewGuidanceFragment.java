@@ -1,6 +1,7 @@
 package com.babyspace.mamshare.app.fragment;
 
 
+import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -20,6 +21,8 @@ import com.babyspace.mamshare.bean.HomeGuidanceEvent;
 import com.babyspace.mamshare.bean.TestBean;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.UrlConstants;
+import com.babyspace.mamshare.listener.EmptyListener;
+import com.babyspace.mamshare.listener.RegisterListener;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.core.tools.ViewRelayoutUtil;
@@ -38,6 +41,8 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
 
     private static final String PAGE_FLAG = "pageFlag";
     private int pageFlag;
+
+    EmptyListener mCallback;
 
     @InjectView(R.id.swipe_container)
     SwipeRefreshLayout mSwipeLayout;
@@ -77,7 +82,19 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
         fragment.setArguments(args);
         return fragment;
     }
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
 
+        // This makes sure that the container activity has implemented
+        // the callback interface. If not, it throws an exception.
+        try {
+            mCallback = (EmptyListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement RegisterProfileListener");
+        }
+    }
     @Override
     public void init(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_gridview_guidance);
@@ -220,7 +237,7 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
             }
 
         } else {
-            for (int i = 0; i < queryNum - 1; i++) {
+            for (int i = 0; i < queryNum - 2; i++) {
                 responseData.add(new TestBean("Last " + queryCount + " i " + i, false));
             }
 
@@ -246,7 +263,16 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
             queryStart += queryNum;
         }
 
-        adapter.refresh(AppConstants.page_recommend_label, data);
+        /**
+         * 如果为空， 则加载 空的fragment
+         */
+
+        if (data.size() >= 5) {
+
+            adapter.refresh(AppConstants.page_recommend_label, data);
+        } else {
+            mCallback.onDataEmpty();
+        }
 
     }
 

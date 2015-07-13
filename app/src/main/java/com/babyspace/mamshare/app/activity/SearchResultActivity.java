@@ -10,16 +10,19 @@ import android.widget.EditText;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.TabPageAdapter;
+import com.babyspace.mamshare.app.fragment.EmptyFragment;
 import com.babyspace.mamshare.app.fragment.GridViewEvaluateFragment;
 import com.babyspace.mamshare.app.fragment.GridViewGuidanceFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.babyspace.mamshare.commons.AppConstants;
+import com.babyspace.mamshare.listener.EmptyListener;
 import com.viewpagerindicator.TabPageIndicator;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class SearchResultActivity extends BaseActivity {
+public class SearchResultActivity extends BaseActivity implements EmptyListener {
+
     @InjectView(R.id.register_name_edit)
     EditText register_name_edit;
     public static final String[] TITLES = new String[]{"攻略", "评测"};
@@ -60,4 +63,13 @@ public class SearchResultActivity extends BaseActivity {
     }
 
 
+    @Override
+    public void onDataEmpty() {
+        EmptyFragment fragment = new EmptyFragment();
+
+        fragment.setArguments(getIntent().getExtras());
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
+    }
 }

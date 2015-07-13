@@ -1,6 +1,7 @@
 package com.babyspace.mamshare.app.fragment;
 
 
+import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import com.babyspace.mamshare.bean.HomeGuidanceEvent;
 import com.babyspace.mamshare.bean.TestBean;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.UrlConstants;
+import com.babyspace.mamshare.listener.EmptyListener;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.core.tools.ViewRelayoutUtil;
@@ -34,10 +36,11 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 
-public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener{
+public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 
     private static final String PAGE_FLAG = "pageFlag";
     private int pageFlag;
+    EmptyListener mCallback;
 
     @InjectView(R.id.swipe_container)
     SwipeRefreshLayout mSwipeLayout;
@@ -64,6 +67,7 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
     private boolean isRefreshAdd = true;
     private boolean isMoreData = true;
     private Call queryCall;
+
     public GridViewEvaluateFragment() {
         // Required empty public constructor
     }
@@ -75,6 +79,20 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
         args.putInt(PAGE_FLAG, pageFlag);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        // This makes sure that the container activity has implemented
+        // the callback interface. If not, it throws an exception.
+        try {
+            mCallback = (EmptyListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement RegisterProfileListener");
+        }
     }
 
     @Override
@@ -91,6 +109,7 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
         adapter = new GenericsAdapter(getActivity(), pageFlag);
 
     }
+
     @Override
     public void initView() {
 
@@ -218,7 +237,7 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
             }
 
         } else {
-            for (int i = 0; i < queryNum - 1; i++) {
+            for (int i = 0; i < queryNum - 2; i++) {
                 responseData.add(new TestBean("Last " + queryCount + " i " + i, false));
             }
 
@@ -243,8 +262,17 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
             isMoreData = true;
             queryStart += queryNum;
         }
+        /**
+         * 如果为空， 则加载 空的fragment
+         */
 
-        adapter.refresh(AppConstants.page_recommend_label, data);
+        if (data.size() >= 5) {
+
+            adapter.refresh(AppConstants.page_recommend_label, data);
+        } else {
+            mCallback.onDataEmpty();
+        }
+
 
     }
 

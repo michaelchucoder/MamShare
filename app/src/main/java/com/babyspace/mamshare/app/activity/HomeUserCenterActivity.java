@@ -12,17 +12,19 @@ import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.TabPageAdapter;
+import com.babyspace.mamshare.app.fragment.EmptyFragment;
 import com.babyspace.mamshare.app.fragment.GridViewEvaluateFragment;
 import com.babyspace.mamshare.app.fragment.GridViewGuidanceFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.babyspace.mamshare.commons.AppConstants;
+import com.babyspace.mamshare.listener.EmptyListener;
 import com.michael.library.widget.roundimage.RoundImageView;
 import com.viewpagerindicator.TabPageIndicator;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class HomeUserCenterActivity extends BaseActivity {
+public class HomeUserCenterActivity extends BaseActivity implements EmptyListener {
     public static final String[] TITLES = new String[]{"攻略", "评测"};
     public static final Fragment[] FRAGMENTS = new Fragment[]{GridViewGuidanceFragment.newInstance(AppConstants.page_collect_guidance)
             , GridViewEvaluateFragment.newInstance(AppConstants.page_collect_evaluate)};
@@ -71,4 +73,13 @@ public class HomeUserCenterActivity extends BaseActivity {
         startActivity(i);
     }
 
+    @Override
+    public void onDataEmpty() {
+        EmptyFragment fragment = new EmptyFragment();
+
+        fragment.setArguments(getIntent().getExtras());
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
+    }
 }
