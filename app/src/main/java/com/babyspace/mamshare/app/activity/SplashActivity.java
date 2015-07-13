@@ -228,7 +228,7 @@ public class SplashActivity extends BaseActivity {
             return;
         }
         JsonObject jo = new JsonObject();
-        OkHttpExecutor.query(UrlConstants.VERSION_CHECK, jo, VersionCheckEvent.class, false, this);
+        OkHttpExecutor.query(UrlConstants.VersionCheck, jo, VersionCheckEvent.class, false, this);
     }
 
     /**

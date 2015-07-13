@@ -34,13 +34,13 @@ import java.io.Serializable;
  */
 public class HomeGuidance  implements Serializable {
 
-    @SerializedName("StrategyId")
+    @SerializedName("strategyId")
     private int guidanceId;
-    @SerializedName("Title")
+    @SerializedName("title")
     private String guidanceTitle;
-    @SerializedName("ImageUrl")
+    @SerializedName("imageUrl")
     private String imageUrl;
-    @SerializedName("PageUrl")
+    @SerializedName("pageUrl")
     private String pageUrl;
 
     public HomeGuidance(int guidanceId, String guidanceTitle, String imageUrl, String pageUrl) {

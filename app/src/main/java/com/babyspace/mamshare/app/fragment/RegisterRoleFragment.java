@@ -10,7 +10,7 @@ import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.MamaFeatureAdapter;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.BaseFragment;
-import com.babyspace.mamshare.bean.HomeFloatLayerEvent;
+import com.babyspace.mamshare.bean.HomeGuidanceEvent;
 import com.babyspace.mamshare.bean.TestBean;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.babyspace.mamshare.listener.RegisterListener;
@@ -115,7 +115,7 @@ public class RegisterRoleFragment extends BaseFragment {
 
         //showLoadingProgress();
         if (queryCall != null) queryCall.cancel();
-        queryCall = OkHttpExecutor.query(UrlConstants.HomeFloatLayerActivity, jsonParameter, HomeFloatLayerEvent.class, false, this);
+        queryCall = OkHttpExecutor.query(UrlConstants.HomeGuidanceList, jsonParameter, HomeGuidanceEvent.class, false, this);
 
     }
 
@@ -137,9 +137,9 @@ public class RegisterRoleFragment extends BaseFragment {
      *
      * @param event
      */
-    public void onEventMainThread(HomeFloatLayerEvent event) {
+    public void onEventMainThread(HomeGuidanceEvent event) {
         hideLoadingProgress();
-        L.d(OkHttpExecutor.TAG, "onEventMainThread-RegisterFeatureFragment>" + event.getData().getActivityEnable());
+        L.d(OkHttpExecutor.TAG, "onEventMainThread-RegisterFeatureFragment>" + event.getData().get(0).getImageUrl());
 
         List<TestBean> responseData = new ArrayList<>();
 

@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.basement.BaseActivity;
-import com.babyspace.mamshare.bean.HomeFloatLayerEvent;
+import com.babyspace.mamshare.bean.HomeGuidanceEvent;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.library.debug.L;
@@ -32,7 +32,7 @@ public class WelcomeActivity extends BaseActivity {
         setContentView(R.layout.activity_welcome);
 
 
-        OkHttpExecutor.query(UrlConstants.HomeFloatLayerActivity, HomeFloatLayerEvent.class, false, this);
+        OkHttpExecutor.query(UrlConstants.HomeGuidanceList, HomeGuidanceEvent.class, false, this);
 
     }
 
@@ -41,9 +41,9 @@ public class WelcomeActivity extends BaseActivity {
      *
      * @param event
      */
-    public void onEventMainThread(HomeFloatLayerEvent event) {
+    public void onEventMainThread(HomeGuidanceEvent event) {
         hideLoadingProgress();
-        L.d(OkHttpExecutor.TAG, "onEventMainThread->" + event.getData().getActivityEnable());
+        L.d(OkHttpExecutor.TAG, "onEventMainThread->" + event.getData().get(0).getImageUrl());
 
     }
 

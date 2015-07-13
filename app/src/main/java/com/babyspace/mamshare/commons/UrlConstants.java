@@ -12,25 +12,18 @@ public class UrlConstants {
 
     //TODO
     /**
-     * 正式服务器地址
+     * 妈妈说服务器地址
      */
-    public static String BASE_API_SERVER_URL = "http://api.m.gou.com";
-    public static String BASE_WEB_URL = "http://appweb.gou.com";
-    public static String SERVER_URL = BASE_API_SERVER_URL + "/AndroidApi";
-
+    public static String BASE_API_SERVER_URL = "http://tapi.m.0-6.com";
+    public static String BASE_WEB_URL ="http://t1api.m.0-6.com/appweb/apitest/testhtml5" ;
+    public static String SERVER_URL = BASE_API_SERVER_URL + "/api/android";
 
     /**
      * All the URL are placed in the UrlConstants class
      */
+    public static final String VersionCheck ="" ;
 
-    public static final String HomeAdvertisingFigureData = "/Goods/NewHomeAdvertisingFigureData.do";
-    public static final String HomeFloatLayerActivity = "/System/HomeFloatlayerActivity.do";
-    public static final String GatherGeTuiCID = "/System/GatherGeTuiCID.do";
-    public static final String HomeAdvertisingFigure = "/System/HomeAdvertisingFigure.do";
-    public static final String USER_LOGIN = "/user/user_login.do";
+    public static final String HomeGuidanceList = "/strategy";
 
-    /**
-     * 【V1.3.1开启】版本控制接口以及检测是否显示广告图（versionCheck）
-     */
-    public static final String VERSION_CHECK = "/System/versionCheck.do";
+
 }

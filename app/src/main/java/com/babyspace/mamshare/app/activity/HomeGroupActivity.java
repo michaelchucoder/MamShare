@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.basement.MamShare;
-import com.babyspace.mamshare.bean.HomeFloatLayerEvent;
+import com.babyspace.mamshare.bean.HomeGuidanceEvent;
 import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.core.tools.ViewRelayoutUtil;
 import com.michael.library.debug.L;
@@ -146,8 +146,8 @@ public class HomeGroupActivity extends ActivityGroup {
         changeContainerView();
     }
 
-    public void onEventMainThread(HomeFloatLayerEvent event) {
-        L.d(OkHttpExecutor.TAG, "onEventMainThread->" + event.getData().getActivityEnable());
+    public void onEventMainThread(HomeGuidanceEvent event) {
+        L.d(OkHttpExecutor.TAG, "onEventMainThread->" + event.getData().get(0).getImageUrl());
 
     }
 
