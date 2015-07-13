@@ -205,12 +205,12 @@ public class GenericsAdapter extends BaseAdapter {
         Button btn_like;
     }
 
-    static class GuidanceHolder {
+    class GuidanceHolder {
         Button btn_like;
         ImageView iv_cover;
     }
 
-    static class EvaluateHolder {
+    class EvaluateHolder {
         TextView tv_title;
         Button btn_like;
         ImageView iv_cover;
