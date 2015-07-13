@@ -91,7 +91,7 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
             mCallback = (EmptyListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement RegisterProfileListener");
+                    + " must implement EmptyListener");
         }
     }
 
