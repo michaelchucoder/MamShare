@@ -197,7 +197,7 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
     public void onEventMainThread(HomeGuidanceEvent event) {
         mSwipeLayout.setRefreshing(false);
         hideLoadingProgress();
-        L.d(OkHttpExecutor.TAG, "onEventMainThread-RecommendLabelActivity>" + event.getData().get(0).getImageUrl());
+        L.d(OkHttpExecutor.TAG, "onEventMainThread-RecommendLabelActivity>" + event.getResultStr());
 
         List<TestBean> responseData = new ArrayList<>();
 

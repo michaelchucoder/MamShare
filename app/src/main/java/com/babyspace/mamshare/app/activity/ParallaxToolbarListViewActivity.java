@@ -206,7 +206,7 @@ public class ParallaxToolbarListViewActivity extends BaseActivity implements Obs
      * @param event
      */
     public void onEventMainThread(HomeGuidanceEvent event) {
-        L.d(OkHttpExecutor.TAG, "onEventMainThread-ParallaxToolbarListViewActivity>" + event.getData().get(0).getImageUrl());
+        L.d(OkHttpExecutor.TAG, "onEventMainThread-ParallaxToolbarListViewActivity>" + event.getResultStr());
 
         List<TestBean> responseData = new ArrayList<>();
 

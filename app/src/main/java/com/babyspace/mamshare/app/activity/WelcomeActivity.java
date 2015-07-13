@@ -43,7 +43,7 @@ public class WelcomeActivity extends BaseActivity {
      */
     public void onEventMainThread(HomeGuidanceEvent event) {
         hideLoadingProgress();
-        L.d(OkHttpExecutor.TAG, "onEventMainThread->" + event.getData().get(0).getImageUrl());
+        L.d(OkHttpExecutor.TAG, "onEventMainThread->" + event.getResultStr());
 
     }
 

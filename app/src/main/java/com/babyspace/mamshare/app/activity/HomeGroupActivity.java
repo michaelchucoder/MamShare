@@ -147,7 +147,7 @@ public class HomeGroupActivity extends ActivityGroup {
     }
 
     public void onEventMainThread(HomeGuidanceEvent event) {
-        L.d(OkHttpExecutor.TAG, "onEventMainThread->" + event.getData().get(0).getImageUrl());
+        L.d(OkHttpExecutor.TAG, "onEventMainThread->" + event.getResultStr());
 
     }
 

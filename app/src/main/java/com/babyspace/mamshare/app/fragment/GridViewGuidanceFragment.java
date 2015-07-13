@@ -210,7 +210,7 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
     public void onEventMainThread(HomeGuidanceEvent event) {
         mSwipeLayout.setRefreshing(false);
         hideLoadingProgress();
-        L.d(OkHttpExecutor.TAG, "onEventMainThread-SearchResultGuidanceFragment>" + event.getData().get(0).getImageUrl());
+        L.d(OkHttpExecutor.TAG, "onEventMainThread-SearchResultGuidanceFragment>" + event.getResultStr());
 
         List<TestBean> responseData = new ArrayList<>();
 

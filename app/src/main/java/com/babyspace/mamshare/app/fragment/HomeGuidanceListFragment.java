@@ -205,7 +205,7 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
     public void onEventMainThread(HomeGuidanceEvent event) {
         mSwipeLayout.setRefreshing(false);
         hideLoadingProgress();
-        L.d(OkHttpExecutor.TAG, "onEventMainThread-HomeGuidanceListFragment>" + event.getData().get(0).getImageUrl());
+        L.d(OkHttpExecutor.TAG, "onEventMainThread-HomeGuidanceListFragment>" + event.getResultStr());
 
         List<HomeGuidance> responseData = new ArrayList<>();
 
