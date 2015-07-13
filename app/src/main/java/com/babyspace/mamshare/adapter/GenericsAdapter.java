@@ -216,11 +216,11 @@ public class GenericsAdapter extends BaseAdapter {
         ImageView iv_cover;
     }
 
-    static class HomeGuidanceHolder {
+    class HomeGuidanceHolder {
         ImageView iv_guidance;
     }
 
-    static class HomeEvaluateHolder {
+    class HomeEvaluateHolder {
         TextView tv_title;
         TextView tv_desc;
         TextView tv_nickname;
