@@ -11,6 +11,21 @@ import com.babyspace.mamshare.R;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class AppConstants {
+    /**
+     状态码
+     版本
+     描述
+     200	V1.1.1	成功
+     411	V1.1.1	没接到Header-mobileSN
+     400	V1.1.1	验签失败
+     401	V1.1.1	用户已存在
+     402	V1.1.1	手机验证码不正确
+     403	V1.1.1	登陆密码不正确
+     409	V1.1.1	旧密码不正确
+     404	V1.1.1	Token无效，需要重新登陆
+     500	V1.1.1
+     服务器内部错误
+     */
 
     /**
      * 请求成功
@@ -18,6 +33,11 @@ public class AppConstants {
     public static final int HTTP_NO_NETWORK = 404;
 
     public static final String RESPONSE_OK = "200";
+    public static final String RESPONSE_No_header = "411";
+    public static final String RESPONSE_fail = "400";
+    public static final String RESPONSE_wrong_verify = "402";
+
+
 
     /**
      * michael 防止应用崩溃导致数据丢失
