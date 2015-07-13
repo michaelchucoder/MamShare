@@ -79,6 +79,7 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -213,7 +214,6 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
         }
     }
 
-
     /**
      * EventBus 响应事件
      *
@@ -224,38 +224,7 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
         hideLoadingProgress();
         L.d(OkHttpExecutor.TAG, "onEventMainThread-HomeGuidanceListFragment>" + event.getResultStr());
 
-        List<HomeGuidance> responseData = new ArrayList<>();
-
-        /**
-          {
-         "code": 200,
-         "msg": [
-         {
-         "StrategyId": 1,
-         "Title": "标题1",
-         "ImageUrl": "http://file6.m6go.com/pFYGyGOH1~Iu5S_VK1mR9W",
-         "PageUrl": "http://m.gou.com/product_17123.html"
-         },
-         {
-         "StrategyId": 2,
-         "Title": "标题2",
-         "ImageUrl": "http://file9.m6go.com/wIbVjP3h04aAsYZsQloxCW",
-         "PageUrl": "http://m.gou.com/product_17123.html"
-         }
-         ]
-         }
-         */
-        if (queryCount <= 6) {
-            for (int i = 0; i < queryNum; i++) {
-                responseData.add(new HomeGuidance(1,"标题1","http://file6.m6go.com/pFYGyGOH1~Iu5S_VK1mR9W","http://m.gou.com/product_17123.html"));
-            }
-
-        } else {
-            for (int i = 0; i < queryNum - 3; i++) {
-                responseData.add(new HomeGuidance(1,"标题2","http://file6.m6go.com/pFYGyGOH1~Iu5S_VK1mR9W","http://m.gou.com/product_17123.html"));
-            }
-
-        }
+        List<HomeGuidance> responseData = event.getData();
 
         if (responseData.size() < queryNum) {
             footerProgressBar.setVisibility(View.INVISIBLE);
@@ -276,17 +245,10 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
             isMoreData = true;
             queryStart += queryNum;
         }
-        /**
-         * 如果为空， 则加载 空的fragment
-         */
 
-        if (data.size() >= 5) {
+        adapter.refresh(AppConstants.page_home_guidance, data);
 
-            adapter.refresh(AppConstants.page_home_guidance, data);
-        } else {
-            L.d("mCallback","onDataEmpty "+data.size());
-            mCallback.onDataEmpty();
-        }
+
     }
 
     @Override

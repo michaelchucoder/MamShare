@@ -62,6 +62,7 @@ public class GenericsAdapter extends BaseAdapter {
         mContext = context;
         this.pageFlag = pageFlag;
     }
+
     @Override
     public long getItemId(int position) {
         return position;
@@ -183,10 +184,7 @@ public class GenericsAdapter extends BaseAdapter {
     }
 
     public void refresh(int pageFlag, List<?> data) {
-/*        if (data.size() < 4)
-            this.pageFlag = AppConstants.page_empty;
-        else
-            this.pageFlag = pageFlag;*/
+        this.pageFlag = pageFlag;
         this.data = data;
         notifyDataSetChanged();
     }
