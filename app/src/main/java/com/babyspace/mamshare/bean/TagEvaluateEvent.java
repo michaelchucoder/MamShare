@@ -1,5 +1,8 @@
 package com.babyspace.mamshare.bean;
 
+import com.babyspace.mamshare.basement.BaseResponseBean;
+
+
 /**
  * Created with Android Studio
  * Package name: com.babyspace.mamshare.bean
@@ -8,5 +11,5 @@ package com.babyspace.mamshare.bean;
  * Time: 16:57
  * To change this template use File | Settings | File and Code Templates.
  */
-public class TagEvaluateEvent {
+public class TagEvaluateEvent extends BaseResponseBean<TagEvaluate> {
 }

@@ -3,6 +3,7 @@ package com.babyspace.mamshare.bean;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created with Android Studio
@@ -12,8 +13,9 @@ import java.io.Serializable;
  * Time: 16:57
  * To change this template use File | Settings | File and Code Templates.
  */
-public class TagEvaluate implements Serializable{
+public class TagEvaluate implements Serializable {
     @SerializedName("tag")
     private String tag;
-    private String label;
+    @SerializedName("eval")
+    private List<Evaluate> evaluates;
 }
