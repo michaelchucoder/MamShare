@@ -316,7 +316,7 @@
             android:name=".app.activity.ParallaxToolbarListViewActivity"
             android:label="hehehehe"
             android:theme="@style/AppTheme.Toolbar" />
-        <activity android:name=".app.activity.RecommendLabelActivity" />
+        <activity android:name=".app.activity.RecommendTagActivity" />
         <activity android:name=".app.activity.ResetPasswordActivity" />
         <activity android:name=".app.activity.CommentActivity" />
         <activity android:name=".app.activity.GuidanceDetailActivity" />

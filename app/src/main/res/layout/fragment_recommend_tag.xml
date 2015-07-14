@@ -9,5 +9,4 @@
         android:divider="@drawable/push"
         android:orientation="vertical"></ListView>
 
-
 </RelativeLayout>

@@ -18,7 +18,7 @@ import com.babyspace.mamshare.bean.TestBean;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecommendLabelFragment extends BaseFragment {
+public class RecommendTagFragment extends BaseFragment {
     private static final String PAGE_FLAG = "pageFlag";
     private int pageFlag;
 
@@ -27,12 +27,12 @@ public class RecommendLabelFragment extends BaseFragment {
     ListView mListView;
 
 
-    public RecommendLabelFragment() {
+    public RecommendTagFragment() {
         // Required empty public constructor
     }
     // TODO: Rename and change types and number of parameters
-    public static RecommendLabelFragment newInstance(int pageFlag) {
-        RecommendLabelFragment fragment = new RecommendLabelFragment();
+    public static RecommendTagFragment newInstance(int pageFlag) {
+        RecommendTagFragment fragment = new RecommendTagFragment();
         Bundle args = new Bundle();
         args.putInt(PAGE_FLAG, pageFlag);
         fragment.setArguments(args);
@@ -40,7 +40,7 @@ public class RecommendLabelFragment extends BaseFragment {
     }
     @Override
     public void init(Bundle savedInstanceState) {
-        setContentView(R.layout.fragment_recommend_label);
+        setContentView(R.layout.fragment_recommend_tag);
 
         if (getArguments() != null) {
             pageFlag = getArguments().getInt(PAGE_FLAG);
@@ -55,7 +55,7 @@ public class RecommendLabelFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_recommend_label, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_recommend_tag, container, false);
 
         mListView = (ListView) rootView.findViewById(R.id.my_listview);
         // 设置Adapter

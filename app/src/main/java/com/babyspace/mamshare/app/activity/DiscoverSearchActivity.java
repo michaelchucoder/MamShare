@@ -178,7 +178,7 @@ public class DiscoverSearchActivity extends BaseActivity implements SwipeRefresh
                 break;
             case R.id.ll_label_search:
             case R.id.tv_label_search:
-                Intent i = new Intent(this, RecommendLabelActivity.class);
+                Intent i = new Intent(this, RecommendTagActivity.class);
                 startActivity(i);
                 break;
             case R.id.back:

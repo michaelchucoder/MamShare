@@ -33,7 +33,7 @@ import java.util.List;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class RecommendLabelActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener {
+public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener {
     //TODO P5
 
     @InjectView(R.id.swipe_container)
@@ -65,7 +65,7 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recommend_label);
+        setContentView(R.layout.activity_recommend_tag);
 
         data = new ArrayList<>();
         adapter = new GenericsAdapter(this, AppConstants.page_recommend_tag);
