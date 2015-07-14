@@ -22,6 +22,7 @@ import com.babyspace.mamshare.bean.TestBean;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.michael.core.tools.ViewRelayoutUtil;
 import com.michael.library.debug.L;
+import com.michael.library.widget.roundimage.RoundImageView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;
@@ -120,11 +121,11 @@ public class GenericsAdapter extends BaseAdapter {
                 holder.tv_role = (TextView) convertView.findViewById(R.id.tv_role);
                 holder.tv_label1 = (TextView) convertView.findViewById(R.id.tv_label1);
                 holder.tv_label2 = (TextView) convertView.findViewById(R.id.tv_label2);
-                holder.tv_label2 = (TextView) convertView.findViewById(R.id.tv_label3);
+                holder.tv_label3 = (TextView) convertView.findViewById(R.id.tv_label3);
                 holder.tv_label4 = (TextView) convertView.findViewById(R.id.tv_label4);
                 holder.tv_label5= (TextView) convertView.findViewById(R.id.tv_label5);
                 holder.iv_cover = (ImageView) convertView.findViewById(R.id.iv_cover);
-                holder.iv_avatar = (ImageView) convertView.findViewById(R.id.iv_avatar);
+                holder.iv_avatar = (RoundImageView) convertView.findViewById(R.id.iv_avatar);
                 holder.btn_like = (Button) convertView.findViewById(R.id.btn_like);
                 convertView.setTag(holder);
             } else {

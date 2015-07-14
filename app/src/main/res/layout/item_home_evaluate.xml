@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:imagecontrol="http://schemas.android.com/apk/res-auto"
     android:background="@color/pink_mama_bg"
     android:orientation="vertical"
     android:padding="20px">
@@ -43,12 +44,16 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true">
 
-            <ImageView
+            <com.michael.library.widget.roundimage.RoundImageView
                 android:id="@+id/iv_avatar"
-                android:layout_width="150px"
-                android:layout_height="150px"
-                android:layout_gravity="bottom"
-                android:src="@color/yellow" />
+                android:layout_width="200px"
+                android:layout_height="200px"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="80px"
+                android:scaleType="fitXY"
+                android:src="@drawable/user_default_avatar"
+                imagecontrol:border_outside_color="#ffdcd4d9"
+                imagecontrol:border_thickness="3px" />
 
             <LinearLayout
                 android:id="@+id/nick_name_container"
