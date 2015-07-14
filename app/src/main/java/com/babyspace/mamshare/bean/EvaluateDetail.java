@@ -63,47 +63,47 @@ import java.util.List;
  */
 public class EvaluateDetail implements Serializable {
 
-    @SerializedName("PageUrl")
+    @SerializedName("pageUrl")
     private String pageUrl;
 
-    @SerializedName("MamRoleName")
+    @SerializedName("mamRoleName")
     private String mamaRoleName;
 
-    @SerializedName("CommentNum")
+    @SerializedName("commentNum")
     private String commentNum;
 
-    @SerializedName("Comment")
+    @SerializedName("comment")
     private List<Comment> commentList;
 
-    @SerializedName("BrowseNum")
+    @SerializedName("browseNum")
     private String browseNum;
 
-    @SerializedName("CollectionNum")
+    @SerializedName("collectionNum")
     private String collectNum;
 
-    @SerializedName("ProductUrl")
+    @SerializedName("productUrl")
     private String productUrl;
 
-    @SerializedName("EvalID")
+    @SerializedName("evalID")
     private String evaluatId;
 
-    @SerializedName("Title")
+    @SerializedName("title")
     private String title;
 
-    @SerializedName("HeadUrl")
+    @SerializedName("headUrl")
     private String headUrl;
 
-    @SerializedName("UserID")
+    @SerializedName("userID")
     private String userId;
 
-    @SerializedName("HeadIcon")
+    @SerializedName("headIcon")
     private String avatar;
 
-    @SerializedName("Nickname")
+    @SerializedName("nickname")
     private String nickName;
 
-    @SerializedName("Tags")
-    private List<HomeEvaluate.Tags> tagList;
+    @SerializedName("tags")
+    private List<Tags> tagList;
 
     static class Comment implements Serializable {
         @SerializedName("UserID")

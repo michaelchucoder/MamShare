@@ -135,6 +135,7 @@ public class HomeEvaluate implements Serializable {
     public String getTags() {
         return tagList.get(0).tagName;
     }
+
     public List<Tags> getTagList() {
         return tagList;
     }
@@ -146,12 +147,6 @@ public class HomeEvaluate implements Serializable {
     @SerializedName("tags")
     private List<Tags> tagList;
 
-    public static class Tags implements Serializable {
-        @SerializedName("tagId")
-        int tagId;
-        @SerializedName("tagName")
-        String tagName;
-    }
 
 }
 
