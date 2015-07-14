@@ -54,14 +54,14 @@ public class GenericsAdapter extends BaseAdapter {
     List<?> data;
 
     public GenericsAdapter(Context ctx, List<?> data) {
-        ctx = ctx;
+        this.ctx = ctx;
         this.data = data;
     }
 
     public GenericsAdapter(Context ctx, int pageFlag) {
         L.d("GenericsAdapter", "construct-pageFlag " + pageFlag);
 
-        ctx = ctx;
+        this.ctx = ctx;
         this.pageFlag = pageFlag;
     }
 
