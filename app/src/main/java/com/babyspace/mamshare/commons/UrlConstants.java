@@ -21,7 +21,7 @@ public class UrlConstants {
     /**
      * All the URL are placed in the UrlConstants class
      */
-    public static final String VersionCheck ="" ;
+    public static final String VersionCheck ="/system/versionCheck" ;
 
     public static final String HomeGuidanceList = "/strategy";
     public static final String HomeEvaluateList = "/eval ";

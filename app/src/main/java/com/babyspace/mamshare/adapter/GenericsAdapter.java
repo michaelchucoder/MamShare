@@ -18,14 +18,20 @@ import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.HomeEvaluate;
 import com.babyspace.mamshare.bean.HomeGuidance;
+import com.babyspace.mamshare.bean.HomeGuidanceEvent;
 import com.babyspace.mamshare.bean.TestBean;
+import com.babyspace.mamshare.bean.VersionCheckEvent;
 import com.babyspace.mamshare.commons.AppConstants;
+import com.babyspace.mamshare.commons.UrlConstants;
+import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.core.tools.ViewRelayoutUtil;
 import com.michael.library.debug.L;
 import com.michael.library.widget.roundimage.RoundImageView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;
+
+import de.greenrobot.event.EventBus;
 
 /**
  * Created with Android Studio
@@ -123,7 +129,7 @@ public class GenericsAdapter extends BaseAdapter {
                 holder.tv_label2 = (TextView) convertView.findViewById(R.id.tv_label2);
                 holder.tv_label3 = (TextView) convertView.findViewById(R.id.tv_label3);
                 holder.tv_label4 = (TextView) convertView.findViewById(R.id.tv_label4);
-                holder.tv_label5= (TextView) convertView.findViewById(R.id.tv_label5);
+                holder.tv_label5 = (TextView) convertView.findViewById(R.id.tv_label5);
                 holder.iv_cover = (ImageView) convertView.findViewById(R.id.iv_cover);
                 holder.iv_avatar = (RoundImageView) convertView.findViewById(R.id.iv_avatar);
                 holder.btn_like = (Button) convertView.findViewById(R.id.btn_like);
@@ -145,7 +151,7 @@ public class GenericsAdapter extends BaseAdapter {
                 public void onClick(View v) {
                     //状态改变后刷新数据
                     ToastHelper.showToast(ctx, "喜欢还是讨厌");
-                    notifyDataSetChanged();
+                    doLike();
                 }
             });
         } else {
@@ -169,6 +175,7 @@ public class GenericsAdapter extends BaseAdapter {
             holder.btn_like.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    ToastHelper.showToast(ctx, "喜欢还是无视");
                     //状态改变后刷新数据
                     list.get(position).setIsLike(!list.get(position).isLike());
                     notifyDataSetChanged();
@@ -240,5 +247,26 @@ public class GenericsAdapter extends BaseAdapter {
         ImageView iv_avatar;
         Button btn_like;
     }
+
+    public void doLike() {
+        if (!EventBus.getDefault().isRegistered(this))
+            EventBus.getDefault().register(this);
+        OkHttpExecutor.query(UrlConstants.VersionCheck, VersionCheckEvent.class, false, this);
+
+    }
+
+    /**
+     * EventBus 响应事件
+     *
+     * @param event
+     */
+    public void onEventMainThread(VersionCheckEvent event) {
+        if (EventBus.getDefault().isRegistered(this))
+            EventBus.getDefault().unregister(this);
+        L.d(OkHttpExecutor.TAG, "onEventMainThread->" + event.getResultStr());
+        notifyDataSetChanged();
+
+    }
+
 
 }
