@@ -2,8 +2,6 @@ package com.babyspace.mamshare.framework.db;
 
 import android.database.sqlite.SQLiteDatabase;
 
-import com.babyspace.mamshare.bean.CityArea;
-import com.babyspace.mamshare.bean.CityAreaDao;
 import com.babyspace.mamshare.bean.GreenNote;
 import com.babyspace.mamshare.bean.GreenNoteDao;
 import com.babyspace.mamshare.bean.MArea;
@@ -28,11 +26,9 @@ public class DaoSession extends AbstractDaoSession {
 
     private final DaoConfig noteDaoConfig;
     private final DaoConfig mAreaDaoConfig;
-    private final DaoConfig cityAreaDaoConfig;
 
     private final GreenNoteDao noteDao;
     private final MAreaDao mAreaDao;
-    private final CityAreaDao cityAreaDao;
 
     public DaoSession(SQLiteDatabase db, IdentityScopeType type, Map<Class<? extends AbstractDao<?, ?>>, DaoConfig>
             daoConfigMap) {
@@ -48,16 +44,11 @@ public class DaoSession extends AbstractDaoSession {
         mAreaDao = new MAreaDao(mAreaDaoConfig, this);
         registerDao(MArea.class, mAreaDao);
 
-        cityAreaDaoConfig = daoConfigMap.get(CityAreaDao.class).clone();
-        cityAreaDaoConfig.initIdentityScope(type);
-        cityAreaDao = new CityAreaDao(cityAreaDaoConfig, this);
-        registerDao(CityArea.class, cityAreaDao);
     }
 
     public void clear() {
         noteDaoConfig.getIdentityScope().clear();
         mAreaDaoConfig.getIdentityScope().clear();
-        cityAreaDaoConfig.getIdentityScope().clear();
     }
 
     public GreenNoteDao getNoteDao() {
@@ -66,10 +57,6 @@ public class DaoSession extends AbstractDaoSession {
 
     public MAreaDao getMAreaDao() {
         return mAreaDao;
-    }
-
-    public CityAreaDao getCityAreaDao() {
-        return cityAreaDao;
     }
 
 

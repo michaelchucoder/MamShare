@@ -17,8 +17,6 @@ import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.service.DBService;
-import com.babyspace.mamshare.bean.CityArea;
-import com.babyspace.mamshare.bean.CityAreaDao;
 import com.babyspace.mamshare.bean.GreenNote;
 import com.babyspace.mamshare.bean.GreenNoteDao;
 import com.babyspace.mamshare.bean.MArea;
@@ -40,7 +38,6 @@ public class GreenDaoActivity extends ListActivity {
     private DaoSession daoSession;
     private GreenNoteDao noteDao;
     private GreenNoteDao noteDao2;
-    private CityAreaDao cityAreaDao;
 
     private Cursor cursor;
 
@@ -63,14 +60,9 @@ public class GreenDaoActivity extends ListActivity {
 
 
         noteDao2 = DBController.getGreenNoteDao(this);
-        cityAreaDao = DBController.getCityAreaDao(this);
         // Select
         for (GreenNote note : noteDao2.loadAll()) {
             L.d("NoteActivityOnCreate", note.toString());
-        }
-
-        for (CityArea note : cityAreaDao.loadAll()) {
-            L.d("GreenDaoActivityMArea-cityArea", note.toString());
         }
 
         for (MArea note : DBService.getAllArea("1")) {
@@ -133,9 +125,6 @@ public class GreenDaoActivity extends ListActivity {
         GreenNote note = new GreenNote(null, noteText, comment, new Date());
         noteDao.insert(note);
         noteDao2.insert(note);
-
-        cityAreaDao.insert(new CityArea("1","1","zhxh","0","222"));
-        Log.d("DaoExample", "Inserted new note, ID: " + note.getId());
 
         cursor.requery();
     }
