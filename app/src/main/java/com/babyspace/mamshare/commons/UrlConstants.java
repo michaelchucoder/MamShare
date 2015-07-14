@@ -64,5 +64,4 @@ public class UrlConstants {
     public static final String UserCenter = "/user/center";
 
 
-
 }
