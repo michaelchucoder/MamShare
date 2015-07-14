@@ -38,7 +38,7 @@ public class RegisterPhoneFragment extends BaseFragment {
             mCallback = (RegisterListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement RegisterProfileListener");
+                    + " must implement RegisterListener");
         }
     }
 
