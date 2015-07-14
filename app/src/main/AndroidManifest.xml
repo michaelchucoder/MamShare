@@ -309,7 +309,7 @@
             android:name=".app.activity.EvaluateDetailActivity"
             android:theme="@style/AppTheme.Toolbar" />
         <activity
-            android:name=".app.activity.LabelEvaluateListActivity"
+            android:name=".app.activity.TagEvaluateListActivity"
             android:label="hehehehe"
             android:theme="@style/AppTheme.Toolbar" />
         <activity

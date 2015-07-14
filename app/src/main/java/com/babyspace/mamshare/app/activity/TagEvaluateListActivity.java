@@ -6,7 +6,7 @@ import android.view.View;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
-import com.babyspace.mamshare.app.fragment.LabelEvaluateListFragment;
+import com.babyspace.mamshare.app.fragment.TagEvaluateListFragment;
 import com.michael.library.debug.L;
 import com.michael.library.widget.ParallaxToolbar.BaseActivity;
 import com.michael.library.widget.ParallaxToolbar.observablescrollview.ObservableScrollView;
@@ -15,7 +15,7 @@ import com.michael.library.widget.ParallaxToolbar.observablescrollview.ScrollSta
 import com.michael.library.widget.ParallaxToolbar.observablescrollview.ScrollUtils;
 import com.nineoldandroids.view.ViewHelper;
 
-public class LabelEvaluateListActivity extends BaseActivity implements ObservableScrollViewCallbacks {
+public class TagEvaluateListActivity extends BaseActivity implements ObservableScrollViewCallbacks {
 
     private static final String TAG = "LabelEvaluateListActivity";
 
@@ -27,7 +27,7 @@ public class LabelEvaluateListActivity extends BaseActivity implements Observabl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_label_evaluate_list);
+        setContentView(R.layout.activity_tag_evaluate_list);
 
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
 
@@ -51,7 +51,7 @@ public class LabelEvaluateListActivity extends BaseActivity implements Observabl
                 return;
             }
 
-            LabelEvaluateListFragment fragment = new LabelEvaluateListFragment();
+            TagEvaluateListFragment fragment = new TagEvaluateListFragment();
 
             fragment.setArguments(getIntent().getExtras());
 

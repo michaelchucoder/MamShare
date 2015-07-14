@@ -68,7 +68,7 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
         setContentView(R.layout.activity_recommend_label);
 
         data = new ArrayList<>();
-        adapter = new GenericsAdapter(this, AppConstants.page_recommend_label);
+        adapter = new GenericsAdapter(this, AppConstants.page_recommend_tag);
 
         initView();
         showLoadingProgress();
@@ -92,7 +92,7 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
 
         gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
 
-        adapter.refresh(AppConstants.page_recommend_label, data);
+        adapter.refresh(AppConstants.page_recommend_tag, data);
         gridView.addFooterView(mFooter);
         gridView.setAdapter(adapter);
 
@@ -233,7 +233,7 @@ public class RecommendLabelActivity extends BaseActivity implements SwipeRefresh
             queryStart += queryNum;
         }
 
-        adapter.refresh(AppConstants.page_recommend_label, data);
+        adapter.refresh(AppConstants.page_recommend_tag, data);
 
     }
 

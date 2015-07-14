@@ -126,7 +126,7 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
 
         gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
 
-        adapter.refresh(AppConstants.page_recommend_label, data);
+        adapter.refresh(AppConstants.page_recommend_tag, data);
         gridView.addFooterView(mFooter);
         gridView.setAdapter(adapter);
 
@@ -268,7 +268,7 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
 
         if (data.size() >= 5) {
 
-            adapter.refresh(AppConstants.page_recommend_label, data);
+            adapter.refresh(AppConstants.page_recommend_tag, data);
         } else {
             mCallback.onDataEmpty();
         }

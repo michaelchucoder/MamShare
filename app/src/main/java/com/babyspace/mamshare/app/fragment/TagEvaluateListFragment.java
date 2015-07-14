@@ -27,7 +27,7 @@ import butterknife.InjectView;
 import de.greenrobot.event.EventBus;
 
 
-public class LabelEvaluateListFragment extends BaseFragment {
+public class TagEvaluateListFragment extends BaseFragment {
     private static final String PAGE_FLAG = "pageFlag";
     private int pageFlag;
 
@@ -45,12 +45,12 @@ public class LabelEvaluateListFragment extends BaseFragment {
     private boolean isMoreData = true;
     private Call queryCall;
 
-    public LabelEvaluateListFragment() {
+    public TagEvaluateListFragment() {
         // Required empty public constructor
     }
     // TODO: Rename and change types and number of parameters
-    public static LabelEvaluateListFragment newInstance(int pageFlag) {
-        LabelEvaluateListFragment fragment = new LabelEvaluateListFragment();
+    public static TagEvaluateListFragment newInstance(int pageFlag) {
+        TagEvaluateListFragment fragment = new TagEvaluateListFragment();
         Bundle args = new Bundle();
         args.putInt(PAGE_FLAG, pageFlag);
         fragment.setArguments(args);
@@ -72,7 +72,7 @@ public class LabelEvaluateListFragment extends BaseFragment {
     @Override
     public void init(Bundle savedInstanceState) {
 
-        setContentView(R.layout.fragment_label_evaluate_list);
+        setContentView(R.layout.fragment_tag_evaluate_list);
 
         //TODO 从custom返回 时崩溃
         EventBus.getDefault().register(this);
@@ -80,14 +80,14 @@ public class LabelEvaluateListFragment extends BaseFragment {
             pageFlag = getArguments().getInt(PAGE_FLAG);
         }
         data = new ArrayList<>();
-        adapter = new GenericsAdapter(getActivity(), AppConstants.page_recommend_label);
+        adapter = new GenericsAdapter(getActivity(), AppConstants.page_recommend_tag);
 
     }
 
     @Override
     public void initView() {
 
-        adapter.refresh(AppConstants.page_recommend_label, data);
+        adapter.refresh(AppConstants.page_recommend_tag, data);
         View mHeader = View.inflate(getActivity(), R.layout.common_title_layout, null);
         View mFooter = View.inflate(getActivity(), R.layout.common_refresh_footer, null);
         listView.addHeaderView(mHeader);
@@ -175,7 +175,7 @@ public class LabelEvaluateListFragment extends BaseFragment {
             queryStart += queryNum;
         }
 
-        adapter.refresh(AppConstants.page_recommend_label, data);
+        adapter.refresh(AppConstants.page_recommend_tag, data);
 
     }
 

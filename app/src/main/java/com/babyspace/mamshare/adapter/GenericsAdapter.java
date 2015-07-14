@@ -48,7 +48,7 @@ public class GenericsAdapter extends BaseAdapter {
      * public static final int page_collect_guidance = 2003;
      * public static final int page_collect_evaluate = 2004;
      * public static final int page_discover_search = 2005;
-     * public static final int page_recommend_label = 2006;
+     * public static final int page_recommend_tag = 2006;
      * public static final int page_search_guidance = 2007;
      * public static final int page_search_evaluate = 2008;
      * public static final int page_label_evaluate = 2009;
@@ -159,7 +159,7 @@ public class GenericsAdapter extends BaseAdapter {
 
             if (convertView == null) {
                 holder = new ViewHolder();
-                convertView = View.inflate(ctx, AppConstants.item_recommend_label, null);
+                convertView = View.inflate(ctx, AppConstants.item_recommend_tag, null);
                 ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
                 holder.tv_title = (TextView) convertView.findViewById(R.id.title);
                 holder.btn_like = (Button) convertView.findViewById(R.id.like);

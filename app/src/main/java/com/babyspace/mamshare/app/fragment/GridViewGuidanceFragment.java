@@ -22,7 +22,6 @@ import com.babyspace.mamshare.bean.TestBean;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.babyspace.mamshare.listener.EmptyListener;
-import com.babyspace.mamshare.listener.RegisterListener;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.core.tools.ViewRelayoutUtil;
@@ -126,7 +125,7 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
 
         gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
 
-        adapter.refresh(AppConstants.page_recommend_label, data);
+        adapter.refresh(AppConstants.page_recommend_tag, data);
         gridView.addFooterView(mFooter);
         gridView.setAdapter(adapter);
 
@@ -269,7 +268,7 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
 
         if (data.size() >= 5) {
 
-            adapter.refresh(AppConstants.page_recommend_label, data);
+            adapter.refresh(AppConstants.page_recommend_tag, data);
         } else {
             mCallback.onDataEmpty();
         }
