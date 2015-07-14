@@ -119,6 +119,7 @@ public class GenericsAdapter extends BaseAdapter {
                 holder.tv_nickname = (TextView) convertView.findViewById(R.id.tv_nickname);
                 holder.tv_role = (TextView) convertView.findViewById(R.id.tv_role);
                 holder.tv_label = (TextView) convertView.findViewById(R.id.tv_label);
+                holder.iv_cover = (ImageView) convertView.findViewById(R.id.iv_cover);
                 holder.iv_avatar = (ImageView) convertView.findViewById(R.id.iv_avatar);
                 holder.btn_like = (Button) convertView.findViewById(R.id.btn_like);
                 convertView.setTag(holder);
@@ -226,6 +227,7 @@ public class GenericsAdapter extends BaseAdapter {
         TextView tv_nickname;
         TextView tv_role;
         TextView tv_label;
+        ImageView iv_cover;
         ImageView iv_avatar;
         Button btn_like;
     }

@@ -1,23 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="330px"
-    android:layout_height="330px"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/pink_mama_bg"
     android:orientation="vertical"
     android:padding="20px">
-
-    <ImageView
-        android:id="@+id/iv_avatar"
-        android:layout_width="250px"
-        android:layout_height="250px"
-        android:layout_centerHorizontal="true"
-        android:src="@color/yellow" />
 
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="250px"
         android:layout_height="100px"
-        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true"
         android:gravity="center"
         android:text="标题" />
 
@@ -25,41 +18,116 @@
         android:id="@+id/tv_desc"
         android:layout_width="250px"
         android:layout_height="100px"
+        android:layout_below="@+id/tv_title"
+        android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:text="desc" />
+        android:text="摘要" />
 
-    <TextView
-        android:id="@+id/tv_nickname"
-        android:layout_width="250px"
-        android:layout_height="100px"
-        android:gravity="center"
-        android:text="tv_nickname" />
+    <RelativeLayout
+        android:id="@+id/cover_container"
+        android:layout_width="match_parent"
+        android:layout_height="600px"
+        android:layout_below="@+id/tv_desc"
+        android:background="@color/yellow">
 
-    <TextView
-        android:id="@+id/tv_role"
-        android:layout_width="250px"
-        android:layout_height="100px"
-        android:gravity="center"
-        android:text="tv_role" />
+        <ImageView
+            android:id="@+id/iv_cover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:src="@color/plane_arrive_city" />
 
-    <TextView
-        android:id="@+id/tv_label"
-        android:layout_width="250px"
-        android:layout_height="100px"
-        android:gravity="center"
-        android:text="tv_role" />
+        <LinearLayout
+            android:id="@+id/mama_role_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <ImageView
+                android:id="@+id/iv_avatar"
+                android:layout_width="150px"
+                android:layout_height="150px"
+                android:layout_gravity="bottom"
+                android:src="@color/yellow" />
+
+            <LinearLayout
+                android:id="@+id/nick_name_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_nickname"
+                    android:layout_width="250px"
+                    android:layout_height="100px"
+                    android:gravity="center"
+                    android:text="tv_nickname" />
+
+                <TextView
+                    android:id="@+id/tv_role"
+                    android:layout_width="250px"
+                    android:layout_height="100px"
+                    android:gravity="center"
+                    android:text="tv_role" />
+            </LinearLayout>
 
 
-    <Button
-        android:id="@+id/btn_like"
-        android:layout_width="50px"
-        android:layout_height="50px"
-        android:layout_above="@+id/tv_title"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="20px"
-        android:background="@drawable/shape_rounded_rectangle"
-        android:text="45">
+            <Button
+                android:id="@+id/btn_like"
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:layout_gravity="right|bottom"
+                android:background="@drawable/shape_rounded_rectangle"
+                android:text="45">
 
-    </Button>
+            </Button>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/label_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cover_container">
+
+        <TextView
+            android:id="@+id/tv_label1"
+            android:layout_width="250px"
+            android:layout_height="100px"
+            android:text="tv_role" />
+
+        <TextView
+            android:id="@+id/tv_label2"
+            android:layout_width="250px"
+            android:layout_height="100px"
+            android:layout_centerHorizontal="true"
+            android:text="tv_role" />
+
+        <TextView
+            android:id="@+id/tv_label3"
+            android:layout_width="250px"
+            android:layout_height="100px"
+            android:layout_alignParentRight="true"
+            android:text="tv_role" />
+
+        <TextView
+            android:id="@+id/tv_label4"
+            android:layout_width="250px"
+            android:layout_height="100px"
+            android:layout_below="@+id/tv_label1"
+            android:text="tv_role" />
+
+        <TextView
+            android:id="@+id/tv_label5"
+            android:layout_width="250px"
+            android:layout_height="100px"
+            android:layout_below="@+id/tv_label1"
+            android:layout_centerHorizontal="true"
+            android:text="tv_role" />
+
+    </RelativeLayout>
+
 
 </RelativeLayout>
