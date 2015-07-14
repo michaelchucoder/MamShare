@@ -58,5 +58,10 @@ public class UrlConstants {
      */
     public static final String UserEvaluate = "/user/eval";
 
+    /**
+     * 获取用户已登录信息接口
+     */
+    public static final String UserCenter = "/user/center";
+
 
 }
