@@ -47,7 +47,16 @@ public class UrlConstants {
     /**
      * 获取搜索结果接口
      */
-    public static final String search = "/search";
+    public static final String Search = "/search";
+    /**
+     * 获取搜索热词接口
+     */
+    public static final String HotWords = "/search/hotwords";
+
+    /**
+     * 获取用户发表评测列表接口
+     */
+    public static final String UserEvaluate = "/user/eval";
 
 
 }
