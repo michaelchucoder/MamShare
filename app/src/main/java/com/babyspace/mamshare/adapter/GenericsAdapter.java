@@ -118,7 +118,11 @@ public class GenericsAdapter extends BaseAdapter {
                 holder.tv_desc = (TextView) convertView.findViewById(R.id.tv_desc);
                 holder.tv_nickname = (TextView) convertView.findViewById(R.id.tv_nickname);
                 holder.tv_role = (TextView) convertView.findViewById(R.id.tv_role);
-                holder.tv_label = (TextView) convertView.findViewById(R.id.tv_label);
+                holder.tv_label1 = (TextView) convertView.findViewById(R.id.tv_label1);
+                holder.tv_label2 = (TextView) convertView.findViewById(R.id.tv_label2);
+                holder.tv_label2 = (TextView) convertView.findViewById(R.id.tv_label3);
+                holder.tv_label4 = (TextView) convertView.findViewById(R.id.tv_label4);
+                holder.tv_label5= (TextView) convertView.findViewById(R.id.tv_label5);
                 holder.iv_cover = (ImageView) convertView.findViewById(R.id.iv_cover);
                 holder.iv_avatar = (ImageView) convertView.findViewById(R.id.iv_avatar);
                 holder.btn_like = (Button) convertView.findViewById(R.id.btn_like);
@@ -130,7 +134,7 @@ public class GenericsAdapter extends BaseAdapter {
             holder.tv_desc.setText(list.get(position).getRemark());
             holder.tv_nickname.setText(list.get(position).getNickName());
             holder.tv_role.setText(list.get(position).getRoleName());
-            holder.tv_label.setText(list.get(position).getTags());
+            holder.tv_label1.setText(list.get(position).getTags());
             holder.btn_like.setText("" + list.get(position).getLikeNum());
 
             ImageLoader.getInstance().displayImage(list.get(position).getAvatar(), holder.iv_avatar);
@@ -226,7 +230,11 @@ public class GenericsAdapter extends BaseAdapter {
         TextView tv_desc;
         TextView tv_nickname;
         TextView tv_role;
-        TextView tv_label;
+        TextView tv_label1;
+        TextView tv_label2;
+        TextView tv_label3;
+        TextView tv_label4;
+        TextView tv_label5;
         ImageView iv_cover;
         ImageView iv_avatar;
         Button btn_like;
