@@ -11,8 +11,7 @@
         android:layout_width="250px"
         android:layout_height="250px"
         android:layout_centerHorizontal="true"
-        android:src="@color/yellow"
-        />
+        android:src="@color/yellow" />
 
     <TextView
         android:id="@+id/tv_title"
@@ -21,6 +20,7 @@
         android:layout_below="@+id/title"
         android:gravity="center"
         android:text="标题" />
+
     <TextView
         android:id="@+id/tv_desc"
         android:layout_width="250px"
@@ -41,6 +41,7 @@
         android:layout_height="100px"
         android:gravity="center"
         android:text="tv_role" />
+
     <TextView
         android:id="@+id/tv_label"
         android:layout_width="250px"
