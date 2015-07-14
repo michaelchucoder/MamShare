@@ -46,9 +46,9 @@ public class HomeEvaluate implements Serializable {
     @SerializedName("praiseNum")
     private int likeNum;
     @SerializedName("evalID")
-    private int evaluateID;
+    private int evalID;
     @SerializedName("title")
-    private String evaluateTitle;
+    private String title;
     @SerializedName("headUrl")
     private String headUrl;
     @SerializedName("userID")
@@ -76,20 +76,20 @@ public class HomeEvaluate implements Serializable {
         this.likeNum = likeNum;
     }
 
-    public int getEvaluateID() {
-        return evaluateID;
+    public int getEvalID() {
+        return evalID;
     }
 
-    public void setEvaluateID(int evaluateID) {
-        this.evaluateID = evaluateID;
+    public void setEvalID(int evalID) {
+        this.evalID = evalID;
     }
 
-    public String getEvaluateTitle() {
-        return evaluateTitle;
+    public String getTitle() {
+        return title;
     }
 
-    public void setEvaluateTitle(String evaluateTitle) {
-        this.evaluateTitle = evaluateTitle;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getHeadUrl() {

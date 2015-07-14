@@ -24,11 +24,30 @@ public class UrlConstants {
     public static final String VersionCheck = "/system/versionCheck";
     public static final String AccessToken = "/system/getEquipmentAccessToken";
 
+    /**
+     * 登录
+     */
     public static final String Login = "account/login";
-
+    /**
+     * 首页攻略列表
+     */
     public static final String HomeGuidanceList = "/strategy";
+    /**
+     * 首页评测列表
+     */
     public static final String HomeEvaluateList = "/eval";
+    /**
+     * 获取热门标签列表接口
+     */
     public static final String TagList = "/tag";
+    /**
+     * 获取某标签下评测列表接口
+     */
+    public static final String TagEval = "/tag/eval";
+    /**
+     * 获取搜索结果接口
+     */
+    public static final String search = "/search";
 
 
 }

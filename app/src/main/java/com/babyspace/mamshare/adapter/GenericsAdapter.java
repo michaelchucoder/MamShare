@@ -18,7 +18,6 @@ import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.HomeEvaluate;
 import com.babyspace.mamshare.bean.HomeGuidance;
-import com.babyspace.mamshare.bean.HomeGuidanceEvent;
 import com.babyspace.mamshare.bean.TestBean;
 import com.babyspace.mamshare.bean.VersionCheckEvent;
 import com.babyspace.mamshare.commons.AppConstants;
@@ -137,7 +136,7 @@ public class GenericsAdapter extends BaseAdapter {
             } else {
                 holder = (HomeEvaluateHolder) convertView.getTag();
             }
-            holder.tv_title.setText(list.get(position).getEvaluateTitle());
+            holder.tv_title.setText(list.get(position).getTitle());
             holder.tv_desc.setText(list.get(position).getRemark());
             holder.tv_nickname.setText(list.get(position).getNickName());
             holder.tv_role.setText(list.get(position).getRoleName());
