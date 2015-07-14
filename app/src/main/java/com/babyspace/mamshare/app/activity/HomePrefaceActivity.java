@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.TabPageAdapter;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
-import com.babyspace.mamshare.app.fragment.EmptyFragment;
 import com.babyspace.mamshare.app.fragment.HomeEvaluateListFragment;
 import com.babyspace.mamshare.app.fragment.HomeGuidanceListFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
