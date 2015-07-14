@@ -42,7 +42,6 @@ public class RegisterPhoneFragment extends BaseFragment {
         }
     }
 
-
     @Override
     public void init(Bundle savedInstanceState) {
 
