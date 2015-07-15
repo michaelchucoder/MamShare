@@ -250,11 +250,6 @@ public class GenericsAdapter extends BaseAdapter {
         ImageView iv_guidance;
     }
 
-    class DiscoverSearchHolder {
-        TextView tv_title;
-        ImageView iv_cover;
-    }
-
     class HomeEvaluateHolder {
         TextView tv_title;
         TextView tv_desc;
@@ -268,6 +263,13 @@ public class GenericsAdapter extends BaseAdapter {
         ImageView iv_cover;
         ImageView iv_avatar;
         Button btn_like;
+    }
+    class DiscoverSearchHolder {
+        TextView tv_title;
+        ImageView iv_cover;
+    }
+    class RecommendTagHolder {
+        TextView tv_title;
     }
 
 
