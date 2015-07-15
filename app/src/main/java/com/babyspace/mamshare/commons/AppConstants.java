@@ -38,6 +38,22 @@ public class AppConstants {
     public static final String RESPONSE_wrong_verify = "402";
 
 
+    /**
+     * 各种ID
+     */
+    // QQ开放平台APPID
+    public static final String QQ_APP_ID = "1101253936";
+
+    // 微信开放平台APPID
+    public static final String WX_APP_ID = "wx6d185dc4f9027c38";
+    public static final String WX_APP_SECRET = "60b989654ec7aadfaa37824345ce4868"; // 微信登录秘钥
+
+    // 新浪开放平台
+    public static final String SINA_APP_ID = "2924970121";
+    public static final String SINA_APP_SECRET = "dae7977836c0b3d2f9a794a34eb8a5dd";
+    public static final String SINA_REDIRECT_URL = "https://api.weibo.com/oauth2/default.html";
+
+
 
     /**
      * michael 防止应用崩溃导致数据丢失
