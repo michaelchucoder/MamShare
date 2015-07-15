@@ -16,6 +16,8 @@ import com.babyspace.mamshare.app.activity.GuidanceDetailActivity;
 import com.babyspace.mamshare.app.activity.ParallaxToolbarListViewActivity;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.MamShare;
+import com.babyspace.mamshare.bean.Evaluate;
+import com.babyspace.mamshare.bean.Guidance;
 import com.babyspace.mamshare.bean.HomeEvaluate;
 import com.babyspace.mamshare.bean.HomeGuidance;
 import com.babyspace.mamshare.bean.Tags;
@@ -185,9 +187,9 @@ public class GenericsAdapter extends BaseAdapter {
             }
             holder.tv_title.setText(list.get(position).tagName);
 
-        } else if (pageFlag == AppConstants.page_search_guidance) { //TODO 这是首页
+        } else if (pageFlag == AppConstants.page_search_guidance) { //TODO 攻略
             GuidanceHolder holder;
-            final List<HomeEvaluate> list = (List<HomeEvaluate>) data;
+            final List<Guidance> list = (List<Guidance>) data;
 
             if (convertView == null) {
                 holder = new GuidanceHolder();
@@ -199,9 +201,9 @@ public class GenericsAdapter extends BaseAdapter {
             } else {
                 holder = (GuidanceHolder) convertView.getTag();
             }
-            holder.btn_like.setText("" + list.get(position).getLikeNum());
+            holder.btn_like.setText("" + list.get(position).likeNum);
 
-            ImageLoader.getInstance().displayImage(list.get(position).getAvatar(), holder.iv_cover);
+            ImageLoader.getInstance().displayImage(list.get(position).imageUrl, holder.iv_cover);
 
             holder.btn_like.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -211,9 +213,9 @@ public class GenericsAdapter extends BaseAdapter {
                     doLike();
                 }
             });
-        } else if (pageFlag == AppConstants.page_search_evaluate) { //TODO 这是首页 评测
+        } else if (pageFlag == AppConstants.page_search_evaluate) { //TODO 评测
             EvaluateHolder holder;
-            final List<HomeEvaluate> list = (List<HomeEvaluate>) data;
+            final List<Evaluate> list = (List<Evaluate>) data;
 
             if (convertView == null) {
                 holder = new EvaluateHolder();
@@ -226,10 +228,10 @@ public class GenericsAdapter extends BaseAdapter {
             } else {
                 holder = (EvaluateHolder) convertView.getTag();
             }
-            holder.tv_title.setText(list.get(position).getTitle());
-            holder.btn_like.setText("" + list.get(position).getLikeNum());
+            holder.tv_title.setText(list.get(position).title);
+            holder.btn_like.setText("" + list.get(position).likeNum);
 
-            ImageLoader.getInstance().displayImage(list.get(position).getAvatar(), holder.iv_cover);
+            ImageLoader.getInstance().displayImage(list.get(position).headUrl, holder.iv_cover);
 
             holder.btn_like.setOnClickListener(new View.OnClickListener() {
                 @Override

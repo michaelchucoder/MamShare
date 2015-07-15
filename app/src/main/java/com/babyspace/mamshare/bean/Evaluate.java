@@ -21,4 +21,5 @@ public class Evaluate implements Serializable {
     public String headUrl;
     @SerializedName("praiseNum")
     public int likeNum;
+
 }
