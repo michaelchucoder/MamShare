@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.BaseActivity;
+import com.babyspace.mamshare.bean.HomeGuidanceEvent;
 import com.babyspace.mamshare.bean.LoginEvent;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.IntentParams;
@@ -456,6 +457,7 @@ public class LoginActivity extends BaseActivity {
     public void onEventMainThread(LoginEvent event) {
         hideLoadingProgress();
         L.d(OkHttpExecutor.TAG, "onEventMainThread->" + event.getResultStr());
+
     }
 
 }
