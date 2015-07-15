@@ -20,7 +20,7 @@ public class SPrefUtil {
     public static final String SP_USER_NAME = "user_name";
     public static final String SP_PASSWORD = "password";
     public static final String SP_USERID = "userId";
-    public static final String SP_TOKEN = "token";
+    public static final String SP_TOKEN = "access_token";
     public static final String SP_AUTH = "auth";
     public static final String SP_AUTO_LOGIN = "auto_login";
     public static final String SP_PUSHID = "pushId";

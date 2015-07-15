@@ -11,11 +11,6 @@ import android.text.TextUtils;
 import com.babyspace.mamshare.controller.DEBUGController;
 import com.babyspace.mamshare.framework.utils.McSysInfoUtils;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
-
-
 public class AppRuntime {
 
     public static final String APP_ENTER_COUNT = "app_enter_times";
@@ -24,19 +19,12 @@ public class AppRuntime {
      */
     public static final String IS_FIRST_ENTER = "isFirst";
 
-    public static String DEFALUT_INTERFACEVERSION;
-
     public static ClientInfo clientInfo;
 
     /**
      * 用户token
      */
-    public static String token;
-
-    /**
-     * 接口
-     */
-    public static HashMap<String, String> INTERFACEVERSIONS = new HashMap<String, String>();
+    public static String accessToken;
 
     public static void initClientInfo(Context context, Bundle b) {
         clientInfo = new ClientInfo();
@@ -53,36 +41,17 @@ public class AppRuntime {
         clientInfo.setupChannel = b.getString("UMENG_CHANNEL");
         clientInfo.appname = b.getString("APP_NAME");
         clientInfo.USER_AGENT = "m " + McSysInfoUtils.getVersionName(context) + " (" + McSysInfoUtils.getPhoneType(context) + ")";
-
     }
 
     public static void init(Context context) {
         if (context != null) {
-
             try {
-                ApplicationInfo ai = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
+                ApplicationInfo ai = context.getPackageManager()
+                        .getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
                 if (ai != null) {
                     Bundle b = ai.metaData;
                     if (b != null) {
 
-                        // InterfaceVersion
-                        DEFALUT_INTERFACEVERSION = b.getString("INTERFACE_VERSION");
-                        INTERFACEVERSIONS.clear();
-                        Set<String> keys = b.keySet();
-                        Iterator<String> iterator = keys.iterator();
-                        while (iterator.hasNext()) {
-                            String key = iterator.next();
-                            String value = b.getString(key);
-                            if (key.startsWith("INTERFACE_VERSION_")) {
-                                String[] ks = key.split("_");
-                                if (ks.length == 3) {
-                                    String interfaceName = ks[2];
-                                    if (interfaceName.length() > 0) {
-                                        INTERFACEVERSIONS.put(interfaceName, value);
-                                    }
-                                }
-                            }
-                        }
 
                         initClientInfo(context, b);
                     }
@@ -93,14 +62,13 @@ public class AppRuntime {
         }
     }
 
-
     /**
      * 用户是否登录
      *
      * @return
      */
     public static boolean isLogin() {
-        return !TextUtils.isEmpty(getToken());
+        return !TextUtils.isEmpty(getAccessToken());
     }
 
     /**
@@ -108,8 +76,8 @@ public class AppRuntime {
      *
      * @return
      */
-    public static String getToken() {
-        return token;
+    public static String getAccessToken() {
+        return accessToken;
     }
 
     public static boolean shouldInit(Context context) {
