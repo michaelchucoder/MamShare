@@ -13,17 +13,16 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * 示例：
- * {
- * "code": 200,
- * "msg": {
- * "interfacetoken":"dfgdd"
- * }
- * }
+ * "interfaceToken": "ebcb993b-c22f-4fdb-adce-8accc0e4c62f",
+ * "expiredTime": 1468561200953
  */
 public class AccessToken {
 
-    @SerializedName("interfacetoken")
+    @SerializedName("interfaceToken")
     private String interfaceToken;
+
+    @SerializedName("expiredTime")
+    private long expiredTime;
 
     public String getInterfaceToken() {
         return interfaceToken;
@@ -32,5 +31,14 @@ public class AccessToken {
     public void setInterfaceToken(String interfaceToken) {
         this.interfaceToken = interfaceToken;
     }
+
+    public long getExpiredTime() {
+        return expiredTime;
+    }
+
+    public void setExpiredTime(long expiredTime) {
+        this.expiredTime = expiredTime;
+    }
+
 
 }
