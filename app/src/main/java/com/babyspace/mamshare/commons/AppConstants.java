@@ -84,14 +84,11 @@ public class AppConstants {
 
     public static final int item_home_guidance = R.layout.item_home_guidance;
     public static final int item_home_evaluate = R.layout.item_home_evaluate;
-    public static final int item_collect_guidance = R.layout.item_guidance;
-    public static final int item_collect_evaluate = R.layout.item_evaluate;
+    public static final int item_guidance = R.layout.item_guidance;
+    public static final int item_evaluate = R.layout.item_evaluate;
     public static final int item_discover_search = R.layout.item_discover_search;
     public static final int item_recommend_tag = R.layout.item_recommend_tag;
-    public static final int item_search_guidance = R.layout.item_guidance;
-    public static final int item_search_evaluate = R.layout.item_evaluate;
     public static final int item_tag_evaluate = R.layout.item_evaluate;
-    public static final int item_user_evaluate = R.layout.item_evaluate;
 
 
 }
