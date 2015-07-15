@@ -185,6 +185,60 @@ public class GenericsAdapter extends BaseAdapter {
             }
             holder.tv_title.setText(list.get(position).tagName);
 
+        } else if (pageFlag == AppConstants.page_search_guidance) { //TODO 这是首页
+            GuidanceHolder holder;
+            final List<HomeEvaluate> list = (List<HomeEvaluate>) data;
+
+            if (convertView == null) {
+                holder = new GuidanceHolder();
+                convertView = View.inflate(ctx, AppConstants.item_home_evaluate, null);
+                ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
+                holder.iv_cover = (ImageView) convertView.findViewById(R.id.iv_cover);
+                holder.btn_like = (Button) convertView.findViewById(R.id.btn_like);
+                convertView.setTag(holder);
+            } else {
+                holder = (GuidanceHolder) convertView.getTag();
+            }
+            holder.btn_like.setText("" + list.get(position).getLikeNum());
+
+            ImageLoader.getInstance().displayImage(list.get(position).getAvatar(), holder.iv_cover);
+
+            holder.btn_like.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //状态改变后刷新数据
+                    ToastHelper.showToast(ctx, "喜欢还是讨厌");
+                    doLike();
+                }
+            });
+        } else if (pageFlag == AppConstants.page_search_evaluate) { //TODO 这是首页 评测
+            EvaluateHolder holder;
+            final List<HomeEvaluate> list = (List<HomeEvaluate>) data;
+
+            if (convertView == null) {
+                holder = new EvaluateHolder();
+                convertView = View.inflate(ctx, AppConstants.item_home_evaluate, null);
+                ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
+                holder.tv_title = (TextView) convertView.findViewById(R.id.tv_title);
+                holder.iv_cover = (ImageView) convertView.findViewById(R.id.iv_cover);
+                holder.btn_like = (Button) convertView.findViewById(R.id.btn_like);
+                convertView.setTag(holder);
+            } else {
+                holder = (EvaluateHolder) convertView.getTag();
+            }
+            holder.tv_title.setText(list.get(position).getTitle());
+            holder.btn_like.setText("" + list.get(position).getLikeNum());
+
+            ImageLoader.getInstance().displayImage(list.get(position).getAvatar(), holder.iv_cover);
+
+            holder.btn_like.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //状态改变后刷新数据
+                    ToastHelper.showToast(ctx, "喜欢还是讨厌");
+                    doLike();
+                }
+            });
         } else {
             ViewHolder holder;
             final List<TestBean> list = (List<TestBean>) data;
