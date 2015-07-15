@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class TagEvaluate implements Serializable {
     @SerializedName("tag")
-    public String tag;
+    public Tags tag;
     @SerializedName("eval")
     public List<Evaluate> evaluates;
 }

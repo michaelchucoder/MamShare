@@ -10,7 +10,9 @@ import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.GenericsAdapter;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.BaseFragment;
+import com.babyspace.mamshare.bean.Evaluate;
 import com.babyspace.mamshare.bean.HomeGuidanceEvent;
+import com.babyspace.mamshare.bean.TagEvaluateEvent;
 import com.babyspace.mamshare.bean.TestBean;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.UrlConstants;
@@ -36,7 +38,7 @@ public class TagEvaluateListFragment extends BaseFragment {
 
     GenericsAdapter adapter;
 
-    List<TestBean> data;
+    List<Evaluate> data;
 
     private final int queryNum = 9;
     private int queryStart = 0;
@@ -130,7 +132,7 @@ public class TagEvaluateListFragment extends BaseFragment {
 
         //showLoadingProgress();
         if (queryCall != null) queryCall.cancel();
-        queryCall = OkHttpExecutor.query(UrlConstants.HomeGuidanceList, jsonParameter, HomeGuidanceEvent.class, false, this);
+        queryCall = OkHttpExecutor.query(UrlConstants.TagEvaluate, jsonParameter, TagEvaluateEvent.class, false, this);
 
     }
 
@@ -139,41 +141,13 @@ public class TagEvaluateListFragment extends BaseFragment {
      *
      * @param event
      */
-    public void onEventMainThread(HomeGuidanceEvent event) {
+    public void onEventMainThread(TagEvaluateEvent event) {
         hideLoadingProgress();
         L.d(OkHttpExecutor.TAG, "onEventMainThread-RegisterFeatureFragment>" + event.getResultStr());
 
-        List<TestBean> responseData = new ArrayList<>();
+        List<Evaluate> responseData=event.getData().evaluates;
 
-        if (queryCount <= 4) {
-            for (int i = 0; i < queryNum; i++) {
-                responseData.add(new TestBean("More " + queryCount + " i " + i, false));
-            }
-
-        } else {
-            for (int i = 0; i < queryNum - 1; i++) {
-                responseData.add(new TestBean("Last " + queryCount + " i " + i, false));
-            }
-
-        }
-
-        if (responseData.size() < queryNum) {
-            ToastHelper.showToast(getActivity(), "最后数据");
-            isMoreData = false;
-        } else {
-
-        }
-
-        if (isRefreshAdd) {
-            queryStart += queryNum;
-            data = responseData;
-            isRefreshAdd = false;
-        } else {
-            data = responseData;
-            // 有可能刚刷新完 又上滑刷新添加
-            isMoreData = true;
-            queryStart += queryNum;
-        }
+        data=responseData;
 
         adapter.refresh(AppConstants.page_recommend_tag, data);
 

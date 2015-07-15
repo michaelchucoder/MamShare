@@ -50,7 +50,7 @@ public class UrlConstants {
     /**
      * 获取某标签下评测列表接口
      */
-    public static final String TagEval = "/tag/eval";
+    public static final String TagEvaluate = "/tag/eval";
     /**
      * 获取搜索结果接口
      */
