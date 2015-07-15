@@ -46,17 +46,21 @@ import com.tencent.tauth.UiError;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class LoginActivity extends BaseActivity {
     public static final int QQ = 2;
     public static final int SINA = 3;
-    public static final String AppID = "1101253936";
     protected static final String TAG = "LoginActivity";
     public static QQAuth mQQAuth;
-    protected Tencent mTencent;
-    private EditText etUsername;
-    private EditText etPwd;
+    protected Tencent tencent;
+
+    @InjectView(R.id.login_account_edit)
+    EditText etUsername;
+    @InjectView(R.id.login_password_edit)
+    EditText etPwd;
+
     private String mobile;// 帐号
     private String password;// 密码
     private String auth;
@@ -66,7 +70,7 @@ public class LoginActivity extends BaseActivity {
     private UserInfo mInfo; // QQ用户信息
     private String openId; // 用户openId
     private String nickName; // 用户的昵称
-    private WeiboAuth mAuthInfo;
+    private WeiboAuth weiboAuth;
     /**
      * 封装了 "access_token"，"expires_in"，"refresh_token"，并提供了他们的管理功能
      */
@@ -77,7 +81,7 @@ public class LoginActivity extends BaseActivity {
      */
     private SsoHandler mSsoHandler;
 
-    private IWXAPI api;
+    private IWXAPI iwxapi;
     private BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
         @SuppressWarnings("null")
         @Override
@@ -100,9 +104,7 @@ public class LoginActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        initWidget();
-        regToWx();
-
+        registerToThird();
         registerReceiver();
 
     }
@@ -120,11 +122,16 @@ public class LoginActivity extends BaseActivity {
         unregisterReceiver(mBroadcastReceiver);
     }
 
-    private void regToWx() {
+    private void registerToThird() {
         // 通过WXAPIFactory工厂，获取IWXPI的实例
-        api = WXAPIFactory.createWXAPI(LoginActivity.this, AppConstants.WX_APP_ID, true);
+        iwxapi = WXAPIFactory.createWXAPI(LoginActivity.this, AppConstants.WX_APP_ID, true);
         // 将应用的appid注册到微信
-        api.registerApp(AppConstants.WX_APP_ID);
+        iwxapi.registerApp(AppConstants.WX_APP_ID);
+
+        tencent = Tencent.createInstance(AppConstants.QQ_APP_ID, this);
+        mQQAuth = QQAuth.createInstance(AppConstants.QQ_APP_ID, this);
+
+        weiboAuth = new WeiboAuth(this, AppConstants.SINA_APP_ID, AppConstants.SINA_REDIRECT_URL, "");
     }
 
     /**
@@ -147,14 +154,14 @@ public class LoginActivity extends BaseActivity {
             UiHelper.showSystemDialog(LoginActivity.this, msg);
             return;
         }
-        if (!isWXAppInstalledAndSupported(api)) {
+        if (!isWXAppInstalledAndSupported(iwxapi)) {
             Toast.makeText(this, "对不起，请先安装微信！", Toast.LENGTH_SHORT).show();
             return;
         } else {
             SendAuth.Req req = new SendAuth.Req();
             req.scope = "snsapi_userinfo";
             req.state = "wechat_sdk_demo_test";
-            api.sendReq(req);
+            iwxapi.sendReq(req);
         }
     }
 
@@ -168,8 +175,8 @@ public class LoginActivity extends BaseActivity {
         // QQ联合登录
         authType = QQ;
         BaseUiListener listener = new BaseUiListener();
-        if (!mTencent.isSessionValid()) {
-            mTencent.login(LoginActivity.this, "all", listener);
+        if (!tencent.isSessionValid()) {
+            tencent.login(LoginActivity.this, "all", listener);
         } else {
             ToastHelper.showToast(this, "QQ账号已经登录！");
         }
@@ -199,8 +206,8 @@ public class LoginActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         // 登录qq成功后，接收回调
-        if (mTencent != null) {
-            mTencent.onActivityResult(requestCode, resultCode, data);
+        if (tencent != null) {
+            tencent.onActivityResult(requestCode, resultCode, data);
         }
 
         // 新浪 SSO 授权回调
@@ -246,16 +253,6 @@ public class LoginActivity extends BaseActivity {
     private void doForgetPassword() {
         Intent intent = new Intent(LoginActivity.this, ResetPasswordActivity.class);
         startActivity(intent);
-    }
-
-    public void initWidget() {
-        mTencent = Tencent.createInstance(AppID, this);
-        mQQAuth = QQAuth.createInstance(AppID, this);
-        mAuthInfo = new WeiboAuth(this, AppConstants.SINA_APP_ID, AppConstants.SINA_REDIRECT_URL, "");
-
-        etUsername = (EditText) findViewById(R.id.login_account_edit);
-        etPwd = (EditText) findViewById(R.id.login_password_edit);
-
     }
 
     @Override
@@ -450,7 +447,7 @@ public class LoginActivity extends BaseActivity {
                 break;
             case R.id.btn_login_sina:
                 authType = SINA;
-                mSsoHandler = new SsoHandler(this, mAuthInfo);
+                mSsoHandler = new SsoHandler(this, weiboAuth);
                 mSsoHandler.authorize(new AuthListener());
                 break;
         }
