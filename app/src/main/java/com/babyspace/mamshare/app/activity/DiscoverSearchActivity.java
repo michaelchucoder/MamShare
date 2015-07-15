@@ -16,8 +16,9 @@ import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.GenericsAdapter;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.babyspace.mamshare.basement.MamShare;
-import com.babyspace.mamshare.bean.HomeGuidanceEvent;
-import com.babyspace.mamshare.bean.TestBean;
+import com.babyspace.mamshare.bean.HomeGuidance;
+import com.babyspace.mamshare.bean.RecommendTagEvent;
+import com.babyspace.mamshare.bean.Tags;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.google.gson.JsonObject;
@@ -46,10 +47,11 @@ public class DiscoverSearchActivity extends BaseActivity implements SwipeRefresh
 
     private ProgressBar footerProgressBar;
     private TextView footerText;
-
+    View mHeader;
+    View mFooter;
     GenericsAdapter adapter;
 
-    List<TestBean> data;
+    List<Tags> data;
 
     private int firstVisiblePosition;
     private final int BACK_TOP_COUNT = 5;
@@ -82,8 +84,8 @@ public class DiscoverSearchActivity extends BaseActivity implements SwipeRefresh
         mSwipeLayout.setColorSchemeResources(android.R.color.holo_red_dark,
                 android.R.color.holo_red_light);
 
-        View mHeader = View.inflate(this, R.layout.common_title_layout, null);
-        View mFooter = View.inflate(this, R.layout.common_refresh_footer, null);
+        mHeader = View.inflate(this, R.layout.common_title_layout, null);
+        mFooter = View.inflate(this, R.layout.common_refresh_footer, null);
 
         ViewRelayoutUtil.relayoutViewWithScale(mHeader, MamShare.screenWidthScale);
         ViewRelayoutUtil.relayoutViewWithScale(mFooter, MamShare.screenWidthScale);
@@ -162,7 +164,7 @@ public class DiscoverSearchActivity extends BaseActivity implements SwipeRefresh
 
         //showLoadingProgress();
         if (queryCall != null) queryCall.cancel();
-        queryCall = OkHttpExecutor.query(UrlConstants.HomeGuidanceList, jsonParameter, HomeGuidanceEvent.class, false, this);
+        queryCall = OkHttpExecutor.query(UrlConstants.TagList, jsonParameter, RecommendTagEvent.class, false, this);
 
     }
 
@@ -193,24 +195,12 @@ public class DiscoverSearchActivity extends BaseActivity implements SwipeRefresh
      *
      * @param event
      */
-    public void onEventMainThread(HomeGuidanceEvent event) {
+    public void onEventMainThread(RecommendTagEvent event) {
         mSwipeLayout.setRefreshing(false);
         hideLoadingProgress();
-        L.d(OkHttpExecutor.TAG, "onEventMainThread-RecommendLabelActivity>" + event.getResultStr()+" "+event.getCode());
+        L.d(OkHttpExecutor.TAG, "onEventMainThread-RecommendTagEvent>" + event.getResultStr() + " " + event.getCode());
 
-        List<TestBean> responseData = new ArrayList<>();
-
-        if (queryCount <= 6) {
-            for (int i = 0; i < queryNum; i++) {
-                responseData.add(new TestBean("More " + queryCount + " i " + i, false));
-            }
-
-        } else {
-            for (int i = 0; i < queryNum - 1; i++) {
-                responseData.add(new TestBean("Last " + queryCount + " i " + i, false));
-            }
-
-        }
+        List<Tags> responseData = event.getData();
 
         if (responseData.size() < queryNum) {
             footerProgressBar.setVisibility(View.INVISIBLE);
@@ -232,7 +222,14 @@ public class DiscoverSearchActivity extends BaseActivity implements SwipeRefresh
             queryStart += queryNum;
         }
 
-        adapter.refresh(AppConstants.page_recommend_tag, data);
+        if (queryCount > 2){
+            data.clear();
+            data.add(responseData.get(0));
+            adapter.refresh(AppConstants.page_empty,data );
+            mFooter.setVisibility(View.GONE);
+        }
+        else
+            adapter.refresh(AppConstants.page_discover_search, data);
 
     }
 

@@ -14,7 +14,7 @@ import java.io.Serializable;
  */
 public class Tags implements Serializable {
     @SerializedName("coverPhoto")
-    public int coverPhoto;
+    public String coverPhoto;
     @SerializedName("tagId")
     public int tagId;
     @SerializedName("tagName")

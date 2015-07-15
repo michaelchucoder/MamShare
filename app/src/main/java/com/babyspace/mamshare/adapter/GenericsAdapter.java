@@ -18,6 +18,7 @@ import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.HomeEvaluate;
 import com.babyspace.mamshare.bean.HomeGuidance;
+import com.babyspace.mamshare.bean.Tags;
 import com.babyspace.mamshare.bean.TestBean;
 import com.babyspace.mamshare.bean.VersionCheckEvent;
 import com.babyspace.mamshare.commons.AppConstants;
@@ -112,6 +113,23 @@ public class GenericsAdapter extends BaseAdapter {
                 holder = (HomeGuidanceHolder) convertView.getTag();
             }
             ImageLoader.getInstance().displayImage(list.get(position).getImageUrl(), holder.iv_guidance);
+        } else if (pageFlag == AppConstants.page_discover_search) { //TODO
+            DiscoverSearchHolder holder;
+            List<Tags> list = (List<Tags>) data;
+
+            if (convertView == null) {
+                holder = new DiscoverSearchHolder();
+                convertView = View.inflate(ctx, AppConstants.item_discover_search, null);
+                ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
+                holder.iv_cover = (ImageView) convertView.findViewById(R.id.iv_cover);
+                holder.tv_title = (TextView) convertView.findViewById(R.id.tv_title);
+                convertView.setTag(holder);
+            } else {
+                holder = (DiscoverSearchHolder) convertView.getTag();
+            }
+            holder.tv_title.setText(list.get(position).tagName);
+
+            ImageLoader.getInstance().displayImage(list.get(position).coverPhoto, holder.iv_cover);
         } else if (pageFlag == AppConstants.page_home_evaluate) { //TODO 这是首页 评测
             HomeEvaluateHolder holder;
             final List<HomeEvaluate> list = (List<HomeEvaluate>) data;
@@ -232,6 +250,11 @@ public class GenericsAdapter extends BaseAdapter {
         ImageView iv_guidance;
     }
 
+    class DiscoverSearchHolder {
+        TextView tv_title;
+        ImageView iv_cover;
+    }
+
     class HomeEvaluateHolder {
         TextView tv_title;
         TextView tv_desc;
@@ -246,6 +269,7 @@ public class GenericsAdapter extends BaseAdapter {
         ImageView iv_avatar;
         Button btn_like;
     }
+
 
     public void doLike() {
         if (!EventBus.getDefault().isRegistered(this))
