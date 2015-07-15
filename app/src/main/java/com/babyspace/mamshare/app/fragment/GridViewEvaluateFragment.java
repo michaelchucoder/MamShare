@@ -18,7 +18,9 @@ import com.babyspace.mamshare.adapter.GenericsAdapter;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.HomeGuidanceEvent;
+import com.babyspace.mamshare.bean.SearchResultEvent;
 import com.babyspace.mamshare.bean.TestBean;
+import com.babyspace.mamshare.bean.UserEvaluateEvent;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.babyspace.mamshare.listener.EmptyListener;
@@ -200,8 +202,20 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
         jsonParameter.addProperty("start", queryStart);
 
         //showLoadingProgress();
-        if (queryCall != null) queryCall.cancel();
-        queryCall = OkHttpExecutor.query(UrlConstants.HomeGuidanceList, jsonParameter, HomeGuidanceEvent.class, false, this);
+        switch (pageFlag){
+            case AppConstants.page_search_evaluate:
+                if (queryCall != null) queryCall.cancel();
+                queryCall = OkHttpExecutor.query(UrlConstants.Search, jsonParameter, SearchResultEvent.class, false, this);
+                break;
+            case AppConstants.page_collect_evaluate:
+                if (queryCall != null) queryCall.cancel();
+                queryCall = OkHttpExecutor.query(UrlConstants.UserCenter, jsonParameter, SearchResultEvent.class, false, this);
+                break;
+            case AppConstants.page_user_evaluate:
+                if (queryCall != null) queryCall.cancel();
+                queryCall = OkHttpExecutor.query(UrlConstants.UserEvaluate, jsonParameter, UserEvaluateEvent.class, false, this);
+                break;
+        }
 
     }
 
