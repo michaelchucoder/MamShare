@@ -88,7 +88,6 @@ public class AppConstants {
     public static final int item_evaluate = R.layout.item_evaluate;
     public static final int item_discover_search = R.layout.item_discover_search;
     public static final int item_recommend_tag = R.layout.item_recommend_tag;
-    public static final int item_tag_evaluate = R.layout.item_evaluate;
 
 
 }
