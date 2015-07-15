@@ -22,6 +22,9 @@ public class UrlConstants {
      * All the URL are placed in the UrlConstants class
      */
     public static final String VersionCheck = "/system/versionCheck";
+    /**
+     * 获取token
+     */
     public static final String AccessToken = "/system/getEquipmentAccessToken";
 
     /**
