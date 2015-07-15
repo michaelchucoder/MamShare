@@ -8,12 +8,9 @@ import android.widget.AbsListView;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.GenericsAdapter;
-import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.bean.Evaluate;
-import com.babyspace.mamshare.bean.HomeGuidanceEvent;
 import com.babyspace.mamshare.bean.TagEvaluateEvent;
-import com.babyspace.mamshare.bean.TestBean;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.google.gson.JsonObject;
@@ -50,6 +47,7 @@ public class TagEvaluateListFragment extends BaseFragment {
     public TagEvaluateListFragment() {
         // Required empty public constructor
     }
+
     // TODO: Rename and change types and number of parameters
     public static TagEvaluateListFragment newInstance(int pageFlag) {
         TagEvaluateListFragment fragment = new TagEvaluateListFragment();
@@ -58,6 +56,7 @@ public class TagEvaluateListFragment extends BaseFragment {
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -145,11 +144,16 @@ public class TagEvaluateListFragment extends BaseFragment {
         hideLoadingProgress();
         L.d(OkHttpExecutor.TAG, "onEventMainThread-RegisterFeatureFragment>" + event.getResultStr());
 
-        List<Evaluate> responseData=event.getData().evaluates;
+        List<Evaluate> responseData = event.getData().evaluates;
 
-        data=responseData;
+        data = responseData;
 
-        adapter.refresh(AppConstants.page_recommend_tag, data);
+        if (queryCount > 2) {
+            data.clear();
+            data.add(responseData.get(0));
+            adapter.refresh(AppConstants.page_empty, data);
+        } else
+            adapter.refresh(AppConstants.page_tag_evaluate, data);
 
     }
 
