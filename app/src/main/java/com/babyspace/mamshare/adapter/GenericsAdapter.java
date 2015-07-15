@@ -44,7 +44,6 @@ import de.greenrobot.event.EventBus;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class GenericsAdapter extends BaseAdapter {
-
     /**
      * public static final int page_home_guidance = 2001;
      * public static final int page_home_evaluate = 2002;
