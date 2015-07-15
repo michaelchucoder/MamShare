@@ -1,6 +1,7 @@
-package com.babyspace.mamshare.app.activity;
+package com.babyspace.mamshare.app.fragment;
 
-import android.content.Intent;
+
+import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -14,14 +15,13 @@ import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.GenericsAdapter;
-import com.babyspace.mamshare.basement.BaseActivity;
+import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.HomeGuidanceEvent;
-import com.babyspace.mamshare.bean.HotWordEvent;
-import com.babyspace.mamshare.bean.Tags;
 import com.babyspace.mamshare.bean.TestBean;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.UrlConstants;
+import com.babyspace.mamshare.listener.EmptyListener;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.core.tools.ViewRelayoutUtil;
@@ -34,9 +34,13 @@ import java.util.List;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
+import de.greenrobot.event.EventBus;
 
-public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener {
-    //TODO P5
+public class UserEvaluateListFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
+
+    private static final String PAGE_FLAG = "pageFlag";
+    private int pageFlag;
+    EmptyListener mCallback;
 
     @InjectView(R.id.swipe_container)
     SwipeRefreshLayout mSwipeLayout;
@@ -49,11 +53,10 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
 
     private ProgressBar footerProgressBar;
     private TextView footerText;
-    View mHeader;
-    View mFooter;
+
     GenericsAdapter adapter;
 
-    List<String> data;
+    List<TestBean> data;
 
     private int firstVisiblePosition;
     private final int BACK_TOP_COUNT = 5;
@@ -65,30 +68,58 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
     private boolean isMoreData = true;
     private Call queryCall;
 
+    public UserEvaluateListFragment() {
+        // Required empty public constructor
+    }
+
+    // TODO: Rename and change types and number of parameters
+    public static UserEvaluateListFragment newInstance(int pageFlag) {
+        UserEvaluateListFragment fragment = new UserEvaluateListFragment();
+        Bundle args = new Bundle();
+        args.putInt(PAGE_FLAG, pageFlag);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recommend_tag);
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        // This makes sure that the container activity has implemented
+        // the callback interface. If not, it throws an exception.
+        try {
+            mCallback = (EmptyListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement EmptyListener");
+        }
+    }
+
+    @Override
+    public void init(Bundle savedInstanceState) {
+        setContentView(R.layout.fragment_gridview_evaluate);
+
+        EventBus.getDefault().register(this);
+        if (getArguments() != null) {
+            pageFlag = getArguments().getInt(PAGE_FLAG);
+        }
+        L.d("UserEvaluateListFragment", " pageFlag " + pageFlag);
 
         data = new ArrayList<>();
-        adapter = new GenericsAdapter(this, AppConstants.page_recommend_tag);
-
-        initView();
-        showLoadingProgress();
-        queryData();
+        adapter = new GenericsAdapter(getActivity(), pageFlag);
 
     }
 
-    private void initView() {
-
+    @Override
+    public void initView() {
 
         mSwipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
         mSwipeLayout.setOnRefreshListener(this);
         mSwipeLayout.setColorSchemeResources(android.R.color.holo_red_dark,
                 android.R.color.holo_red_light);
 
-        mHeader = View.inflate(this, R.layout.common_title_layout, null);
-        mFooter = View.inflate(this, R.layout.common_refresh_footer, null);
+        View mHeader = View.inflate(getActivity(), R.layout.common_title_layout, null);
+        View mFooter = View.inflate(getActivity(), R.layout.common_refresh_footer, null);
 
         ViewRelayoutUtil.relayoutViewWithScale(mHeader, MamShare.screenWidthScale);
         ViewRelayoutUtil.relayoutViewWithScale(mFooter, MamShare.screenWidthScale);
@@ -148,6 +179,8 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
             }
         });
 
+        queryData();
+
     }
 
 
@@ -168,11 +201,11 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
 
         //showLoadingProgress();
         if (queryCall != null) queryCall.cancel();
-        queryCall = OkHttpExecutor.query(UrlConstants.HotWords, jsonParameter, HotWordEvent.class, false, this);
+        queryCall = OkHttpExecutor.query(UrlConstants.HomeGuidanceList, jsonParameter, HomeGuidanceEvent.class, false, this);
 
     }
 
-    @OnClick({R.id.btn_home_back_top, R.id.tv_label_search, R.id.back})
+    @OnClick({R.id.btn_home_back_top})
     public void doOnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_home_back_top:
@@ -182,26 +215,33 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
                     gridView.setSelection(0);
                 }
                 break;
-            case R.id.tv_label_search:
-
-                Intent i = new Intent(this, SearchResultActivity.class);
-                startActivity(i);
-            case R.id.back:
-                onBackPressed();
-                break;
         }
     }
+
 
     /**
      * EventBus 响应事件
      *
      * @param event
      */
-    public void onEventMainThread(HotWordEvent event) {
+    public void onEventMainThread(HomeGuidanceEvent event) {
         mSwipeLayout.setRefreshing(false);
         hideLoadingProgress();
-        L.d(OkHttpExecutor.TAG, "onEventMainThread-HotWordEvent>" + event.getResultStr());
-        List<String> responseData = event.getData();
+        L.d(OkHttpExecutor.TAG, "onEventMainThread-SearchResultEvaluateFragment>" + event.getResultStr());
+
+        List<TestBean> responseData = new ArrayList<>();
+
+        if (queryCount <= 6) {
+            for (int i = 0; i < queryNum; i++) {
+                responseData.add(new TestBean("More " + queryCount + " i " + i, false));
+            }
+
+        } else {
+            for (int i = 0; i < queryNum - 2; i++) {
+                responseData.add(new TestBean("Last " + queryCount + " i " + i, false));
+            }
+
+        }
 
         if (responseData.size() < queryNum) {
             footerProgressBar.setVisibility(View.INVISIBLE);
@@ -222,15 +262,16 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
             isMoreData = true;
             queryStart += queryNum;
         }
+        /**
+         * 如果为空， 则加载 空的fragment
+         */
 
-        if (queryCount > 2){
-            data.clear();
-            data.add(responseData.get(0));
-            adapter.refresh(AppConstants.page_empty, data);
-            mFooter.setVisibility(View.GONE);
-        }
-        else
+        if (data.size() >= 5) {
+
             adapter.refresh(AppConstants.page_recommend_tag, data);
+        } else {
+            mCallback.onDataEmpty();
+        }
 
 
     }

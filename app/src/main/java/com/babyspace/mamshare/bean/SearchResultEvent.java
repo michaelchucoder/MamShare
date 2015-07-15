@@ -11,4 +11,5 @@ import com.babyspace.mamshare.basement.BaseResponseBean;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class SearchResultEvent extends BaseResponseBean<SearchResult> {
+    //搜索结果和用户收藏都用该事件
 }

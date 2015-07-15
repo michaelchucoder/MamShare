@@ -18,6 +18,7 @@ import com.babyspace.mamshare.adapter.GenericsAdapter;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.HomeGuidanceEvent;
+import com.babyspace.mamshare.bean.SearchResultEvent;
 import com.babyspace.mamshare.bean.TestBean;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.UrlConstants;
@@ -199,8 +200,16 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
         jsonParameter.addProperty("start", queryStart);
 
         //showLoadingProgress();
-        if (queryCall != null) queryCall.cancel();
-        queryCall = OkHttpExecutor.query(UrlConstants.HomeGuidanceList, jsonParameter, HomeGuidanceEvent.class, false, this);
+        switch (pageFlag){
+            case AppConstants.page_search_guidance:
+                if (queryCall != null) queryCall.cancel();
+                queryCall = OkHttpExecutor.query(UrlConstants.Search, jsonParameter, SearchResultEvent.class, false, this);
+                break;
+            case AppConstants.page_collect_guidance:
+                if (queryCall != null) queryCall.cancel();
+                queryCall = OkHttpExecutor.query(UrlConstants.UserCenter, jsonParameter, SearchResultEvent.class, false, this);
+                break;
+        }
 
     }
 
@@ -223,7 +232,7 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
      *
      * @param event
      */
-    public void onEventMainThread(HomeGuidanceEvent event) {
+    public void onEventMainThread(SearchResultEvent event) {
         mSwipeLayout.setRefreshing(false);
         hideLoadingProgress();
         L.d(OkHttpExecutor.TAG, "onEventMainThread-SearchResultGuidanceFragment>" + event.getResultStr());
