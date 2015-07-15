@@ -320,10 +320,7 @@
         <activity android:name=".app.activity.ResetPasswordActivity" />
         <activity android:name=".app.activity.CommentActivity" />
         <activity android:name=".app.activity.GuidanceDetailActivity" />
-        <activity
-            android:name=".app.activity.GreenDaoActivity"
-            android:label="@string/title_activity_green_dao" >
-        </activity>
+        <activity android:name=".app.activity.GreenDaoActivity" />
     </application>
 
 </manifest>
