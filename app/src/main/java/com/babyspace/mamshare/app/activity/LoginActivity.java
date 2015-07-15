@@ -453,5 +453,9 @@ public class LoginActivity extends BaseActivity {
         }
     }
 
+    public void onEventMainThread(LoginEvent event) {
+        hideLoadingProgress();
+        L.d(OkHttpExecutor.TAG, "onEventMainThread->" + event.getResultStr());
+    }
 
 }
