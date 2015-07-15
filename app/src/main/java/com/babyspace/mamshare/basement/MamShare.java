@@ -1,7 +1,6 @@
 package com.babyspace.mamshare.basement;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
@@ -115,12 +114,11 @@ public class MamShare extends BaseApplication {
         if (event == null) {
             return;
         }
-        switch (event.apicode) {
+        switch (event.code) {
 
             case AppConstants.HTTP_NO_NETWORK:
                 Toast.makeText(this, R.string.no_network, Toast.LENGTH_SHORT).show();
                 break;
-
             default:
                 break;
         }
