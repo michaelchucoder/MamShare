@@ -106,8 +106,6 @@ public class MamShare extends BaseApplication {
 
         ImageLoader.getInstance().init(configuration);
     }
-
-
     /**
      * Http请求错误提示
      *
