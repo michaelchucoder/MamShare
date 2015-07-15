@@ -29,6 +29,10 @@ public class UrlConstants {
      */
     public static final String Login = "account/login";
     /**
+     * 第三方登录
+     */
+    public static final String ThirdUserAuth = "account/login";
+    /**
      * 首页攻略列表
      */
     public static final String HomeGuidanceList = "/strategy";
