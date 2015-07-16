@@ -20,7 +20,6 @@
         android:background="@color/pink_mama_bg"
         android:orientation="vertical">
 
-
         <LinearLayout
             android:id="@+id/ll_login_account"
             android:layout_width="500px"
