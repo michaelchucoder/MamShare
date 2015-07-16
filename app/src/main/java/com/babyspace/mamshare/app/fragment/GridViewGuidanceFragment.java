@@ -101,6 +101,7 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
         setContentView(R.layout.fragment_gridview_guidance);
 
         EventBus.getDefault().register(this);
+
         if (getArguments() != null) {
             pageFlag = getArguments().getInt(PAGE_FLAG);
         }

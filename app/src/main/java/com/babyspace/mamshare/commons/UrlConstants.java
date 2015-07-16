@@ -81,6 +81,10 @@ public class UrlConstants {
      * 获取用户已登录信息接口
      */
     public static final String UserCenter = "/user/center";
+    /**
+     * 获取用户个人信息接口
+     */
+    public static final String UserInfo = "/user/info";
 
     /**
      * Android攻略/评测收藏接口

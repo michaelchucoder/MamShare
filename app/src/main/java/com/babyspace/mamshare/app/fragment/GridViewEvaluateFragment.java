@@ -245,7 +245,7 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
     public void onEventMainThread(SearchResultEvent event) {
         mSwipeLayout.setRefreshing(false);
         hideLoadingProgress();
-        L.d(OkHttpExecutor.TAG, "onEventMainThread-SearchResultEvaluateFragment>" + event.getResultStr());
+        L.d(OkHttpExecutor.TAG, "onEventMainThread-SearchResultEvent>" + event.getResultStr());
 
         List<Evaluate> responseData = event.getData().evalList;
 
