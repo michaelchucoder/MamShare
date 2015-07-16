@@ -94,7 +94,6 @@ public class GreenDaoActivity extends ListActivity {
 
         OkHttpExecutor.query(UrlConstants.AddCollection, jsonParameter,DefaultResponseEvent.class, false, this);
 
-        OkHttpExecutor.query(UrlConstants.HotWords, HotWordEvent.class, false, this);
 
     }
 
@@ -170,6 +169,8 @@ public class GreenDaoActivity extends ListActivity {
         String string=event.getData();
         L.d(OkHttpExecutor.TAG, "DefaultResponseEvent-getData " + string);
 
+        OkHttpExecutor.query(UrlConstants.HotWords, HotWordEvent.class, false, this);
+
     }
     public void onEventMainThread(HotWordEvent event) {
         L.d(OkHttpExecutor.TAG, "HotWordEvent->" + event.getResultStr());
@@ -178,6 +179,5 @@ public class GreenDaoActivity extends ListActivity {
         L.d(OkHttpExecutor.TAG,"HotWordEvent-getData "+strings.get(2));
 
     }
-
 
 }
