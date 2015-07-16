@@ -204,7 +204,7 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
         switch (pageFlag){
             case AppConstants.page_search_guidance:
                 if (queryCall != null) queryCall.cancel();
-                queryCall = OkHttpExecutor.query(UrlConstants.Search, jsonParameter, SearchResultEvent.class, false, this);
+                queryCall = OkHttpExecutor.query(UrlConstants.Search,  SearchResultEvent.class, false, this);
                 break;
             case AppConstants.page_collect_guidance:
                 if (queryCall != null) queryCall.cancel();
@@ -266,7 +266,7 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
             adapter.refresh(AppConstants.page_empty, data);
             mFooter.setVisibility(View.GONE);
         } else
-            adapter.refresh(AppConstants.page_home_evaluate, data);
+            adapter.refresh(pageFlag, data);
 
 
 

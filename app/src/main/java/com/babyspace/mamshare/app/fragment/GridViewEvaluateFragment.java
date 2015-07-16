@@ -210,7 +210,7 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
         switch (pageFlag) {
             case AppConstants.page_search_evaluate:
                 if (queryCall != null) queryCall.cancel();
-                queryCall = OkHttpExecutor.query(UrlConstants.Search, jsonParameter, SearchResultEvent.class, false, this);
+                queryCall = OkHttpExecutor.query(UrlConstants.Search,  SearchResultEvent.class, false, this);
                 break;
             case AppConstants.page_collect_evaluate:
                 if (queryCall != null) queryCall.cancel();
@@ -275,12 +275,45 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
             adapter.refresh(AppConstants.page_empty, data);
             mFooter.setVisibility(View.GONE);
         } else
-            adapter.refresh(AppConstants.page_home_evaluate, data);
-
-
+            adapter.refresh(pageFlag, data);
 
     }
+    public void onEventMainThread(UserEvaluateEvent event) {
+        mSwipeLayout.setRefreshing(false);
+        hideLoadingProgress();
+        L.d(OkHttpExecutor.TAG, "onEventMainThread-SearchResultEvaluateFragment>" + event.getResultStr());
 
+        List<Evaluate> responseData = event.getData().evaluates;
+
+        if (responseData.size() < queryNum) {
+            footerProgressBar.setVisibility(View.INVISIBLE);
+            footerText.setText("本次探险已经结束，暂时没有更多内容了呢~");
+            isMoreData = false;
+        } else {
+            footerProgressBar.setVisibility(View.INVISIBLE);
+            footerText.setText("");
+        }
+
+        if (isRefreshAdd) {
+            queryStart += queryNum;
+            data.addAll(responseData);
+            isRefreshAdd = false;
+        } else {
+            data = responseData;
+            // 有可能刚刷新完 又上滑刷新添加
+            isMoreData = true;
+            queryStart += queryNum;
+        }
+
+        if (queryCount > 2) {
+            data.clear();
+            data.add(responseData.get(0));
+            adapter.refresh(AppConstants.page_empty, data);
+            mFooter.setVisibility(View.GONE);
+        } else
+            adapter.refresh(pageFlag, data);
+
+    }
     @Override
     public void onRefresh() {
         new Handler().postDelayed(new Runnable() {
