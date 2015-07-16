@@ -12,6 +12,7 @@ import com.babyspace.mamshare.R;
  */
 public class AppConstants {
 
+    public static final String INTERFACETOKEN = "interfacetoken";
 
     /**
      * 各种ID

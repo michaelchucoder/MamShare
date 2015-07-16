@@ -26,6 +26,18 @@ public class UrlConstants {
     public static final String RESPONSE_fail = "400";
     public static final String RESPONSE_wrong_verify = "402";
 
+
+    /**
+     * 微信获取token
+     */
+    public static final String WECHAT_GET_TOKEN = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=";
+    /**
+     * 微信获取信息
+     */
+    public static final String WECHAT_GET_INFO = "https://api.weixin.qq.com/sns/userinfo?access_token=";
+
+
+
     /**
      * 妈妈说服务器地址
      */
