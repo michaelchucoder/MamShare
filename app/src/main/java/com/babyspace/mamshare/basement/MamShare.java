@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.AppRuntime;
+import com.babyspace.mamshare.commons.UrlConstants;
 import com.babyspace.mamshare.framework.db.AssetsDatabaseManager;
 import com.babyspace.mamshare.framework.eventbus.HttpErrorEvent;
 import com.babyspace.mamshare.framework.utils.FileUtils;
@@ -116,7 +117,7 @@ public class MamShare extends BaseApplication {
         }
         switch (event.code) {
 
-            case AppConstants.HTTP_NO_NETWORK:
+            case UrlConstants.HTTP_NO_NETWORK:
                 Toast.makeText(this, R.string.no_network, Toast.LENGTH_SHORT).show();
                 break;
             default:
