@@ -17,16 +17,24 @@ import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.service.DBService;
+import com.babyspace.mamshare.bean.DefaultResponseEvent;
 import com.babyspace.mamshare.bean.GreenNote;
 import com.babyspace.mamshare.bean.GreenNoteDao;
+import com.babyspace.mamshare.bean.HomeGuidanceEvent;
+import com.babyspace.mamshare.bean.HotWordEvent;
 import com.babyspace.mamshare.bean.MArea;
+import com.babyspace.mamshare.commons.UrlConstants;
 import com.babyspace.mamshare.controller.DBController;
 import com.babyspace.mamshare.framework.db.DaoMaster;
 import com.babyspace.mamshare.framework.db.DaoSession;
+import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.library.debug.L;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
+
+import de.greenrobot.event.EventBus;
 
 public class GreenDaoActivity extends ListActivity {
 
@@ -46,6 +54,8 @@ public class GreenDaoActivity extends ListActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_green_dao);
+
+        EventBus.getDefault().register(this);
 
         DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "notes-db", null);
         db = helper.getWritableDatabase();
@@ -77,6 +87,10 @@ public class GreenDaoActivity extends ListActivity {
 
         editText = (EditText) findViewById(R.id.editTextNote);
         addUiListeners();
+
+        OkHttpExecutor.query(UrlConstants.AddCollection, DefaultResponseEvent.class, false, this);
+        OkHttpExecutor.query(UrlConstants.HotWords, HotWordEvent.class, false, this);
+
     }
 
     protected void addUiListeners() {
@@ -136,5 +150,29 @@ public class GreenDaoActivity extends ListActivity {
         Log.d("DaoExample", "Deleted note, ID: " + id);
         cursor.requery();
     }
+
+    @Override
+    protected void onDestroy() {
+        //TODO 销毁注册信息
+        if (EventBus.getDefault().isRegistered(this))
+            EventBus.getDefault().unregister(this);
+        super.onDestroy();
+    }
+
+    public void onEventMainThread(DefaultResponseEvent event) {
+        L.d(OkHttpExecutor.TAG, "onEventMainThread->" + event.getResultStr());
+
+        String string=event.getData();
+        L.d(OkHttpExecutor.TAG, "getData " + string);
+
+    }
+    public void onEventMainThread(HotWordEvent event) {
+        L.d(OkHttpExecutor.TAG, "onEventMainThread->" + event.getResultStr());
+
+        List<String> strings=event.getData();
+        L.d(OkHttpExecutor.TAG,"getData "+strings.get(2));
+
+    }
+
 
 }

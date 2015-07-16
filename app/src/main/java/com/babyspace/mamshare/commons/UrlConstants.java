@@ -86,5 +86,10 @@ public class UrlConstants {
      */
     public static final String UserCenter = "/user/center";
 
+    /**
+     * Android攻略/评测收藏接口
+     */
+    public static final String AddCollection = "/collection/addCollection";
+
 
 }
