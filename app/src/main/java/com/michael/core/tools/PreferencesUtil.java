@@ -8,8 +8,11 @@ import com.michael.library.debug.L;
 
 
 public class PreferencesUtil {
-    public static final String FIRST_LOGIN = "first_login";
 
+    public static final String FIRST_LOGIN = "first_login";
+    public static final String INTERFACETOKEN = "interfacetoken";
+    public static final String AUTH = "auth";
+    public static final String USERID = "userid";
 
     //TODO
 

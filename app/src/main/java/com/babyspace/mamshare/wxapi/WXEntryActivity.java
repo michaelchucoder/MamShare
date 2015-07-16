@@ -29,13 +29,12 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
 
     public static final String AUTO_LOGIN = "auto_login";
     public static final String FROM = "from";
-    public static final String SCA = "ShoppingCartActivity";
     // --------------½ø¶ÈÌõ-------------//
 
     private static final String TAG = "WXEntryActivity";
     private static final int authType = 1;
     private IWXAPI api;
-    private String interfacetoken;
+    private String interfaceToken;
     private String from;
     private Calendar calendar = Calendar.getInstance();
     private DatePickerDialog.OnDateSetListener onDateSetListener;
@@ -60,7 +59,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
         switch (resp.errCode) {
             case BaseResp.ErrCode.ERR_OK:
                 PreferencesUtil.getPreferences("Wxin", "");
-                interfacetoken = PreferencesUtil.getPreferences(AppConstants.INTERFACETOKEN, "");
+                interfaceToken = PreferencesUtil.getPreferences(AppConstants.INTERFACETOKEN, "");
                 from = getIntent().getStringExtra(WXEntryActivity.FROM);
                 resp.toBundle(bundle);
                 Resp sp = new Resp(bundle);
