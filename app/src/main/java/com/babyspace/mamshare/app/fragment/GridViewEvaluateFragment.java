@@ -202,7 +202,7 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
         jsonParameter.addProperty("start", queryStart);
 
         //showLoadingProgress();
-        switch (pageFlag){
+        switch (pageFlag) {
             case AppConstants.page_search_evaluate:
                 if (queryCall != null) queryCall.cancel();
                 queryCall = OkHttpExecutor.query(UrlConstants.Search, jsonParameter, SearchResultEvent.class, false, this);
