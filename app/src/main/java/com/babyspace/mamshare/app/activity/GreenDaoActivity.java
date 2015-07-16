@@ -27,6 +27,7 @@ import com.babyspace.mamshare.commons.UrlConstants;
 import com.babyspace.mamshare.controller.DBController;
 import com.babyspace.mamshare.framework.db.DaoMaster;
 import com.babyspace.mamshare.framework.db.DaoSession;
+import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.library.debug.L;
 
@@ -88,7 +89,12 @@ public class GreenDaoActivity extends ListActivity {
         editText = (EditText) findViewById(R.id.editTextNote);
         addUiListeners();
 
-        OkHttpExecutor.query(UrlConstants.AddCollection, DefaultResponseEvent.class, false, this);
+        JsonObject jsonParameter = new JsonObject();
+        jsonParameter.addProperty("num", "10");
+        jsonParameter.addProperty("start", "0");
+
+        OkHttpExecutor.query(UrlConstants.AddCollection, jsonParameter,DefaultResponseEvent.class, false, this);
+
         OkHttpExecutor.query(UrlConstants.HotWords, HotWordEvent.class, false, this);
 
     }
@@ -160,17 +166,17 @@ public class GreenDaoActivity extends ListActivity {
     }
 
     public void onEventMainThread(DefaultResponseEvent event) {
-        L.d(OkHttpExecutor.TAG, "onEventMainThread->" + event.getResultStr());
+        L.d(OkHttpExecutor.TAG, "DefaultResponseEvent->" + event.getResultStr());
 
         String string=event.getData();
-        L.d(OkHttpExecutor.TAG, "getData " + string);
+        L.d(OkHttpExecutor.TAG, "DefaultResponseEvent-getData " + string);
 
     }
     public void onEventMainThread(HotWordEvent event) {
-        L.d(OkHttpExecutor.TAG, "onEventMainThread->" + event.getResultStr());
+        L.d(OkHttpExecutor.TAG, "HotWordEvent->" + event.getResultStr());
 
         List<String> strings=event.getData();
-        L.d(OkHttpExecutor.TAG,"getData "+strings.get(2));
+        L.d(OkHttpExecutor.TAG,"HotWordEvent-getData "+strings.get(2));
 
     }
 
