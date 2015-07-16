@@ -42,110 +42,26 @@ import java.util.List;
 public class HomeEvaluate implements Serializable {
 
     @SerializedName("remark")
-    private String remark;
+    public String remark;
     @SerializedName("praiseNum")
-    private int likeNum;
+    public int likeNum;
     @SerializedName("evalID")
-    private int evalID;
+    public int evalID;
     @SerializedName("title")
-    private String title;
+    public String title;
     @SerializedName("headUrl")
-    private String headUrl;
+    public String headUrl;
     @SerializedName("userID")
-    private int userID;
+    public int userID;
     @SerializedName("mamRoleName")
-    private String roleName;
+    public String roleName;
     @SerializedName("headIcon")
-    private String avatar;
+    public String headIcon;
     @SerializedName("nickname")
-    private String nickName;
+    public String nickName;
 
-    public String getRemark() {
-        return remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    public int getLikeNum() {
-        return likeNum;
-    }
-
-    public void setLikeNum(int likeNum) {
-        this.likeNum = likeNum;
-    }
-
-    public int getEvalID() {
-        return evalID;
-    }
-
-    public void setEvalID(int evalID) {
-        this.evalID = evalID;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getHeadUrl() {
-        return headUrl;
-    }
-
-    public void setHeadUrl(String headUrl) {
-        this.headUrl = headUrl;
-    }
-
-    public int getUserID() {
-        return userID;
-    }
-
-    public void setUserID(int userID) {
-        this.userID = userID;
-    }
-
-    public String getRoleName() {
-        return roleName;
-    }
-
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public String getNickName() {
-        return nickName;
-    }
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
-
-    public String getTags() {
-        return tagList.get(0).tagName;
-    }
-
-    public List<Tags> getTagList() {
-        return tagList;
-    }
-
-    public void setTagList(List<Tags> tagList) {
-        this.tagList = tagList;
-    }
-
-    @SerializedName("tags")
-    private List<Tags> tagList;
+   @SerializedName("tags")
+    public List<Tags> tagList;
 
 
 }

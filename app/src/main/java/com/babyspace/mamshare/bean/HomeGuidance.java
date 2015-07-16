@@ -35,50 +35,18 @@ import java.io.Serializable;
 public class HomeGuidance  implements Serializable {
 
     @SerializedName("strategyId")
-    private int guidanceId;
+    public int guidanceId;
     @SerializedName("title")
-    private String guidanceTitle;
+    public String guidanceTitle;
     @SerializedName("imageUrl")
-    private String imageUrl;
+    public String imageUrl;
     @SerializedName("pageUrl")
-    private String pageUrl;
+    public String pageUrl;
 
     public HomeGuidance(int guidanceId, String guidanceTitle, String imageUrl, String pageUrl) {
         this.guidanceId = guidanceId;
         this.guidanceTitle = guidanceTitle;
         this.imageUrl = imageUrl;
-        this.pageUrl = pageUrl;
-    }
-
-    public int getGuidanceId() {
-        return guidanceId;
-    }
-
-    public void setGuidanceId(int guidanceId) {
-        this.guidanceId = guidanceId;
-    }
-
-    public String getGuidanceTitle() {
-        return guidanceTitle;
-    }
-
-    public void setGuidanceTitle(String guidanceTitle) {
-        this.guidanceTitle = guidanceTitle;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
-    public String getPageUrl() {
-        return pageUrl;
-    }
-
-    public void setPageUrl(String pageUrl) {
         this.pageUrl = pageUrl;
     }
 

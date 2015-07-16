@@ -64,59 +64,59 @@ import java.util.List;
 public class EvaluateDetail implements Serializable {
 
     @SerializedName("pageUrl")
-    private String pageUrl;
+    public String pageUrl;
 
     @SerializedName("mamRoleName")
-    private String mamaRoleName;
+    public String roleName;
 
     @SerializedName("commentNum")
-    private String commentNum;
+    public String commentNum;
 
     @SerializedName("comment")
-    private List<Comment> commentList;
+    public List<Comment> commentList;
 
     @SerializedName("browseNum")
-    private String browseNum;
+    public String browseNum;
 
     @SerializedName("collectionNum")
-    private String collectNum;
+    public String collectNum;
 
     @SerializedName("productUrl")
-    private String productUrl;
+    public String productUrl;
 
     @SerializedName("evalID")
-    private String evaluatId;
+    public String evaluatId;
 
     @SerializedName("title")
-    private String title;
+    public String title;
 
     @SerializedName("headUrl")
-    private String headUrl;
+    public String headUrl;
 
     @SerializedName("userID")
-    private String userId;
+    public String userId;
 
     @SerializedName("headIcon")
-    private String avatar;
+    public String headIcon;
 
     @SerializedName("nickname")
-    private String nickName;
+    public String nickName;
 
     @SerializedName("tags")
-    private List<Tags> tagList;
+    public List<Tags> tagList;
 
     static class Comment implements Serializable {
-        @SerializedName("UserID")
+        @SerializedName("userID")
         int tagId;
-        @SerializedName("MamRoleName")
+        @SerializedName("mamRoleName")
         String roleName;
-        @SerializedName("HeadIcon")
-        String avatar;
-        @SerializedName("Nickname")
+        @SerializedName("headIcon")
+        String headIcon;
+        @SerializedName("nickname")
         String nickName;
-        @SerializedName("CreateTime")
+        @SerializedName("createTime")
         String createTime;
-        @SerializedName("Content")
+        @SerializedName("content")
         String content;
 
     }

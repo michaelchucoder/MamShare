@@ -113,7 +113,7 @@ public class GenericsAdapter extends BaseAdapter {
             } else {
                 holder = (HomeGuidanceHolder) convertView.getTag();
             }
-            ImageLoader.getInstance().displayImage(list.get(position).getImageUrl(), holder.iv_guidance);
+            ImageLoader.getInstance().displayImage(list.get(position).imageUrl, holder.iv_guidance);
         } else if (pageFlag == AppConstants.page_home_evaluate) { //TODO 这是首页 评测
             HomeEvaluateHolder holder;
             final List<HomeEvaluate> list = (List<HomeEvaluate>) data;
@@ -138,14 +138,14 @@ public class GenericsAdapter extends BaseAdapter {
             } else {
                 holder = (HomeEvaluateHolder) convertView.getTag();
             }
-            holder.tv_title.setText(list.get(position).getTitle());
-            holder.tv_desc.setText(list.get(position).getRemark());
-            holder.tv_nickname.setText(list.get(position).getNickName());
-            holder.tv_role.setText(list.get(position).getRoleName());
-            holder.tv_label1.setText(list.get(position).getTags());
-            holder.btn_like.setText("" + list.get(position).getLikeNum());
+            holder.tv_title.setText(list.get(position).title);
+            holder.tv_desc.setText(list.get(position).remark);
+            holder.tv_nickname.setText(list.get(position).nickName);
+            holder.tv_role.setText(list.get(position).roleName);
+            holder.tv_label1.setText(list.get(position).tagList.get(0).tagName);
+            holder.btn_like.setText("" + list.get(position).likeNum);
 
-            ImageLoader.getInstance().displayImage(list.get(position).getAvatar(), holder.iv_avatar);
+            ImageLoader.getInstance().displayImage(list.get(position).headIcon, holder.iv_avatar);
 
             holder.btn_like.setOnClickListener(new View.OnClickListener() {
                 @Override
