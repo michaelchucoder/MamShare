@@ -168,7 +168,7 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
 
         //showLoadingProgress();
         if (queryCall != null) queryCall.cancel();
-        queryCall = OkHttpExecutor.query(UrlConstants.HotWords, jsonParameter, HotWordEvent.class, false, this);
+        queryCall = OkHttpExecutor.query(UrlConstants.HotWords, HotWordEvent.class, false, this);
 
     }
 

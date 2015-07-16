@@ -171,9 +171,9 @@ public class GenericsAdapter extends BaseAdapter {
             }
             holder.tv_title.setText(list.get(position).tagName);
             ImageLoader.getInstance().displayImage(list.get(position).coverPhoto, holder.iv_cover);
-        } else if (pageFlag == AppConstants.page_recommend_tag) { //TODO
+        } else if (pageFlag == AppConstants.page_recommend_tag) { //TODO  热词
             RecommendTagHolder holder;
-            List<Tags> list = (List<Tags>) data;
+            List<String> list = (List<String>) data;
 
             if (convertView == null) {
                 holder = new RecommendTagHolder();
@@ -184,7 +184,7 @@ public class GenericsAdapter extends BaseAdapter {
             } else {
                 holder = (RecommendTagHolder) convertView.getTag();
             }
-            holder.tv_title.setText(list.get(position).tagName);
+            holder.tv_title.setText(list.get(position));
 
         } else if (pageFlag == AppConstants.page_search_guidance) { //TODO 攻略
             GuidanceHolder holder;

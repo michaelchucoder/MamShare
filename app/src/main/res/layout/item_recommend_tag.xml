@@ -7,19 +7,10 @@
     android:padding="20px">
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/yellow"
+        android:background="@drawable/shape_rounded_rectangle"
         android:text="我是标题大人" />
-
-    <Button
-        android:id="@+id/like"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20px"
-        android:background="@drawable/shape_rounded_rectangle">
-
-    </Button>
 
 </LinearLayout>
