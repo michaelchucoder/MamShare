@@ -20,7 +20,6 @@ import com.babyspace.mamshare.app.service.DBService;
 import com.babyspace.mamshare.bean.DefaultResponseEvent;
 import com.babyspace.mamshare.bean.GreenNote;
 import com.babyspace.mamshare.bean.GreenNoteDao;
-import com.babyspace.mamshare.bean.HomeGuidanceEvent;
 import com.babyspace.mamshare.bean.HotWordEvent;
 import com.babyspace.mamshare.bean.MArea;
 import com.babyspace.mamshare.commons.UrlConstants;
