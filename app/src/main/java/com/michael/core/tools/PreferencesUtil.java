@@ -21,15 +21,15 @@ public class PreferencesUtil {
         if (value instanceof String) {
             editor.putString(key, value.toString());
         } else if (value instanceof Boolean) {
-            editor.putBoolean(key, ((Boolean) value).booleanValue());
+            editor.putBoolean(key, (Boolean) value);
         } else if (value instanceof Integer) {
-            editor.putInt(key, ((Integer) value).intValue());
+            editor.putInt(key, (Integer) value);
         } else if (value instanceof Float) {
-            editor.putFloat(key, ((Float) value).floatValue());
+            editor.putFloat(key, (Float) value);
         } else if (value instanceof Long) {
-            editor.putLong(key, ((Long) value).longValue());
+            editor.putLong(key, (Long) value);
         }
-        editor.commit();
+        editor.apply();
         L.d("putPreferences->" + key + ":" + value);
     }
 
@@ -38,13 +38,13 @@ public class PreferencesUtil {
         if (value instanceof String) {
             o = BaseApplication.preferences.getString(key, value.toString());
         } else if (value instanceof Boolean) {
-            o = BaseApplication.preferences.getBoolean(key, ((Boolean) value).booleanValue());
+            o = BaseApplication.preferences.getBoolean(key, (Boolean) value);
         } else if (value instanceof Integer) {
-            o = BaseApplication.preferences.getInt(key, ((Integer) value).intValue());
+            o = BaseApplication.preferences.getInt(key, (Integer) value);
         } else if (value instanceof Float) {
-            o = BaseApplication.preferences.getFloat(key, ((Float) value).floatValue());
+            o = BaseApplication.preferences.getFloat(key, (Float) value);
         } else if (value instanceof Long) {
-            o = BaseApplication.preferences.getLong(key, ((Long) value).longValue());
+            o = BaseApplication.preferences.getLong(key, (Long) value);
         }
         T t = (T) o;
         L.d("getPreferences->" + key + ":" + value);

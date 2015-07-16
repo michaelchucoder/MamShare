@@ -86,6 +86,6 @@ public class AccessTokenKeeper {
         SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_APPEND);
         Editor editor = pref.edit();
         editor.clear();
-        editor.commit();
+        editor.apply();
     }
 }
