@@ -37,7 +37,6 @@ public class UrlConstants {
     public static final String WECHAT_GET_INFO = "https://api.weixin.qq.com/sns/userinfo?access_token=";
 
 
-
     /**
      * 妈妈说服务器地址
      */
@@ -110,6 +109,10 @@ public class UrlConstants {
      * 获取服务器系统当前日期时间戳接口（getServiceNowDateTime）
      */
     public static final String GetServiceTime = "/system/getServiceNowDateTime";
+    /**
+     * 记录手机启动日志接口。
+     */
+    public static final String StartUpNotice = "/system/startUpNotice ";
 
 
 }
