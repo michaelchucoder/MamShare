@@ -17,6 +17,8 @@ import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.GenericsAdapter;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.basement.MamShare;
+import com.babyspace.mamshare.bean.Evaluate;
+import com.babyspace.mamshare.bean.HomeEvaluate;
 import com.babyspace.mamshare.bean.HomeGuidanceEvent;
 import com.babyspace.mamshare.bean.SearchResultEvent;
 import com.babyspace.mamshare.bean.TestBean;
@@ -53,12 +55,15 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
     @InjectView(R.id.btn_home_back_top)
     LinearLayout mBackTop;
 
+    View mHeader;
+    View mFooter;
+
     private ProgressBar footerProgressBar;
     private TextView footerText;
 
     GenericsAdapter adapter;
 
-    List<TestBean> data;
+    List<Evaluate> data;
 
     private int firstVisiblePosition;
     private final int BACK_TOP_COUNT = 5;
@@ -120,8 +125,8 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
         mSwipeLayout.setColorSchemeResources(android.R.color.holo_red_dark,
                 android.R.color.holo_red_light);
 
-        View mHeader = View.inflate(getActivity(), R.layout.common_title_layout, null);
-        View mFooter = View.inflate(getActivity(), R.layout.common_refresh_footer, null);
+        mHeader = View.inflate(getActivity(), R.layout.common_title_layout, null);
+        mFooter = View.inflate(getActivity(), R.layout.common_refresh_footer, null);
 
         ViewRelayoutUtil.relayoutViewWithScale(mHeader, MamShare.screenWidthScale);
         ViewRelayoutUtil.relayoutViewWithScale(mFooter, MamShare.screenWidthScale);
@@ -232,30 +237,17 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
         }
     }
 
-
     /**
      * EventBus 响应事件
      *
      * @param event
      */
-    public void onEventMainThread(HomeGuidanceEvent event) {
+    public void onEventMainThread(SearchResultEvent event) {
         mSwipeLayout.setRefreshing(false);
         hideLoadingProgress();
         L.d(OkHttpExecutor.TAG, "onEventMainThread-SearchResultEvaluateFragment>" + event.getResultStr());
 
-        List<TestBean> responseData = new ArrayList<>();
-
-        if (queryCount <= 6) {
-            for (int i = 0; i < queryNum; i++) {
-                responseData.add(new TestBean("More " + queryCount + " i " + i, false));
-            }
-
-        } else {
-            for (int i = 0; i < queryNum - 2; i++) {
-                responseData.add(new TestBean("Last " + queryCount + " i " + i, false));
-            }
-
-        }
+        List<Evaluate> responseData = event.getData().evalList;
 
         if (responseData.size() < queryNum) {
             footerProgressBar.setVisibility(View.INVISIBLE);
@@ -276,16 +268,15 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
             isMoreData = true;
             queryStart += queryNum;
         }
-        /**
-         * 如果为空， 则加载 空的fragment
-         */
 
-        if (data.size() >= 5) {
+        if (queryCount > 2) {
+            data.clear();
+            data.add(responseData.get(0));
+            adapter.refresh(AppConstants.page_empty, data);
+            mFooter.setVisibility(View.GONE);
+        } else
+            adapter.refresh(AppConstants.page_home_evaluate, data);
 
-            adapter.refresh(AppConstants.page_recommend_tag, data);
-        } else {
-            mCallback.onDataEmpty();
-        }
 
 
     }
