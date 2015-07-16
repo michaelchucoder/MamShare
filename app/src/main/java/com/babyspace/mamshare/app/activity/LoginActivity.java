@@ -290,7 +290,7 @@ public class LoginActivity extends BaseActivity {
      *
      * @param str
      */
-    private void getNickNam(String str) {
+    private void getNickName(String str) {
         try {
             JSONObject json = new JSONObject(str);
             nickName = json.getString("nickname");
@@ -345,7 +345,7 @@ public class LoginActivity extends BaseActivity {
 
         @Override
         public void onComplete(Object arg0) {
-            getNickNam(arg0.toString());
+            getNickName(arg0.toString());
             getThirdUserAuth();
         }
 
