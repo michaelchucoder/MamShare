@@ -54,11 +54,15 @@ public class UrlConstants {
     /**
      * 登录
      */
-    public static final String Login = "account/login";
+    public static final String Register = "/account/register";
+    /**
+     * 注册
+     */
+    public static final String Login = "/account/login";
     /**
      * 第三方登录
      */
-    public static final String ThirdUserAuth = "account/login";
+    public static final String ThirdUserAuth = "/account/login";
     /**
      * 首页攻略列表
      */
