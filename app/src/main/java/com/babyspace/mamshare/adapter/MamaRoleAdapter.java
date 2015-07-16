@@ -24,13 +24,13 @@ import java.util.List;
  * Time: 11:55
  * To change this template use File | Settings | File and Code Templates.
  */
-public class MamaFeatureAdapter extends BaseAdapter {
+public class MamaRoleAdapter extends BaseAdapter {
     private final int typeNum = 3;
     private List<TestBean> data = new ArrayList<>();
     private Context ctx;
     private int resource = R.layout.item_mama_feature;
 
-    public MamaFeatureAdapter(Context ctx) {
+    public MamaRoleAdapter(Context ctx) {
         this.ctx = ctx;
     }
 

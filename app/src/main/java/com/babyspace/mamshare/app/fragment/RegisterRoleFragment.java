@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.babyspace.mamshare.R;
-import com.babyspace.mamshare.adapter.MamaFeatureAdapter;
+import com.babyspace.mamshare.adapter.MamaRoleAdapter;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.bean.HomeGuidanceEvent;
@@ -36,7 +36,7 @@ public class RegisterRoleFragment extends BaseFragment {
     ListView listView;
 
 
-    MamaFeatureAdapter adapter;
+    MamaRoleAdapter adapter;
 
     List<TestBean> data;
 
@@ -84,7 +84,7 @@ public class RegisterRoleFragment extends BaseFragment {
             pageFlag = getArguments().getInt(PAGE_FLAG);
         }
         data = new ArrayList<>();
-        adapter = new MamaFeatureAdapter(getActivity());
+        adapter = new MamaRoleAdapter(getActivity());
 
 
     }
