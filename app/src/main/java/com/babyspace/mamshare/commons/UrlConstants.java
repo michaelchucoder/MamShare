@@ -10,19 +10,15 @@ package com.babyspace.mamshare.commons;
  */
 public class UrlConstants {
     /**
-     * 状态码
-     * 版本
-     * 描述
-     * 200	V1.1.1	成功
-     * 411	V1.1.1	没接到Header-mobileSN
-     * 400	V1.1.1	验签失败
-     * 401	V1.1.1	用户已存在
-     * 402	V1.1.1	手机验证码不正确
-     * 403	V1.1.1	登陆密码不正确
-     * 409	V1.1.1	旧密码不正确
-     * 404	V1.1.1	Token无效，需要重新登陆
-     * 500	V1.1.1
-     * 服务器内部错误
+     * 200	成功
+     * 411	没接到Header-mobileSN
+     * 400	验签失败
+     * 401	用户已存在
+     * 402	手机验证码不正确
+     * 403	登陆密码不正确
+     * 409	旧密码不正确
+     * 404	Token无效，需要重新登陆
+     * 500  服务器内部错误
      */
     public static final int HTTP_NO_NETWORK = 404;
     public static final String RESPONSE_OK = "200";
