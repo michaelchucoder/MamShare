@@ -2,7 +2,7 @@
     android:id="@+id/layout_setting_title"
     android:layout_width="match_parent"
     android:layout_height="80px"
-    android:background="@color/plane_base_blue_text">
+    android:background="@null">
 
     <Button
         android:id="@+id/common_title_left"

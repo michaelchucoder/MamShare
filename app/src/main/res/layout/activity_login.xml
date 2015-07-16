@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pink_mama_bg"
+    android:background="@drawable/login_background"
     tools:context="com.babyspace.mamshare.app.activity.LoginActivity">
 
     <include
@@ -24,10 +24,9 @@
         <LinearLayout
             android:id="@+id/ll_login_account"
             android:layout_width="500px"
-            android:layout_height="50px"
+            android:layout_height="80px"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="32px"
-            android:background="@drawable/shape_discover_search_bg">
+            android:layout_marginTop="32px">
 
             <View
                 android:layout_width="24px"
@@ -42,7 +41,6 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="17px"
                 android:layout_marginRight="17px"
-                android:background="#00000000"
                 android:gravity="center_vertical"
                 android:hint="手机号/邮箱/账户名"
                 android:textColor="#868686"
@@ -52,11 +50,10 @@
         <LinearLayout
             android:id="@+id/ll_login_password"
             android:layout_width="500px"
-            android:layout_height="50px"
+            android:layout_height="80px"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="32px"
-            android:layout_marginTop="32px"
-            android:background="@drawable/shape_discover_search_bg">
+            android:layout_marginTop="32px">
 
             <View
                 android:layout_width="24px"
@@ -71,7 +68,6 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="17px"
                 android:layout_marginRight="17px"
-                android:background="#00000000"
                 android:gravity="center_vertical"
                 android:hint="密码"
                 android:textColor="#868686"
@@ -87,7 +83,7 @@
             android:paddingLeft="15px"
             android:paddingRight="15px"
             android:paddingTop="10px"
-            android:text="忘记密码"
+            android:text="忘记密码?"
             android:textSize="20px" />
 
     </LinearLayout>
@@ -130,7 +126,6 @@
             android:layout_marginLeft="20px"
             android:layout_marginRight="20px"
             android:text="第三方登录"
-            android:textColor="#676767"
             android:textSize="22px" />
 
         <View
