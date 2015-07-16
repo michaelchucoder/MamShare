@@ -28,7 +28,7 @@ public class AppRuntime {
 
     public static void initClientInfo(Context context, Bundle b) {
         clientInfo = new ClientInfo();
-        clientInfo.VERSION = DEBUGController.isDebugClient ? "2.2.1" : McSysInfoUtils.getVersionName(context);
+        clientInfo.VERSION = McSysInfoUtils.getVersionName(context);
         clientInfo.platform = "android";
         clientInfo.equipmentOSVersion = McSysInfoUtils.getOsVersion(context);
         clientInfo.equipmentModel = McSysInfoUtils.getPhoneType(context);
@@ -41,6 +41,7 @@ public class AppRuntime {
         clientInfo.setupChannel = b.getString("UMENG_CHANNEL");
         clientInfo.appname = b.getString("APP_NAME");
         clientInfo.USER_AGENT = "m " + McSysInfoUtils.getVersionName(context) + " (" + McSysInfoUtils.getPhoneType(context) + ")";
+        clientInfo.macAddress =McSysInfoUtils.getMacAddress(context);
     }
 
     public static void init(Context context) {

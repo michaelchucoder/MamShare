@@ -9,7 +9,7 @@ public class DEBUGController {
 
     public static final boolean isDebugDevice = false;
 
-    public static final boolean isDebugClient = true;
+    public static final boolean isDebugClient = false;
 
     //测试deviceid
     public static final boolean DEVICEID = false;

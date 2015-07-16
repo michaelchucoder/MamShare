@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class ClientInfo implements Serializable {
 
 
-    public static final String INTERFACE_TOKEN = "interfacetoken";
+    public static final String INTERFACE_TOKEN = "interfaceToken";
 
     public String deviceId;
     public String USER_AGENT;
@@ -24,6 +24,7 @@ public class ClientInfo implements Serializable {
     public String platform;
     public String screensize;
     public String appname;
+    public String macAddress;
 
     public Location local = new Location();
 
@@ -67,6 +68,7 @@ public class ClientInfo implements Serializable {
                 ", platform='" + platform + '\'' +
                 ", screensize='" + screensize + '\'' +
                 ", local=" + local +
+                ", macAddress=" + macAddress +
                 '}';
     }
 }
