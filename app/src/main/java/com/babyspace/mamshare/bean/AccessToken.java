@@ -40,5 +40,4 @@ public class AccessToken {
         this.expiredTime = expiredTime;
     }
 
-
 }
