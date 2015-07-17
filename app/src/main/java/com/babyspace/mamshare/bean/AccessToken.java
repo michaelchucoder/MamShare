@@ -28,16 +28,11 @@ public class AccessToken {
         return interfaceToken;
     }
 
-    public void setInterfaceToken(String interfaceToken) {
-        this.interfaceToken = interfaceToken;
-    }
-
     public long getExpiredTime() {
         return expiredTime;
     }
 
-    public void setExpiredTime(long expiredTime) {
-        this.expiredTime = expiredTime;
+    public boolean isTokenValid() {
+        return System.currentTimeMillis() < getExpiredTime();
     }
-
 }

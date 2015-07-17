@@ -6,13 +6,16 @@ import android.os.Looper;
 import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
-import com.babyspace.mamshare.commons.AppConstants;
+import com.babyspace.mamshare.bean.AccessTokenEvent;
 import com.babyspace.mamshare.commons.AppRuntime;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.babyspace.mamshare.framework.db.AssetsDatabaseManager;
 import com.babyspace.mamshare.framework.eventbus.HttpErrorEvent;
 import com.babyspace.mamshare.framework.utils.FileUtils;
 import com.babyspace.mamshare.framework.utils.UIUtils;
+import com.google.gson.JsonObject;
+import com.michael.core.okhttp.OkHttpExecutor;
+import com.michael.core.tools.PreferencesUtil;
 import com.michael.library.debug.L;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -87,15 +90,25 @@ public class MamShare extends BaseApplication {
             GlobalContainer.getInstance().initApplication(this);
         }
 
-        String tmp1= FileUtils.readAppDbNames(context);
-        L.d("DBController-before",tmp1);
+        String tmp1 = FileUtils.readAppDbNames(context);
+        L.d("DBController-before", tmp1);
 
         // 初始化，只需要调用一次
         AssetsDatabaseManager.initManager(context);
         // 获取管理对象，因为数据库需要通过管理对象才能够获取
 
-        String tmp2= FileUtils.readAppDbNames(context);
-        L.d("DBController-after",tmp2);
+        String tmp2 = FileUtils.readAppDbNames(context);
+        L.d("DBController-after", tmp2);
+
+        /**
+         * 请求token
+         */
+
+        JsonObject jsonParameter = new JsonObject();
+
+        jsonParameter.addProperty("mobileSN", AppRuntime.clientInfo.deviceId);
+        OkHttpExecutor.query(UrlConstants.AccessToken, jsonParameter, AccessTokenEvent.class, false, this);
+
 
     }
 
@@ -106,6 +119,7 @@ public class MamShare extends BaseApplication {
 
         ImageLoader.getInstance().init(configuration);
     }
+
     /**
      * Http请求错误提示
      *
@@ -184,11 +198,12 @@ public class MamShare extends BaseApplication {
     }
 
     */
-/**
- * 得到图片文件路径
- *
- * @return
- *//*
+
+    /**
+     * 得到图片文件路径
+     *
+     * @return
+     *//*
 
     @SuppressLint("SdCardPath")
     @Override
@@ -197,6 +212,14 @@ public class MamShare extends BaseApplication {
         return pathMonitor.getImagePath();
     }
 */
+    public void onEventMainThread(AccessTokenEvent event) {
+        L.d(OkHttpExecutor.TAG, "onEventMainThread->" + event.getResultStr());
+        L.d(OkHttpExecutor.TAG, "AccessTokenEvent->" + event.getData().getInterfaceToken());
+        L.d(OkHttpExecutor.TAG, "isTokenValid->" + event.getData().isTokenValid());
 
+        PreferencesUtil.putPreferences(PreferencesUtil.interface_Token, event.getData().getInterfaceToken());
+        PreferencesUtil.putPreferences(PreferencesUtil.token_expired_time, event.getData().getExpiredTime());
+
+    }
 
 }

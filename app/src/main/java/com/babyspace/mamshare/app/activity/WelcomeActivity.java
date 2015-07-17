@@ -9,6 +9,7 @@ import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.babyspace.mamshare.bean.HomeGuidanceEvent;
 import com.babyspace.mamshare.commons.UrlConstants;
+import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.library.debug.L;
 
@@ -31,6 +32,11 @@ public class WelcomeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
+
+        JsonObject jsonParameter = new JsonObject();
+
+        jsonParameter.addProperty("num", "10");
+        jsonParameter.addProperty("start", "0");
 
         OkHttpExecutor.query(UrlConstants.HomeGuidanceList, HomeGuidanceEvent.class, false, this);
 
