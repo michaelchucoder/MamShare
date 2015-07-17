@@ -172,7 +172,7 @@
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
-            android:noHistory="true">
+            android:noHistory="true" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -346,6 +346,10 @@
         <activity android:name=".app.activity.CommentActivity" />
         <activity android:name=".app.activity.GuidanceDetailActivity" />
         <activity android:name=".app.activity.GreenDaoActivity" />
+        <activity
+            android:name=".app.activity.TestActivity"
+            android:label="@string/title_activity_test" >
+        </activity>
     </application>
 
 </manifest>
