@@ -26,7 +26,7 @@ import com.sina.weibo.sdk.net.WeiboParameters;
 import com.sina.weibo.sdk.utils.LogUtil;
 
 /**
- * Î¢²© OpenAPI µÄ»ùÀà£¬Ã¿¸ö½Ó¿ÚÀà¶¼¼Ì³ĞÁË´Ë³éÏóÀà¡£
+ * å¾®åš OpenAPI çš„åŸºç±»ï¼Œæ¯ä¸ªæ¥å£ç±»éƒ½ç»§æ‰¿äº†æ­¤æŠ½è±¡ç±»ã€‚
  *
  * @author SINA
  * @since 2013-11-05
@@ -34,24 +34,24 @@ import com.sina.weibo.sdk.utils.LogUtil;
 public abstract class AbsOpenAPI {
     private static final String TAG = AbsOpenAPI.class.getName();
 
-    /** ·ÃÎÊÎ¢²©·şÎñ½Ó¿ÚµÄµØÖ· */
+    /** è®¿é—®å¾®åšæœåŠ¡æ¥å£çš„åœ°å€ */
     protected static final String API_SERVER       = "https://api.weibo.com/2";
-    /** POST ÇëÇó·½Ê½ */
+    /** POST è¯·æ±‚æ–¹å¼ */
     protected static final String HTTPMETHOD_POST  = "POST";
-    /** GET ÇëÇó·½Ê½ */
+    /** GET è¯·æ±‚æ–¹å¼ */
     protected static final String HTTPMETHOD_GET   = "GET";
-    /** HTTP ²ÎÊı */
+    /** HTTP å‚æ•° */
     protected static final String KEY_ACCESS_TOKEN = "access_token";
 
-    /** µ±Ç°µÄ Token */
+    /** å½“å‰çš„ Token */
     protected Oauth2AccessToken mAccessToken;
     protected Context mContext;
     protected String mAppKey;
 
     /**
-     * ¹¹Ôìº¯Êı£¬Ê¹ÓÃ¸÷¸ö API ½Ó¿ÚÌá¹©µÄ·şÎñÇ°±ØĞëÏÈ»ñÈ¡ Token¡£
+     * æ„é€ å‡½æ•°ï¼Œä½¿ç”¨å„ä¸ª API æ¥å£æä¾›çš„æœåŠ¡å‰å¿…é¡»å…ˆè·å– Tokenã€‚
      *
-     * @param accessToken ·ÃÎÊÁîÅÆ
+     * @param accessToken è®¿é—®ä»¤ç‰Œ
      */
     public AbsOpenAPI(Context context, String appKey, Oauth2AccessToken accessToken) {
         mContext = context;
@@ -60,12 +60,12 @@ public abstract class AbsOpenAPI {
     }
 
     /**
-     * HTTP Òì²½ÇëÇó¡£
+     * HTTP å¼‚æ­¥è¯·æ±‚ã€‚
      *
-     * @param url        ÇëÇóµÄµØÖ·
-     * @param params     ÇëÇóµÄ²ÎÊı
-     * @param httpMethod ÇëÇó·½·¨
-     * @param listener   ÇëÇóºóµÄ»Øµ÷½Ó¿Ú
+     * @param url        è¯·æ±‚çš„åœ°å€
+     * @param params     è¯·æ±‚çš„å‚æ•°
+     * @param httpMethod è¯·æ±‚æ–¹æ³•
+     * @param listener   è¯·æ±‚åçš„å›è°ƒæ¥å£
      */
     protected void requestAsync(String url, WeiboParameters params, String httpMethod, RequestListener listener) {
         if (null == mAccessToken
@@ -82,13 +82,13 @@ public abstract class AbsOpenAPI {
     }
 
     /**
-     * HTTP Í¬²½ÇëÇó¡£
+     * HTTP åŒæ­¥è¯·æ±‚ã€‚
      *
-     * @param url        ÇëÇóµÄµØÖ·
-     * @param params     ÇëÇóµÄ²ÎÊı
-     * @param httpMethod ÇëÇó·½·¨
+     * @param url        è¯·æ±‚çš„åœ°å€
+     * @param params     è¯·æ±‚çš„å‚æ•°
+     * @param httpMethod è¯·æ±‚æ–¹æ³•
      *
-     * @return Í¬²½ÇëÇóºó£¬·şÎñÆ÷·µ»ØµÄ×Ö·û´®¡£
+     * @return åŒæ­¥è¯·æ±‚åï¼ŒæœåŠ¡å™¨è¿”å›çš„å­—ç¬¦ä¸²ã€‚
      */
     protected String requestSync(String url, WeiboParameters params, String httpMethod) {
         if (null == mAccessToken
