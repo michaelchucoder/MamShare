@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,9 +8,31 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.babyspace.mamshare.app.activity.TestActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+    <LinearLayout
+        android:id="@+id/ll_reg_phone"
+        android:layout_width="500px"
+        android:layout_height="50px"
+        android:layout_marginTop="32px"
+        android:background="@drawable/shape_discover_search_bg">
 
-</RelativeLayout>
+        <View
+            android:id="@+id/view_left_icon"
+            android:layout_width="24px"
+            android:layout_height="25px"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20px"
+            android:background="@drawable/activity_home_btn_search" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="17px"
+            android:layout_marginRight="17px"
+            android:background="#00000000"
+            android:gravity="center_vertical"
+            android:hint="请输入手机号"
+            android:textColor="#868686"
+            android:textSize="24px" />
+    </LinearLayout>
+
+</LinearLayout>
