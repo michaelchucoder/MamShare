@@ -595,7 +595,7 @@ public class SplashActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.go_preface, R.id.go_login, R.id.go_test})
+    @OnClick({R.id.go_preface, R.id.go_login, R.id.go_orm, R.id.go_test})
     public void doOnClick(View view) {
         Intent i = new Intent();
 
@@ -606,8 +606,11 @@ public class SplashActivity extends BaseActivity {
             case R.id.go_login:
                 i.setClass(this, LoginActivity.class);
                 break;
-            case R.id.go_test:
+            case R.id.go_orm:
                 i.setClass(this, GreenDaoActivity.class);
+                break;
+            case R.id.go_test:
+                i.setClass(this, TestActivity.class);
                 break;
         }
         startActivity(i);

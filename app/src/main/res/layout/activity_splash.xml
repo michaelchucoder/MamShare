@@ -10,21 +10,30 @@
 
     <Button
         android:id="@+id/go_preface"
-        android:layout_marginTop="100px"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100px"
         android:text="进入首页" />
+
     <Button
         android:id="@+id/go_login"
-        android:layout_marginTop="300px"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="300px"
         android:text="进入登录" />
+
+    <Button
+        android:id="@+id/go_orm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500px"
+        android:text="ORM测试" />
+
     <Button
         android:id="@+id/go_test"
-        android:layout_marginTop="500px"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="700px"
         android:text="测试" />
 
 </RelativeLayout>
