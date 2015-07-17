@@ -1,6 +1,8 @@
 package com.babyspace.mamshare.framework.utils;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.util.TypedValue;
 
 public class DensityUtil {
 
@@ -21,6 +23,11 @@ public class DensityUtil {
         return (int) (pxValue / scale + 0.5f);
     }
 
+    public static int densitydp2px(Context context, float dp) {
+        Resources r = context.getResources();
+        float px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics());
+        return Math.round(px);
+    }
     /**
      * 将px值转换为sp值，保证文字大小不变
      *

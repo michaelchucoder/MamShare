@@ -24,4 +24,8 @@
     <color name="color_accent_pink">#ff4081</color>
     <color name="color_shadow">#44000000</color>
 
+    <color name="indigo_500">#3f51b5</color>
+    <color name="indigo_700">#303f9f</color>
+    <color name="cyan_500">#00bcd4</color>
+
 </resources>
