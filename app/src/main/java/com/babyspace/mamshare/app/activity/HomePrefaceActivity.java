@@ -230,7 +230,7 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
         int id = view.getId();
         switch (id) {
             case R.id.tab_guidance:
-                tab_guidance.setTextColor(Color.BLUE);
+                tab_guidance.setTextColor(getResources().getColor(R.color.green_mama_bg));
                 tab_evaluate.setTextColor(Color.BLACK);
 
                 line_guidance.setVisibility(View.VISIBLE);
@@ -241,7 +241,7 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
                 mPager.setCurrentItem(0);
                 break;
             case R.id.tab_evaluate:
-                tab_evaluate.setTextColor(Color.BLUE);
+                tab_evaluate.setTextColor(getResources().getColor(R.color.green_mama_bg));
                 tab_guidance.setTextColor(Color.BLACK);
 
                 line_evaluate.setVisibility(View.VISIBLE);
@@ -268,7 +268,7 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
         pagePosition = position;
 
         if (position == 0) {
-            tab_guidance.setTextColor(Color.BLUE);
+            tab_guidance.setTextColor(getResources().getColor(R.color.green_mama_bg));
             tab_evaluate.setTextColor(Color.BLACK);
 
             line_guidance.setVisibility(View.VISIBLE);
@@ -277,7 +277,7 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
             //tab_guidance.setBackgroundResource(R.drawable.tab_shape_left_blue_selected);
             //tab_evaluate.setBackgroundResource(R.drawable.tab_shape_right_blue_unselect);
         } else {
-            tab_evaluate.setTextColor(Color.BLUE);
+            tab_evaluate.setTextColor(getResources().getColor(R.color.green_mama_bg));
             tab_guidance.setTextColor(Color.BLACK);
 
             line_evaluate.setVisibility(View.VISIBLE);
