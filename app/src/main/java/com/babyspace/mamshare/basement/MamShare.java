@@ -1,11 +1,13 @@
 package com.babyspace.mamshare.basement;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.app.activity.SplashActivity;
 import com.babyspace.mamshare.bean.AccessTokenEvent;
 import com.babyspace.mamshare.commons.AppRuntime;
 import com.babyspace.mamshare.commons.UrlConstants;
@@ -32,7 +34,7 @@ import de.greenrobot.event.EventBus;
  * Time: 15:25
  * To change this template use File | Settings | File and Code Templates.
  */
-public class MamShare extends BaseApplication {
+public class MamShare extends BaseApplication implements Thread.UncaughtExceptionHandler {
     private static final String TAG = "JPush";
 
 
@@ -62,6 +64,8 @@ public class MamShare extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        Thread.setDefaultUncaughtExceptionHandler(this);
+
         mMainThreadId = android.os.Process.myTid();
         mMainThread = Thread.currentThread();
         mMainThreadHandler = new Handler();
@@ -222,4 +226,14 @@ public class MamShare extends BaseApplication {
 
     }
 
+    @Override
+    public void uncaughtException(Thread thread, Throwable ex) {
+        System.out.println("uncaughtException");
+        Intent intent = new Intent(this, SplashActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
+                Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        System.exit(0);
+
+    }
 }
