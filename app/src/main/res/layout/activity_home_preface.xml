@@ -54,20 +54,22 @@
             android:layout_height="@dimen/title_view_height"
             android:layout_alignParentTop="true">
 
-            <Button
+            <ImageView
                 android:id="@+id/back"
                 android:layout_width="@dimen/title_view_height"
                 android:layout_height="@dimen/title_view_height"
+                android:padding="20px"
                 android:layout_centerVertical="true"
-                android:background="@drawable/ic_discover_search" />
+                android:src="@drawable/ic_discover_search" />
 
-            <Button
+            <ImageView
                 android:id="@+id/front"
                 android:layout_width="@dimen/title_view_height"
                 android:layout_height="@dimen/title_view_height"
+                android:padding="20px"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:background="@drawable/ic_user_center" />
+                android:src="@drawable/ic_user_center" />
         </RelativeLayout>
 
         <View
