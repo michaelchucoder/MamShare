@@ -228,7 +228,6 @@ public class MamShare extends BaseApplication implements Thread.UncaughtExceptio
 
     @Override
     public void uncaughtException(Thread thread, Throwable ex) {
-        System.out.println("uncaughtException");
         Intent intent = new Intent(this, SplashActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
                 Intent.FLAG_ACTIVITY_NEW_TASK);
