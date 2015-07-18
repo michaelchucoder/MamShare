@@ -231,7 +231,7 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
         switch (id) {
             case R.id.tab_guidance:
                 tab_guidance.setTextColor(getResources().getColor(R.color.green_mama_bg));
-                tab_evaluate.setTextColor(Color.BLACK);
+                tab_evaluate.setTextColor(getResources().getColor(R.color.black));
 
                 line_guidance.setVisibility(View.VISIBLE);
                 line_evaluate.setVisibility(View.INVISIBLE);
@@ -242,7 +242,7 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
                 break;
             case R.id.tab_evaluate:
                 tab_evaluate.setTextColor(getResources().getColor(R.color.green_mama_bg));
-                tab_guidance.setTextColor(Color.BLACK);
+                tab_guidance.setTextColor(getResources().getColor(R.color.black));
 
                 line_evaluate.setVisibility(View.VISIBLE);
                 line_guidance.setVisibility(View.INVISIBLE);
@@ -269,7 +269,7 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
 
         if (position == 0) {
             tab_guidance.setTextColor(getResources().getColor(R.color.green_mama_bg));
-            tab_evaluate.setTextColor(Color.BLACK);
+            tab_evaluate.setTextColor(getResources().getColor(R.color.black));
 
             line_guidance.setVisibility(View.VISIBLE);
             line_evaluate.setVisibility(View.INVISIBLE);
@@ -278,7 +278,7 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
             //tab_evaluate.setBackgroundResource(R.drawable.tab_shape_right_blue_unselect);
         } else {
             tab_evaluate.setTextColor(getResources().getColor(R.color.green_mama_bg));
-            tab_guidance.setTextColor(Color.BLACK);
+            tab_guidance.setTextColor(getResources().getColor(R.color.black));
 
             line_evaluate.setVisibility(View.VISIBLE);
             line_guidance.setVisibility(View.INVISIBLE);
