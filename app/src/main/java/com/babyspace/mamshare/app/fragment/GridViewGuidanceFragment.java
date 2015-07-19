@@ -83,6 +83,7 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -96,6 +97,7 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
                     + " must implement EmptyListener");
         }
     }
+
     @Override
     public void init(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_gridview_guidance);
@@ -202,10 +204,10 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
         jsonParameter.addProperty("start", queryStart);
 
         //showLoadingProgress();
-        switch (pageFlag){
+        switch (pageFlag) {
             case AppConstants.page_search_guidance:
                 if (queryCall != null) queryCall.cancel();
-                queryCall = OkHttpExecutor.query(UrlConstants.Search,  SearchResultEvent.class, false, this);
+                queryCall = OkHttpExecutor.query(UrlConstants.Search, SearchResultEvent.class, false, this);
                 break;
             case AppConstants.page_collect_guidance:
                 if (queryCall != null) queryCall.cancel();
@@ -268,7 +270,6 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
             mFooter.setVisibility(View.GONE);
         } else
             adapter.refresh(pageFlag, data);
-
 
 
     }

@@ -51,6 +51,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
     public void onReq(BaseReq arg0) {
         // TODO Auto-generated method stub
     }
+
     @Override
     public void onResp(BaseResp resp) {
         Bundle bundle = new Bundle();
@@ -91,6 +92,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
         }
         finish();
     }
+
     /**
      * 微信返回的getAccess_token
      *
@@ -168,6 +170,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
             }
         });
     }
+
     private void getThirdUserAuth(String openId, String nickName) {
         if (!NetWorkUtil.networkCanUse(getApplicationContext())) {
             String msg = "请检查网络设置！";
@@ -186,6 +189,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
             public void onFailure(Request request, Throwable e) {
 
             }
+
             @Override
             public void onSuccess(JsonObject result) {
                 String code = result.get("code").getAsString();

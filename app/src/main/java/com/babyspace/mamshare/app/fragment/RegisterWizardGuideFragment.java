@@ -26,6 +26,7 @@ public class RegisterWizardGuideFragment extends BaseFragment {
 
     public RegisterWizardGuideFragment() {
     }
+
     // TODO: Rename and change types and number of parameters
     public static RegisterWizardGuideFragment newInstance(int pageFlag) {
         RegisterWizardGuideFragment fragment = new RegisterWizardGuideFragment();
@@ -34,6 +35,7 @@ public class RegisterWizardGuideFragment extends BaseFragment {
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);

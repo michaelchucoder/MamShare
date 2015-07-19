@@ -41,7 +41,7 @@ public class AppRuntime {
         clientInfo.setupChannel = b.getString("UMENG_CHANNEL");
         clientInfo.appname = b.getString("APP_NAME");
         clientInfo.USER_AGENT = "m " + McSysInfoUtils.getVersionName(context) + " (" + McSysInfoUtils.getPhoneType(context) + ")";
-        clientInfo.macAddress =McSysInfoUtils.getMacAddress(context);
+        clientInfo.macAddress = McSysInfoUtils.getMacAddress(context);
     }
 
     public static void init(Context context) {

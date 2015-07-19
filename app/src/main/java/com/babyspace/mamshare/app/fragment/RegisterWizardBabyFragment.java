@@ -39,6 +39,7 @@ public class RegisterWizardBabyFragment extends BaseFragment {
 
     public RegisterWizardBabyFragment() {
     }
+
     // TODO: Rename and change types and number of parameters
     public static RegisterWizardBabyFragment newInstance(int pageFlag) {
         RegisterWizardBabyFragment fragment = new RegisterWizardBabyFragment();
@@ -47,6 +48,7 @@ public class RegisterWizardBabyFragment extends BaseFragment {
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);

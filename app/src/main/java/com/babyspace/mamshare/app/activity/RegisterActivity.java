@@ -4,9 +4,9 @@ import android.os.Bundle;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.fragment.RegisterCustomFragment;
-import com.babyspace.mamshare.app.fragment.RegisterRoleFragment;
 import com.babyspace.mamshare.app.fragment.RegisterNameFragment;
 import com.babyspace.mamshare.app.fragment.RegisterPhoneFragment;
+import com.babyspace.mamshare.app.fragment.RegisterRoleFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.babyspace.mamshare.listener.RegisterListener;
 

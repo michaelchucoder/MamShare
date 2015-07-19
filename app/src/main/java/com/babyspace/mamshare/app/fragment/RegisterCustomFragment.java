@@ -20,6 +20,7 @@ public class RegisterCustomFragment extends BaseFragment {
     public RegisterCustomFragment() {
         // Required empty public constructor
     }
+
     // TODO: Rename and change types and number of parameters
     public static RegisterCustomFragment newInstance(int pageFlag) {
         RegisterCustomFragment fragment = new RegisterCustomFragment();

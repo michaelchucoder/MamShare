@@ -24,7 +24,7 @@ public class TabPageAdapter extends FragmentPagerAdapter {
 
     public TabPageAdapter(FragmentManager fm, String[] TITLES, List<Fragment> FRAGMENTS) {
         super(fm);
-        this.fm=fm;
+        this.fm = fm;
         this.TITLES = TITLES;
         this.FRAGMENTS = FRAGMENTS;
     }

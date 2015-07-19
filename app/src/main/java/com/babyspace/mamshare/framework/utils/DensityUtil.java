@@ -28,6 +28,7 @@ public class DensityUtil {
         float px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics());
         return Math.round(px);
     }
+
     /**
      * 将px值转换为sp值，保证文字大小不变
      *

@@ -60,7 +60,7 @@ public class HomeEvaluate implements Serializable {
     @SerializedName("nickname")
     public String nickName;
 
-   @SerializedName("tags")
+    @SerializedName("tags")
     public List<Tags> tagList;
 
 

@@ -19,6 +19,7 @@ public class MArea implements Serializable {
         this.parentId = parentId;
         this.zip = zip;
     }
+
     public MArea() {
 
     }

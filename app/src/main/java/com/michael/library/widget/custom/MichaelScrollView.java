@@ -3,7 +3,6 @@ package com.michael.library.widget.custom;
 import android.content.Context;
 import android.os.Handler;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.ScrollView;
 
@@ -36,6 +35,7 @@ public class MichaelScrollView extends ScrollView {
 
     /**
      * 设置滚动接口
+     *
      * @param onScrollListener
      */
     public void setOnScrollListener(OnScrollListener onScrollListener) {
@@ -52,11 +52,11 @@ public class MichaelScrollView extends ScrollView {
             int scrollY = MichaelScrollView.this.getScrollY();
 
             //此时的距离和记录下的距离不相等，在隔5毫秒给handler发送消息
-            if(lastScrollY != scrollY){
+            if (lastScrollY != scrollY) {
                 lastScrollY = scrollY;
                 handler.sendMessageDelayed(handler.obtainMessage(), 20);
             }
-            if(onScrollListener != null){
+            if (onScrollListener != null) {
                 onScrollListener.onScroll(scrollY);
             }
 
@@ -73,21 +73,21 @@ public class MichaelScrollView extends ScrollView {
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
 
-        int mScrollY=this.getScrollY();
-        int mLastScrollY=lastScrollY;
+        int mScrollY = this.getScrollY();
+        int mLastScrollY = lastScrollY;
 
-        if(onScrollListener != null){
+        if (onScrollListener != null) {
             onScrollListener.onScroll(lastScrollY = this.getScrollY());
         }
 
-        switch(ev.getAction()){
+        switch (ev.getAction()) {
             case MotionEvent.ACTION_UP:
                 handler.sendMessageDelayed(handler.obtainMessage(), 5);
                 /**
                  * 朱小辉
                  */
-                if(mScrollY-mLastScrollY>22)   onScrollListener.onScrollUp();
-                if(mLastScrollY-mScrollY>22)   onScrollListener.onScrollDown();
+                if (mScrollY - mLastScrollY > 22) onScrollListener.onScrollUp();
+                if (mLastScrollY - mScrollY > 22) onScrollListener.onScrollDown();
 
                 break;
 
@@ -96,23 +96,22 @@ public class MichaelScrollView extends ScrollView {
     }
 
     /**
-     *
      * 滚动的回调接口
      *
      * @author MichaelChuCoder
-     *
      */
-    public interface OnScrollListener{
+    public interface OnScrollListener {
         /**
          * 回调方法， 返回MichaelScrollView滑动的Y方向距离
+         *
          * @param scrollY
-         *         
          */
         void onScroll(int scrollY);
+
         void onScrollUp();
+
         void onScrollDown();
     }
-
 
 
 }

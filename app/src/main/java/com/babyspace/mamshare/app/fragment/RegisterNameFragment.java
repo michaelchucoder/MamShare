@@ -25,6 +25,7 @@ public class RegisterNameFragment extends BaseFragment {
     public RegisterNameFragment() {
         // Required empty public constructor
     }
+
     // TODO: Rename and change types and number of parameters
     public static RegisterNameFragment newInstance(int pageFlag) {
         RegisterNameFragment fragment = new RegisterNameFragment();
@@ -33,6 +34,7 @@ public class RegisterNameFragment extends BaseFragment {
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);

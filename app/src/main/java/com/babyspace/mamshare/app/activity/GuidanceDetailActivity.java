@@ -36,8 +36,8 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
     private Toolbar mToolbar;
     private ImageButton mFabButton;
     private MichaelScrollView my_scrollView;
-    private int lastStrollState=0;
-    boolean isViewShow=true;
+    private int lastStrollState = 0;
+    boolean isViewShow = true;
 
     RelativeLayout common_title;
 
@@ -72,21 +72,21 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
 
         FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) mFabButton.getLayoutParams();
         int fabBottomMargin = lp.bottomMargin;
-        mFabButton.animate().translationY(mFabButton.getHeight()+fabBottomMargin).setInterpolator(new AccelerateInterpolator(2)).start();
-        isViewShow=false;
+        mFabButton.animate().translationY(mFabButton.getHeight() + fabBottomMargin).setInterpolator(new AccelerateInterpolator(2)).start();
+        isViewShow = false;
     }
 
 
     private void showViews() {
         common_title.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
         mFabButton.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
-        isViewShow=true;
+        isViewShow = true;
 
     }
+
     /**
      * 滚动的回调方法，当滚动的Y距离大于或者等于 购买布局距离父类布局顶部的位置，就显示购买的悬浮框
      * 当滚动的Y的距离小于 购买布局距离父类布局顶部的位置加上购买布局的高度就移除购买的悬浮框
-     *
      */
     @Override
     public void onScroll(int scrollY) {
@@ -140,7 +140,7 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
     final class MamaShareApp {
         /**
          * 客户端弹窗提示
-         *
+         * <p/>
          * javaScript 调用原生函数
          */
 
@@ -156,6 +156,7 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
                 }
             });
         }
+
         @JavascriptInterface
         public void startAppFunc(final String str) {
             Toast.makeText(GuidanceDetailActivity.this, str, Toast.LENGTH_SHORT).show();

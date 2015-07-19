@@ -130,7 +130,7 @@ public class EvaluateDetailActivity extends BaseCompatActivity implements Observ
     final class MamaShareApp {
         /**
          * 客户端弹窗提示
-         *
+         * <p/>
          * javaScript 调用原生函数
          */
 
@@ -146,6 +146,7 @@ public class EvaluateDetailActivity extends BaseCompatActivity implements Observ
                 }
             });
         }
+
         @JavascriptInterface
         public void startAppFunc(final String str) {
             Toast.makeText(EvaluateDetailActivity.this, str, Toast.LENGTH_SHORT).show();

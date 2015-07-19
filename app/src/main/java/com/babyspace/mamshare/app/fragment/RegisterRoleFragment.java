@@ -51,6 +51,7 @@ public class RegisterRoleFragment extends BaseFragment {
     public RegisterRoleFragment() {
         // Required empty public constructor
     }
+
     // TODO: Rename and change types and number of parameters
     public static RegisterPhoneFragment newInstance(int pageFlag) {
         RegisterPhoneFragment fragment = new RegisterPhoneFragment();
@@ -59,6 +60,7 @@ public class RegisterRoleFragment extends BaseFragment {
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);

@@ -61,6 +61,7 @@ public class EvaluateCommentFragment extends BaseFragment {
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -183,10 +184,10 @@ public class EvaluateCommentFragment extends BaseFragment {
         /**
          * 先加载3个，点击加载更多
          */
-        tv_comment_num.setText("评论 ("+data.size()+")");
-        if(data.size()>3){
+        tv_comment_num.setText("评论 (" + data.size() + ")");
+        if (data.size() > 3) {
 
-            List<TestBean> tempData=new ArrayList<>();
+            List<TestBean> tempData = new ArrayList<>();
 
             tempData.add(new TestBean("More " + queryCount + " i ", false));
             tempData.add(new TestBean("More " + queryCount + " i ", false));
@@ -195,7 +196,7 @@ public class EvaluateCommentFragment extends BaseFragment {
 
             adapter.refresh(AppConstants.page_recommend_tag, tempData);
 
-        }else {
+        } else {
 
             adapter.refresh(AppConstants.page_recommend_tag, data);
         }

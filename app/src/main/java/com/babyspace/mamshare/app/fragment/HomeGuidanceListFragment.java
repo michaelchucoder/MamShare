@@ -249,13 +249,12 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
             queryStart += queryNum;
         }
 
-        if (queryCount > 2){
+        if (queryCount > 2) {
             data.clear();
             data.add(responseData.get(0));
-            adapter.refresh(AppConstants.page_empty,data );
+            adapter.refresh(AppConstants.page_empty, data);
             mFooter.setVisibility(View.GONE);
-        }
-        else
+        } else
             adapter.refresh(AppConstants.page_home_guidance, data);
 
 

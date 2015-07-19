@@ -13,5 +13,5 @@ import java.util.List;
  * Time: 17:12
  * To change this template use File | Settings | File and Code Templates.
  */
-public class RecommendTagEvent  extends BaseResponseBean<List<Tags>> {
+public class RecommendTagEvent extends BaseResponseBean<List<Tags>> {
 }

@@ -30,6 +30,7 @@ public class RecommendTagFragment extends BaseFragment {
     public RecommendTagFragment() {
         // Required empty public constructor
     }
+
     // TODO: Rename and change types and number of parameters
     public static RecommendTagFragment newInstance(int pageFlag) {
         RecommendTagFragment fragment = new RecommendTagFragment();
@@ -38,6 +39,7 @@ public class RecommendTagFragment extends BaseFragment {
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     public void init(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_recommend_tag);

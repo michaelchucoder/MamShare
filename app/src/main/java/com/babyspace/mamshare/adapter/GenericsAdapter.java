@@ -186,7 +186,7 @@ public class GenericsAdapter extends BaseAdapter {
             }
             holder.tv_title.setText(list.get(position));
 
-        } else if (pageFlag == AppConstants.page_search_guidance||pageFlag==AppConstants.page_collect_guidance) { //TODO 攻略
+        } else if (pageFlag == AppConstants.page_search_guidance || pageFlag == AppConstants.page_collect_guidance) { //TODO 攻略
             GuidanceHolder holder;
             final List<Guidance> list = (List<Guidance>) data;
 
@@ -212,7 +212,7 @@ public class GenericsAdapter extends BaseAdapter {
                     doLike();
                 }
             });
-        } else if (pageFlag == AppConstants.page_search_evaluate||pageFlag==AppConstants.page_collect_evaluate||pageFlag==AppConstants.page_user_evaluate) { //TODO 评测
+        } else if (pageFlag == AppConstants.page_search_evaluate || pageFlag == AppConstants.page_collect_evaluate || pageFlag == AppConstants.page_user_evaluate) { //TODO 评测
             EvaluateHolder holder;
             final List<Evaluate> list = (List<Evaluate>) data;
 

@@ -23,11 +23,11 @@ public class PreferencesUtil {
             editor.putString(key, value.toString());
         } else if (value instanceof Boolean) {
             editor.putBoolean(key, (Boolean) value);
-        }  else if (value instanceof Float) {
+        } else if (value instanceof Float) {
             editor.putFloat(key, (Float) value);
         } else if (value instanceof Long) {
             editor.putLong(key, (Long) value);
-        }else if (value instanceof Integer) {
+        } else if (value instanceof Integer) {
             editor.putInt(key, (Integer) value);
         }
         editor.apply();
@@ -40,7 +40,7 @@ public class PreferencesUtil {
             o = BaseApplication.preferences.getString(key, value.toString());
         } else if (value instanceof Boolean) {
             o = BaseApplication.preferences.getBoolean(key, (Boolean) value);
-        }else if (value instanceof Float) {
+        } else if (value instanceof Float) {
             o = BaseApplication.preferences.getFloat(key, (Float) value);
         } else if (value instanceof Long) {
             o = BaseApplication.preferences.getLong(key, (Long) value);

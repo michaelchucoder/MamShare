@@ -30,7 +30,6 @@ public class AppConstants {
     public static final String SINA_REDIRECT_URL = "https://api.weibo.com/oauth2/default.html";
 
 
-
     /**
      * michael 防止应用崩溃导致数据丢失
      */

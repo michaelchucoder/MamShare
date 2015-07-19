@@ -32,7 +32,7 @@ import java.io.Serializable;
  * ]
  * }
  */
-public class HomeGuidance  implements Serializable {
+public class HomeGuidance implements Serializable {
 
     @SerializedName("strategyId")
     public int guidanceId;

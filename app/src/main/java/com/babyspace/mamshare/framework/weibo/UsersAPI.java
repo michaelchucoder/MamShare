@@ -32,17 +32,18 @@ import com.sina.weibo.sdk.net.WeiboParameters;
  */
 public class UsersAPI extends AbsOpenAPI {
 
-    private static final int READ_USER           = 0;
+    private static final int READ_USER = 0;
     private static final int READ_USER_BY_DOMAIN = 1;
-    private static final int READ_USER_COUNT     = 2;
+    private static final int READ_USER_COUNT = 2;
 
     private static final String API_BASE_URL = API_SERVER + "/users";
 
     private static final SparseArray<String> sAPIList = new SparseArray<String>();
+
     static {
-        sAPIList.put(READ_USER,           API_BASE_URL + "/show.json");
+        sAPIList.put(READ_USER, API_BASE_URL + "/show.json");
         sAPIList.put(READ_USER_BY_DOMAIN, API_BASE_URL + "/domain_show.json");
-        sAPIList.put(READ_USER_COUNT,     API_BASE_URL + "/counts.json");
+        sAPIList.put(READ_USER_COUNT, API_BASE_URL + "/counts.json");
     }
 
     public UsersAPI(Context context, String appKey, Oauth2AccessToken accessToken) {
@@ -101,9 +102,9 @@ public class UsersAPI extends AbsOpenAPI {
      * 请注意：以下方法匀均同步方法。如果开发者有自己的异步请求机制，请使用该函数。
      * -----------------------------------------------------------------------
      */
-    
+
     /**
-     * @see #show(long, RequestListener )
+     * @see #show(long, RequestListener)
      */
     public String showSync(long uid) {
         WeiboParameters params = new WeiboParameters();
@@ -112,7 +113,7 @@ public class UsersAPI extends AbsOpenAPI {
     }
 
     /**
-     * @see #show( String , RequestListener )
+     * @see #show(String, RequestListener)
      */
     public String showSync(String screen_name) {
         WeiboParameters params = new WeiboParameters();
@@ -121,7 +122,7 @@ public class UsersAPI extends AbsOpenAPI {
     }
 
     /**
-     * @see #domainShow( String , RequestListener )
+     * @see #domainShow(String, RequestListener)
      */
     public String domainShowSync(String domain) {
         WeiboParameters params = new WeiboParameters();
@@ -130,7 +131,7 @@ public class UsersAPI extends AbsOpenAPI {
     }
 
     /**
-     * @see #counts(long[], RequestListener )
+     * @see #counts(long[], RequestListener)
      */
     public String countsSync(long[] uids) {
         WeiboParameters params = buildCountsParams(uids);

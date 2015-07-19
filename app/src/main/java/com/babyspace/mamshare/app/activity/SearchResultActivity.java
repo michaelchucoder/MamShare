@@ -3,14 +3,12 @@ package com.babyspace.mamshare.app.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.EditText;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.TabPageAdapter;
-import com.babyspace.mamshare.app.fragment.EmptyFragment;
 import com.babyspace.mamshare.app.fragment.GridViewEvaluateFragment;
 import com.babyspace.mamshare.app.fragment.GridViewGuidanceFragment;
 import com.babyspace.mamshare.basement.BaseActivity;

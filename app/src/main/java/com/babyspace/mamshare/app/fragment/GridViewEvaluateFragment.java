@@ -18,10 +18,7 @@ import com.babyspace.mamshare.adapter.GenericsAdapter;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.Evaluate;
-import com.babyspace.mamshare.bean.HomeEvaluate;
-import com.babyspace.mamshare.bean.HomeGuidanceEvent;
 import com.babyspace.mamshare.bean.SearchResultEvent;
-import com.babyspace.mamshare.bean.TestBean;
 import com.babyspace.mamshare.bean.UserEvaluateEvent;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.UrlConstants;
@@ -210,7 +207,7 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
         switch (pageFlag) {
             case AppConstants.page_search_evaluate:
                 if (queryCall != null) queryCall.cancel();
-                queryCall = OkHttpExecutor.query(UrlConstants.Search,  SearchResultEvent.class, false, this);
+                queryCall = OkHttpExecutor.query(UrlConstants.Search, SearchResultEvent.class, false, this);
                 break;
             case AppConstants.page_collect_evaluate:
                 if (queryCall != null) queryCall.cancel();
@@ -278,6 +275,7 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
             adapter.refresh(pageFlag, data);
 
     }
+
     public void onEventMainThread(UserEvaluateEvent event) {
         mSwipeLayout.setRefreshing(false);
         hideLoadingProgress();
@@ -314,6 +312,7 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
             adapter.refresh(pageFlag, data);
 
     }
+
     @Override
     public void onRefresh() {
         new Handler().postDelayed(new Runnable() {

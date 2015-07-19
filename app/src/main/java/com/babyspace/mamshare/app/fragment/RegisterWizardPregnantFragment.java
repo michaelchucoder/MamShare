@@ -20,6 +20,7 @@ public class RegisterWizardPregnantFragment extends BaseFragment {
 
     public RegisterWizardPregnantFragment() {
     }
+
     // TODO: Rename and change types and number of parameters
     public static RegisterWizardPregnantFragment newInstance(int pageFlag) {
         RegisterWizardPregnantFragment fragment = new RegisterWizardPregnantFragment();

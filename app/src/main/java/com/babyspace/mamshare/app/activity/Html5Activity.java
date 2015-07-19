@@ -27,7 +27,7 @@ public class Html5Activity extends BaseActivity {
 
     private WebView webView;
 
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +72,7 @@ public class Html5Activity extends BaseActivity {
     final class MamaShareApp {
         /**
          * 客户端弹窗提示
-         *
+         * <p/>
          * javaScript 调用原生函数
          */
 
@@ -88,6 +88,7 @@ public class Html5Activity extends BaseActivity {
                 }
             });
         }
+
         @JavascriptInterface
         public void startAppFunc(final String str) {
             Toast.makeText(Html5Activity.this, str, Toast.LENGTH_SHORT).show();

@@ -16,7 +16,6 @@ import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.GenericsAdapter;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.babyspace.mamshare.basement.MamShare;
-import com.babyspace.mamshare.bean.HomeGuidance;
 import com.babyspace.mamshare.bean.RecommendTagEvent;
 import com.babyspace.mamshare.bean.Tags;
 import com.babyspace.mamshare.commons.AppConstants;
@@ -222,13 +221,12 @@ public class DiscoverSearchActivity extends BaseActivity implements SwipeRefresh
             queryStart += queryNum;
         }
 
-        if (queryCount > 2){
+        if (queryCount > 2) {
             data.clear();
             data.add(responseData.get(0));
-            adapter.refresh(AppConstants.page_empty,data );
+            adapter.refresh(AppConstants.page_empty, data);
             mFooter.setVisibility(View.GONE);
-        }
-        else
+        } else
             adapter.refresh(AppConstants.page_discover_search, data);
 
     }

@@ -67,10 +67,11 @@ public class ParallaxToolbarListViewActivity extends BaseActivity implements Obs
     private Call queryCall;
 
     List<TestBean> data;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_parallaxtoolbarlistview) ;
+        setContentView(R.layout.activity_parallaxtoolbarlistview);
         EventBus.getDefault().register(this);
         data = new ArrayList<>();
         adapter = new GenericsAdapter(this, AppConstants.page_recommend_tag);

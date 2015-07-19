@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.TabPageAdapter;
-import com.babyspace.mamshare.app.fragment.EmptyFragment;
 import com.babyspace.mamshare.app.fragment.GridViewEvaluateFragment;
 import com.babyspace.mamshare.app.fragment.GridViewGuidanceFragment;
 import com.babyspace.mamshare.basement.BaseActivity;

@@ -36,38 +36,41 @@ public class AssetsDatabaseManager {
     private static AssetsDatabaseManager mInstance = null;
 
     /**
-     * Initialize AssetsDatabaseManager 
-     * @param context, context of application 
+     * Initialize AssetsDatabaseManager
+     *
+     * @param context, context of application
      */
-    public static void initManager(Context context){
-        if(mInstance == null){
+    public static void initManager(Context context) {
+        if (mInstance == null) {
             mInstance = new AssetsDatabaseManager(context);
         }
     }
 
     /**
-     * Get a AssetsDatabaseManager object 
-     * @return, if success return a AssetsDatabaseManager object, else return null 
+     * Get a AssetsDatabaseManager object
+     *
+     * @return, if success return a AssetsDatabaseManager object, else return null
      */
-    public static AssetsDatabaseManager getManager(){
+    public static AssetsDatabaseManager getManager() {
         return mInstance;
     }
 
-    private AssetsDatabaseManager(Context context){
+    private AssetsDatabaseManager(Context context) {
         this.context = context;
     }
 
     /**
-     * Get a assets database, if this database is opened this method is only return a copy of the opened database 
-     * @param dbfile, the assets file which will be opened for a database 
-     * @return, if success it return a SQLiteDatabase object else return null 
+     * Get a assets database, if this database is opened this method is only return a copy of the opened database
+     *
+     * @param dbfile, the assets file which will be opened for a database
+     * @return, if success it return a SQLiteDatabase object else return null
      */
     public SQLiteDatabase getDatabase(String dbfile) {
-        if(databases.get(dbfile) != null){
+        if (databases.get(dbfile) != null) {
             L.i(tag, String.format("Return a database copy of %s", dbfile));
             return (SQLiteDatabase) databases.get(dbfile);
         }
-        if(context==null)
+        if (context == null)
             return null;
 
         L.i(tag, String.format("Create database %s", dbfile));
@@ -77,13 +80,13 @@ public class AssetsDatabaseManager {
         File file = new File(sfile);
         SharedPreferences dbs = context.getSharedPreferences(AssetsDatabaseManager.class.toString(), 0);
         boolean flag = dbs.getBoolean(dbfile, false); // Get Database file flag, if true means this database file was copied and valid  
-        if(!flag || !file.exists()){
+        if (!flag || !file.exists()) {
             file = new File(spath);
-            if(!file.exists() && !file.mkdirs()){
-                L.i(tag, "Create \""+spath+"\" fail!");
+            if (!file.exists() && !file.mkdirs()) {
+                L.i(tag, "Create \"" + spath + "\" fail!");
                 return null;
             }
-            if(!copyAssetsToFilesystem(dbfile, sfile)){
+            if (!copyAssetsToFilesystem(dbfile, sfile)) {
                 L.i(tag, String.format("Copy %s to %s fail!", dbfile, sfile));
                 return null;
             }
@@ -92,45 +95,43 @@ public class AssetsDatabaseManager {
         }
 
         SQLiteDatabase db = SQLiteDatabase.openDatabase(sfile, null, SQLiteDatabase.NO_LOCALIZED_COLLATORS);
-        if(db != null){
+        if (db != null) {
             databases.put(dbfile, db);
         }
         return db;
     }
 
-    private String getDatabaseFilepath(){
+    private String getDatabaseFilepath() {
         return String.format(databasepath, context.getApplicationInfo().packageName);
     }
 
-    private String getDatabaseFile(String dbfile){
-        return getDatabaseFilepath()+"/"+dbfile;
+    private String getDatabaseFile(String dbfile) {
+        return getDatabaseFilepath() + "/" + dbfile;
     }
 
-    private boolean copyAssetsToFilesystem(String assetsSrc, String des){
-        L.i(tag, "Copy "+assetsSrc+" to "+des);
+    private boolean copyAssetsToFilesystem(String assetsSrc, String des) {
+        L.i(tag, "Copy " + assetsSrc + " to " + des);
         InputStream istream = null;
         OutputStream ostream = null;
-        try{
+        try {
             AssetManager am = context.getAssets();
             istream = am.open(assetsSrc);
             ostream = new FileOutputStream(des);
             byte[] buffer = new byte[1024];
             int length;
-            while ((length = istream.read(buffer))>0){
+            while ((length = istream.read(buffer)) > 0) {
                 ostream.write(buffer, 0, length);
             }
             istream.close();
             ostream.close();
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-            try{
-                if(istream!=null)
+            try {
+                if (istream != null)
                     istream.close();
-                if(ostream!=null)
+                if (ostream != null)
                     ostream.close();
-            }
-            catch(Exception ee){
+            } catch (Exception ee) {
                 ee.printStackTrace();
             }
             return false;
@@ -139,12 +140,13 @@ public class AssetsDatabaseManager {
     }
 
     /**
-     * Close assets database 
-     * @param dbfile, the assets file which will be closed soon 
-     * @return, the status of this operating 
+     * Close assets database
+     *
+     * @param dbfile, the assets file which will be closed soon
+     * @return, the status of this operating
      */
-    public boolean closeDatabase(String dbfile){
-        if(databases.get(dbfile) != null){
+    public boolean closeDatabase(String dbfile) {
+        if (databases.get(dbfile) != null) {
             SQLiteDatabase db = (SQLiteDatabase) databases.get(dbfile);
             db.close();
             databases.remove(dbfile);
@@ -154,13 +156,13 @@ public class AssetsDatabaseManager {
     }
 
     /**
-     * Close all assets database 
+     * Close all assets database
      */
-    static public void closeAllDatabase(){
+    static public void closeAllDatabase() {
         L.i(tag, "closeAllDatabase");
-        if(mInstance != null){
-            for(int i=0; i<mInstance.databases.size(); ++i){
-                if(mInstance.databases.get(i)!=null){
+        if (mInstance != null) {
+            for (int i = 0; i < mInstance.databases.size(); ++i) {
+                if (mInstance.databases.get(i) != null) {
                     mInstance.databases.get(i).close();
                 }
             }

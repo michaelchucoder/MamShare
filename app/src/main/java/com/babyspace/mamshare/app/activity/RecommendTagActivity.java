@@ -16,10 +16,7 @@ import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.GenericsAdapter;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.babyspace.mamshare.basement.MamShare;
-import com.babyspace.mamshare.bean.HomeGuidanceEvent;
 import com.babyspace.mamshare.bean.HotWordEvent;
-import com.babyspace.mamshare.bean.Tags;
-import com.babyspace.mamshare.bean.TestBean;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.google.gson.JsonObject;
@@ -223,13 +220,12 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
             queryStart += queryNum;
         }
 
-        if (queryCount > 2){
+        if (queryCount > 2) {
             data.clear();
             data.add(responseData.get(0));
             adapter.refresh(AppConstants.page_empty, data);
             mFooter.setVisibility(View.GONE);
-        }
-        else
+        } else
             adapter.refresh(AppConstants.page_recommend_tag, data);
 
 

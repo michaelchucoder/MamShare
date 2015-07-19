@@ -1,4 +1,3 @@
-
 package me.imid.swipebacklayout.lib;
 
 import android.app.Activity;
@@ -16,11 +15,11 @@ public class Utils {
      * Convert a translucent themed Activity
      * {@link android.R.attr#windowIsTranslucent} to a fullscreen opaque
      * Activity.
-     * <p>
+     * <p/>
      * Call this whenever the background of a translucent Activity has changed
      * to become opaque. Doing so will allow the {@link android.view.Surface} of
      * the Activity behind to be released.
-     * <p>
+     * <p/>
      * This call has no effect on non-translucent activities or on activities
      * with the {@link android.R.attr#windowIsFloating} attribute.
      */
@@ -38,10 +37,10 @@ public class Utils {
      * {@link android.R.attr#windowIsTranslucent} back from opaque to
      * translucent following a call to
      * {@link #convertActivityFromTranslucent(android.app.Activity)} .
-     * <p>
+     * <p/>
      * Calling this allows the Activity behind this one to be seen again. Once
      * all such Activities have been redrawn
-     * <p>
+     * <p/>
      * This call has no effect on non-translucent activities or on activities
      * with the {@link android.R.attr#windowIsFloating} attribute.
      */
@@ -57,8 +56,8 @@ public class Utils {
             Method method = Activity.class.getDeclaredMethod("convertToTranslucent",
                     translucentConversionListenerClazz);
             method.setAccessible(true);
-            method.invoke(activity, new Object[] {
-                null
+            method.invoke(activity, new Object[]{
+                    null
             });
         } catch (Throwable t) {
         }

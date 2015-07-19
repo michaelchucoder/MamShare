@@ -69,11 +69,11 @@ public class TagEvaluateListActivity extends BaseActivity implements ObservableS
 
     @Override
     public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
-        if(scrollY==0&&dragging){
-            ToastHelper.showToast(this,"0000");
+        if (scrollY == 0 && dragging) {
+            ToastHelper.showToast(this, "0000");
         }
 
-        L.d("LabelEvaluateListActivity", "scrollY " + scrollY+" firstScroll "+firstScroll+" dragging "+dragging);
+        L.d("LabelEvaluateListActivity", "scrollY " + scrollY + " firstScroll " + firstScroll + " dragging " + dragging);
         int baseColor = getResources().getColor(R.color.primary);
         float alpha = Math.min(1, (float) scrollY / mParallaxImageHeight);
         mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(alpha, baseColor));
@@ -82,14 +82,14 @@ public class TagEvaluateListActivity extends BaseActivity implements ObservableS
 
     @Override
     public void onDownMotionEvent() {
-        L.d("LabelEvaluateListActivity", "onDownMotionEvent " );
+        L.d("LabelEvaluateListActivity", "onDownMotionEvent ");
 
     }
 
 
     @Override
     public void onUpOrCancelMotionEvent(ScrollState scrollState) {
-        L.d("LabelEvaluateListActivity", "onUpOrCancelMotionEvent " );
+        L.d("LabelEvaluateListActivity", "onUpOrCancelMotionEvent ");
 
     }
 
