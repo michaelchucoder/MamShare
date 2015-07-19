@@ -96,6 +96,7 @@ public class HomeEvaluateListFragment extends BaseFragment implements SwipeRefre
         }
     }
 
+
     @Override
     public void init(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_home_evaluate_list);
