@@ -7,15 +7,13 @@
     android:padding="20px">
 
     <ImageView
-        android:id="@+id/title"
+        android:id="@+id/iv_cover"
         android:layout_width="300px"
         android:layout_height="300px"
-        android:src="@color/yellow"
-        android:text="我是标题大人" />
-
+        android:src="@color/yellow" />
 
     <Button
-        android:id="@+id/like"
+        android:id="@+id/btn_like"
         android:layout_width="50px"
         android:layout_height="50px"
         android:layout_alignParentBottom="true"
