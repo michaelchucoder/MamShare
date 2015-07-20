@@ -449,6 +449,7 @@ public class LoginActivity extends BaseActivity {
     public void doOnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_login_submit:
+                ToastHelper.showToast(this,"哈哈登录");
                 doLogin();
                 break;
             case R.id.btn_register_submit:

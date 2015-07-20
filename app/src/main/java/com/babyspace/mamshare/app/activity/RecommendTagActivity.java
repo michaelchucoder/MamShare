@@ -198,7 +198,7 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
         mSwipeLayout.setRefreshing(false);
         hideLoadingProgress();
         L.d(OkHttpExecutor.TAG, "onEventMainThread-HotWordEvent>" + event.getResultStr());
-        List<String> responseData = event.getData();
+        List<String> responseData = event.getData().hotwordList;
 
         if (responseData.size() < queryNum) {
             footerProgressBar.setVisibility(View.INVISIBLE);

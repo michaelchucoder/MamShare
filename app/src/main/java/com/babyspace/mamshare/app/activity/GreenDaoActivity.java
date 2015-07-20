@@ -176,7 +176,7 @@ public class GreenDaoActivity extends ListActivity {
     public void onEventMainThread(HotWordEvent event) {
         L.d(OkHttpExecutor.TAG, "HotWordEvent->" + event.getResultStr());
 
-        List<String> strings = event.getData();
+        List<String> strings = event.getData().hotwordList;
         L.d(OkHttpExecutor.TAG, "HotWordEvent-getData " + strings.get(2));
 
     }

@@ -602,18 +602,23 @@ public class SplashActivity extends BaseActivity {
         switch (view.getId()) {
             case R.id.go_preface:
                 i.setClass(this, HomePrefaceActivity.class);
+                startActivity(i);
+
                 break;
             case R.id.go_login:
                 i.setClass(this, LoginActivity.class);
+                startActivity(i);
+
                 break;
             case R.id.go_orm:
                 i.setClass(this, GreenDaoActivity.class);
+                startActivity(i);
+
                 break;
             case R.id.go_test:
-                i.setClass(this, TestActivity.class);
+                //i.setClass(this, TestActivity.class);
                 break;
         }
-        startActivity(i);
     }
 
 }
