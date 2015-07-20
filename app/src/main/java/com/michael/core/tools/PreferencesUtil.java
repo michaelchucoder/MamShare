@@ -4,10 +4,13 @@ package com.michael.core.tools;
 import android.content.SharedPreferences;
 
 import com.babyspace.mamshare.basement.BaseApplication;
+import com.babyspace.mamshare.bean.TagEvaluate;
 import com.michael.library.debug.L;
 
 
 public class PreferencesUtil {
+
+    public static final String TAG = "PreferencesUtil";
 
     public static final String first_login = "first_login";
     public static final String interface_Token = "interfaceToken";
@@ -31,7 +34,7 @@ public class PreferencesUtil {
             editor.putInt(key, (Integer) value);
         }
         editor.apply();
-        L.d("putPreferences->" + key + ":" + value);
+        L.d(TAG,"put->" + key + ":" + value);
     }
 
     public static <T> T getPreferences(String key, T value) {
@@ -48,7 +51,7 @@ public class PreferencesUtil {
             o = BaseApplication.preferences.getInt(key, (Integer) value);
         }
         T t = (T) o;
-        L.d("getPreferences->" + key + ":" + value);
+        L.d(TAG,"get->" + key + ":" + value);
         return t;
     }
 
@@ -56,7 +59,7 @@ public class PreferencesUtil {
 
         SharedPreferences.Editor editor = BaseApplication.preferences.edit();
         editor.clear();
-        L.d("clearPreferences->" + "all clean");
+        L.d(TAG,"clear->" + "all clean");
 
     }
 }

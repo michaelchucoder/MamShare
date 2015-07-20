@@ -92,10 +92,12 @@ public class UrlConstants {
      */
     public static final String UserEvaluate = "/user/eval";
 
+
     /**
      * 获取用户已登录信息接口
      */
-    public static final String UserCenter = "/user/center";
+    public static final String CollectGuidance = "/user/collection/strategy";
+    public static final String CollectEvaluate = "/user/collection/eval";
     /**
      * 获取用户个人信息接口
      */
@@ -105,14 +107,38 @@ public class UrlConstants {
      * Android攻略/评测收藏接口
      */
     public static final String AddCollection = "/collection/addCollection";
+
     /**
      * 获取服务器系统当前日期时间戳接口（getServiceNowDateTime）
      */
+
     public static final String GetServiceTime = "/system/getServiceNowDateTime";
     /**
      * 记录手机启动日志接口。
      */
-    public static final String StartUpNotice = "/system/startUpNotice ";
+    public static final String StartUpNotice = "/system/startUpNotice";
+
+    /**
+     * Android攻略/评测点赞接口
+     */
+    public static final String StategyPraise = "/strategy/updatePraiseNum";
+    public static final String EvaluatePraise = "/eval/updatePraiseNum ";
+
+    /**
+     * Android首页获取评测详情数据接口
+     */
+    public static final String EvaluateDetail = "/eval/detail";
+
+    /**
+     * Android账户获取手机验证码（注册、重置密码）接口
+     */
+    public static final String GetVerifyCode = "/account/getPhoneValidCode";
+
+
+    /**
+     * Android账户注册手机号码是否已被注册接口
+     */
+    public static final String IsPhoneRegistered = "/account/hasRegisteredPhonenum";
 
 
 }
