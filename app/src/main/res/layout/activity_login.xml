@@ -30,8 +30,7 @@
             android:textSize="24px"
             app:met_clearButton="true"
             app:met_iconLeft="@drawable/ic_phone"
-            app:met_iconPadding="0dp"
-            />
+            app:met_iconPadding="0dp" />
 
         <com.michael.library.widget.materialedittext.MaterialEditText
             android:id="@+id/login_password_edit"
@@ -42,8 +41,7 @@
             android:textSize="24px"
             app:met_clearButton="true"
             app:met_iconLeft="@drawable/ic_user_center"
-            app:met_iconPadding="0dp"
-            />
+            app:met_iconPadding="0dp" />
 
 
         <TextView
