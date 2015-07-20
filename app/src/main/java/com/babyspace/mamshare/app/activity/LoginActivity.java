@@ -10,6 +10,8 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
@@ -61,6 +63,14 @@ public class LoginActivity extends BaseActivity {
     @InjectView(R.id.login_password_edit)
     EditText etPwd;
 
+
+    @InjectView(R.id.common_title_left)
+    ImageButton common_title_left;
+    @InjectView(R.id.common_title_text)
+    TextView common_title_text;
+    @InjectView(R.id.common_title_right)
+    ImageButton common_title_right;
+
     private String mobile;// 帐号
     private String password;// 密码
     private String auth;
@@ -105,8 +115,15 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         setTheme(R.style.AppBaseTheme);
+        initView();
         registerToThird();
         registerReceiver();
+
+    }
+
+    private void initView() {
+        common_title_left.setImageResource(R.drawable.ic_back);
+        common_title_text.setText("登录");
 
     }
 
