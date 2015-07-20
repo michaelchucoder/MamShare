@@ -57,11 +57,11 @@ public class GridViewSearchAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         @SuppressLint("ViewHolder")
-        View rootView = LayoutInflater.from(ctx).inflate(R.layout.item_recommend_tag,
+        View rootView = LayoutInflater.from(ctx).inflate(R.layout.item_evaluate,
                 parent, false);
         ViewRelayoutUtil.relayoutViewWithScale(rootView, MamShare.screenWidthScale);
-        TextView txtTitle = (TextView) rootView.findViewById(R.id.title);
-        Button btnLike = (Button) rootView.findViewById(R.id.like);
+        TextView txtTitle = (TextView) rootView.findViewById(R.id.tv_title);
+        Button btnLike = (Button) rootView.findViewById(R.id.btn_like);
         txtTitle.setText(data.get(position).getTitle());
         btnLike.setText(data.get(position).isLike() ? "喜欢" : "无视");
         return rootView;
