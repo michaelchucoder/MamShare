@@ -5,6 +5,7 @@ import android.text.Html;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.framework.utils.UIUtils;
 
 /**
@@ -40,9 +41,10 @@ public class ToastHelper {
 /*        ImageView imageCodeProject = new ImageView(ctx);
         imageCodeProject.setImageResource(R.drawable.push);
         toastView.addView(imageCodeProject, 0);*/
-        toastView.setBackgroundColor(0xF5FF69B4);
+        toastView.setBackgroundColor(ctx.getResources().getColor(R.color.toast_mama_bg));
 
-        toast.setText(Html.fromHtml(fontBase.replace("contentPosition", toastTxt)));
+        //toast.setText(Html.fromHtml(fontBase.replace("contentPosition", toastTxt)));
+        toast.setText(toastTxt);
         toast.setDuration(Toast.LENGTH_SHORT);
         toast.show();
 
