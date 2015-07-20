@@ -264,6 +264,7 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
 
     @Override
     public void onPageSelected(int position) {
+
         pagePosition = position;
 
         if (position == 0) {
