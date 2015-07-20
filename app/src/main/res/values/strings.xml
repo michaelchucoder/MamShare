@@ -11,6 +11,7 @@
     <string name="weibosdk_demo_toast_auth_canceled">取消授权</string>
     <string name="title_activity_test">TestActivity</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="forget_pwd"><u>忘记密码？</u></string>
+
 
 </resources>
