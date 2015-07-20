@@ -192,7 +192,7 @@ public class GenericsAdapter extends BaseAdapter {
 
             if (convertView == null) {
                 holder = new GuidanceHolder();
-                convertView = View.inflate(ctx, AppConstants.item_home_evaluate, null);
+                convertView = View.inflate(ctx, AppConstants.item_guidance, null);
                 ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
                 holder.iv_cover = (ImageView) convertView.findViewById(R.id.iv_cover);
                 holder.btn_like = (Button) convertView.findViewById(R.id.btn_like);
@@ -218,7 +218,7 @@ public class GenericsAdapter extends BaseAdapter {
 
             if (convertView == null) {
                 holder = new EvaluateHolder();
-                convertView = View.inflate(ctx, AppConstants.item_home_evaluate, null);
+                convertView = View.inflate(ctx, AppConstants.item_evaluate, null);
                 ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
                 holder.tv_title = (TextView) convertView.findViewById(R.id.tv_title);
                 holder.iv_cover = (ImageView) convertView.findViewById(R.id.iv_cover);
@@ -246,10 +246,10 @@ public class GenericsAdapter extends BaseAdapter {
 
             if (convertView == null) {
                 holder = new ViewHolder();
-                convertView = View.inflate(ctx, AppConstants.item_recommend_tag, null);
+                convertView = View.inflate(ctx, AppConstants.item_evaluate, null);
                 ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
-                holder.tv_title = (TextView) convertView.findViewById(R.id.title);
-                holder.btn_like = (Button) convertView.findViewById(R.id.like);
+                holder.tv_title = (TextView) convertView.findViewById(R.id.tv_title);
+                holder.btn_like = (Button) convertView.findViewById(R.id.btn_like);
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();
