@@ -12,53 +12,64 @@ import java.util.List;
  * Date: 2015-7-10
  * Time: 10:31
  * To change this template use File | Settings | File and Code Templates.
- */
-
-/**
+ * <p/>
  * {
- * "code": 200,
  * "msg": {
- * "PageUrl": "http://m.gou.com/product_17123.html",
- * "CommentNum": 99,
- * "Comment": [
+ * "pageUrl": "http://m.gou.com/product_17123.html",
+ * "commentNum": 99,
+ * "comment": [
  * {
- * "UserID": 4,
- * "MamRoleName": "爱笑妈妈",
- * "HeadIcon": "http://file.0-6.com/qX0Nq6Cip4Mw0BeG7FByHc",
- * "Nickname": "赫本",
- * "CreateTime": "2015-07-09",
- * "Content": "supprise"
+ * "userID": 4,
+ * "mamRoleName": "爱笑妈妈",
+ * "headIcon": "http://file.0-6.com/qX0Nq6Cip4Mw0BeG7FByHc",
+ * "nickname": "赫本",
+ * "createTime": "2015-07-13",
+ * "content": "supprise"
  * },
  * {
- * "UserID": 3,
- * "MamRoleName": "电影妈妈",
- * "HeadIcon": "http://file.0-6.com/qX0Nq6Cip4Mw0BeG7FByHc",
- * "Nickname": "赫本",
- * "CreateTime": "2015-07-09",
- * "Content": "supprise"
+ * "userID": 3,
+ * "mamRoleName": "电影妈妈",
+ * "headIcon": "http://file.0-6.com/qX0Nq6Cip4Mw0BeG7FByHc",
+ * "nickname": "赫本",
+ * "createTime": "2015-07-13",
+ * "content": "supprise"
+ * },
+ * {
+ * "userID": 2,
+ * "mamRoleName": "音乐妈妈",
+ * "headIcon": "http://file.0-6.com/qX0Nq6Cip4Mw0BeG7FByHc",
+ * "nickname": "赫本",
+ * "createTime": "2015-07-13",
+ * "content": "supprise"
  * }
  * ],
- * "BrowseNum": 99,
- * "CollectionNum": 99,
- * "ProductUrl": "http://m.gou.com/product_17123.html",
- * "EvalID": 1,
- * "Title": "标题1",
- * "HeadUrl": "http://file6.m6go.com/pFYGyGOH1~Iu5S_VK1mR9W",
- * "UserID": 1,
- * "MamRoleName": "超人妈妈",
- * "HeadIcon": "http://file.0-6.com/qX0Nq6Cip4Mw0BeG7FByHc",
- * "Nickname": "糖包",
- * "Tags": [
+ * "browseNum": 99,
+ * "collectionNum": 99,
+ * "productUrl": "http://m.gou.com/product_17123.html",
+ * "userID": 1,
+ * "mamRoleName": "超人妈妈",
+ * "headIcon": "http://file.0-6.com/qX0Nq6Cip4Mw0BeG7FByHc",
+ * "nickname": "糖包",
+ * "tags": [
  * {
- * "TagId": 1,
- * "TagName": "宝宝洗白白"
+ * "tagId": 1,
+ * "tagName": "宝宝洗白白"
  * },
  * {
- * "TagId": 2,
- * "TagName": "小编精选"
+ * "tagId": 2,
+ * "tagName": "小编精选"
+ * },
+ * {
+ * "tagId": 3,
+ * "tagName": "贝亲"
  * }
- * ]
- * }
+ * ],
+ * "evalID": 1,
+ * "title": "标题1",
+ * "headUrl": "http://file6.m6go.com/pFYGyGOH1~Iu5S_VK1mR9W",
+ * "praiseNum": 0
+ * },
+ * "code": 200
  * }
  */
 public class EvaluateDetail implements Serializable {

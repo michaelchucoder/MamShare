@@ -16,5 +16,5 @@ public class UserEvaluate {
     @SerializedName("user")
     public UserInfo userInfo;
     @SerializedName("eval")
-    public List<Evaluate> evaluates;
+    public List<Evaluate> evalList;
 }

@@ -12,5 +12,5 @@ import java.util.List;
  * Time: 17:20
  * To change this template use File | Settings | File and Code Templates.
  */
-public class HotWordEvent extends BaseResponseBean<List<String>> {
+public class HotWordEvent extends BaseResponseBean<HotWord> {
 }
