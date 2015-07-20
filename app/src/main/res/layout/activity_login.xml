@@ -62,7 +62,7 @@
     <Button
         android:id="@+id/btn_login_submit"
         android:layout_width="400px"
-        android:layout_height="60px"
+        android:layout_height="76px"
         android:layout_below="@id/ll_login_container"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20px"
@@ -73,7 +73,7 @@
     <Button
         android:id="@+id/btn_register_submit"
         android:layout_width="400px"
-        android:layout_height="60px"
+        android:layout_height="76px"
         android:layout_below="@id/btn_login_submit"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20px"
