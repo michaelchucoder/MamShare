@@ -1,4 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,58 +21,30 @@
         android:background="@color/pink_mama_bg"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/ll_login_account"
+        <com.michael.library.widget.materialedittext.MaterialEditText
+            android:id="@+id/login_account_edit"
             android:layout_width="500px"
-            android:layout_height="80px"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="32px">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32px"
+            android:hint="手机号/邮箱/账户名"
+            android:textSize="24px"
+            app:met_clearButton="true"
+            app:met_iconLeft="@drawable/ic_phone"
+            app:met_iconPadding="0dp"
+            />
 
-            <View
-                android:layout_width="24px"
-                android:layout_height="25px"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="20px"
-                android:background="@drawable/activity_home_btn_search" />
-
-            <EditText
-                android:id="@+id/login_account_edit"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="17px"
-                android:layout_marginRight="17px"
-                android:gravity="center_vertical"
-                android:hint="手机号/邮箱/账户名"
-                android:textColor="#868686"
-                android:textSize="24px" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ll_login_password"
+        <com.michael.library.widget.materialedittext.MaterialEditText
+            android:id="@+id/login_password_edit"
             android:layout_width="500px"
-            android:layout_height="80px"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="32px"
-            android:layout_marginTop="32px">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32px"
+            android:hint="密码"
+            android:textSize="24px"
+            app:met_clearButton="true"
+            app:met_iconLeft="@drawable/ic_user_center"
+            app:met_iconPadding="0dp"
+            />
 
-            <View
-                android:layout_width="24px"
-                android:layout_height="25px"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="20px"
-                android:background="@drawable/activity_home_btn_search" />
-
-            <EditText
-                android:id="@+id/login_password_edit"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="17px"
-                android:layout_marginRight="17px"
-                android:gravity="center_vertical"
-                android:hint="密码"
-                android:textColor="#868686"
-                android:textSize="24px" />
-        </LinearLayout>
 
         <TextView
             android:id="@+id/tv_login_forgot_pwd"
