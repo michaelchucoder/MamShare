@@ -29,7 +29,7 @@
             android:hint="手机号/邮箱/账户名"
             android:textSize="24px"
             app:met_clearButton="true"
-            app:met_iconLeft="@drawable/ic_phone"
+            app:met_iconLeft="@drawable/ic_user_center"
             app:met_iconPadding="0dp" />
 
         <com.michael.library.widget.materialedittext.MaterialEditText
@@ -40,7 +40,7 @@
             android:hint="密码"
             android:textSize="24px"
             app:met_clearButton="true"
-            app:met_iconLeft="@drawable/ic_user_center"
+            app:met_iconLeft="@drawable/ic_password"
             app:met_iconPadding="0dp" />
 
 

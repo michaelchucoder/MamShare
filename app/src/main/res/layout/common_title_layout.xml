@@ -1,18 +1,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/layout_setting_title"
     android:layout_width="match_parent"
-    android:layout_height="80px"
+    android:layout_height="100px"
     android:background="@null">
 
-    <Button
+    <ImageButton
         android:id="@+id/common_title_left"
-        android:layout_width="120px"
-        android:layout_height="80px"
-        android:layout_marginLeft="30px"
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:background="#f9f33f"
         android:text="左按钮"
-        android:textSize="40px"
-        android:background="#f9f33f" />
-
+        android:textSize="40px" />
 
     <TextView
         android:id="@+id/common_title_text"
@@ -23,14 +21,13 @@
         android:text="公共标题"
         android:textSize="40px" />
 
-    <Button
+    <ImageButton
         android:id="@+id/common_title_right"
-        android:layout_width="120px"
-        android:layout_height="80px"
+        android:layout_width="100px"
+        android:layout_height="100px"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="30px"
+        android:background="#f9f33f"
         android:text="右按钮"
-        android:textSize="40px"
-        android:background="#f9f33f" />
+        android:textSize="40px" />
 
 </RelativeLayout>
