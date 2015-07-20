@@ -17,6 +17,8 @@ import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.GenericsAdapter;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.basement.MamShare;
+import com.babyspace.mamshare.bean.CollectEvaluate;
+import com.babyspace.mamshare.bean.CollectEvaluateEvent;
 import com.babyspace.mamshare.bean.Evaluate;
 import com.babyspace.mamshare.bean.SearchResultEvent;
 import com.babyspace.mamshare.bean.UserEvaluateEvent;
@@ -211,7 +213,7 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
                 break;
             case AppConstants.page_collect_evaluate:
                 if (queryCall != null) queryCall.cancel();
-                queryCall = OkHttpExecutor.query(UrlConstants.UserCenter, jsonParameter, SearchResultEvent.class, false, this);
+                queryCall = OkHttpExecutor.query(UrlConstants.CollectEvaluate, jsonParameter, CollectEvaluateEvent.class, false, this);
                 break;
             case AppConstants.page_user_evaluate:
                 if (queryCall != null) queryCall.cancel();
@@ -234,15 +236,47 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
         }
     }
 
-    /**
-     * EventBus 响应事件
-     *
-     * @param event
-     */
+
+    public void onEventMainThread(UserEvaluateEvent event) {
+        mSwipeLayout.setRefreshing(false);
+        hideLoadingProgress();
+        L.d(OkHttpExecutor.TAG, "onEventMainThread-SearchResultEvaluateFragment>" + event.getResultStr());
+
+        List<Evaluate> responseData = event.getData().evalList;
+
+        if (responseData.size() < queryNum) {
+            footerProgressBar.setVisibility(View.INVISIBLE);
+            footerText.setText("本次探险已经结束，暂时没有更多内容了呢~");
+            isMoreData = false;
+        } else {
+            footerProgressBar.setVisibility(View.INVISIBLE);
+            footerText.setText("");
+        }
+
+        if (isRefreshAdd) {
+            queryStart += queryNum;
+            data.addAll(responseData);
+            isRefreshAdd = false;
+        } else {
+            data = responseData;
+            // 有可能刚刷新完 又上滑刷新添加
+            isMoreData = true;
+            queryStart += queryNum;
+        }
+
+        if (queryCount > 2) {
+            data.clear();
+            data.add(responseData.get(0));
+            adapter.refresh(AppConstants.page_empty, data);
+            mFooter.setVisibility(View.GONE);
+        } else
+            adapter.refresh(pageFlag, data);
+
+    }
     public void onEventMainThread(SearchResultEvent event) {
         mSwipeLayout.setRefreshing(false);
         hideLoadingProgress();
-        L.d(OkHttpExecutor.TAG, "onEventMainThread-SearchResultEvent>" + event.getResultStr());
+        L.d(OkHttpExecutor.TAG, "onEventMainThread-SearchResultEvaluateFragment>" + event.getResultStr());
 
         List<Evaluate> responseData = event.getData().evalList;
 
@@ -276,12 +310,12 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
 
     }
 
-    public void onEventMainThread(UserEvaluateEvent event) {
+    public void onEventMainThread(CollectEvaluateEvent event) {
         mSwipeLayout.setRefreshing(false);
         hideLoadingProgress();
         L.d(OkHttpExecutor.TAG, "onEventMainThread-SearchResultEvaluateFragment>" + event.getResultStr());
 
-        List<Evaluate> responseData = event.getData().evaluates;
+        List<Evaluate> responseData = event.getData().evalList;
 
         if (responseData.size() < queryNum) {
             footerProgressBar.setVisibility(View.INVISIBLE);
