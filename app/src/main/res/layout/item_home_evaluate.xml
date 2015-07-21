@@ -3,14 +3,15 @@
     xmlns:imagecontrol="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pink_mama_bg"
+    android:background="@color/white"
     android:orientation="vertical"
-    android:padding="20px">
+    >
 
     <TextView
         android:id="@+id/tv_title"
-        android:layout_width="250px"
-        android:layout_height="100px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64px"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:textSize="50px"
@@ -18,14 +19,15 @@
 
     <TextView
         android:id="@+id/tv_desc"
-        android:layout_width="250px"
-        android:layout_height="100px"
-        android:textSize="25px"
+        android:layout_width="match_parent"
+        android:padding="20px"
+        android:layout_height="wrap_content"
+        android:textSize="35px"
         android:layout_below="@+id/tv_title"
         android:layout_centerHorizontal="true"
-        android:gravity="center"
         android:textColor="@color/login_hint_color"
         android:maxLength="100"
+        android:ellipsize="end"
         android:text="摘要" />
 
     <RelativeLayout

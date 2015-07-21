@@ -36,6 +36,10 @@
     <color name="login_btn_bg">#05af10</color>
     <color name="get_verify_code_btn_bg">#ca8540</color>
 
+    <!--深灰色-->
     <color name="deep_gray">#787878</color>
+
+    <!--深灰色-->
+    <color name="white_alpha">#99FFFFFF</color>
 
 </resources>

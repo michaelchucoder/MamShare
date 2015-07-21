@@ -12,6 +12,9 @@
     <string name="title_activity_test">TestActivity</string>
 
     <string name="forget_pwd"><u>忘记密码？</u></string>
+    <string name="phone86">+86</string>
+    <string name="input_phone_num">请输入手机号</string>
+    <string name="next_step">下一步</string>
 
 
 </resources>
