@@ -15,16 +15,17 @@ import com.michael.library.debug.L;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class SPrefUtil {
+    public static final String TAG = "SPrefUtil";
 
     public static final String SP_FIRST_LOGIN = "first_login";
     public static final String SP_USER_NAME = "user_name";
     public static final String SP_PASSWORD = "password";
-    public static final String SP_USERID = "userId";
-    public static final String SP_TOKEN = "access_token";
-    public static final String SP_AUTH = "auth";
     public static final String SP_AUTO_LOGIN = "auto_login";
     public static final String SP_PUSHID = "pushId";
-
+    public static final String sp_interface_Token = "interfaceToken";
+    public static final String sp_token_expired_time = "tokenExpiredTime";
+    public static final String sp_auth = "auth";
+    public static final String sp_user_id = "userid";
 
     //TODO
 
@@ -42,7 +43,7 @@ public class SPrefUtil {
             editor.putLong(key, (Long) value);
         }
         editor.apply();
-        L.d("putPreferences->" + key + ":" + value);
+        L.d(TAG,"putSPref->" + key + ":" + value);
     }
 
     public static <T> T getSPref(String key, T value) {
@@ -59,15 +60,15 @@ public class SPrefUtil {
             o = BaseApplication.preferences.getLong(key, (Long) value);
         }
         T t = (T) o;
-        L.d("getPreferences->" + key + ":" + value);
+        L.d(TAG,"getSPref->" + key + ":" + value);
         return t;
     }
 
-    public static void clearPreferences() {
+    public static void clearSPref() {
 
         SharedPreferences.Editor editor = BaseApplication.preferences.edit();
         editor.clear();
-        L.d("clearPreferences->" + "all clean");
+        L.d(TAG,"clearSPref->" + "all clean");
 
     }
 }
