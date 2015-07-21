@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:imagecontrol="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:imagecontrol="http://schemas.android.com/apk/res-auto"
     android:background="@color/pink_mama_bg"
     android:orientation="vertical"
     android:padding="20px">
@@ -13,15 +13,19 @@
         android:layout_height="100px"
         android:layout_centerHorizontal="true"
         android:gravity="center"
+        android:textSize="50px"
         android:text="标题" />
 
     <TextView
         android:id="@+id/tv_desc"
         android:layout_width="250px"
         android:layout_height="100px"
+        android:textSize="25px"
         android:layout_below="@+id/tv_title"
         android:layout_centerHorizontal="true"
         android:gravity="center"
+        android:textColor="@color/login_hint_color"
+        android:maxLength="100"
         android:text="摘要" />
 
     <RelativeLayout
@@ -42,14 +46,15 @@
             android:id="@+id/mama_role_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true">
+            android:layout_alignParentBottom="true"
+            android:padding="20px"
+            android:background="@drawable/item_home_evaluate_bg_gradient">
 
             <com.michael.library.widget.roundimage.RoundImageView
                 android:id="@+id/iv_avatar"
-                android:layout_width="200px"
-                android:layout_height="200px"
+                android:layout_width="100px"
+                android:layout_height="100px"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="80px"
                 android:scaleType="fitXY"
                 android:src="@drawable/user_default_avatar"
                 imagecontrol:border_outside_color="#ffdcd4d9"
@@ -60,28 +65,58 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
+                android:layout_marginLeft="20px"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/tv_nickname"
-                    android:layout_width="250px"
-                    android:layout_height="100px"
-                    android:gravity="center"
-                    android:text="tv_nickname" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="tv_nickname"
+                    android:textColor="@color/white"
+                    android:textSize="40px" />
 
                 <TextView
                     android:id="@+id/tv_role"
-                    android:layout_width="250px"
-                    android:layout_height="100px"
-                    android:gravity="center"
-                    android:text="tv_role" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="tv_role"
+                    android:textSize="30px"
+                    android:textColor="@color/white" />
             </LinearLayout>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
 
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_gravity="bottom">
+
+                <ImageView
+                    android:id="@+id/item_home_evaluate_like"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/heart_nomal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/item_home_evaluate_like"
+                    android:text="44"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/white" />
+
+            </RelativeLayout>
 
             <Button
                 android:id="@+id/btn_like"
                 android:layout_width="50px"
                 android:layout_height="50px"
+                android:visibility="gone"
                 android:layout_gravity="right|bottom"
                 android:background="@drawable/shape_rounded_rectangle"
                 android:text="45">
@@ -91,48 +126,52 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/label_container"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:padding="20px"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:layout_below="@+id/cover_container">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="20px"
+            android:src="@drawable/heart_select"/>
 
         <TextView
             android:id="@+id/tv_label1"
-            android:layout_width="250px"
-            android:layout_height="100px"
+            style="@style/LabelStyle"
             android:text="tv_role" />
 
         <TextView
             android:id="@+id/tv_label2"
-            android:layout_width="250px"
-            android:layout_height="100px"
-            android:layout_centerHorizontal="true"
+           style="@style/LabelStyle"
             android:text="tv_role" />
 
         <TextView
             android:id="@+id/tv_label3"
-            android:layout_width="250px"
-            android:layout_height="100px"
-            android:layout_alignParentRight="true"
+            style="@style/LabelStyle"
             android:text="tv_role" />
 
         <TextView
             android:id="@+id/tv_label4"
-            android:layout_width="250px"
-            android:layout_height="100px"
-            android:layout_below="@+id/tv_label1"
+            style="@style/LabelStyle"
+            android:visibility="gone"
             android:text="tv_role" />
 
         <TextView
             android:id="@+id/tv_label5"
-            android:layout_width="250px"
-            android:layout_height="100px"
-            android:layout_below="@+id/tv_label1"
-            android:layout_centerHorizontal="true"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/green_mama_bg"
             android:text="tv_role" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
 
 </RelativeLayout>

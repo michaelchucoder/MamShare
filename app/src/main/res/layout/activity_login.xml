@@ -28,6 +28,8 @@
             android:layout_marginTop="32px"
             android:hint="手机号/邮箱/账户名"
             android:textSize="24px"
+
+
             app:met_clearButton="true"
             app:met_iconLeft="@drawable/ic_user_center"
             app:met_iconPadding="0dp" />
@@ -54,21 +56,23 @@
             android:paddingRight="15px"
             android:paddingTop="10px"
             android:text="@string/forget_pwd"
+            android:textColor="@color/login_hint_color"
             android:textSize="20px" />
 
     </LinearLayout>
 
 
-
-   <Button
+    <Button
         android:id="@+id/btn_login_submit"
         android:layout_width="400px"
         android:layout_height="76px"
         android:layout_below="@id/ll_login_container"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20px"
-        android:background="@drawable/shape_rounded_rectangle"
+        android:background="@drawable/login_btn_shape_login"
+        android:gravity="center"
         android:text="登录"
+        android:textColor="@color/white"
         android:textSize="40px" />
 
     <Button
@@ -78,8 +82,11 @@
         android:layout_below="@id/btn_login_submit"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20px"
-        android:background="@drawable/shape_rounded_rectangle"
+        android:background="@drawable/login_btn_shape_regist"
+        android:gravity="center"
         android:text="注册"
+        android:alpha="0.57"
+        android:textColor="@color/login_hint_color"
         android:textSize="40px" />
 
     <RelativeLayout
@@ -97,6 +104,7 @@
             android:layout_marginLeft="20px"
             android:layout_marginRight="20px"
             android:text="第三方登录"
+            android:textColor="@color/login_hint_color"
             android:textSize="22px" />
 
         <View

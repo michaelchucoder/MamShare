@@ -48,4 +48,23 @@
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
+<!--绿色25px字号-->
+    <style name="TextGreen25PX">
+        <item name="android:textColor">@color/green_mama_bg</item>
+        <item name="android:textSize">25px</item>
+
+    </style>
+
+
+    <!--测评item 标签style-->
+    <style name="LabelStyle" parent="TextGreen25PX" >
+
+        <item name="android:layout_width">0px</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+
+
+    </style>
+
 </resources>

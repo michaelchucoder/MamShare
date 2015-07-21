@@ -30,4 +30,12 @@
     <color name="indigo_700">#303f9f</color>
     <color name="cyan_500">#00bcd4</color>
 
+    <!--登陆界面灰色字体颜色-->
+    <color name="login_hint_color">#7a7a7a</color>
+    <!--登陆界面登陆按钮背景颜色-->
+    <color name="login_btn_bg">#05af10</color>
+    <color name="get_verify_code_btn_bg">#ca8540</color>
+
+    <color name="deep_gray">#787878</color>
+
 </resources>
