@@ -13,7 +13,7 @@ import com.babyspace.mamshare.framework.utils.NetWorkUtil;
 import com.babyspace.mamshare.framework.utils.UiHelper;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpCall;
-import com.michael.core.tools.PreferencesUtil;
+import com.michael.core.tools.SPrefUtil;
 import com.michael.library.debug.L;
 import com.squareup.okhttp.Request;
 import com.tencent.mm.sdk.modelbase.BaseReq;
@@ -57,14 +57,14 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
         Bundle bundle = new Bundle();
         switch (resp.errCode) {
             case BaseResp.ErrCode.ERR_OK:
-                PreferencesUtil.getPreferences("Wxin", "");
-                interfaceToken = PreferencesUtil.getPreferences(PreferencesUtil.interface_Token, "");
+                SPrefUtil.getSPref("Wxin", "");
+                interfaceToken = SPrefUtil.getSPref(SPrefUtil.sp_interface_Token, "");
                 from = getIntent().getStringExtra(WXEntryActivity.FROM);
                 resp.toBundle(bundle);
                 Resp sp = new Resp(bundle);
                 String code = sp.code;
                 L.i(TAG, "返回的code:" + code);
-                cancel = PreferencesUtil.getPreferences("Wxin", "");
+                cancel = SPrefUtil.getSPref("Wxin", "");
                 if ("wx_share".equals(cancel)) {
                     Toast.makeText(this, "分享成功", Toast.LENGTH_LONG).show();
                 } else {
@@ -74,7 +74,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
                 }
                 break;
             case BaseResp.ErrCode.ERR_USER_CANCEL:
-                cancel = PreferencesUtil.getPreferences("Wxin", "");
+                cancel = SPrefUtil.getSPref("Wxin", "");
                 if ("wx_login".equals(cancel)) {
                     Toast.makeText(this, "取消登录", Toast.LENGTH_LONG).show();
                 } else {
@@ -82,7 +82,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
                 }
                 break;
             default:
-                cancel = PreferencesUtil.getPreferences("Wxin", "");
+                cancel = SPrefUtil.getSPref("Wxin", "");
                 if ("wx_login".equals(cancel)) {
                     Toast.makeText(this, "登录失败", Toast.LENGTH_LONG).show();
                 } else {
@@ -197,10 +197,10 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
                     JsonObject json_msg = result.get("msg").getAsJsonObject();
                     String auth = json_msg.get("auth").getAsString();
                     String userId = json_msg.get("userId").getAsString();
-                    PreferencesUtil.putPreferences(PreferencesUtil.AUTH, auth);
-                    PreferencesUtil.putPreferences(PreferencesUtil.USERID, userId);
-                    PreferencesUtil.putPreferences(AUTO_LOGIN, false);// 如果是第三方登录，取消自动登录功能
-                    PreferencesUtil.putPreferences("login_refresh", true);
+                    SPrefUtil.putSPref(SPrefUtil.sp_auth, auth);
+                    SPrefUtil.putSPref(SPrefUtil.sp_user_id, userId);
+                    SPrefUtil.putSPref(AUTO_LOGIN, false);// 如果是第三方登录，取消自动登录功能
+                    SPrefUtil.putSPref("login_refresh", true);
 
                 }
                 if (code.equals("500")) {

@@ -28,7 +28,7 @@ import com.babyspace.mamshare.framework.weibo.UsersAPI;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.core.tools.MD5Util;
-import com.michael.core.tools.PreferencesUtil;
+import com.michael.core.tools.SPrefUtil;
 import com.michael.library.debug.L;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.WeiboAuth;
@@ -166,7 +166,7 @@ public class LoginActivity extends BaseActivity {
 
     // 微信登录
     private void doIvWeixin() {
-        PreferencesUtil.putPreferences("Wxin", "wx_login");
+        SPrefUtil.putSPref("Wxin", "wx_login");
         L.i(TAG, "微信联合登录");
         if (!NetWorkUtil.networkCanUse(this)) {
             String msg = "请检查网络连接！";

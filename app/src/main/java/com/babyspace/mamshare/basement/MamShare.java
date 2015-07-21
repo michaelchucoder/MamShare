@@ -17,7 +17,7 @@ import com.babyspace.mamshare.framework.utils.FileUtils;
 import com.babyspace.mamshare.framework.utils.UIUtils;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
-import com.michael.core.tools.PreferencesUtil;
+import com.michael.core.tools.SPrefUtil;
 import com.michael.library.debug.L;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -221,8 +221,8 @@ public class MamShare extends BaseApplication implements Thread.UncaughtExceptio
         L.d(OkHttpExecutor.TAG, "AccessTokenEvent->" + event.getData().getInterfaceToken());
         L.d(OkHttpExecutor.TAG, "isTokenValid->" + event.getData().isTokenValid());
 
-        PreferencesUtil.putPreferences(PreferencesUtil.interface_Token, event.getData().getInterfaceToken());
-        PreferencesUtil.putPreferences(PreferencesUtil.token_expired_time, event.getData().getExpiredTime());
+        SPrefUtil.putSPref(SPrefUtil.sp_interface_Token, event.getData().getInterfaceToken());
+        SPrefUtil.putSPref(SPrefUtil.sp_token_expired_time, event.getData().getExpiredTime());
 
     }
 
