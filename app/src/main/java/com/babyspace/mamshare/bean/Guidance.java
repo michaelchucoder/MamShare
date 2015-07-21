@@ -13,8 +13,10 @@ import java.io.Serializable;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class Guidance implements Serializable {
+    public Long id;
+
     @SerializedName("strategyId")
-    public int guidanceId;
+    public Long guidanceId;
     @SerializedName("title")
     public String guidanceTitle;
     @SerializedName("imageUrl")
@@ -23,4 +25,15 @@ public class Guidance implements Serializable {
     public String pageUrl;
     @SerializedName("praiseNum")
     public int likeNum;
+
+
+    public Guidance(Long id, Long guidanceId, String guidanceTitle, String imageUrl, String pageUrl, int likeNum) {
+        this.guidanceId = guidanceId;
+        this.guidanceTitle = guidanceTitle;
+        this.id = id;
+        this.imageUrl = imageUrl;
+        this.likeNum = likeNum;
+        this.pageUrl = pageUrl;
+    }
+
 }

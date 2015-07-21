@@ -2,8 +2,14 @@ package com.babyspace.mamshare.framework.db;
 
 import android.database.sqlite.SQLiteDatabase;
 
+import com.babyspace.mamshare.bean.CollectEvaluateDao;
+import com.babyspace.mamshare.bean.CollectGuidanceDao;
+import com.babyspace.mamshare.bean.Evaluate;
 import com.babyspace.mamshare.bean.GreenNote;
 import com.babyspace.mamshare.bean.GreenNoteDao;
+import com.babyspace.mamshare.bean.Guidance;
+import com.babyspace.mamshare.bean.HomeGuidance;
+import com.babyspace.mamshare.bean.HomeGuidanceDao;
 import com.babyspace.mamshare.bean.MArea;
 import com.babyspace.mamshare.bean.MAreaDao;
 
@@ -26,9 +32,15 @@ public class DaoSession extends AbstractDaoSession {
 
     private final DaoConfig noteDaoConfig;
     private final DaoConfig mAreaDaoConfig;
+    private final DaoConfig mHomeGuidanceDaoConfig;
+    private final DaoConfig mCollectGuidanceDaoConfig;
+    private final DaoConfig mCollectEvaluateDaoConfig;
 
     private final GreenNoteDao noteDao;
     private final MAreaDao mAreaDao;
+    private final HomeGuidanceDao homeGuidanceDao;
+    private final CollectGuidanceDao collectGuidanceDao;
+    private final CollectEvaluateDao collectEvaluateDao;
 
     public DaoSession(SQLiteDatabase db, IdentityScopeType type, Map<Class<? extends AbstractDao<?, ?>>, DaoConfig>
             daoConfigMap) {
@@ -44,11 +56,29 @@ public class DaoSession extends AbstractDaoSession {
         mAreaDao = new MAreaDao(mAreaDaoConfig, this);
         registerDao(MArea.class, mAreaDao);
 
+        mHomeGuidanceDaoConfig = daoConfigMap.get(HomeGuidanceDao.class).clone();
+        mHomeGuidanceDaoConfig.initIdentityScope(type);
+        homeGuidanceDao = new HomeGuidanceDao(mHomeGuidanceDaoConfig, this);
+        registerDao(HomeGuidance.class, homeGuidanceDao);
+
+        mCollectGuidanceDaoConfig = daoConfigMap.get(CollectGuidanceDao.class).clone();
+        mCollectGuidanceDaoConfig.initIdentityScope(type);
+        collectGuidanceDao = new CollectGuidanceDao(mCollectGuidanceDaoConfig, this);
+        registerDao(Guidance.class, collectGuidanceDao);
+
+        mCollectEvaluateDaoConfig = daoConfigMap.get(CollectEvaluateDao.class).clone();
+        mCollectEvaluateDaoConfig.initIdentityScope(type);
+        collectEvaluateDao = new CollectEvaluateDao(mCollectEvaluateDaoConfig, this);
+        registerDao(Evaluate.class, collectEvaluateDao);
+
     }
 
     public void clear() {
         noteDaoConfig.getIdentityScope().clear();
         mAreaDaoConfig.getIdentityScope().clear();
+        mHomeGuidanceDaoConfig.getIdentityScope().clear();
+        mCollectGuidanceDaoConfig.getIdentityScope().clear();
+        mCollectEvaluateDaoConfig.getIdentityScope().clear();
     }
 
     public GreenNoteDao getNoteDao() {
@@ -57,6 +87,18 @@ public class DaoSession extends AbstractDaoSession {
 
     public MAreaDao getMAreaDao() {
         return mAreaDao;
+    }
+
+    public HomeGuidanceDao getHomeGuidanceDao() {
+        return homeGuidanceDao;
+    }
+
+    public CollectGuidanceDao getCollectGuidanceDao() {
+        return collectGuidanceDao;
+    }
+
+    public CollectEvaluateDao getCollectEvaluateDao() {
+        return collectEvaluateDao;
     }
 
 

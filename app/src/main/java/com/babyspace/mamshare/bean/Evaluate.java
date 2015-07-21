@@ -13,13 +13,24 @@ import java.io.Serializable;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class Evaluate implements Serializable {
+    public Long id;
+
     @SerializedName("evalID")
-    public int evalID;
+    public Long evalID;
     @SerializedName("title")
-    public String title;
+    public String evalTitle;
     @SerializedName("headUrl")
     public String headUrl;
     @SerializedName("praiseNum")
     public int likeNum;
+
+    public Evaluate(Long id, Long evalID, String evalTitle, String headUrl, int likeNum) {
+        this.evalID = evalID;
+        this.headUrl = headUrl;
+        this.id = id;
+        this.likeNum = likeNum;
+        this.evalTitle = evalTitle;
+    }
+
 
 }

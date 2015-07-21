@@ -40,13 +40,14 @@ import java.util.List;
  * }
  */
 public class HomeEvaluate implements Serializable {
+    public Long id;
 
+    @SerializedName("evalID")
+    public Long evalID;
     @SerializedName("remark")
     public String remark;
     @SerializedName("praiseNum")
     public int likeNum;
-    @SerializedName("evalID")
-    public int evalID;
     @SerializedName("title")
     public String title;
     @SerializedName("headUrl")

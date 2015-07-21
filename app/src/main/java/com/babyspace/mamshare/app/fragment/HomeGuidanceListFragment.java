@@ -19,9 +19,11 @@ import com.babyspace.mamshare.adapter.GenericsAdapter;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.HomeGuidance;
+import com.babyspace.mamshare.bean.HomeGuidanceDao;
 import com.babyspace.mamshare.bean.HomeGuidanceEvent;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.UrlConstants;
+import com.babyspace.mamshare.controller.DBController;
 import com.babyspace.mamshare.listener.EmptyListener;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
@@ -70,6 +72,9 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
     private boolean isMoreData = true;
     private Call queryCall;
 
+    private HomeGuidanceDao dao;
+
+
     public HomeGuidanceListFragment() {
         // Required empty public constructor
     }
@@ -100,7 +105,7 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
     @Override
     public void init(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_home_guidance_list);
-
+        dao = DBController.getHomeGuidanceDao(getActivity());
         EventBus.getDefault().register(this);
         if (getArguments() != null) {
             pageFlag = getArguments().getInt(PAGE_FLAG);
@@ -182,7 +187,6 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
 
     }
 
-
     private void queryData() {
         //mSwipeLayout.setRefreshing(true);
 
@@ -229,6 +233,8 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
 
         List<HomeGuidance> responseData = event.getData();
 
+        dao.insertList(responseData);
+
         if (responseData.size() < queryNum) {
             footerProgressBar.setVisibility(View.INVISIBLE);
             footerText.setText("本次探险已经结束，暂时没有更多内容了呢~");
@@ -257,6 +263,10 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
         } else
             adapter.refresh(AppConstants.page_home_guidance, data);
 
+        for (HomeGuidance entity:
+                responseData) {
+            L.d("DaoDao",entity.toString());
+        }
 
     }
 

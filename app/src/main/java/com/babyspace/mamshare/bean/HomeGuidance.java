@@ -33,9 +33,12 @@ import java.io.Serializable;
  * }
  */
 public class HomeGuidance implements Serializable {
+    public Long id;
 
     @SerializedName("strategyId")
-    public int guidanceId;
+    public Long guidanceId;
+
+
     @SerializedName("title")
     public String guidanceTitle;
     @SerializedName("imageUrl")
@@ -43,7 +46,16 @@ public class HomeGuidance implements Serializable {
     @SerializedName("pageUrl")
     public String pageUrl;
 
-    public HomeGuidance(int guidanceId, String guidanceTitle, String imageUrl, String pageUrl) {
+    public HomeGuidance(Long id, Long guidanceId, String guidanceTitle, String imageUrl, String pageUrl) {
+        this.guidanceId = guidanceId;
+        this.guidanceTitle = guidanceTitle;
+        this.id = id;
+        this.imageUrl = imageUrl;
+        this.pageUrl = pageUrl;
+    }
+
+
+    public HomeGuidance(Long guidanceId, String guidanceTitle, String imageUrl, String pageUrl) {
         this.guidanceId = guidanceId;
         this.guidanceTitle = guidanceTitle;
         this.imageUrl = imageUrl;
@@ -54,11 +66,10 @@ public class HomeGuidance implements Serializable {
     public String toString() {
         return "HomeGuidance{" +
                 "guidanceId=" + guidanceId +
+                ", id=" + id +
                 ", guidanceTitle='" + guidanceTitle + '\'' +
-                ", imageUrl=" + imageUrl +
+                ", imageUrl='" + imageUrl + '\'' +
                 ", pageUrl='" + pageUrl + '\'' +
                 '}';
     }
-
-
 }

@@ -91,6 +91,7 @@ public class LoginActivity extends BaseActivity {
      */
     private SsoHandler mSsoHandler;
 
+
     private IWXAPI iwxapi;
     private BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
         @SuppressWarnings("null")
