@@ -296,7 +296,6 @@ public class GenericsAdapter extends BaseAdapter {
         this.data = data;
         notifyDataSetChanged();
     }
-
     //TODO 可以写一个并集类, 方便使用 为什么要static类型呢 可以试试
 
     static class ViewHolder {
