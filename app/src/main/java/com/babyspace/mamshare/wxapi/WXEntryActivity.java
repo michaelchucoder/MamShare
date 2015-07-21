@@ -58,7 +58,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
         switch (resp.errCode) {
             case BaseResp.ErrCode.ERR_OK:
                 PreferencesUtil.getPreferences("Wxin", "");
-                interfaceToken = PreferencesUtil.getPreferences(AppConstants.INTERFACETOKEN, "");
+                interfaceToken = PreferencesUtil.getPreferences(PreferencesUtil.interface_Token, "");
                 from = getIntent().getStringExtra(WXEntryActivity.FROM);
                 resp.toBundle(bundle);
                 Resp sp = new Resp(bundle);

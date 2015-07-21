@@ -4,7 +4,6 @@ package com.michael.core.tools;
 import android.content.SharedPreferences;
 
 import com.babyspace.mamshare.basement.BaseApplication;
-import com.babyspace.mamshare.bean.TagEvaluate;
 import com.michael.library.debug.L;
 
 

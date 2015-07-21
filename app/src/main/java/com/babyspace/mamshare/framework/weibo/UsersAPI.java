@@ -24,8 +24,8 @@ import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.net.WeiboParameters;
 
 /**
- * ¸ÃÀà·â×°ÁËÓÃ»§½Ó¿Ú¡£
- * ÏêÇéÇë²Î¿¼<a href="http://t.cn/8F1n1eF">ÓÃ»§½Ó¿Ú</a>
+ * è¯¥ç±»å°è£…äº†ç”¨æˆ·æ¥å£ã€‚
+ * è¯¦æƒ…è¯·å‚è€ƒ<a href="http://t.cn/8F1n1eF">ç”¨æˆ·æ¥å£</a>
  *
  * @author SINA
  * @since 2014-03-03
@@ -51,10 +51,10 @@ public class UsersAPI extends AbsOpenAPI {
     }
 
     /**
-     * ¸ù¾İÓÃ»§ID»ñÈ¡ÓÃ»§ĞÅÏ¢¡£
+     * æ ¹æ®ç”¨æˆ·IDè·å–ç”¨æˆ·ä¿¡æ¯ã€‚
      *
-     * @param uid      ĞèÒª²éÑ¯µÄÓÃ»§ID
-     * @param listener Òì²½ÇëÇó»Øµ÷½Ó¿Ú
+     * @param uid      éœ€è¦æŸ¥è¯¢çš„ç”¨æˆ·ID
+     * @param listener å¼‚æ­¥è¯·æ±‚å›è°ƒæ¥å£
      */
     public void show(long uid, RequestListener listener) {
         WeiboParameters params = new WeiboParameters();
@@ -63,10 +63,10 @@ public class UsersAPI extends AbsOpenAPI {
     }
 
     /**
-     * ¸ù¾İÓÃ»§êÇ³Æ»ñÈ¡ÓÃ»§ĞÅÏ¢¡£
+     * æ ¹æ®ç”¨æˆ·æ˜µç§°è·å–ç”¨æˆ·ä¿¡æ¯ã€‚
      *
-     * @param screen_name ĞèÒª²éÑ¯µÄÓÃ»§êÇ³Æ
-     * @param listener    Òì²½ÇëÇó»Øµ÷½Ó¿Ú
+     * @param screen_name éœ€è¦æŸ¥è¯¢çš„ç”¨æˆ·æ˜µç§°
+     * @param listener    å¼‚æ­¥è¯·æ±‚å›è°ƒæ¥å£
      */
     public void show(String screen_name, RequestListener listener) {
         WeiboParameters params = new WeiboParameters();
@@ -75,10 +75,10 @@ public class UsersAPI extends AbsOpenAPI {
     }
 
     /**
-     * Í¨¹ı¸öĞÔ»¯ÓòÃû»ñÈ¡ÓÃ»§×ÊÁÏÒÔ¼°ÓÃ»§×îĞÂµÄÒ»ÌõÎ¢²©¡£
+     * é€šè¿‡ä¸ªæ€§åŒ–åŸŸåè·å–ç”¨æˆ·èµ„æ–™ä»¥åŠç”¨æˆ·æœ€æ–°çš„ä¸€æ¡å¾®åšã€‚
      *
-     * @param domain   ĞèÒª²éÑ¯µÄ¸öĞÔ»¯ÓòÃû£¨Çë×¢Òâ£ºÊÇhttp://weibo.com/xxxºóÃæµÄxxx²¿·Ö£©
-     * @param listener Òì²½ÇëÇó»Øµ÷½Ó¿Ú
+     * @param domain   éœ€è¦æŸ¥è¯¢çš„ä¸ªæ€§åŒ–åŸŸåï¼ˆè¯·æ³¨æ„ï¼šæ˜¯http://weibo.com/xxxåé¢çš„xxxéƒ¨åˆ†ï¼‰
+     * @param listener å¼‚æ­¥è¯·æ±‚å›è°ƒæ¥å£
      */
     public void domainShow(String domain, RequestListener listener) {
         WeiboParameters params = new WeiboParameters();
@@ -87,10 +87,10 @@ public class UsersAPI extends AbsOpenAPI {
     }
 
     /**
-     * ÅúÁ¿»ñÈ¡ÓÃ»§µÄ·ÛË¿Êı¡¢¹Ø×¢Êı¡¢Î¢²©Êı¡£
+     * æ‰¹é‡è·å–ç”¨æˆ·çš„ç²‰ä¸æ•°ã€å…³æ³¨æ•°ã€å¾®åšæ•°ã€‚
      *
-     * @param uids     ĞèÒª»ñÈ¡Êı¾İµÄÓÃ»§UID£¬¶à¸öÖ®¼äÓÃ¶ººÅ·Ö¸ô£¬×î¶à²»³¬¹ı100¸ö
-     * @param listener Òì²½ÇëÇó»Øµ÷½Ó¿Ú
+     * @param uids     éœ€è¦è·å–æ•°æ®çš„ç”¨æˆ·UIDï¼Œå¤šä¸ªä¹‹é—´ç”¨é€—å·åˆ†éš”ï¼Œæœ€å¤šä¸è¶…è¿‡100ä¸ª
+     * @param listener å¼‚æ­¥è¯·æ±‚å›è°ƒæ¥å£
      */
     public void counts(long[] uids, RequestListener listener) {
         WeiboParameters params = buildCountsParams(uids);
@@ -99,7 +99,7 @@ public class UsersAPI extends AbsOpenAPI {
 
     /**
      * -----------------------------------------------------------------------
-     * Çë×¢Òâ£ºÒÔÏÂ·½·¨ÔÈ¾ùÍ¬²½·½·¨¡£Èç¹û¿ª·¢ÕßÓĞ×Ô¼ºµÄÒì²½ÇëÇó»úÖÆ£¬ÇëÊ¹ÓÃ¸Ãº¯Êı¡£
+     * è¯·æ³¨æ„ï¼šä»¥ä¸‹æ–¹æ³•åŒ€å‡åŒæ­¥æ–¹æ³•ã€‚å¦‚æœå¼€å‘è€…æœ‰è‡ªå·±çš„å¼‚æ­¥è¯·æ±‚æœºåˆ¶ï¼Œè¯·ä½¿ç”¨è¯¥å‡½æ•°ã€‚
      * -----------------------------------------------------------------------
      */
 
