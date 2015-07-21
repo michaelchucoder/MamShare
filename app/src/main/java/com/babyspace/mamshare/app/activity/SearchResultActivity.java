@@ -3,6 +3,8 @@ package com.babyspace.mamshare.app.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.EditText;
@@ -12,6 +14,7 @@ import com.babyspace.mamshare.adapter.TabPageAdapter;
 import com.babyspace.mamshare.app.fragment.GridViewEvaluateFragment;
 import com.babyspace.mamshare.app.fragment.GridViewGuidanceFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
+import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.listener.EmptyListener;
 import com.viewpagerindicator.TabPageIndicator;
@@ -44,8 +47,10 @@ public class SearchResultActivity extends BaseActivity implements EmptyListener 
 
         mIndicator = (TabPageIndicator) findViewById(R.id.id_indicator);
         mViewPager = (ViewPager) findViewById(R.id.id_pager);
-        mAdapter = new TabPageAdapter(getSupportFragmentManager(), TITLES, FRAGMENTS);
-        mViewPager.setAdapter(mAdapter);
+        MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager());
+        mViewPager.setAdapter(adapter);
+/*        mAdapter = new TabPageAdapter(getSupportFragmentManager(), TITLES, FRAGMENTS);
+        mViewPager.setAdapter(mAdapter);*/
         mIndicator.setViewPager(mViewPager, 0);
 
     }
@@ -65,6 +70,30 @@ public class SearchResultActivity extends BaseActivity implements EmptyListener 
         }
     }
 
+    class MyPagerAdapter extends FragmentPagerAdapter {
+        String[] titles = {"攻略", "评测"};
+        BaseFragment[] fragments = {GridViewGuidanceFragment.newInstance(AppConstants.page_search_guidance), GridViewEvaluateFragment.newInstance(AppConstants.page_search_evaluate)};
+
+        public MyPagerAdapter(FragmentManager fm) {
+            super(fm);
+            //titles = UIUtils.getStringArray(R.array.tab_names);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return titles[position];
+        }
+
+        @Override
+        public Fragment getItem(int i) {
+            return fragments[i];
+        }
+
+        @Override
+        public int getCount() {
+            return titles.length;
+        }
+    }
 
     @Override
     public void onDataEmpty() {

@@ -17,6 +17,9 @@ import android.support.v4.app.FragmentTransaction;
 import java.util.List;
 
 public class TabPageAdapter extends FragmentPagerAdapter {
+    /**
+     * 不能作为公共Adapter 重复进入会自动生成多个fragment
+     */
 
     public String[] TITLES;
     public List<Fragment> FRAGMENTS;

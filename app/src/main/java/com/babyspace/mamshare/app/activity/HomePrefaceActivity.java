@@ -3,6 +3,8 @@ package com.babyspace.mamshare.app.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.TextView;
@@ -10,9 +12,13 @@ import android.widget.TextView;
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.TabPageAdapter;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
+import com.babyspace.mamshare.app.fragment.GridViewEvaluateFragment;
+import com.babyspace.mamshare.app.fragment.GridViewGuidanceFragment;
 import com.babyspace.mamshare.app.fragment.HomeEvaluateListFragment;
 import com.babyspace.mamshare.app.fragment.HomeGuidanceListFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
+import com.babyspace.mamshare.basement.BaseFragment;
+import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.listener.EmptyListener;
 
 import java.util.ArrayList;
@@ -54,10 +60,12 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
 
     private void initView() {
         mPager = (ViewPager) findViewById(R.id.pager);
-        mAdapter = new TabPageAdapter(getSupportFragmentManager(), TITLES, FRAGMENTS);
+        MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager());
+        mPager.setAdapter(adapter);
 
+/*        mAdapter = new TabPageAdapter(getSupportFragmentManager(), TITLES, FRAGMENTS);
         // 给ViewPager添加适配器
-        mPager.setAdapter(mAdapter);
+        mPager.setAdapter(mAdapter);*/
         // 设置监听获得回调
         mPager.setOnPageChangeListener(this);
 
@@ -306,6 +314,30 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
             }
         }
         lastState = state;
+    }
+    class MyPagerAdapter extends FragmentPagerAdapter {
+        String[] titles = {"攻略", "评测"};
+        BaseFragment[] fragments = {new HomeGuidanceListFragment(),new HomeEvaluateListFragment()};
+
+        public MyPagerAdapter(FragmentManager fm) {
+            super(fm);
+            //titles = UIUtils.getStringArray(R.array.tab_names);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return titles[position];
+        }
+
+        @Override
+        public Fragment getItem(int i) {
+            return fragments[i];
+        }
+
+        @Override
+        public int getCount() {
+            return titles.length;
+        }
     }
 
     @Override

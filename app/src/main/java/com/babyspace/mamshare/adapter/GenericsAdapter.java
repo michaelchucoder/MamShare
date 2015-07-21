@@ -227,7 +227,7 @@ public class GenericsAdapter extends BaseAdapter {
             } else {
                 holder = (EvaluateHolder) convertView.getTag();
             }
-            holder.tv_title.setText(list.get(position).title);
+            holder.tv_title.setText(list.get(position).evalTitle);
             holder.btn_like.setText("" + list.get(position).likeNum);
 
             ImageLoader.getInstance().displayImage(list.get(position).headUrl, holder.iv_cover);
@@ -296,6 +296,7 @@ public class GenericsAdapter extends BaseAdapter {
         this.data = data;
         notifyDataSetChanged();
     }
+
     //TODO 可以写一个并集类, 方便使用 为什么要static类型呢 可以试试
 
     static class ViewHolder {
