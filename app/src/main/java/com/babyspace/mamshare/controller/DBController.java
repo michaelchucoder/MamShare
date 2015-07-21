@@ -3,7 +3,10 @@ package com.babyspace.mamshare.controller;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.babyspace.mamshare.bean.CollectEvaluateDao;
+import com.babyspace.mamshare.bean.CollectGuidanceDao;
 import com.babyspace.mamshare.bean.GreenNoteDao;
+import com.babyspace.mamshare.bean.HomeGuidanceDao;
 import com.babyspace.mamshare.bean.MAreaDao;
 import com.babyspace.mamshare.framework.db.DaoMaster;
 import com.babyspace.mamshare.framework.db.DaoSession;
@@ -48,6 +51,57 @@ public class DBController {
 
         daoSession = daoMaster.newSession();
         dao = daoSession.getMAreaDao();
+        return dao;
+
+    }
+
+    public static HomeGuidanceDao getHomeGuidanceDao(Context context) {
+        SQLiteDatabase db;
+        DaoMaster daoMaster;
+        DaoSession daoSession;
+        HomeGuidanceDao dao;
+
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context, "MamaShare-sqlDb", null);
+
+        db = helper.getWritableDatabase();
+        daoMaster = new DaoMaster(db);
+
+        daoSession = daoMaster.newSession();
+        dao = daoSession.getHomeGuidanceDao();
+        return dao;
+
+    }
+
+    public static CollectGuidanceDao getCollectGuidanceDao(Context context) {
+        SQLiteDatabase db;
+        DaoMaster daoMaster;
+        DaoSession daoSession;
+        CollectGuidanceDao dao;
+
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context, "MamaShare-sqlDb", null);
+
+        db = helper.getWritableDatabase();
+        daoMaster = new DaoMaster(db);
+
+        daoSession = daoMaster.newSession();
+        dao = daoSession.getCollectGuidanceDao();
+        return dao;
+
+    }
+
+    public static CollectEvaluateDao getCollectEvaluateDao(Context context) {
+        SQLiteDatabase db;
+        DaoMaster daoMaster;
+        DaoSession daoSession;
+        CollectEvaluateDao dao;
+
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context, "MamaShare-sqlDb", null);
+
+        db = helper.getWritableDatabase();
+        daoMaster = new DaoMaster(db);
+
+        daoSession = daoMaster.newSession();
+        dao = daoSession.getCollectEvaluateDao();
         return dao;
 
     }
