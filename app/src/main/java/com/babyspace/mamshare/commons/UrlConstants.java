@@ -141,4 +141,10 @@ public class UrlConstants {
     public static final String IsPhoneRegistered = "/account/hasRegisteredPhonenum";
 
 
+    /**
+     * Android获取妈妈名片接口
+     */
+    public static final String getMamaRole = "/user/mamRoles";
+
+
 }
