@@ -64,7 +64,7 @@ public class MamShare extends BaseApplication implements Thread.UncaughtExceptio
     @Override
     public void onCreate() {
         super.onCreate();
-        Thread.setDefaultUncaughtExceptionHandler(this);
+        //Thread.setDefaultUncaughtExceptionHandler(this);
 
         mMainThreadId = android.os.Process.myTid();
         mMainThread = Thread.currentThread();

@@ -46,6 +46,7 @@ public class AppConstants {
     public static final int page_search_evaluate = 2008;
     public static final int page_tag_evaluate = 2009;
     public static final int page_user_evaluate = 2010;
+    public static final int page_default = 2222;
 
     public static final int item_empty = R.layout.item_empty;
 
