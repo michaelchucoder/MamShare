@@ -39,7 +39,7 @@
     <!--深灰色-->
     <color name="deep_gray">#787878</color>
 
-    <!--深灰色-->
-    <color name="white_alpha">#99FFFFFF</color>
+    <!--白色透明度0.57-->
+    <color name="white_alpha">#91FFFFFF</color>
 
 </resources>

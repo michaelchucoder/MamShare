@@ -35,7 +35,7 @@
     <dimen name="sliding_slop">32dp</dimen>
     <dimen name="sliding_overlay_blur_size">4dp</dimen>
 
-    <!--materil editText-->
+    <!--material editText-->
 
     <dimen name="default_padding_top">16px</dimen>
     <dimen name="default_padding_bottom">16px</dimen>
@@ -45,5 +45,12 @@
     <dimen name="bottom_text_size">24px</dimen>
     <dimen name="inner_components_spacing">16px</dimen>
     <dimen name="bottom_ellipsis_height">8px</dimen>
+
+
+
+    <!--妈妈说 基本尺寸-->
+    <dimen name="button_circle_shape_height">76px</dimen>
+    <dimen name="button_text_size">40px</dimen>
+
 
 </resources>

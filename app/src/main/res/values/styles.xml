@@ -64,7 +64,24 @@
         <item name="android:layout_weight">1</item>
         <item name="android:gravity">center</item>
 
-
     </style>
+
+    <style name="LoginBtnStyle">
+
+        <item name="android:background">@drawable/login_btn_shape_login</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:layout_height">@dimen/button_circle_shape_height</item>
+    </style>
+
+    <style name="GreenEdgeStyle">
+
+        <item name="android:background">@drawable/shape_green_edge</item>
+        <item name="android:textColor">@color/green_mama_bg</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:layout_height">@dimen/button_circle_shape_height</item>
+    </style>
+
+
 
 </resources>
