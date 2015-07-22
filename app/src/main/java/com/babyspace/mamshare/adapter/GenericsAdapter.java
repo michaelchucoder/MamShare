@@ -240,7 +240,7 @@ public class GenericsAdapter extends BaseAdapter {
                     doLike();
                 }
             });
-        } else {
+        } else if (pageFlag == AppConstants.page_default) { //TODO  热词
             ViewHolder holder;
             final List<TestBean> list = (List<TestBean>) data;
 
@@ -280,6 +280,7 @@ public class GenericsAdapter extends BaseAdapter {
                     case AppConstants.page_home_guidance:
                         i.setClass(ctx, GuidanceDetailActivity.class);
                         break;
+                    case AppConstants.page_default:
                     default:
                         i.setClass(ctx, ParallaxToolbarListViewActivity.class);
                         break;
