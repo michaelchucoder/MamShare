@@ -7,6 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.basement.MamShare;
 import com.michael.core.tools.ViewRelayoutUtil;
 
 import java.util.ArrayList;

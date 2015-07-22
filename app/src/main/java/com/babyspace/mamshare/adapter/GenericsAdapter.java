@@ -15,6 +15,7 @@ import com.babyspace.mamshare.app.activity.EvaluateDetailActivity;
 import com.babyspace.mamshare.app.activity.GuidanceDetailActivity;
 import com.babyspace.mamshare.app.activity.ParallaxToolbarListViewActivity;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
+import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.Evaluate;
 import com.babyspace.mamshare.bean.Guidance;
 import com.babyspace.mamshare.bean.HomeEvaluate;
@@ -22,6 +23,7 @@ import com.babyspace.mamshare.bean.HomeGuidance;
 import com.babyspace.mamshare.bean.Tags;
 import com.babyspace.mamshare.bean.TestBean;
 import com.babyspace.mamshare.bean.VersionCheckEvent;
+import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.core.tools.ViewRelayoutUtil;
@@ -140,7 +142,11 @@ public class GenericsAdapter extends BaseAdapter {
             holder.tv_desc.setText(list.get(position).remark);
             holder.tv_nickname.setText(list.get(position).nickName);
             holder.tv_role.setText(list.get(position).roleName);
-            holder.tv_label1.setText(list.get(position).tagList.get(0).tagName);
+            holder.tv_label1.setText(list.get(position).tagList.size()>=1?list.get(position).tagList.get(0).tagName:"空的");
+            holder.tv_label2.setText(list.get(position).tagList.size()>=2?list.get(position).tagList.get(1).tagName:"");
+            holder.tv_label3.setText(list.get(position).tagList.size()>=3?list.get(position).tagList.get(2).tagName:"");
+            holder.tv_label4.setText(list.get(position).tagList.size()>=4?list.get(position).tagList.get(3).tagName:"");
+            holder.tv_label5.setText(list.get(position).tagList.size()>=5?list.get(position).tagList.get(4).tagName:"");
             holder.btn_like.setText("" + list.get(position).likeNum);
 
             ImageLoader.getInstance().displayImage(list.get(position).headIcon, holder.iv_avatar);
