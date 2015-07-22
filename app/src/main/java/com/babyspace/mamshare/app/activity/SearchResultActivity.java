@@ -15,7 +15,6 @@ import com.babyspace.mamshare.app.fragment.GridViewEvaluateFragment;
 import com.babyspace.mamshare.app.fragment.GridViewGuidanceFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.babyspace.mamshare.basement.BaseFragment;
-import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.listener.EmptyListener;
 import com.viewpagerindicator.TabPageIndicator;
 

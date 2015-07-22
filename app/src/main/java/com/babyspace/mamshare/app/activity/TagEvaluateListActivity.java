@@ -7,7 +7,6 @@ import android.view.View;
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.app.fragment.TagEvaluateListFragment;
-import com.babyspace.mamshare.commons.AppConstants;
 import com.michael.library.debug.L;
 import com.michael.library.widget.ParallaxToolbar.BaseActivity;
 import com.michael.library.widget.ParallaxToolbar.observablescrollview.ObservableScrollView;

@@ -6,14 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.babyspace.mamshare.commons.AppConstants;
-import com.babyspace.mamshare.commons.IntentParams;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.babyspace.mamshare.framework.utils.NetWorkUtil;
 import com.babyspace.mamshare.framework.utils.UiHelper;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpCall;
-import com.michael.core.tools.SPrefUtil;
 import com.michael.library.debug.L;
 import com.squareup.okhttp.Request;
 import com.tencent.mm.sdk.modelbase.BaseReq;

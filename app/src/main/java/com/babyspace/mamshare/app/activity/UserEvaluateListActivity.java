@@ -5,7 +5,6 @@ import android.os.Bundle;
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.fragment.GridViewEvaluateFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
-import com.babyspace.mamshare.commons.AppConstants;
 
 public class UserEvaluateListActivity extends BaseActivity {
 

@@ -12,12 +12,10 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
-import com.babyspace.mamshare.adapter.TabPageAdapter;
 import com.babyspace.mamshare.app.fragment.GridViewEvaluateFragment;
 import com.babyspace.mamshare.app.fragment.GridViewGuidanceFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.babyspace.mamshare.basement.BaseFragment;
-import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.listener.EmptyListener;
 import com.michael.library.widget.roundimage.RoundImageView;
 import com.viewpagerindicator.TabPageIndicator;
