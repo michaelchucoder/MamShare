@@ -7,14 +7,15 @@
 
     <style name="MyTheme" parent="AppBaseTheme">
         <item name="vpiTabPageIndicatorStyle">@style/MyWidget.TabPageIndicator</item>
-<!--
-        <item name="android:windowBackground">@drawable/tab_home_bg</item>
--->
+        <!--
+                <item name="android:windowBackground">@drawable/tab_home_bg</item>
+        -->
         <item name="android:windowNoTitle">true</item>
         <item name="android:animationDuration">5000</item>
         <item name="android:windowContentOverlay">@null</item>
 
     </style>
+
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in
@@ -22,6 +23,7 @@
             backward-compatibility can go here.
         -->
     </style>
+
     <style name="MyWidget.TabPageIndicator" parent="Widget">
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/vpi__tab_indicator</item>
@@ -39,16 +41,18 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="plane_picker_dialog_anim"  parent="android:Animation">
-        <item name="@android:windowEnterAnimation">@anim/picker_dialog_enter</item>  //进入时的动画
+    <style name="plane_picker_dialog_anim" parent="android:Animation">
+        <item name="@android:windowEnterAnimation">@anim/picker_dialog_enter</item>
+        //进入时的动画
         <item name="@android:windowExitAnimation">@anim/picker_dialog_exit</item>
     </style>
-    <style name="plane_dialog_style"  parent="android:Animation">
+
+    <style name="plane_dialog_style" parent="android:Animation">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
-<!--绿色25px字号-->
+    <!--绿色25px字号-->
     <style name="TextGreen35PX">
         <item name="android:textColor">@color/green_mama_bg</item>
         <item name="android:textSize">35px</item>
@@ -57,7 +61,7 @@
 
 
     <!--测评item 标签style-->
-    <style name="LabelStyle" parent="TextGreen35PX" >
+    <style name="LabelStyle" parent="TextGreen35PX">
 
         <item name="android:layout_width">0px</item>
         <item name="android:layout_height">wrap_content</item>
@@ -66,12 +70,24 @@
 
     </style>
 
+    <!--按钮样式  圆角绿色 白色字体-->
     <style name="LoginBtnStyle">
 
         <item name="android:background">@drawable/login_btn_shape_login</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">@dimen/button_text_size</item>
         <item name="android:layout_height">@dimen/button_circle_shape_height</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--按钮样式  圆角绿色 白色字体-->
+    <style name="BabyStateStyle">
+
+        <item name="android:textColor">@color/white</item>
+
+        <item name="android:layout_width">220px</item>
+        <item name="android:layout_height">220px</item>
+
+        <item name="android:textSize">35px</item>
     </style>
 
     <style name="GreenEdgeStyle">
@@ -81,7 +97,5 @@
         <item name="android:textSize">@dimen/button_text_size</item>
         <item name="android:layout_height">@dimen/button_circle_shape_height</item>
     </style>
-
-
 
 </resources>

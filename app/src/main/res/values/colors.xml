@@ -42,4 +42,12 @@
     <!--白色透明度0.57-->
     <color name="white_alpha">#91FFFFFF</color>
 
+    <!--备孕中背景色-->
+    <color name="prepare_bg">#91de7de2</color>
+    <!--怀孕中背景色-->
+    <color name="pregnant_bg">#9100c7f2</color>
+    <!--已有宝宝背景色-->
+    <color name="have_baby_bg">#911bad23</color>
+
+
 </resources>

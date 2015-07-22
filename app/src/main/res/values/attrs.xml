@@ -96,4 +96,8 @@
         <attr name="met_checkCharactersCountAtBeginning" format="boolean"/>
 
     </declare-styleable>
+
+
+
+
 </resources>

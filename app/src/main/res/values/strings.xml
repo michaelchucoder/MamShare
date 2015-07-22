@@ -15,6 +15,12 @@
     <string name="phone86">+86</string>
     <string name="input_phone_num">请输入手机号</string>
     <string name="next_step">下一步</string>
+    <string name="baby_birthday">宝宝生日</string>
+    <string name="baby_sex">宝宝性别</string>
+    <string name="register_over">注册完成</string>
+    <string name="input_verify_code">请输入验证码</string>
+    <string name="password_role">密码由6-16位组成</string>
+    <string name="set_better_name">给自己起个好听的名字吧</string>
 
 
 </resources>
