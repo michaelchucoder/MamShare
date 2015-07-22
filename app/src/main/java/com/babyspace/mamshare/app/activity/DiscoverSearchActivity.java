@@ -68,7 +68,7 @@ public class DiscoverSearchActivity extends BaseActivity implements SwipeRefresh
         setContentView(R.layout.activity_discover_search);
 
         data = new ArrayList<>();
-        adapter = new GenericsAdapter(this, AppConstants.page_recommend_tag);
+        adapter = new GenericsAdapter(this, AppConstants.page_discover_search);
 
         initView();
         showLoadingProgress();
@@ -91,7 +91,7 @@ public class DiscoverSearchActivity extends BaseActivity implements SwipeRefresh
 
         gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
 
-        adapter.refresh(AppConstants.page_recommend_tag, data);
+        adapter.refresh(AppConstants.page_discover_search, data);
         gridView.addFooterView(mFooter);
         gridView.setAdapter(adapter);
 

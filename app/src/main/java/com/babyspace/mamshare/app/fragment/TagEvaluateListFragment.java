@@ -81,14 +81,14 @@ public class TagEvaluateListFragment extends BaseFragment {
             pageFlag = getArguments().getInt(PAGE_FLAG);
         }
         data = new ArrayList<>();
-        adapter = new GenericsAdapter(getActivity(), AppConstants.page_recommend_tag);
+        adapter = new GenericsAdapter(getActivity(), pageFlag);
 
     }
 
     @Override
     public void initView() {
 
-        adapter.refresh(AppConstants.page_recommend_tag, data);
+        adapter.refresh(pageFlag, data);
         View mHeader = View.inflate(getActivity(), R.layout.common_title_layout, null);
         View mFooter = View.inflate(getActivity(), R.layout.common_refresh_footer, null);
         listView.addHeaderView(mHeader);
@@ -153,7 +153,7 @@ public class TagEvaluateListFragment extends BaseFragment {
             data.add(responseData.get(0));
             adapter.refresh(AppConstants.page_empty, data);
         } else
-            adapter.refresh(AppConstants.page_tag_evaluate, data);
+            adapter.refresh(pageFlag, data);
 
     }
 

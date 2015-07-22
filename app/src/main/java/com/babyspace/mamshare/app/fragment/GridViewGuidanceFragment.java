@@ -131,7 +131,7 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
 
         gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
 
-        adapter.refresh(AppConstants.page_recommend_tag, data);
+        adapter.refresh(pageFlag, data);
         gridView.addFooterView(mFooter);
         gridView.setAdapter(adapter);
 

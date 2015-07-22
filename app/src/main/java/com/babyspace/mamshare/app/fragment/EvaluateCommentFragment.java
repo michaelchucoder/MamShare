@@ -87,7 +87,7 @@ public class EvaluateCommentFragment extends BaseFragment {
             pageFlag = getArguments().getInt(PAGE_FLAG);
         }
         data = new ArrayList<>();
-        adapter = new GenericsAdapter(getActivity(), AppConstants.page_recommend_tag);
+        adapter = new GenericsAdapter(getActivity(), AppConstants.page_default);
 
 
     }
@@ -95,7 +95,7 @@ public class EvaluateCommentFragment extends BaseFragment {
     @Override
     public void initView() {
 
-        adapter.refresh(AppConstants.page_recommend_tag, data);
+        adapter.refresh(AppConstants.page_default, data);
         listView.setAdapter(adapter);
         queryData();
 
@@ -134,7 +134,7 @@ public class EvaluateCommentFragment extends BaseFragment {
             case R.id.tab_cart_layout:
                 break;
             case R.id.more_comment:
-                adapter.refresh(AppConstants.page_recommend_tag, data);
+                adapter.refresh(AppConstants.page_default, data);
 
                 break;
         }
@@ -194,11 +194,11 @@ public class EvaluateCommentFragment extends BaseFragment {
             tempData.add(new TestBean("More " + queryCount + " i ", false));
             tempData.add(data.get(0));
 
-            adapter.refresh(AppConstants.page_recommend_tag, tempData);
+            adapter.refresh(AppConstants.page_default, tempData);
 
         } else {
 
-            adapter.refresh(AppConstants.page_recommend_tag, data);
+            adapter.refresh(AppConstants.page_default, data);
         }
 
 

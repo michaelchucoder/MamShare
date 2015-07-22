@@ -74,7 +74,7 @@ public class ParallaxToolbarListViewActivity extends BaseActivity implements Obs
         setContentView(R.layout.activity_parallaxtoolbarlistview);
         EventBus.getDefault().register(this);
         data = new ArrayList<>();
-        adapter = new GenericsAdapter(this, AppConstants.page_recommend_tag);
+        adapter = new GenericsAdapter(this, AppConstants.page_default);
 
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
 
@@ -98,7 +98,7 @@ public class ParallaxToolbarListViewActivity extends BaseActivity implements Obs
 
         listView.addHeaderView(paddingView);
         listView.setSelector(new ColorDrawable(Color.TRANSPARENT));
-        adapter.refresh(AppConstants.page_recommend_tag, data);
+        adapter.refresh(AppConstants.page_default, data);
         listView.setAdapter(adapter);
 
         setDummyData(listView);
@@ -243,7 +243,7 @@ public class ParallaxToolbarListViewActivity extends BaseActivity implements Obs
             queryStart += queryNum;
         }
 
-        adapter.refresh(AppConstants.page_recommend_tag, data);
+        adapter.refresh(AppConstants.page_default, data);
 
     }
 }
