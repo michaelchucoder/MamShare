@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.babyspace.mamshare.R;
-import com.babyspace.mamshare.adapter.MamaRoleAdapter;
+import com.babyspace.mamshare.adapter.RoleSelectAdapter;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.bean.HomeGuidanceEvent;
@@ -36,7 +36,7 @@ public class RegisterRoleFragment extends BaseFragment {
     ListView listView;
 
 
-    MamaRoleAdapter adapter;
+    RoleSelectAdapter adapter;
 
     List<TestBean> data;
 
@@ -86,7 +86,7 @@ public class RegisterRoleFragment extends BaseFragment {
             pageFlag = getArguments().getInt(PAGE_FLAG);
         }
         data = new ArrayList<>();
-        adapter = new MamaRoleAdapter(getActivity());
+        adapter = new RoleSelectAdapter(getActivity());
 
 
     }
@@ -121,14 +121,14 @@ public class RegisterRoleFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.register_role_custom, R.id.register_role_again})
+    @OnClick({R.id.register_role_custom, R.id.ll_role_again})
     public void doOnClick(View view) {
 
         switch (view.getId()) {
             case R.id.register_role_custom:
                 mCallback.onRegisterCustomSelected();
                 break;
-            case R.id.register_role_again:
+            case R.id.ll_role_again:
                 queryData();
                 break;
         }

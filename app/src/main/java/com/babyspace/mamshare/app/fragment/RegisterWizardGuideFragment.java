@@ -20,8 +20,8 @@ public class RegisterWizardGuideFragment extends BaseFragment {
     private int pageFlag;
 
     RegisterWizardListener mCallback;
-    @InjectView(R.id.btn_register_next)
-    Button btn_register_next;
+    @InjectView(R.id.btn_register_baby)
+    Button btn_register_baby;
 
 
     public RegisterWizardGuideFragment() {
@@ -63,11 +63,11 @@ public class RegisterWizardGuideFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.btn_register_next})
+    @OnClick({R.id.btn_register_baby})
     public void doOnClick(View view) {
 
         switch (view.getId()) {
-            case R.id.btn_register_next:
+            case R.id.btn_register_baby:
 
                 mCallback.onRegisterBabySelected();
                 break;
