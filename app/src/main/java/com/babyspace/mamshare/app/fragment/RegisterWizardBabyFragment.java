@@ -10,6 +10,9 @@ import android.support.v4.util.ArrayMap;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
@@ -18,6 +21,8 @@ import com.babyspace.mamshare.app.dialog.DialogHelper;
 import com.babyspace.mamshare.app.dialog.PickerDialog;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.BaseFragment;
+import com.babyspace.mamshare.framework.utils.UiHelper;
+import com.michael.core.tools.SPrefUtil;
 import com.michael.library.widget.custom.DatePicker;
 
 import butterknife.InjectView;
@@ -31,11 +36,32 @@ public class RegisterWizardBabyFragment extends BaseFragment {
     @InjectView(R.id.btn_register_next)
     Button btn_register_next;
 
+    //男孩
+    @InjectView(R.id.register_baby_boy)
+    LinearLayout register_baby_boy;
+
+    //女孩
+    @InjectView(R.id.register_baby_girl)
+    LinearLayout register_baby_girl;
+
+    @InjectView(R.id.register_baby_boy_icon)
+    ImageView register_baby_boy_icon;
+
+    @InjectView(R.id.register_baby_boy_text)
+    TextView register_baby_boy_text;
+
+    @InjectView(R.id.register_baby_girl_icon)
+    ImageView register_baby_girl_icon;
+
+    @InjectView(R.id.register_baby_girl_text)
+    TextView register_baby_girl_text;
+
     DatePicker datePicker;
 
     PickerDialog pickerDialog;
 
     ArrayMap<String, String> expressTypes;
+
 
     public RegisterWizardBabyFragment() {
     }
@@ -91,7 +117,8 @@ public class RegisterWizardBabyFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.btn_register_next, R.id.btn_register_day, R.id.btn_register_dialog, R.id.btn_register_picker})
+    @OnClick({R.id.btn_register_next, R.id.btn_register_day, R.id.btn_register_dialog,
+            R.id.btn_register_picker, R.id.register_baby_girl, R.id.register_baby_boy})
     public void doOnClick(View view) {
 
         switch (view.getId()) {
@@ -123,8 +150,52 @@ public class RegisterWizardBabyFragment extends BaseFragment {
                 break;
             case R.id.btn_register_picker:
 
+                break;
+            case R.id.register_baby_girl:
+                selectGirl();
+                ToastHelper.showToast(getActivity(), "选择女孩");
+                break;
+            case R.id.register_baby_boy:
+
+                selectBoy();
+                ToastHelper.showToast(getActivity(), "选择男孩");
+
+                break;
+
 
         }
+    }
+
+    /**
+     * 选中男孩
+     */
+    private void selectBoy() {
+
+        register_baby_girl_text.setSelected(false);
+
+        register_baby_girl_text.setSelected(false);
+        register_baby_boy_text.setSelected(true);
+        register_baby_boy_icon.setSelected(true);
+
+        SPrefUtil.putSPref(SPrefUtil.BABY_SEX, "boy");
+
+
+    }
+
+    /**
+     * 选中男孩
+     */
+    private void selectGirl() {
+
+        register_baby_girl_text.setSelected(true);
+
+        register_baby_girl_text.setSelected(true);
+        register_baby_boy_text.setSelected(false);
+        register_baby_boy_icon.setSelected(false);
+
+        SPrefUtil.putSPref(SPrefUtil.BABY_SEX, "girl");
+
+
     }
 
 

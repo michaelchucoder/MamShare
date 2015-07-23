@@ -10,8 +10,8 @@ import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.RoleSelectAdapter;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.BaseFragment;
-import com.babyspace.mamshare.bean.HomeGuidanceEvent;
-import com.babyspace.mamshare.bean.TestBean;
+import com.babyspace.mamshare.bean.MamaRole;
+import com.babyspace.mamshare.bean.MamaRoleEvent;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.babyspace.mamshare.listener.RegisterListener;
 import com.google.gson.JsonObject;
@@ -38,10 +38,10 @@ public class RegisterRoleFragment extends BaseFragment {
 
     RoleSelectAdapter adapter;
 
-    List<TestBean> data;
+    List<MamaRole> data;
 
 
-    private final int queryNum = 9;
+    private final int queryNum = 5;
     private int queryStart = 0;
     private int queryCount = 0;
     private boolean isRefreshAdd = false;
@@ -71,7 +71,7 @@ public class RegisterRoleFragment extends BaseFragment {
             mCallback = (RegisterListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement RegisterProfileListener");
+                    + " must implement RegisterListener");
         }
     }
 
@@ -117,11 +117,11 @@ public class RegisterRoleFragment extends BaseFragment {
 
         //showLoadingProgress();
         if (queryCall != null) queryCall.cancel();
-        queryCall = OkHttpExecutor.query(UrlConstants.HomeGuidanceList, jsonParameter, HomeGuidanceEvent.class, false, this);
+        queryCall = OkHttpExecutor.query(UrlConstants.getMamaRole, jsonParameter, MamaRoleEvent.class, false, this);
 
     }
 
-    @OnClick({R.id.register_role_custom, R.id.ll_role_again})
+    @OnClick({R.id.register_role_custom, R.id.ll_role_again, R.id.register_role_submit})
     public void doOnClick(View view) {
 
         switch (view.getId()) {
@@ -131,6 +131,11 @@ public class RegisterRoleFragment extends BaseFragment {
             case R.id.ll_role_again:
                 queryData();
                 break;
+            case R.id.register_role_submit:
+                //TODO 返回到 RegisterNameFragment 数据传送可以用SPrefUtil
+                ToastHelper.showToast(getActivity(), "妈妈角色选中");
+                mCallback.onRegisterNameSelected();
+                break;
         }
     }
 
@@ -139,34 +144,21 @@ public class RegisterRoleFragment extends BaseFragment {
      *
      * @param event
      */
-    public void onEventMainThread(HomeGuidanceEvent event) {
+    public void onEventMainThread(MamaRoleEvent event) {
         hideLoadingProgress();
-        L.d(OkHttpExecutor.TAG, "onEventMainThread-RegisterFeatureFragment>" + event.getResultStr());
+        L.d(OkHttpExecutor.TAG, "onEventMainThread-MamaRoleEvent>" + event.getResultStr());
 
-        List<TestBean> responseData = new ArrayList<>();
 
-        if (queryCount <= 4) {
-            for (int i = 0; i < queryNum; i++) {
-                responseData.add(new TestBean("More " + queryCount + " i " + i, false));
-            }
-
-        } else {
-            for (int i = 0; i < queryNum - 1; i++) {
-                responseData.add(new TestBean("Last " + queryCount + " i " + i, false));
-            }
-
-        }
+        List<MamaRole> responseData = event.getData();
 
         if (responseData.size() < queryNum) {
-            ToastHelper.showToast(getActivity(), "最后数据");
             isMoreData = false;
         } else {
-
         }
 
         if (isRefreshAdd) {
             queryStart += queryNum;
-            data = responseData;
+            data.addAll(responseData);
             isRefreshAdd = false;
         } else {
             data = responseData;
@@ -175,7 +167,13 @@ public class RegisterRoleFragment extends BaseFragment {
             queryStart += queryNum;
         }
 
-        adapter.refresh(data);
+        if (queryCount > 2) {
+            data.clear();
+            data.add(responseData.get(0));
+            adapter.refresh(data);
+        } else
+            adapter.refresh(data);
+
 
     }
 
