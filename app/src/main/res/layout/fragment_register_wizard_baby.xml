@@ -53,9 +53,9 @@
             <View
                 android:layout_width="1dp"
                 android:layout_height="40px"
-android:layout_marginLeft="20px"
+                android:layout_marginLeft="20px"
                 android:layout_marginRight="20px"
-                android:background="@color/login_hint_color"/>
+                android:background="@color/login_hint_color" />
 
             <com.michael.library.widget.custom.DatePicker
                 android:id="@+id/long_date"
@@ -63,7 +63,7 @@ android:layout_marginLeft="20px"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-android:textColor="@color/login_hint_color"
+                android:textColor="@color/login_hint_color"
                 android:background="@null"
                 android:textSize="30px" />
 

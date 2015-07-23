@@ -19,6 +19,7 @@
         android:layout_centerInParent="true"
         android:gravity="center"
         android:text="公共标题"
+        android:textColor="@color/green_mama_bg"
         android:textSize="40px" />
 
     <ImageButton
@@ -29,6 +30,7 @@
         android:background="#f9f33f"
         android:text="右按钮"
         android:textSize="40px" />
+
     <TextView
         android:id="@+id/common_title_right_text"
         android:layout_width="100px"

@@ -3,7 +3,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <com.michael.library.widget.custom.NoStrollListView
         android:id="@+id/evaluate_comment_list"
         android:layout_width="wrap_content"

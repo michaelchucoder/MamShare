@@ -3,21 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/mRoot"
-    android:clickable="true"
-    >
+    android:clickable="true">
 
     <LinearLayout
-	android:layout_alignParentBottom="true"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffff" >
+        android:background="#ffffff">
 
         <com.kuxun.plane2.ui.common.PickerListView
             android:id="@+id/mListView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:divider="#e1e1e1" >
-        </com.kuxun.plane2.ui.common.PickerListView>
+            android:divider="#e1e1e1"></com.kuxun.plane2.ui.common.PickerListView>
     </LinearLayout>
 
 </RelativeLayout>

@@ -1,14 +1,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
     <ImageView
         android:id="@+id/photo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:background="@drawable/chat_emoji_to"/>
+        android:background="@drawable/chat_emoji_to" />
+
     <TextView
         android:id="@+id/to"
         android:layout_width="wrap_content"
@@ -16,7 +18,6 @@
         android:background="@drawable/chat_to"
         android:text="To"
         android:layout_toLeftOf="@+id/photo"
-        android:layout_marginRight="10px"
-        />
+        android:layout_marginRight="10px" />
 
 </RelativeLayout>

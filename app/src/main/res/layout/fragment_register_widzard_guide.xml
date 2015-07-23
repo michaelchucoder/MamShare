@@ -26,8 +26,10 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
 
-           android:layout_marginTop="50px"
+            android:layout_marginTop="50px"
             android:text="请选择一个状态"
+            android:textSize="35px"
+
             android:textColor="@color/login_hint_color" />
 
         <Button

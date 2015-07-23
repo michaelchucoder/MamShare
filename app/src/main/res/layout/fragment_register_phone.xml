@@ -58,8 +58,7 @@
         android:layout_below="@+id/ll_reg_phone"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60px"
-        android:text="@string/next_step"
-         />
+        android:text="@string/next_step" />
 
 
 </RelativeLayout>
