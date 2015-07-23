@@ -36,7 +36,7 @@ public class RegisterWizardActivity extends BaseActivity implements RegisterWiza
     @Override
     public void onRegisterBabySelected() {
 
-        RegisterWizardPregnantFragment fragment = new RegisterWizardPregnantFragment();
+        RegisterWizardBabyFragment fragment = new RegisterWizardBabyFragment();
 
         fragment.setArguments(getIntent().getExtras());
 
@@ -48,7 +48,7 @@ public class RegisterWizardActivity extends BaseActivity implements RegisterWiza
     @Override
     public void onRegisterPregnantSelected() {
 
-        RegisterWizardBabyFragment fragment = new RegisterWizardBabyFragment();
+        RegisterWizardPregnantFragment fragment = new RegisterWizardPregnantFragment();
 
         fragment.setArguments(getIntent().getExtras());
 
