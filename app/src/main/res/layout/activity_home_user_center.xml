@@ -69,6 +69,8 @@
                 android:id="@+id/tab_guidance"
                 android:layout_width="288px"
                 android:layout_height="100px"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/anchor"
                 android:gravity="center"
                 android:text="攻略" />
 
@@ -76,8 +78,17 @@
                 android:id="@+id/line_guidance"
                 android:layout_width="288px"
                 android:layout_height="2px"
+                android:layout_alignParentLeft="true"
                 android:layout_below="@+id/tab_guidance"
+                android:layout_toLeftOf="@+id/anchor"
                 android:background="@color/red" />
+
+            <View
+                android:id="@+id/anchor"
+                android:layout_width="0px"
+                android:layout_height="100px"
+                android:layout_centerHorizontal="true"
+                android:background="@color/pink_mama_bg" />
 
             <TextView
                 android:id="@+id/tab_evaluate"
@@ -85,6 +96,7 @@
                 android:layout_height="100px"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/anchor"
                 android:gravity="center"
                 android:text="评测" />
 
@@ -94,6 +106,7 @@
                 android:layout_height="2px"
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/tab_guidance"
+                android:layout_toRightOf="@+id/anchor"
                 android:background="@color/red" />
 
         </RelativeLayout>

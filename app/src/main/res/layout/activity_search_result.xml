@@ -69,18 +69,75 @@
     </RelativeLayout>
 
 
-    <com.viewpagerindicator.TabPageIndicator
-        android:id="@+id/id_indicator"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="#445CACEE">
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true">
 
-    </com.viewpagerindicator.TabPageIndicator>
+        <RelativeLayout
+            android:id="@+id/tab_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/id_pager"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+            <TextView
+                android:id="@+id/tab_guidance"
+                android:layout_width="288px"
+                android:layout_height="100px"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/anchor"
+                android:gravity="center"
+                android:text="攻略" />
 
+            <View
+                android:id="@+id/line_guidance"
+                android:layout_width="288px"
+                android:layout_height="2px"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/tab_guidance"
+                android:layout_toLeftOf="@+id/anchor"
+                android:background="@color/red" />
+
+            <View
+                android:id="@+id/anchor"
+                android:layout_width="0px"
+                android:layout_height="100px"
+                android:layout_centerHorizontal="true"
+                android:background="@color/pink_mama_bg" />
+
+            <TextView
+                android:id="@+id/tab_evaluate"
+                android:layout_width="288px"
+                android:layout_height="100px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/anchor"
+                android:gravity="center"
+                android:text="评测" />
+
+            <View
+                android:id="@+id/line_evaluate"
+                android:layout_width="288px"
+                android:layout_height="2px"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/tab_guidance"
+                android:layout_toRightOf="@+id/anchor"
+                android:background="@color/red" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="11px"
+            android:layout_below="@+id/tab_title"
+            android:background="@color/material_blue_grey_800" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tab_title" />
+
+    </RelativeLayout>
 </LinearLayout>
