@@ -11,7 +11,6 @@ import com.babyspace.mamshare.adapter.GenericsAdapter;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.bean.Evaluate;
 import com.babyspace.mamshare.bean.TagEvaluateEvent;
-import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
@@ -150,8 +149,7 @@ public class TagEvaluateListFragment extends BaseFragment {
 
         if (queryCount > 2) {
             data.clear();
-            data.add(responseData.get(0));
-            adapter.refresh(AppConstants.page_empty, data);
+            adapter.refresh(pageFlag, data);
         } else
             adapter.refresh(pageFlag, data);
 

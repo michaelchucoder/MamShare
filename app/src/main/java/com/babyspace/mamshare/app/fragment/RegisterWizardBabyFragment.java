@@ -21,7 +21,6 @@ import com.babyspace.mamshare.app.dialog.DialogHelper;
 import com.babyspace.mamshare.app.dialog.PickerDialog;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.BaseFragment;
-import com.babyspace.mamshare.framework.utils.UiHelper;
 import com.michael.core.tools.SPrefUtil;
 import com.michael.library.widget.custom.DatePicker;
 
@@ -153,12 +152,10 @@ public class RegisterWizardBabyFragment extends BaseFragment {
                 break;
             case R.id.register_baby_girl:
                 selectGirl();
-                ToastHelper.showToast(getActivity(), "选择女孩");
                 break;
             case R.id.register_baby_boy:
 
                 selectBoy();
-                ToastHelper.showToast(getActivity(), "选择男孩");
 
                 break;
 

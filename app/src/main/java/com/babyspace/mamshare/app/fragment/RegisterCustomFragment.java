@@ -45,6 +45,7 @@ public class RegisterCustomFragment extends BaseFragment {
                     + " must implement RegisterListener");
         }
     }
+
     @Override
     public void init(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_register_custom);

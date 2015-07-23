@@ -3,28 +3,19 @@ package com.babyspace.mamshare.app.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.BaseFragment;
-import com.babyspace.mamshare.bean.HomeGuidanceEvent;
-import com.babyspace.mamshare.commons.TempData;
-import com.babyspace.mamshare.commons.UrlConstants;
 import com.babyspace.mamshare.bean.DefaultResponseEvent;
+import com.babyspace.mamshare.commons.TempData;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.babyspace.mamshare.listener.RegisterListener;
 import com.google.gson.JsonObject;
-import com.michael.core.okhttp.OkHttpCall;
-import com.michael.core.okhttp.OkHttpExecutor;
-import com.michael.core.tools.StringTools;
-import com.michael.library.widget.materialedittext.MaterialEditText;
-import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.library.debug.L;
+import com.michael.library.widget.materialedittext.MaterialEditText;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -38,7 +29,6 @@ public class RegisterPhoneFragment extends BaseFragment {
 
     @InjectView(R.id.register_phone_edit)
     MaterialEditText register_phone_edit;
-
 
 
     String phoneNum = "";
@@ -117,12 +107,12 @@ public class RegisterPhoneFragment extends BaseFragment {
         hideLoadingProgress();
 
         String requestUrl = event.getUrl();
-        Log.d("asker", "请求地址" + requestUrl);
         if (requestUrl.endsWith(UrlConstants.GetVerifyCode)) {
 
             if ("1200".equals(event.getCode())) {
 
                 TempData.verifyCode = event.getData();
+                TempData.phoneNum = phoneNum;
 
 
             }
@@ -147,7 +137,7 @@ public class RegisterPhoneFragment extends BaseFragment {
      */
     private void getVerifyCode() {
 
-
+        TempData.verifyCode = "";
         JsonObject jsonParameter = new JsonObject();
 
         jsonParameter.addProperty("phoneNum", phoneNum);
@@ -156,8 +146,6 @@ public class RegisterPhoneFragment extends BaseFragment {
         mCallback.onRegisterNameSelected();
 
     }
-
-
 
 
 }

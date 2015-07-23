@@ -17,7 +17,6 @@ import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.GenericsAdapter;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.basement.MamShare;
-import com.babyspace.mamshare.bean.CollectEvaluate;
 import com.babyspace.mamshare.bean.CollectEvaluateEvent;
 import com.babyspace.mamshare.bean.Evaluate;
 import com.babyspace.mamshare.bean.SearchResultEvent;
@@ -223,7 +222,7 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
 
     }
 
-    @OnClick({R.id.btn_home_back_top})
+    @OnClick({R.id.btn_home_back_top, R.id.request_again})
     public void doOnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_home_back_top:
@@ -232,6 +231,10 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
                 } else {
                     gridView.setSelection(0);
                 }
+                break;
+            case R.id.request_again:
+                showLoadingProgress();
+                queryData();
                 break;
         }
     }
@@ -266,13 +269,14 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
 
         if (queryCount > 2) {
             data.clear();
-            data.add(responseData.get(0));
-            adapter.refresh(AppConstants.page_empty, data);
-            mFooter.setVisibility(View.GONE);
-        } else
+            mSwipeLayout.setVisibility(View.GONE);
+        } else {
+            mSwipeLayout.setVisibility(View.VISIBLE);
             adapter.refresh(pageFlag, data);
+        }
 
     }
+
     public void onEventMainThread(SearchResultEvent event) {
         mSwipeLayout.setRefreshing(false);
         hideLoadingProgress();
@@ -302,12 +306,11 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
 
         if (queryCount > 2) {
             data.clear();
-            data.add(responseData.get(0));
-            adapter.refresh(AppConstants.page_empty, data);
-            mFooter.setVisibility(View.GONE);
-        } else
+            mSwipeLayout.setVisibility(View.GONE);
+        } else {
+            mSwipeLayout.setVisibility(View.VISIBLE);
             adapter.refresh(pageFlag, data);
-
+        }
     }
 
     public void onEventMainThread(CollectEvaluateEvent event) {
@@ -339,11 +342,11 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
 
         if (queryCount > 2) {
             data.clear();
-            data.add(responseData.get(0));
-            adapter.refresh(AppConstants.page_empty, data);
-            mFooter.setVisibility(View.GONE);
-        } else
+            mSwipeLayout.setVisibility(View.GONE);
+        } else {
+            mSwipeLayout.setVisibility(View.VISIBLE);
             adapter.refresh(pageFlag, data);
+        }
 
     }
 

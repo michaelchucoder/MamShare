@@ -14,7 +14,6 @@ import com.babyspace.mamshare.bean.MamaRole;
 import com.babyspace.mamshare.bean.MamaRoleEvent;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.babyspace.mamshare.listener.RegisterListener;
-import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.library.debug.L;
 import com.squareup.okhttp.Call;
@@ -110,14 +109,9 @@ public class RegisterRoleFragment extends BaseFragment {
         // 如果是更新策略 则 Start为置为0
         if (!isRefreshAdd) queryStart = 0;
 
-        JsonObject jsonParameter = new JsonObject();
-
-        jsonParameter.addProperty("num", queryNum);
-        jsonParameter.addProperty("start", queryStart);
-
         //showLoadingProgress();
         if (queryCall != null) queryCall.cancel();
-        queryCall = OkHttpExecutor.query(UrlConstants.getMamaRole, jsonParameter, MamaRoleEvent.class, false, this);
+        queryCall = OkHttpExecutor.query(UrlConstants.getMamaRole, MamaRoleEvent.class, false, this);
 
     }
 

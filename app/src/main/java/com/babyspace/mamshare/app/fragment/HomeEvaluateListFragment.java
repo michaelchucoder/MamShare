@@ -203,7 +203,7 @@ public class HomeEvaluateListFragment extends BaseFragment implements SwipeRefre
 
     }
 
-    @OnClick({R.id.btn_home_back_top})
+    @OnClick({R.id.btn_home_back_top, R.id.request_again})
     public void doOnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_home_back_top:
@@ -212,6 +212,10 @@ public class HomeEvaluateListFragment extends BaseFragment implements SwipeRefre
                 } else {
                     listView.setSelection(0);
                 }
+                break;
+            case R.id.request_again:
+                showLoadingProgress();
+                queryData();
                 break;
         }
     }
@@ -250,12 +254,11 @@ public class HomeEvaluateListFragment extends BaseFragment implements SwipeRefre
 
         if (queryCount > 2) {
             data.clear();
-            data.add(responseData.get(0));
-            adapter.refresh(AppConstants.page_empty, data);
-            mFooter.setVisibility(View.GONE);
-        } else
-            adapter.refresh(AppConstants.page_home_evaluate, data);
-
+            mSwipeLayout.setVisibility(View.GONE);
+        } else {
+            mSwipeLayout.setVisibility(View.VISIBLE);
+            adapter.refresh(pageFlag, data);
+        }
 
     }
 
