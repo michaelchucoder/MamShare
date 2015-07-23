@@ -18,7 +18,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30px"
         android:layout_marginTop="65px"
-        android:background="@color/pink_mama_bg"
+        android:background="@drawable/shape_white_corners20"
         android:orientation="vertical">
 
         <com.michael.library.widget.materialedittext.MaterialEditText
@@ -64,30 +64,27 @@
 
     <Button
         android:id="@+id/btn_login_submit"
+        style="@style/LoginBtnStyle"
         android:layout_width="400px"
-        android:layout_height="76px"
         android:layout_below="@id/ll_login_container"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20px"
-        android:background="@drawable/login_btn_shape_login"
         android:gravity="center"
-        android:text="登录"
-        android:textColor="@color/white"
-        android:textSize="40px" />
+        android:text="登录" />
 
     <Button
         android:id="@+id/btn_register_submit"
         android:layout_width="400px"
-        android:layout_height="76px"
+        android:layout_height="@dimen/button_circle_shape_height"
         android:layout_below="@id/btn_login_submit"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20px"
+        android:alpha="0.57"
         android:background="@drawable/login_btn_shape_regist"
         android:gravity="center"
         android:text="注册"
-        android:alpha="0.57"
         android:textColor="@color/login_hint_color"
-        android:textSize="40px" />
+        android:textSize="@dimen/button_text_size" />
 
     <RelativeLayout
         android:id="@+id/third_party_title"

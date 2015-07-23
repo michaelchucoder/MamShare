@@ -29,5 +29,13 @@
         android:background="#f9f33f"
         android:text="右按钮"
         android:textSize="40px" />
+    <TextView
+        android:id="@+id/common_title_right_text"
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
+        android:text="右按钮"
+        android:textSize="40px" />
 
 </RelativeLayout>

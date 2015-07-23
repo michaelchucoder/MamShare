@@ -2,11 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     tools:context="com.babyspace.mamshare.app.fragment.RegisterRoleFragment">
-
 
     <include
         android:id="@+id/common_title"
@@ -16,26 +12,49 @@
         android:id="@+id/register_role_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_role_again"
         android:layout_below="@+id/common_title">
 
     </ListView>
 
-    <Button
-        android:id="@+id/register_role_again"
+    <LinearLayout
+        android:id="@+id/ll_role_again"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:text="换一批"
-        />
+        android:layout_above="@+id/register_role_submit"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/push" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="换一批" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/register_role_submit"
+        style="@style/LoginBtnStyle"
+        android:layout_width="400px"
+        android:layout_above="@+id/register_role_custom"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30px"
+        android:text="确定" />
+
     <Button
         android:id="@+id/register_role_custom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/GreenEdgeStyle"
+        android:layout_width="400px"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:text="都不符合我"
-        />
-
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30px"
+        android:layout_marginTop="30px"
+        android:text="都不符合我" />
 
 </RelativeLayout>

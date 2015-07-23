@@ -2,38 +2,167 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
+
+    android:background="@drawable/login_background"
     tools:context="com.babyspace.mamshare.app.fragment.RegisterWizardBabyFragment">
 
     <include
         android:id="@+id/common_title"
         layout="@layout/common_title_layout" />
 
-    <TextView
-        android:id="@+id/btn_register_name_txt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/common_title"
-        android:layout_margin="30px"
-        android:text="给自己起个好听的名字吧" />
 
     <LinearLayout
         android:id="@+id/register_picker"
-        android:layout_width="match_parent"
-        android:layout_height="150px"
-        android:layout_below="@+id/btn_register_name_txt"
+        android:layout_width="530px"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/common_title"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="200px"
-        android:orientation="horizontal">
+        android:layout_marginTop="100px"
+        android:background="@drawable/shape_white_corners20"
 
-        <com.michael.library.widget.custom.DatePicker
-            android:id="@+id/long_date"
-            style="@android:style/Widget.Holo.TextView.SpinnerItem"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/btn_register_name_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30px" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50px"
+            android:text="@string/baby_birthday"
+            android:textColor="@color/login_hint_color"
+            android:textSize="40px" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30px"
+            android:layout_marginLeft="50px"
+
+            android:layout_marginBottom="30px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:src="@drawable/heart_select"
+
+                />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="40px"
+android:layout_marginLeft="20px"
+                android:layout_marginRight="20px"
+                android:background="@color/login_hint_color"/>
+
+            <com.michael.library.widget.custom.DatePicker
+                android:id="@+id/long_date"
+                style="@android:style/Widget.Holo.TextView.SpinnerItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+android:textColor="@color/login_hint_color"
+                android:background="@null"
+                android:textSize="30px" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/register_select_sex"
+        android:layout_width="530px"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/register_picker"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20px"
+        android:background="@drawable/shape_white_corners20"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/btn_register_sex_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50px"
+            android:text="@string/baby_sex"
+            android:textColor="@color/login_hint_color"
+            android:textSize="40px" />
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50px"
+            android:layout_marginTop="50px"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/register_baby_boy"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:addStatesFromChildren="true"
+                android:clickable="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+
+                    android:id="@+id/register_baby_boy_icon"
+                    android:layout_width="150px"
+                    android:layout_height="150px"
+                    android:background="@drawable/baby_sex_select_selector"
+                    android:padding="1px"
+                    android:src="@drawable/login_tencent_icon" />
+
+                <TextView
+                    android:id="@+id/register_baby_boy_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="男孩"
+                    android:textColor="@color/baby_sex_select_text"
+                    android:textSize="30px" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:id="@+id/register_baby_girl"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+
+                    android:id="@+id/register_baby_girl_icon"
+                    android:layout_width="150px"
+                    android:layout_height="150px"
+                    android:background="@drawable/baby_sex_select_selector"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/login_sina_icon" />
+
+                <TextView
+                    android:id="@+id/register_baby_girl_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="女孩"
+                    android:textColor="@color/baby_sex_select_text"
+                    android:textSize="30px" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -41,7 +170,7 @@
         android:id="@+id/btn_register_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/register_picker"
+        android:layout_below="@+id/register_select_sex"
         android:layout_centerHorizontal="true"
         android:background="@drawable/shape_rounded_rectangle"
         android:text="确定"

@@ -6,11 +6,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.babyspace.mamshare.commons.AppConstants;
+import com.babyspace.mamshare.commons.IntentParams;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.babyspace.mamshare.framework.utils.NetWorkUtil;
 import com.babyspace.mamshare.framework.utils.UiHelper;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpCall;
+import com.michael.core.tools.SPrefUtil;
 import com.michael.library.debug.L;
 import com.squareup.okhttp.Request;
 import com.tencent.mm.sdk.modelbase.BaseReq;
@@ -26,7 +29,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
 
     public static final String AUTO_LOGIN = "auto_login";
     public static final String FROM = "from";
-    // --------------½ø¶ÈÌõ-------------//
+    // --------------è¿›åº¦æ¡-------------//
 
     private static final String TAG = "WXEntryActivity";
     private static final int authType = 1;
@@ -60,10 +63,10 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
                 resp.toBundle(bundle);
                 Resp sp = new Resp(bundle);
                 String code = sp.code;
-                L.i(TAG, "·µ»ØµÄcode:" + code);
+                L.i(TAG, "è¿”å›çš„code:" + code);
                 cancel = SPrefUtil.getSPref("Wxin", "");
                 if ("wx_share".equals(cancel)) {
-                    Toast.makeText(this, "·ÖÏí³É¹¦", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "åˆ†äº«æˆåŠŸ", Toast.LENGTH_LONG).show();
                 } else {
                     String getTokenPath = UrlConstants.WECHAT_GET_TOKEN + AppConstants.WX_APP_ID + "&secret=" + AppConstants.WX_APP_SECRET + "&code=" + code + "&grant_type=authorization_code";
                     getAccess_token(getTokenPath);
@@ -73,17 +76,17 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
             case BaseResp.ErrCode.ERR_USER_CANCEL:
                 cancel = SPrefUtil.getSPref("Wxin", "");
                 if ("wx_login".equals(cancel)) {
-                    Toast.makeText(this, "È¡ÏûµÇÂ¼", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "å–æ¶ˆç™»å½•", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(this, "È¡Ïû·ÖÏí", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "å–æ¶ˆåˆ†äº«", Toast.LENGTH_LONG).show();
                 }
                 break;
             default:
                 cancel = SPrefUtil.getSPref("Wxin", "");
                 if ("wx_login".equals(cancel)) {
-                    Toast.makeText(this, "µÇÂ¼Ê§°Ü", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "ç™»å½•å¤±è´¥", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(this, "·ÖÏíÊ§°Ü", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "åˆ†äº«å¤±è´¥", Toast.LENGTH_LONG).show();
                 }
                 break;
         }
@@ -91,7 +94,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
     }
 
     /**
-     * Î¢ĞÅ·µ»ØµÄgetAccess_token
+     * å¾®ä¿¡è¿”å›çš„getAccess_token
      *
      * @param getTokenPath
      */
@@ -102,7 +105,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
         this.sendBroadcast(intent);
 
         if (!NetWorkUtil.networkCanUse(getApplicationContext())) {
-            String msg = "Çë¼ì²éÍøÂçÉèÖÃ£¡";
+            String msg = "è¯·æ£€æŸ¥ç½‘ç»œè®¾ç½®ï¼";
             UiHelper.showSystemDialog(getApplicationContext(), msg);
             return;
         }
@@ -128,20 +131,20 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
                 L.i(TAG, "openid:" + openid);
                 L.i(TAG, "scope:" + scope);
                 String getInfoPath = UrlConstants.WECHAT_GET_INFO + access_token + "&openid=" + openid;
-                /** ·µ»ØÓÃ»§ĞÅÏ¢ */
+                /** è¿”å›ç”¨æˆ·ä¿¡æ¯ */
                 getUserInfo(getInfoPath);
             }
         });
     }
 
     /**
-     * ·µ»ØÓÃ»§ĞÅÏ¢
+     * è¿”å›ç”¨æˆ·ä¿¡æ¯
      *
      * @param getInfoPath
      */
     private void getUserInfo(String getInfoPath) {
         if (!NetWorkUtil.networkCanUse(getApplicationContext())) {
-            String msg = "Çë¼ì²éÍøÂçÉèÖÃ£¡";
+            String msg = "è¯·æ£€æŸ¥ç½‘ç»œè®¾ç½®ï¼";
             UiHelper.showSystemDialog(getApplicationContext(), msg);
             return;
         }
@@ -170,7 +173,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
 
     private void getThirdUserAuth(String openId, String nickName) {
         if (!NetWorkUtil.networkCanUse(getApplicationContext())) {
-            String msg = "Çë¼ì²éÍøÂçÉèÖÃ£¡";
+            String msg = "è¯·æ£€æŸ¥ç½‘ç»œè®¾ç½®ï¼";
             UiHelper.showSystemDialog(getApplicationContext(), msg);
             return;
         }
@@ -196,15 +199,15 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
                     String userId = json_msg.get("userId").getAsString();
                     SPrefUtil.putSPref(SPrefUtil.sp_auth, auth);
                     SPrefUtil.putSPref(SPrefUtil.sp_user_id, userId);
-                    SPrefUtil.putSPref(AUTO_LOGIN, false);// Èç¹ûÊÇµÚÈı·½µÇÂ¼£¬È¡Ïû×Ô¶¯µÇÂ¼¹¦ÄÜ
+                    SPrefUtil.putSPref(AUTO_LOGIN, false);// å¦‚æœæ˜¯ç¬¬ä¸‰æ–¹ç™»å½•ï¼Œå–æ¶ˆè‡ªåŠ¨ç™»å½•åŠŸèƒ½
                     SPrefUtil.putSPref("login_refresh", true);
 
                 }
                 if (code.equals("500")) {
-                    String msg = "·şÎñÆ÷ÄÚ²¿´íÎó£¬µÇÂ¼Ê§°Ü£¡";
+                    String msg = "æœåŠ¡å™¨å†…éƒ¨é”™è¯¯ï¼Œç™»å½•å¤±è´¥ï¼";
                     UiHelper.showSystemDialog(getApplicationContext(), msg);
                 } else {
-                    String msg = "µÇÂ¼Ê§°Ü£¡";
+                    String msg = "ç™»å½•å¤±è´¥ï¼";
                     UiHelper.showSystemDialog(getApplicationContext(), msg);
                 }
             }

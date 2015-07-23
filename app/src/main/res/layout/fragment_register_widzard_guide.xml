@@ -2,47 +2,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:background="@drawable/login_background"
     tools:context="com.babyspace.mamshare.app.fragment.RegisterWizardGuideFragment">
 
     <include
         android:id="@+id/common_title"
         layout="@layout/common_title_layout" />
 
-    <TextView
-        android:id="@+id/btn_register_name_txt"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="530px"
         android:layout_height="wrap_content"
         android:layout_below="@+id/common_title"
-        android:layout_margin="30px"
-        android:text="给自己起个好听的名字吧" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80px"
+        android:background="@drawable/shape_white_corners20"
 
-    <LinearLayout
-        android:id="@+id/ll_register_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_register_name_txt">
+        android:paddingBottom="60px">
 
         <TextView
+            android:id="@+id/tv_title"
             android:layout_width="wrap_content"
-            android:layout_height="50px"
-            android:text="昵称: " />
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="50px"
-            android:background="@drawable/input_background" />
-    </LinearLayout>
+           android:layout_marginTop="50px"
+            android:text="请选择一个状态"
+            android:textColor="@color/login_hint_color" />
 
-    <Button
-        android:id="@+id/btn_register_next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ll_register_name"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20px"
-        android:background="@drawable/shape_rounded_rectangle"
-        android:text="下一步"
-        android:textSize="40px" />
+        <Button
+            android:id="@+id/btn_register_baby"
+
+            style="@style/BabyStateStyle"
+            android:layout_below="@+id/tv_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100px"
+            android:background="@drawable/shape_circle_have_baby"
+
+            android:text="已有宝宝" />
+
+        <Button
+            android:id="@+id/btn_register_pregnant"
+
+            style="@style/BabyStateStyle"
+            android:layout_below="@+id/btn_register_baby"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="-10px"
+            android:background="@drawable/shape_circle_pregnant"
+
+            android:text="怀孕中" />
+
+        <Button
+            android:id="@+id/btn_register_prepare"
+
+            style="@style/BabyStateStyle"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/btn_register_baby"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="30px"
+            android:layout_marginTop="-10px"
+            android:background="@drawable/shape_circle_prepare"
+
+            android:text="备孕中" />
+
+    </RelativeLayout>
 
 
 </RelativeLayout>

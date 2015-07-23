@@ -1,6 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background">
 
     <include
         android:id="@+id/common_title"
@@ -14,160 +17,108 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30px"
         android:layout_marginTop="30px"
-        android:background="@color/pink_mama_bg"
-        android:orientation="vertical">
+        android:background="@drawable/shape_white_corners20"
+        android:orientation="vertical"
+        android:padding="30px">
 
         <RelativeLayout
             android:layout_width="500px"
-            android:layout_height="50px"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="32px">
 
-            <LinearLayout
-                android:id="@+id/ll_reg_verify"
-                android:layout_width="300px"
-                android:layout_height="50px"
-                android:background="@drawable/shape_discover_search_bg">
 
-                <View
-                    android:layout_width="24px"
-                    android:layout_height="25px"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="20px"
-                    android:background="@drawable/activity_home_btn_search" />
+            <com.michael.library.widget.materialedittext.MaterialEditText
+                android:id="@+id/register_verify_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15px"
+                android:hint="@string/input_verify_code"
+                android:textSize="24px"
+                app:met_clearButton="true" />
 
-                <EditText
-                    android:id="@+id/register_verify_edit"
-                    android:layout_width="300px"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="17px"
-                    android:layout_marginRight="17px"
-                    android:background="#00000000"
-                    android:gravity="center_vertical"
-                    android:hint="请输入验证码"
-                    android:textColor="#868686"
-                    android:textSize="24px" />
-
-            </LinearLayout>
 
             <Button
                 android:id="@+id/verify_countdown"
-                android:layout_width="130px"
-                android:layout_height="50px"
+                android:layout_width="wrap_content"
+                android:minWidth="120px"
+                android:layout_height="60px"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="20px"
-                android:background="@drawable/shape_rounded_rectangle"
-                android:text="60s" />
+                android:background="@drawable/btn_bg_verifycode"
+                android:text="60s"
+                android:textColor="@color/white" />
 
 
         </RelativeLayout>
 
-        <LinearLayout
-            android:id="@+id/ll_reg_password"
-            android:layout_width="500px"
-            android:layout_height="50px"
-            android:layout_centerHorizontal="true"
+
+        <com.michael.library.widget.materialedittext.MaterialEditText
+            android:id="@+id/register_password_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15px"
             android:layout_marginTop="32px"
-            android:background="@drawable/shape_discover_search_bg">
+            android:hint="@string/password_role"
+            android:textSize="24px"
+            app:met_clearButton="true" />
 
-            <View
-                android:layout_width="24px"
-                android:layout_height="25px"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="20px"
-                android:background="@drawable/activity_home_btn_search" />
-
-            <EditText
-                android:id="@+id/register_password_edit"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="17px"
-                android:layout_marginRight="17px"
-                android:background="#00000000"
-                android:gravity="center_vertical"
-                android:hint="密码由6-16位组成"
-                android:textColor="#868686"
-                android:textSize="24px" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ll_reg_name"
-            android:layout_width="500px"
-            android:layout_height="50px"
-            android:layout_centerHorizontal="true"
+        <com.michael.library.widget.materialedittext.MaterialEditText
+            android:id="@+id/register_name_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15px"
             android:layout_marginTop="32px"
-            android:background="@drawable/shape_discover_search_bg">
+            android:hint="@string/set_better_name"
+            android:textSize="24px"
+            app:met_clearButton="true" />
 
-            <View
-                android:layout_width="24px"
-                android:layout_height="25px"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="20px"
-                android:background="@drawable/activity_home_btn_search" />
-
-            <EditText
-                android:id="@+id/register_name_edit"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="17px"
-                android:layout_marginRight="17px"
-                android:background="#00000000"
-                android:gravity="center_vertical"
-                android:hint="给自己起个好听的名字吧"
-                android:textColor="#868686"
-                android:textSize="24px" />
-        </LinearLayout>
 
         <RelativeLayout
             android:id="@+id/ll_reg_feature"
             android:layout_width="500px"
-            android:layout_height="50px"
+            android:layout_height="60px"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="32px"
+            android:layout_marginLeft="15px"
             android:layout_marginTop="32px"
-            android:background="@drawable/shape_discover_search_bg">
+            android:gravity="center_vertical">
 
-            <View
-                android:id="@+id/left_avatar_feature"
-                android:layout_width="24px"
-                android:layout_height="25px"
+            <TextView
+                android:id="@+id/register_feature_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="20px"
-                android:background="@drawable/activity_home_btn_search" />
+                android:text="海淘妈妈"
+                android:textColor="@color/login_hint_color" />
 
-            <EditText
-                android:id="@+id/register_feature_edit"
-                android:layout_width="350px"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="17px"
-                android:layout_marginRight="17px"
-                android:layout_toRightOf="@+id/left_avatar_feature"
-                android:background="#00000000"
-                android:gravity="center_vertical"
-                android:hint="海淘妈妈"
-                android:textColor="#868686"
-                android:textSize="24px" />
-
-            <View
-                android:layout_width="24px"
-                android:layout_height="25px"
+            <ImageView
+                android:id="@+id/feature_arrow_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_gravity="center_vertical"
                 android:layout_marginRight="20px"
-                android:background="@drawable/activity_home_btn_search" />
-        </RelativeLayout>
+                android:src="@drawable/tab_select_shape_right_selector" />
 
+            <ImageView
+                android:id="@+id/register_feature_icon"
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20px"
+                android:layout_toLeftOf="@id/feature_arrow_right"
+                android:src="@drawable/login_sina_icon" />
+
+
+        </RelativeLayout>
 
     </LinearLayout>
 
     <Button
         android:id="@+id/btn_register_submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/LoginBtnStyle"
+        android:layout_width="500px"
         android:layout_below="@id/rl_reg_container"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/shape_rounded_rectangle"
-        android:text="完成注册"
-        android:textSize="40px" />
+        android:text="@string/register_over" />
 </RelativeLayout>

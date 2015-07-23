@@ -1,8 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
 
     android:background="@drawable/login_background"
     tools:context="com.babyspace.mamshare.app.fragment.RegisterPhoneFragment">
@@ -20,35 +20,32 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginTop="32px"
-        android:padding="35px"
+        android:background="@drawable/register_edit_phone_bg"
         android:gravity="center_vertical"
-        android:background="@drawable/register_edit_phone_bg">
-        
+        android:padding="30px">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/phone86"
-            />
+            android:text="@string/phone86" />
 
         <View
             android:layout_width="1dp"
             android:layout_height="40px"
-            android:background="@color/deep_gray"
             android:layout_marginLeft="15px"
-            />
+            android:background="@color/deep_gray" />
 
 
         <com.michael.library.widget.materialedittext.MaterialEditText
             android:id="@+id/register_phone_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15px"
             android:hint="@string/input_phone_num"
             android:textSize="24px"
-            android:layout_marginLeft="15px"
+            android:inputType="phone"
             app:met_clearButton="true"
-
-            app:met_hideUnderline="true"
-             />
+            app:met_hideUnderline="true" />
 
 
     </LinearLayout>
@@ -56,19 +53,13 @@
 
     <Button
         android:id="@+id/btn_register_next"
+        style="@style/LoginBtnStyle"
         android:layout_width="500px"
-
-
-        android:layout_height="60px"
         android:layout_below="@+id/ll_reg_phone"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60px"
-        android:background="@drawable/login_btn_shape_login"
         android:text="@string/next_step"
-        android:textColor="@color/white"
-
-
-        android:textSize="30px" />
+         />
 
 
 </RelativeLayout>

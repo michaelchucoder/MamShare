@@ -2,12 +2,12 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
     <solid
-        android:color="@color/white"/>
+        android:color="@color/white_alpha"/>
 
     <corners
-        android:bottomLeftRadius="40px"
-        android:bottomRightRadius="40px"
-        android:topLeftRadius="40px"
-        android:topRightRadius="40px" />
+        android:bottomLeftRadius="38px"
+        android:bottomRightRadius="38px"
+        android:topLeftRadius="38px"
+        android:topRightRadius="38px" />
 
 </shape>

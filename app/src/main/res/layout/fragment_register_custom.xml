@@ -72,8 +72,8 @@
 
     <Button
         android:id="@+id/register_custom_submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="400px"
+        style="@style/LoginBtnStyle"
         android:layout_below="@+id/register_custom_feature_container"
         android:layout_centerHorizontal="true"
         android:text="确定" />
