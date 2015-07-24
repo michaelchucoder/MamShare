@@ -51,11 +51,11 @@ public class UrlConstants {
      */
     public static final String AccessToken = "/system/getEquipmentAccessToken";
     /**
-     * 登录
+     * 注册
      */
     public static final String Register = "/account/register";
     /**
-     * 注册
+     * 登录
      */
     public static final String Login = "/account/login";
     /**

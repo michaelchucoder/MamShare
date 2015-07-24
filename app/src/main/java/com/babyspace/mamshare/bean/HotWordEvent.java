@@ -2,8 +2,6 @@ package com.babyspace.mamshare.bean;
 
 import com.babyspace.mamshare.basement.BaseResponseBean;
 
-import java.util.List;
-
 /**
  * Created with Android Studio
  * Package name: com.babyspace.mamshare.bean

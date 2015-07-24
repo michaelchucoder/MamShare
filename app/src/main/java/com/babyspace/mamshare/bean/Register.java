@@ -35,4 +35,7 @@ public class Register implements Serializable {
 
     @SerializedName("mamRoleName")
     public String mamRoleName;
+
+    @SerializedName("nickname")
+    public String nickname;
 }
