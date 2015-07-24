@@ -39,7 +39,7 @@ public class StringTools {
     }
 
     /**
-     * ÅĞ¶ÏÊÇ·ñÎªÓÊÏä¸ñÊ½
+     * åˆ¤æ–­æ˜¯å¦ä¸ºé‚®ç®±æ ¼å¼
      *
      * @param str
      * @return
@@ -63,18 +63,18 @@ public class StringTools {
 
     public static String longToDate(String longDate) {
         long time = Long.valueOf(longDate);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ HHÊ±mm·ÖssÃë E");
-        //Ç°ÃæµÄlSysTimeÊÇÃëÊı£¬ÏÈ³Ë1000µÃµ½ºÁÃëÊı£¬ÔÙ×ªÎªjava.util.DateÀàĞÍ
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥ HHæ—¶mmåˆ†ssç§’ E");
+        //å‰é¢çš„lSysTimeæ˜¯ç§’æ•°ï¼Œå…ˆä¹˜1000å¾—åˆ°æ¯«ç§’æ•°ï¼Œå†è½¬ä¸ºjava.util.Dateç±»å‹
         Date dt = new Date(time * 1000);
-        String sDateTime = sdf.format(dt);  //µÃµ½¾«È·µ½ÃëµÄ±íÊ¾£º08/31/2006 21:08:00
+        String sDateTime = sdf.format(dt);  //å¾—åˆ°ç²¾ç¡®åˆ°ç§’çš„è¡¨ç¤ºï¼š08/31/2006 21:08:00
         return sDateTime;
     }
 
     public static String dateToLong(String date) {
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ HHÊ±mm·ÖssÃë E");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥ HHæ—¶mmåˆ†ssç§’ E");
             Date dt2 = sdf.parse(date);
-            //¼ÌĞø×ª»»µÃµ½ÃëÊıµÄlongĞÍ
+            //ç»§ç»­è½¬æ¢å¾—åˆ°ç§’æ•°çš„longå‹
             long lTime = dt2.getTime() / 1000;
             return String.valueOf(lTime);
         } catch (ParseException e) {
@@ -86,7 +86,7 @@ public class StringTools {
     public static Date StringToDate(String stringDate) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd ");
         try {
-            //String date = formatter.format(new Date());¸ñÊ½»¯Êı¾İ¡£
+            //String date = formatter.format(new Date());æ ¼å¼åŒ–æ•°æ®ã€‚
             Date date = formatter.parse(stringDate);
             Log.d("Calendar Calendar ", " StringToDate: " + " : " + date);
             return date;
@@ -103,7 +103,7 @@ public class StringTools {
         String regexSp[] = str.split("\\-");
         int leng = regexSp[0].length() + regexSp[1].length() + regexSp[2].length();
         if (leng != 9) return false;
-        int check = 0, ten_two = 10;//¼ìÑéÊı
+        int check = 0, ten_two = 10;//æ£€éªŒæ•°
         for (int ii = 0; ii < 3; ii++) {
             for (int i = 0; i < regexSp[ii].length(); i++) {
                 check = check + Integer.parseInt(String.valueOf(regexSp[ii].charAt(i))) * ten_two;
@@ -218,14 +218,14 @@ public class StringTools {
 //        if (timestamp.length()==10){
 //            timestamp=timestamp+"000";
 //        }
-//        SimpleDateFormat fm2 = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ HH:mm:ss E");
+//        SimpleDateFormat fm2 = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥ HH:mm:ss E");
 //        String dateStr= fm2.format(Long.valueOf(timestamp));
-//        return dateStr.replace("ÖÜ","ĞÇÆÚ");
+//        return dateStr.replace("å‘¨","æ˜ŸæœŸ");
 //
 //    }
 
     /**
-     * Ê±¼ä´Á×ª»»º¯Êı Recent
+     * æ—¶é—´æˆ³è½¬æ¢å‡½æ•° Recent
      *
      * @param timestamp
      * @return
@@ -235,9 +235,9 @@ public class StringTools {
             timestamp = timestamp + "000";
         }
 
-        SimpleDateFormat fm2 = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ HH:mm:ss E");
+        SimpleDateFormat fm2 = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥ HH:mm:ss E");
         String dateStr = fm2.format(Long.valueOf(timestamp));
-        return dateStr.replace("ÖÜ", "ĞÇÆÚ");
+        return dateStr.replace("å‘¨", "æ˜ŸæœŸ");
 
     }
 
