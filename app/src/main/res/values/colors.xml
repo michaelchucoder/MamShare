@@ -10,6 +10,9 @@
     <color name="green_mama_bg">#ff1bad23</color>
     <color name="toast_mama_bg">#341bad23</color>
 
+    <color name="pressed_red">#B3F0001D</color>
+    <color name="pressed_white">#99FFFFFF</color>
+
 
     <color name="primary">#009688</color>
     <color name="primaryDark">#00796b</color>

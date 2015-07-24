@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.babyspace.mamshare.app.activity.SettingActivity">
+    tools:context="com.babyspace.mamshare.app.activity.SettingActivity"
+    >
 
     <include
         android:id="@+id/common_title"

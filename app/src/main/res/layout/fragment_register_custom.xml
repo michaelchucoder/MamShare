@@ -26,9 +26,9 @@
         android:layout_width="300px"
         android:layout_height="300px"
         android:layout_below="@id/register_custom_title"
-        android:src="@drawable/push"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30px" />
+        android:layout_marginTop="30px"
+        android:src="@drawable/push" />
 
     <RelativeLayout
         android:id="@+id/register_custom_feature_container"
@@ -41,11 +41,11 @@
         <LinearLayout
             android:id="@+id/ll_custom_feature"
             android:layout_width="300px"
-            android:layout_height="50px"
-            android:background="@drawable/shape_discover_search_bg">
+            android:layout_height="50px">
 
 
-            <EditText
+            <com.michael.library.widget.materialedittext.MaterialEditText
+                android:id="@+id/register_custom_my_role"
                 android:layout_width="300px"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="17px"
@@ -58,13 +58,11 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/verify_countdown"
-            android:layout_width="130px"
-            android:layout_height="50px"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20px"
-            android:background="@drawable/shape_rounded_rectangle"
             android:text="妈妈" />
 
 
@@ -72,8 +70,8 @@
 
     <Button
         android:id="@+id/register_custom_submit"
-        android:layout_width="400px"
         style="@style/LoginBtnStyle"
+        android:layout_width="400px"
         android:layout_below="@+id/register_custom_feature_container"
         android:layout_centerHorizontal="true"
         android:text="确定" />
