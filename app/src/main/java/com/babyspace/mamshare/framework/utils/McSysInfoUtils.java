@@ -20,6 +20,7 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 
+import com.babyspace.mamshare.commons.AppRuntime;
 import com.babyspace.mamshare.controller.DEBUGController;
 import com.michael.library.debug.L;
 

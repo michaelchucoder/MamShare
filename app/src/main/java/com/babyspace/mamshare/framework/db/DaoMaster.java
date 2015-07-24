@@ -9,7 +9,6 @@ import android.util.Log;
 import com.babyspace.mamshare.bean.CollectEvaluateDao;
 import com.babyspace.mamshare.bean.CollectGuidanceDao;
 import com.babyspace.mamshare.bean.GreenNoteDao;
-import com.babyspace.mamshare.bean.HomeGuidance;
 import com.babyspace.mamshare.bean.HomeGuidanceDao;
 import com.babyspace.mamshare.bean.MAreaDao;
 

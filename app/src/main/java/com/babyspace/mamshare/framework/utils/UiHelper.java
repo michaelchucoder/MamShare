@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.basement.MamShare;
 import com.michael.core.tools.ViewRelayoutUtil;
 
 public class UiHelper {

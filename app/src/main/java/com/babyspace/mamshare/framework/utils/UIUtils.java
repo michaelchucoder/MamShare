@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.babyspace.mamshare.basement.BaseActivity;
+import com.babyspace.mamshare.basement.MamShare;
 
 
 public class UIUtils {
