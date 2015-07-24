@@ -1,7 +1,6 @@
 package com.babyspace.mamshare.app.dialog;
 
 import android.content.Context;
-import android.text.Html;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 

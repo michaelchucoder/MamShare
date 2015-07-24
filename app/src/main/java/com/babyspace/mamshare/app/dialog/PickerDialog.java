@@ -17,6 +17,7 @@ import java.util.Calendar;
  */
 public class PickerDialog extends DialogFragment {
     DatePickerDialog.OnDateSetListener callback;
+    DatePickerDialog dialog;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -24,12 +25,32 @@ public class PickerDialog extends DialogFragment {
         int year = calendar.get(calendar.YEAR);
         int month = calendar.get(calendar.MONTH);
         int day = calendar.get(calendar.DAY_OF_MONTH);
-        DatePickerDialog dialog;
+
         dialog = new DatePickerDialog(getActivity(), callback, year, month, day);
+
+
         return dialog;
     }
 
     public void setOnDateSetListener(DatePickerDialog.OnDateSetListener onDateSetListener) {
         callback = onDateSetListener;
     }
+
+   /* *//**
+     * 设置dialog标题
+     * @param title
+     *//*
+    public void  setDialogTitle(String title){
+          dialog.setTitle(title);
+
+    }
+
+    *//**
+     * 设置dialog标题
+     * @param titleId
+     *//*
+    public void  setDialogTitle(int titleId){
+        dialog.setTitle(getString(titleId));
+
+    }*/
 }
