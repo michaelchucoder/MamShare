@@ -3,7 +3,7 @@
 
     <item android:drawable="@drawable/plane_right_simply" android:state_checked="true"></item>
     <item android:drawable="@drawable/plane_right_simply_nor"></item>
-   <item android:drawable="@drawable/plane_right_simply" android:state_focused="true"></item>
+    <item android:drawable="@drawable/plane_right_simply" android:state_focused="true"></item>
     <item android:drawable="@drawable/plane_right_simply" android:state_selected="true"></item>
 
 </selector>

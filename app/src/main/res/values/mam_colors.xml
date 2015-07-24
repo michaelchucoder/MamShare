@@ -14,7 +14,7 @@
     <color name="plane_cities_label_color">#ff888888</color>
     <color name="plane_base_list_divider_color">#FFCCCCCc</color>
     <color name="plane_base_info_bar_color">#FFECECEC</color>
-    
+
     <color name="plane_base_button_search_text_color">#FFFFFFFF</color>
     <color name="plane_base_head_color">#FF017DC7</color>
     <color name="plane_base_footer_color">#FF484848</color>
@@ -36,20 +36,20 @@
     <color name="plane_base_mask_color">#FF808080</color>
     <color name="plane_base_blue_text">#FF0b6ac4</color>
     <color name="plane_base_glay_background">#FFCCCCCC</color>
-    
+
     <color name="plane_base_comment_top_bar_color">#FFF5F5F5</color>
     <color name="plane_base_comment_top_bar_line_color">#FFD9D9D9</color>
-    
-	<color name="plane_progress_t_color">#FFFFCC00</color>
-	<color name="plane_progress_m_color">#FFFFB600</color>
-	<color name="plane_progress_b_color">#FFFF9900</color>
-    
+
+    <color name="plane_progress_t_color">#FFFFCC00</color>
+    <color name="plane_progress_m_color">#FFFFB600</color>
+    <color name="plane_progress_b_color">#FFFF9900</color>
+
     <color name="plane_week_week_text_color">#FFFF7A11</color>
     <color name="plane_week_work_text_color">#FF666666</color>
     <color name="plane_money_yellow">#FFFC9C11</color>
-    
+
     <color name="plane_xiaomi_text_base_color">#FF000000</color>
-    
+
     <color name="plane_depart_city">#ff0b6ac4</color>
     <color name="plane_arrive_city">#ff0b6ac4</color>
     <color name="plane_defalut_city">#ff999999</color>
@@ -57,8 +57,8 @@
     <color name="plane_order_status_waitpay">#ff3829</color>
     <color name="plane_order_status_waitchupiao">#ff910f</color>
     <color name="plane_order_status_chupiaoed">#27ba1f</color>
-    
-    
+
+
     <color name="bg_tab_pressed">#6633b5e5</color>
 
     <color name="plane_custom_color">#ff3b8de3</color>

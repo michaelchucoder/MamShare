@@ -2,7 +2,6 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-
     <!-- 自定义loading dialog -->
     <style name="loading_dialog" parent="android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>
@@ -17,7 +16,7 @@
         <item name="android:textColor">@color/plane_text_black_6</item>
         <item name="android:layout_width">150px</item>
     </style>
-    
+
     <style name="plane_commitorder_item_edit_style">
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/plane_text_black_3</item>

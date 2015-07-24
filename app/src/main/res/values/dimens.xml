@@ -47,10 +47,15 @@
     <dimen name="bottom_ellipsis_height">8px</dimen>
 
 
-
     <!--妈妈说 基本尺寸-->
     <dimen name="button_circle_shape_height">76px</dimen>
     <dimen name="button_text_size">40px</dimen>
 
 
+    <!--妈妈说 float效果-->
+    <dimen name="header_height">320dp</dimen>
+    <dimen name="min_header_height">56dp</dimen>
+    <dimen name="float_title_left_margin">44dp</dimen>
+    <dimen name="float_title_size">20dp</dimen>
+    <dimen name="float_title_size_large">36sp</dimen>
 </resources>

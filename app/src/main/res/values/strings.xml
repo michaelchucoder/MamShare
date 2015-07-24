@@ -21,6 +21,7 @@
     <string name="input_verify_code">请输入验证码</string>
     <string name="password_role">密码由6-16位组成</string>
     <string name="set_better_name">给自己起个好听的名字吧</string>
+    <string name="seclect_baby_due_date">宝宝的预产期</string>
 
 
 </resources>
