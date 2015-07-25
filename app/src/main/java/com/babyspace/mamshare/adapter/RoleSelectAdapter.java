@@ -1,22 +1,28 @@
 package com.babyspace.mamshare.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.MamaRole;
 import com.michael.core.tools.ViewRelayoutUtil;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 /**
  * Created with Android Studio
@@ -30,9 +36,17 @@ public class RoleSelectAdapter extends BaseAdapter {
     private List<MamaRole> data = new ArrayList<>();
     private Context ctx;
     private int resource = R.layout.item_role_select;
+    private DisplayImageOptions options;
 
     public RoleSelectAdapter(Context ctx) {
         this.ctx = ctx;
+        options = new DisplayImageOptions.Builder()
+                .showImageOnLoading(R.drawable.img_default_loading) // 在ImageView加载过程中显示图片
+                .showImageForEmptyUri(R.drawable.img_default_loading) // url地址为空的时候显示的图片
+                .showImageOnFail(R.drawable.img_default_loading) // 图片加载失败后显示的图片
+                .bitmapConfig(Bitmap.Config.RGB_565)
+                .resetViewBeforeLoading(true).cacheInMemory(true)
+                .displayer(new SimpleBitmapDisplayer()).build();
     }
 
     public void refresh(List<MamaRole> result) {
@@ -64,36 +78,36 @@ public class RoleSelectAdapter extends BaseAdapter {
         ViewHolder holder;
 
         if (convertView == null) {
-            holder = new ViewHolder();
             convertView = View.inflate(ctx, resource, null);
             ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
-
-            holder.iv_avatar = (ImageView) convertView.findViewById(R.id.iv_avatar);
-            holder.btn_role = (Button) convertView.findViewById(R.id.btn_role);
-
+            holder = new ViewHolder(convertView);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        ImageLoader.getInstance().displayImage(data.get(position).roleUrl, holder.iv_avatar);
+        ImageLoader.getInstance().displayImage(data.get(position).systemHeadIcon, holder.iv_avatar, options);
 
         holder.btn_role.setText(data.get(position).roleName);
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastHelper.showToast(ctx,"position");
+                ToastHelper.showToast(ctx, "position");
             }
         });
 
         return convertView;
     }
 
-
-    static class ViewHolder {
+    class ViewHolder {
+        @InjectView(R.id.iv_avatar)
         ImageView iv_avatar;
-        Button btn_role;
+        @InjectView(R.id.btn_role)
+        TextView btn_role;
 
+        public ViewHolder(View view) {
+            ButterKnife.inject(this, view);
+        }
     }
 
 }

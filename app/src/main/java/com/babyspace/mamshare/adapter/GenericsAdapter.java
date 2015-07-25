@@ -2,7 +2,7 @@ package com.babyspace.mamshare.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.view.LayoutInflater;
+import android.graphics.Bitmap;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -29,7 +29,9 @@ import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.core.tools.ViewRelayoutUtil;
 import com.michael.library.debug.L;
 import com.michael.library.widget.roundimage.RoundImageView;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 
 import java.util.List;
 
@@ -56,21 +58,26 @@ public class GenericsAdapter extends BaseAdapter {
      * public static final int page_label_evaluate = 2009;
      * public static final int page_user_evaluate = 2010;
      */
+    private DisplayImageOptions options;
 
     int pageFlag;
     Context ctx;
     List<?> data;
 
-    public GenericsAdapter(Context ctx, List<?> data) {
-        this.ctx = ctx;
-        this.data = data;
-    }
 
     public GenericsAdapter(Context ctx, int pageFlag) {
         L.d("GenericsAdapter", "construct-pageFlag " + pageFlag);
 
         this.ctx = ctx;
         this.pageFlag = pageFlag;
+
+        options = new DisplayImageOptions.Builder()
+                .showImageOnLoading(R.drawable.img_default_loading) // 在ImageView加载过程中显示图片
+                .showImageForEmptyUri(R.drawable.img_default_loading) // url地址为空的时候显示的图片
+                .showImageOnFail(R.drawable.img_default_loading) // 图片加载失败后显示的图片
+                .bitmapConfig(Bitmap.Config.RGB_565)
+                .resetViewBeforeLoading(true).cacheInMemory(true)
+                .displayer(new SimpleBitmapDisplayer()).build();
     }
 
     @Override
@@ -92,15 +99,7 @@ public class GenericsAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         L.d("GenericsAdapter", "getView-pageFlag " + pageFlag);
 
-        if (pageFlag == AppConstants.page_empty) { //TODO 这是如果为空
-
-            convertView = LayoutInflater.from(ctx).inflate(AppConstants.item_empty,
-                    parent, false);
-            ViewRelayoutUtil.relayoutViewWithScale(convertView, MamShare.screenWidthScale);
-            TextView txtTitle = (TextView) convertView.findViewById(R.id.iv_empty);
-            txtTitle.setText("哈哈哈，走错路啦");
-
-        } else if (pageFlag == AppConstants.page_home_guidance) { //TODO 这是首页 攻略
+        if (pageFlag == AppConstants.page_home_guidance) { //TODO 这是首页 攻略
             HomeGuidanceHolder holder;
             List<HomeGuidance> list = (List<HomeGuidance>) data;
 
@@ -113,7 +112,7 @@ public class GenericsAdapter extends BaseAdapter {
             } else {
                 holder = (HomeGuidanceHolder) convertView.getTag();
             }
-            ImageLoader.getInstance().displayImage(list.get(position).imageUrl, holder.iv_guidance);
+            ImageLoader.getInstance().displayImage(list.get(position).imageUrl, holder.iv_guidance, options);
         } else if (pageFlag == AppConstants.page_home_evaluate) { //TODO 这是首页 评测
             HomeEvaluateHolder holder;
             final List<HomeEvaluate> list = (List<HomeEvaluate>) data;
@@ -142,14 +141,14 @@ public class GenericsAdapter extends BaseAdapter {
             holder.tv_desc.setText(list.get(position).remark);
             holder.tv_nickname.setText(list.get(position).nickName);
             holder.tv_role.setText(list.get(position).roleName);
-            holder.tv_label1.setText(list.get(position).tagList.size()>=1?list.get(position).tagList.get(0).tagName:"空的");
-            holder.tv_label2.setText(list.get(position).tagList.size()>=2?list.get(position).tagList.get(1).tagName:"");
-            holder.tv_label3.setText(list.get(position).tagList.size()>=3?list.get(position).tagList.get(2).tagName:"");
-            holder.tv_label4.setText(list.get(position).tagList.size()>=4?list.get(position).tagList.get(3).tagName:"");
-            holder.tv_label5.setText(list.get(position).tagList.size()>=5?list.get(position).tagList.get(4).tagName:"");
+            holder.tv_label1.setText(list.get(position).tagList.size() >= 1 ? list.get(position).tagList.get(0).tagName : "空的");
+            holder.tv_label2.setText(list.get(position).tagList.size() >= 2 ? list.get(position).tagList.get(1).tagName : "");
+            holder.tv_label3.setText(list.get(position).tagList.size() >= 3 ? list.get(position).tagList.get(2).tagName : "");
+            holder.tv_label4.setText(list.get(position).tagList.size() >= 4 ? list.get(position).tagList.get(3).tagName : "");
+            holder.tv_label5.setText(list.get(position).tagList.size() >= 5 ? list.get(position).tagList.get(4).tagName : "");
             holder.btn_like.setText("" + list.get(position).likeNum);
 
-            ImageLoader.getInstance().displayImage(list.get(position).headIcon, holder.iv_avatar);
+            ImageLoader.getInstance().displayImage(list.get(position).headIcon, holder.iv_avatar, options);
 
             holder.btn_like.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -174,7 +173,7 @@ public class GenericsAdapter extends BaseAdapter {
                 holder = (DiscoverSearchHolder) convertView.getTag();
             }
             holder.tv_title.setText(list.get(position).tagName);
-            ImageLoader.getInstance().displayImage(list.get(position).coverPhoto, holder.iv_cover);
+            ImageLoader.getInstance().displayImage(list.get(position).coverPhoto, holder.iv_cover, options);
         } else if (pageFlag == AppConstants.page_recommend_tag) { //TODO  热词
             RecommendTagHolder holder;
             List<String> list = (List<String>) data;
@@ -206,7 +205,7 @@ public class GenericsAdapter extends BaseAdapter {
             }
             holder.btn_like.setText("" + list.get(position).likeNum);
 
-            ImageLoader.getInstance().displayImage(list.get(position).imageUrl, holder.iv_cover);
+            ImageLoader.getInstance().displayImage(list.get(position).imageUrl, holder.iv_cover, options);
 
             holder.btn_like.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -234,7 +233,7 @@ public class GenericsAdapter extends BaseAdapter {
             holder.tv_title.setText(list.get(position).evalTitle);
             holder.btn_like.setText("" + list.get(position).likeNum);
 
-            ImageLoader.getInstance().displayImage(list.get(position).headUrl, holder.iv_cover);
+            ImageLoader.getInstance().displayImage(list.get(position).headUrl, holder.iv_cover, options);
 
             holder.btn_like.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -280,16 +279,25 @@ public class GenericsAdapter extends BaseAdapter {
                 switch (pageFlag) {
                     case AppConstants.page_home_evaluate:
                         i.setClass(ctx, EvaluateDetailActivity.class);
+                        ctx.startActivity(i);
+
                         break;
                     case AppConstants.page_home_guidance:
                         i.setClass(ctx, GuidanceDetailActivity.class);
+                        ctx.startActivity(i);
+
+                        break;
+                    case AppConstants.page_discover_search:
+                        L.d("GenericsAdapter", "setOnClickListener " + pageFlag);
+
                         break;
                     case AppConstants.page_default:
                     default:
                         i.setClass(ctx, ParallaxToolbarListViewActivity.class);
+                        ctx.startActivity(i);
+
                         break;
                 }
-                ctx.startActivity(i);
             }
         });
         return convertView;
