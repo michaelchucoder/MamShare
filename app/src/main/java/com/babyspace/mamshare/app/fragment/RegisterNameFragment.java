@@ -27,7 +27,6 @@ import com.babyspace.mamshare.commons.UrlConstants;
 import com.babyspace.mamshare.listener.RegisterListener;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
-import com.michael.core.tools.MD5Util;
 import com.michael.core.tools.SPrefUtil;
 import com.michael.library.debug.L;
 import com.michael.library.widget.materialedittext.MaterialEditText;

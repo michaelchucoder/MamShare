@@ -27,7 +27,6 @@ import com.babyspace.mamshare.framework.utils.UiHelper;
 import com.babyspace.mamshare.framework.weibo.UsersAPI;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
-import com.michael.core.tools.MD5Util;
 import com.michael.core.tools.SPrefUtil;
 import com.michael.library.debug.L;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;

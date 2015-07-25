@@ -17,8 +17,6 @@ import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.activity.ChatActivity;
-import com.babyspace.mamshare.app.dialog.DialogHelper;
-import com.babyspace.mamshare.app.dialog.PickerDialog;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.michael.core.tools.SPrefUtil;
