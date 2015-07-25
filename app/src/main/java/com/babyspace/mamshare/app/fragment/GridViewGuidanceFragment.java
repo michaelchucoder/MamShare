@@ -40,7 +40,7 @@ import de.greenrobot.event.EventBus;
 public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 
     private static final String PAGE_FLAG = "pageFlag";
-    private int pageFlag;
+    private static int pageFlag;
 
     EmptyListener mCallback;
 
@@ -77,7 +77,8 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
     }
 
     // TODO: Rename and change types and number of parameters
-    public static GridViewGuidanceFragment newInstance(int pageFlag) {
+    public static GridViewGuidanceFragment newInstance(int flag) {
+        pageFlag=flag;
         GridViewGuidanceFragment fragment = new GridViewGuidanceFragment();
         Bundle args = new Bundle();
         args.putInt(PAGE_FLAG, pageFlag);

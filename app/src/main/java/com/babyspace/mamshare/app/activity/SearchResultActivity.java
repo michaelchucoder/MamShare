@@ -8,58 +8,86 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
-import com.babyspace.mamshare.adapter.TabPageAdapter;
 import com.babyspace.mamshare.app.fragment.GridViewEvaluateFragment;
 import com.babyspace.mamshare.app.fragment.GridViewGuidanceFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.listener.EmptyListener;
-import com.viewpagerindicator.TabPageIndicator;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class SearchResultActivity extends BaseActivity implements EmptyListener {
+public class SearchResultActivity extends BaseActivity implements ViewPager.OnPageChangeListener, EmptyListener {
+
+    @InjectView(R.id.tab_guidance)
+    TextView tab_guidance;
+    @InjectView(R.id.tab_evaluate)
+    TextView tab_evaluate;
+    @InjectView(R.id.line_guidance)
+    View line_guidance;
+    @InjectView(R.id.line_evaluate)
+    View line_evaluate;
+
+    private static int pagePosition = 0;
+    private static int lastState = 0;
+
+    private ViewPager mPager;
 
     @InjectView(R.id.register_name_edit)
     EditText register_name_edit;
-    public static final String[] TITLES = new String[]{"攻略", "评测"};
-    public static final List<Fragment> FRAGMENTS = new ArrayList<>();
-
-    private TabPageIndicator mIndicator;
-    private ViewPager mViewPager;
-    private TabPageAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
-        setTheme(R.style.MyTheme);
 
-        FRAGMENTS.add(GridViewGuidanceFragment.newInstance(AppConstants.page_search_guidance));
-        FRAGMENTS.add(GridViewEvaluateFragment.newInstance(AppConstants.page_search_evaluate));
+        initView();
+    }
 
-        mIndicator = (TabPageIndicator) findViewById(R.id.id_indicator);
-        mViewPager = (ViewPager) findViewById(R.id.id_pager);
+    private void initView() {
+        mPager = (ViewPager) findViewById(R.id.pager);
         MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager());
-        mViewPager.setAdapter(adapter);
-/*        mAdapter = new TabPageAdapter(getSupportFragmentManager(), TITLES, FRAGMENTS);
-        mViewPager.setAdapter(mAdapter);*/
-        mIndicator.setViewPager(mViewPager, 0);
+        mPager.setAdapter(adapter);
+
+        // 设置监听获得回调
+        mPager.setOnPageChangeListener(this);
+
+        mPager.post(new Runnable() {
+            @Override
+            public void run() {
+                onPageSelected(mPager.getCurrentItem());
+            }
+        });
 
     }
 
-    @OnClick({R.id.tv_label_search, R.id.clear_txt})
+    @OnClick({R.id.tab_guidance, R.id.tab_evaluate, R.id.tv_label_search, R.id.clear_txt})
     public void doOnClick(View view) {
         Intent i = new Intent();
 
         switch (view.getId()) {
+            case R.id.tab_guidance:
+                tab_guidance.setTextColor(getResources().getColor(R.color.green_mama_bg));
+                tab_evaluate.setTextColor(getResources().getColor(R.color.black));
+
+                line_guidance.setVisibility(View.VISIBLE);
+                line_evaluate.setVisibility(View.INVISIBLE);
+
+                mPager.setCurrentItem(0);
+                break;
+            case R.id.tab_evaluate:
+                tab_evaluate.setTextColor(getResources().getColor(R.color.green_mama_bg));
+                tab_guidance.setTextColor(getResources().getColor(R.color.black));
+
+                line_evaluate.setVisibility(View.VISIBLE);
+                line_guidance.setVisibility(View.INVISIBLE);
+
+                mPager.setCurrentItem(1);
+                break;
             case R.id.tv_label_search:
                 i.setClass(this, SearchResultActivity.class);
                 startActivity(i);
@@ -70,13 +98,50 @@ public class SearchResultActivity extends BaseActivity implements EmptyListener 
         }
     }
 
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+
+        pagePosition = position;
+
+        if (position == 0) {
+            tab_guidance.setTextColor(getResources().getColor(R.color.green_mama_bg));
+            tab_evaluate.setTextColor(getResources().getColor(R.color.black));
+
+            line_guidance.setVisibility(View.VISIBLE);
+            line_evaluate.setVisibility(View.INVISIBLE);
+
+        } else {
+            tab_evaluate.setTextColor(getResources().getColor(R.color.green_mama_bg));
+            tab_guidance.setTextColor(getResources().getColor(R.color.black));
+
+            line_evaluate.setVisibility(View.VISIBLE);
+            line_guidance.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+        if (lastState == 1 && state == 0) {
+            switch (pagePosition) {
+                case 0:
+                    break;
+                case 1:
+                    break;
+            }
+        }
+        lastState = state;
+    }
+
     class MyPagerAdapter extends FragmentPagerAdapter {
         String[] titles = {"攻略", "评测"};
         BaseFragment[] fragments = {GridViewGuidanceFragment.newInstance(AppConstants.page_search_guidance), GridViewEvaluateFragment.newInstance(AppConstants.page_search_evaluate)};
 
         public MyPagerAdapter(FragmentManager fm) {
             super(fm);
-            //titles = UIUtils.getStringArray(R.array.tab_names);
         }
 
         @Override

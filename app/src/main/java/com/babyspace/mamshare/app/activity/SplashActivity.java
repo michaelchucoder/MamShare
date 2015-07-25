@@ -616,7 +616,9 @@ public class SplashActivity extends BaseActivity {
 
                 break;
             case R.id.go_test:
-                //i.setClass(this, TestActivity.class);
+                i.setClass(this, ScaleActivity.class);
+                startActivity(i);
+
                 break;
         }
     }

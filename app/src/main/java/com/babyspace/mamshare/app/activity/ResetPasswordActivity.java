@@ -11,7 +11,9 @@ import android.widget.TextView;
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.BaseActivity;
+import com.michael.library.widget.materialedittext.MaterialEditText;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
@@ -26,14 +28,25 @@ public class ResetPasswordActivity extends BaseActivity {
     TextView common_title_text;
     @InjectView(R.id.common_title_right)
     ImageButton common_title_right;
+    @InjectView(R.id.phone_edit)
+    MaterialEditText phoneEdit;
+    @InjectView(R.id.verify_edit)
+    MaterialEditText verifyEdit;
+    @InjectView(R.id.new_pwd_edit)
+    MaterialEditText newPwdEdit;
+    @InjectView(R.id.btn_reset_pwd)
+    Button btnResetPwd;
 
     private VerifyCountDownTimer countDownTimer;
     long millisToCountDown;
+
+    String mobile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reset_password);
+        ButterKnife.inject(this);
 
         initView();
         millisToCountDown = 10000;
@@ -101,6 +114,37 @@ public class ResetPasswordActivity extends BaseActivity {
                 break;
 
         }
+    }
+
+
+    /**
+     * 请求获取验证码
+     */
+    private void getVerifyCode() {
+
+//        TempData.verifyCode = "";
+//        JsonObject jsonParameter = new JsonObject();
+//
+////        jsonParameter.addProperty("phoneNum", phoneNum);
+//        jsonParameter.addProperty("type", "1");
+//        OkHttpExecutor.query(UrlConstants.GetVerifyCode, jsonParameter, DefaultResponseEvent.class, false, this);
+
+    }
+
+
+    private boolean doCheckInput() {
+
+        mobile = phoneEdit.getText().toString().trim();
+//        password = etPwd.getText().toString().trim();
+//        if (TextUtils.isEmpty(mobile)) {
+//            ToastHelper.showToast(this, "请输入账号");
+//            return false;
+//        }
+//        if (TextUtils.isEmpty(password)) {
+//            ToastHelper.showToast(this, "请输入密码");
+//            return false;
+//        }
+        return true;
     }
 
 }

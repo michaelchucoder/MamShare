@@ -3,7 +3,11 @@ package com.babyspace.mamshare.app.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
@@ -14,15 +18,21 @@ import com.babyspace.mamshare.commons.UrlConstants;
 import com.babyspace.mamshare.listener.RegisterListener;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
+import com.michael.core.tools.StringTools;
 import com.michael.library.debug.L;
 import com.michael.library.widget.materialedittext.MaterialEditText;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 
 public class RegisterPhoneFragment extends BaseFragment {
     private static final String PAGE_FLAG = "pageFlag";
+    @InjectView(R.id.common_title_text)
+    TextView commonTitleText;
+    @InjectView(R.id.common_title_right)
+    ImageButton commonTitleRight;
     private int pageFlag;
 
     RegisterListener mCallback;
@@ -78,6 +88,10 @@ public class RegisterPhoneFragment extends BaseFragment {
     @Override
     public void initView() {
 
+        commonTitleRight.setVisibility(View.GONE);
+
+        commonTitleText.setText("注册");
+
 
     }
 
@@ -87,11 +101,14 @@ public class RegisterPhoneFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.btn_register_next:
                 phoneNum = register_phone_edit.getText().toString().trim();
-                JsonObject jsonParameter = new JsonObject();
+//                if(StringTools.isPhone(phoneNum)){
+                    JsonObject jsonParameter = new JsonObject();
 
-                jsonParameter.addProperty("phoneNum", phoneNum);
+                    jsonParameter.addProperty("phoneNum", phoneNum);
 
-                OkHttpExecutor.query(UrlConstants.IsPhoneRegistered, jsonParameter, DefaultResponseEvent.class, false, this);
+                    OkHttpExecutor.query(UrlConstants.IsPhoneRegistered, jsonParameter, DefaultResponseEvent.class, false, this);
+//                }
+
                 break;
 
         }
@@ -148,4 +165,17 @@ public class RegisterPhoneFragment extends BaseFragment {
     }
 
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        ButterKnife.inject(this, rootView);
+        return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.reset(this);
+    }
 }

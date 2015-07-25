@@ -5,7 +5,6 @@ import android.os.Bundle;
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.fragment.RegisterWizardBabyFragment;
 import com.babyspace.mamshare.app.fragment.RegisterWizardGuideFragment;
-import com.babyspace.mamshare.app.fragment.RegisterWizardPregnantFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.babyspace.mamshare.listener.RegisterWizardListener;
 
@@ -45,14 +44,5 @@ public class RegisterWizardActivity extends BaseActivity implements RegisterWiza
 
     }
 
-    @Override
-    public void onRegisterPregnantSelected() {
 
-        RegisterWizardPregnantFragment fragment = new RegisterWizardPregnantFragment();
-
-        fragment.setArguments(getIntent().getExtras());
-
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
-    }
 }

@@ -125,6 +125,8 @@ public class LoginActivity extends BaseActivity {
     private void initView() {
         common_title_left.setImageResource(R.drawable.ic_back);
         common_title_text.setText("登录");
+        common_title_right.setVisibility(View.GONE);
+
 
     }
 
@@ -450,7 +452,7 @@ public class LoginActivity extends BaseActivity {
     public void doOnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_login_submit:
-                ToastHelper.showToast(this,"哈哈登录");
+                ToastHelper.showToast(this, "哈哈登录");
                 doLogin();
                 break;
             case R.id.btn_register_submit:

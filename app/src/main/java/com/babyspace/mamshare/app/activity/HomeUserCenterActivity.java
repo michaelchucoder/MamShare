@@ -20,15 +20,11 @@ import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.listener.EmptyListener;
 import com.michael.library.widget.roundimage.RoundImageView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class HomeUserCenterActivity extends BaseActivity implements ViewPager.OnPageChangeListener, EmptyListener {
-    public static final List<Fragment> FRAGMENTS = new ArrayList<>();
-    // 加上fragment
+
     @InjectView(R.id.tab_guidance)
     TextView tab_guidance;
     @InjectView(R.id.tab_evaluate)
@@ -57,9 +53,6 @@ public class HomeUserCenterActivity extends BaseActivity implements ViewPager.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_user_center);
-
-        FRAGMENTS.add(GridViewGuidanceFragment.newInstance(AppConstants.page_collect_guidance));
-        FRAGMENTS.add(GridViewEvaluateFragment.newInstance(AppConstants.page_collect_evaluate));
 
         initView();
     }
@@ -106,20 +99,24 @@ public class HomeUserCenterActivity extends BaseActivity implements ViewPager.On
                 break;
             case R.id.user_avatar_show:
                 i.setClass(this, UserProfileActivity.class);
+                startActivity(i);
+
                 break;
             case R.id.user_contribute_btn:
                 i.setClass(this, UserProfileActivity.class);
+                startActivity(i);
+
                 break;
             case R.id.user_profile_edit:
                 i.setClass(this, SettingActivity.class);
+                startActivity(i);
+
                 break;
         }
-        startActivity(i);
     }
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
     }
 
     @Override

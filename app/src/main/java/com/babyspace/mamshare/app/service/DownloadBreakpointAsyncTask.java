@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Environment;
 
 import com.babyspace.mamshare.basement.BaseActivity;
+import com.babyspace.mamshare.commons.AppConstants;
 
 import java.io.File;
 import java.io.FileNotFoundException;

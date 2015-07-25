@@ -198,7 +198,7 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
         mSwipeLayout.setRefreshing(false);
         hideLoadingProgress();
         L.d(OkHttpExecutor.TAG, "onEventMainThread-HotWordEvent>" + event.getResultStr());
-        List<String> responseData = event.getData().hotwordList;
+        List<String> responseData = event.getData();
 
         if (responseData.size() < queryNum) {
             footerProgressBar.setVisibility(View.INVISIBLE);
@@ -219,15 +219,7 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
             isMoreData = true;
             queryStart += queryNum;
         }
-
-        if (queryCount > 2) {
-            data.clear();
-            data.add(responseData.get(0));
-            adapter.refresh(AppConstants.page_empty, data);
-            mFooter.setVisibility(View.GONE);
-        } else
-            adapter.refresh(AppConstants.page_recommend_tag, data);
-
+        adapter.refresh(AppConstants.page_recommend_tag, data);
 
     }
 

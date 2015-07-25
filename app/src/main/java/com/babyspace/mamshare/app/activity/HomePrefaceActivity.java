@@ -10,19 +10,13 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
-import com.babyspace.mamshare.adapter.TabPageAdapter;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
-import com.babyspace.mamshare.app.fragment.GridViewEvaluateFragment;
-import com.babyspace.mamshare.app.fragment.GridViewGuidanceFragment;
 import com.babyspace.mamshare.app.fragment.HomeEvaluateListFragment;
 import com.babyspace.mamshare.app.fragment.HomeGuidanceListFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.listener.EmptyListener;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -44,16 +38,11 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
     //StrollFancyCoverFlowAdapter strollFancyCoverFlowAdapter;
     private ViewPager mPager;
     //private AbsPagerTab mTab;
-    public static String[] TITLES = {"攻略", "评测"};
-    public static List<Fragment> FRAGMENTS = new ArrayList<>();
-    private TabPageAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_preface);
-        FRAGMENTS.add(new HomeGuidanceListFragment());
-        FRAGMENTS.add(new HomeEvaluateListFragment());
         //strollFancyCoverFlowAdapter = new StrollFancyCoverFlowAdapter(this);
         initView();
     }
@@ -315,9 +304,10 @@ public class HomePrefaceActivity extends BaseActivity implements ViewPager.OnPag
         }
         lastState = state;
     }
+
     class MyPagerAdapter extends FragmentPagerAdapter {
         String[] titles = {"攻略", "评测"};
-        BaseFragment[] fragments = {new HomeGuidanceListFragment(),new HomeEvaluateListFragment()};
+        BaseFragment[] fragments = {HomeGuidanceListFragment.newInstance(AppConstants.page_home_guidance), HomeEvaluateListFragment.newInstance(AppConstants.page_home_evaluate)};
 
         public MyPagerAdapter(FragmentManager fm) {
             super(fm);

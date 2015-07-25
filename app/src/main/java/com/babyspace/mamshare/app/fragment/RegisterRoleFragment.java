@@ -2,9 +2,14 @@ package com.babyspace.mamshare.app.fragment;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.RoleSelectAdapter;
@@ -15,18 +20,23 @@ import com.babyspace.mamshare.bean.MamaRoleEvent;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.babyspace.mamshare.listener.RegisterListener;
 import com.michael.core.okhttp.OkHttpExecutor;
+import com.michael.library.camera.CameraActivity;
 import com.michael.library.debug.L;
+import com.michael.library.widget.custom.SelectPicturePopwindow;
 import com.squareup.okhttp.Call;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 
 public class RegisterRoleFragment extends BaseFragment {
     private static final String PAGE_FLAG = "pageFlag";
+    @InjectView(R.id.register_role_layout)
+    RelativeLayout registerRoleLayout;
     private int pageFlag;
 
     RegisterListener mCallback;
@@ -47,6 +57,8 @@ public class RegisterRoleFragment extends BaseFragment {
     private boolean isMoreData = true;
     private Call queryCall;
 
+
+    private static final int REQUEST_CAMERA = 0;
     public RegisterRoleFragment() {
         // Required empty public constructor
     }
@@ -120,7 +132,15 @@ public class RegisterRoleFragment extends BaseFragment {
 
         switch (view.getId()) {
             case R.id.register_role_custom:
-                mCallback.onRegisterCustomSelected();
+//                mCallback.onRegisterCustomSelected();
+
+//                showPopwindow();
+
+                launchCamera();
+
+
+
+
                 break;
             case R.id.ll_role_again:
                 queryData();
@@ -132,6 +152,17 @@ public class RegisterRoleFragment extends BaseFragment {
                 break;
         }
     }
+
+    /**
+     *
+     * @param view
+     * 跳转到拍照页面
+     */
+    public void launchCamera() {
+        Intent startCustomCameraIntent = new Intent(getActivity(), CameraActivity.class);
+        startActivity(startCustomCameraIntent);
+    }
+
 
     /**
      * EventBus 响应事件
@@ -172,4 +203,17 @@ public class RegisterRoleFragment extends BaseFragment {
     }
 
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        ButterKnife.inject(this, rootView);
+        return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.reset(this);
+    }
 }
