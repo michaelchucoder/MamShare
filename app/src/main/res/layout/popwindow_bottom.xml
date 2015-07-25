@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pop_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="50px">
+
+
+    <Button
+
+
+        android:id="@+id/pop_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="76px"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/shape_white1_corners38"
+        android:text="取消"
+        android:textColor="@color/login_hint_color"
+        android:textSize="40px" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/pop_cancel"
+        android:layout_marginBottom="50px"
+        android:background="@drawable/shape_white1_corners20"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/pop_camera"
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:background="@null"
+            android:text="拍照"
+            android:textColor="@color/login_hint_color"
+            android:textSize="40px" />
+
+        <Button
+            android:id="@+id/pop_photos"
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:background="@null"
+            android:text="从相册中取"
+            android:textColor="@color/login_hint_color"
+            android:textSize="40px" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="720px"
+    android:layout_height="1080px"
+    android:background="@color/pink_mama_bg"
+    android:orientation="vertical"
+    android:padding="0px">
+
+    <TextView
+        android:id="@+id/iv_empty"
+        android:layout_width="720px"
+        android:layout_height="1080px"
+        android:gravity="center"
+        android:text="哥很抱歉，返回数据为空" />
+
+</RelativeLayout>

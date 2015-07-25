@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <solid android:color="@color/have_baby_bg" />
+
+    <corners
+        android:bottomLeftRadius="110px"
+        android:bottomRightRadius="110px"
+        android:topLeftRadius="110px"
+        android:topRightRadius="110px" />
+
+</shape>
