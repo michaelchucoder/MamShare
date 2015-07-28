@@ -46,7 +46,7 @@
     <Button
         android:id="@+id/register_role_submit"
         style="@style/LoginBtnStyle"
-        android:layout_width="400px"
+        android:layout_width="500px"
         android:layout_above="@+id/register_role_custom"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30px"
@@ -55,11 +55,11 @@
     <Button
         android:id="@+id/register_role_custom"
         style="@style/GreenEdgeStyle"
-        android:layout_width="400px"
+        android:layout_width="500px"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30px"
-        android:layout_marginTop="30px"
+        android:layout_marginBottom="50px"
+        android:layout_marginTop="10px"
         android:text="都不符合我" />
 
 </RelativeLayout>

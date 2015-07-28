@@ -6,108 +6,133 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="420px"
-        android:background="#43f33f">
+        android:id="@+id/activity_title"
+        android:layout_width="match_parent"
+        android:layout_height="400px"
+        android:background="@color/pink_mama_bg">
 
-        <ImageButton
-            android:id="@+id/user_profile_edit"
-            android:layout_width="80px"
-            android:layout_height="80px"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="30px"
-            android:layout_marginTop="30px"
-            android:background="#f9f33f" />
+        <ImageView
+            android:id="@+id/bg_title"
+            android:layout_width="match_parent"
+            android:layout_height="300px"
+            android:background="@color/green_mama_bg" />
 
-        <com.michael.library.widget.roundimage.RoundImageView
-            android:id="@+id/user_avatar_show"
-            android:layout_width="200px"
-            android:layout_height="200px"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="80px"
-            android:scaleType="fitXY"
-            android:src="@drawable/user_default_avatar"
-            imagecontrol:border_outside_color="#ffdcd4d9"
-            imagecontrol:border_thickness="3px" />
+        <include
+            android:id="@+id/tb_toolbar"
+            layout="@layout/common_title_layout" />
 
-        <TextView
-            android:id="@+id/user_id_show"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:id="@+id/rl_float_title"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/user_avatar_show"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="25px"
-            android:text="用户id"
-            android:textSize="30px" />
+            android:layout_alignParentBottom="true">
 
-        <Button
-            android:id="@+id/user_contribute_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/user_id_show"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="25px"
-            android:background="@drawable/shape_rounded_rectangle"
-            android:text="我要投稿" />
+            <LinearLayout
+                android:id="@+id/mama_role_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="0px"
+                android:layout_marginLeft="30px">
 
+                <LinearLayout
+                    android:id="@+id/baby_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.michael.library.widget.roundimage.RoundImageView
+                        android:id="@+id/iv_avatar"
+                        android:layout_width="100px"
+                        android:layout_height="100px"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/user_default_avatar"
+                        imagecontrol:border_outside_color="#ffdcd4d9"
+                        imagecontrol:border_thickness="3px" />
+
+                    <TextView
+                        android:id="@+id/tv_baby_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="宝宝资料" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/nick_name_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="20px"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_nickname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="昵称"
+                        android:textSize="40px" />
+
+                    <TextView
+                        android:id="@+id/tv_role"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="妈妈角色"
+                        android:textSize="30px" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/iv_contribution"
+                android:layout_width="160px"
+                android:layout_height="60px"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/mama_role_container"
+                android:layout_marginBottom="10px"
+                android:background="@color/green_mama_bg"
+                android:text="我要投稿" />
+
+        </RelativeLayout>
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/content"
+        android:id="@+id/tab_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true">
+        android:layout_height="100px">
 
         <RelativeLayout
             android:id="@+id/tab_title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true">
+            android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/tab_guidance"
-                android:layout_width="288px"
-                android:layout_height="100px"
-                android:layout_alignParentLeft="true"
-                android:layout_toLeftOf="@+id/anchor"
-                android:gravity="center"
-                android:text="攻略" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="我的收藏" />
 
-            <View
-                android:id="@+id/line_guidance"
-                android:layout_width="288px"
-                android:layout_height="2px"
-                android:layout_alignParentLeft="true"
-                android:layout_below="@+id/tab_guidance"
-                android:layout_toLeftOf="@+id/anchor"
-                android:background="@color/red" />
+            <LinearLayout
+                android:id="@+id/tab_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true">
 
-            <View
-                android:id="@+id/anchor"
-                android:layout_width="0px"
-                android:layout_height="100px"
-                android:layout_centerHorizontal="true"
-                android:background="@color/pink_mama_bg" />
+                <Button
+                    android:id="@+id/btn_guidance"
+                    android:layout_width="188px"
+                    android:layout_height="100px"
+                    android:text="攻略" />
 
-            <TextView
-                android:id="@+id/tab_evaluate"
-                android:layout_width="288px"
-                android:layout_height="100px"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/anchor"
-                android:gravity="center"
-                android:text="评测" />
+                <Button
+                    android:id="@+id/btn_evaluate"
+                    android:layout_width="188px"
+                    android:layout_height="100px"
+                    android:text="评测" />
 
-            <View
-                android:id="@+id/line_evaluate"
-                android:layout_width="288px"
-                android:layout_height="2px"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/tab_guidance"
-                android:layout_toRightOf="@+id/anchor"
-                android:background="@color/red" />
+
+            </LinearLayout>
 
         </RelativeLayout>
 
@@ -117,13 +142,11 @@
             android:layout_below="@+id/tab_title"
             android:background="@color/material_blue_grey_800" />
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/pager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/tab_title" />
-
     </RelativeLayout>
 
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

@@ -2,39 +2,41 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:imagecontrol="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+
+    android:layout_centerHorizontal="true">
 
     <RelativeLayout
         android:id="@+id/ll_role_select"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        >
-
-
+        android:layout_centerHorizontal="true">
 
         <TextView
             android:id="@+id/btn_role"
             android:layout_width="wrap_content"
-            android:layout_height="76px"
-
-            android:paddingLeft="100px"
-            android:paddingRight="100px"
-            android:layout_gravity="center_vertical"
-            android:background="@drawable/shape_white1_corners38"
-            android:gravity="center"
-            android:text="海淘妈妈"
-
+            android:layout_height="60px"
             android:layout_centerInParent="true"
-            android:textColor="@color/login_hint_color"
-            android:textSize="40px" />
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/shape_white1_corners20"
+            android:gravity="center"
+            android:paddingLeft="100px"
 
+            android:paddingRight="100px"
+
+            android:text="海淘妈妈"
+            android:textColor="@color/login_hint_color"
+            android:textSize="20px" />
 
         <com.michael.library.widget.roundimage.RoundImageView
             android:id="@+id/iv_avatar"
             android:layout_width="100px"
             android:layout_height="100px"
+            android:layout_centerVertical="true"
+            android:scaleType="center"
             android:src="@drawable/user_default_avatar"
+
             imagecontrol:border_outside_color="#ffdcd4d9"
             imagecontrol:border_thickness="3px" />
 

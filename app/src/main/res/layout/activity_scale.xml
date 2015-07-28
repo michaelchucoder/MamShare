@@ -3,21 +3,31 @@
     xmlns:imagecontrol="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/label_title"
+        android:layout_marginLeft="0px"
+        android:layout_marginRight="0px"
+        android:background="#f4f4f5">
 
     <ListView
-        android:id="@+id/lv_main"
+        android:id="@+id/label_gridView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="#aaaaaa" />
+    </android.support.v4.widget.SwipeRefreshLayout>
 
     <include
-        android:id="@+id/tb_main"
+        android:id="@+id/tb_toolbar"
         layout="@layout/common_title_layout" />
 
     <RelativeLayout
-        android:id="@+id/rl_main_title"
+        android:id="@+id/rl_float_title"
         android:layout_width="match_parent"
-        android:layout_marginLeft="20px"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20px">
 
         <LinearLayout
             android:id="@+id/subtitle_container"
@@ -89,6 +99,23 @@
 
         </LinearLayout>
     </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/btn_home_back_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="25px"
+        android:layout_marginRight="15px"
+        android:orientation="horizontal"
+        android:paddingLeft="30px"
+        android:paddingTop="30px">
 
+        <ImageView
+            android:layout_width="59px"
+            android:layout_height="58px"
+            android:src="@drawable/back_top" />
+    </LinearLayout>
 
 </RelativeLayout>

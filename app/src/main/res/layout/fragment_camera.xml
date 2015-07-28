@@ -1,5 +1,4 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,52 +7,21 @@
     <com.michael.library.camera.SquareCameraPreview
         android:id="@+id/camera_preview_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
-    <View
+    <RelativeLayout
         android:id="@+id/cover_top_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_alignTop="@id/camera_preview_view"
-        android:background="@android:color/black"/>
-
-    <View
-        android:id="@+id/cover_bottom_view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_alignBottom="@id/camera_preview_view"
-        android:background="@android:color/black"/>
-
-    <LinearLayout
-        android:id="@+id/camera_tools_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/camera_preview_view"
-        android:layout_marginTop="10dp"
-        android:padding="10dp"
-        android:orientation="horizontal"
-        android:background="@android:color/black"
-        android:gravity="center">
-
-        <ImageView
-            android:id="@+id/change_camera"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/icon_camera"
-            android:layout_weight="1"/>
-
-        <ImageView
-            android:id="@+id/capture_image_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/capture_photo_button"
-            android:layout_weight="1"/>
+        android:background="@android:color/black">
 
         <RelativeLayout
             android:id="@+id/flash"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30px"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
@@ -67,14 +35,78 @@
                 android:id="@+id/auto_flash_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:layout_marginLeft="5dp"
                 android:layout_toRightOf="@id/flash_icon"
-                android:layout_centerVertical="true"
                 android:text="Auto"
                 android:textColor="@android:color/white"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
 
         </RelativeLayout>
+
+
+        <ImageView
+            android:id="@+id/change_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30px"
+            android:src="@drawable/icon_camera" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/cover_bottom_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignBottom="@id/camera_preview_view"
+        android:background="@android:color/black" />
+
+    <LinearLayout
+        android:id="@+id/camera_tools_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/camera_preview_view"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/black"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/capture_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="取消"
+            android:textColor="@color/white"
+
+            android:gravity="center_horizontal"
+
+
+
+            android:textSize="40px"
+             />
+
+        <ImageView
+            android:id="@+id/capture_image_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/capture_photo_button" />
+
+        <ImageView
+            android:id="@+id/goto_photos"
+            android:layout_width="0px"
+            android:layout_height="200px"
+            android:layout_weight="1"
+
+
+            android:src="@drawable/user_default_avatar"
+
+
+            />
 
     </LinearLayout>
 
