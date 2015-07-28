@@ -215,7 +215,7 @@ public class GenericsAdapter extends BaseAdapter {
                     doLike();
                 }
             });
-        } else if (pageFlag == AppConstants.page_search_evaluate || pageFlag == AppConstants.page_collect_evaluate || pageFlag == AppConstants.page_user_evaluate) { //TODO 评测
+        } else if (pageFlag == AppConstants.page_search_evaluate || pageFlag == AppConstants.page_collect_evaluate || pageFlag == AppConstants.page_user_evaluate || pageFlag == AppConstants.page_tag_evaluate) { //TODO 评测
             EvaluateHolder holder;
             final List<Evaluate> list = (List<Evaluate>) data;
 

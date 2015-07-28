@@ -19,7 +19,9 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -38,6 +40,11 @@ public class RoleSelectAdapter extends BaseAdapter {
     private int resource = R.layout.item_role_select;
     private DisplayImageOptions options;
 
+    Map<Integer, Boolean> zoomMap = new HashMap<>();
+
+    //放大tag
+    boolean zoomTag = false;
+
     public RoleSelectAdapter(Context ctx) {
         this.ctx = ctx;
         options = new DisplayImageOptions.Builder()
@@ -45,12 +52,21 @@ public class RoleSelectAdapter extends BaseAdapter {
                 .showImageForEmptyUri(R.drawable.img_default_loading) // url地址为空的时候显示的图片
                 .showImageOnFail(R.drawable.img_default_loading) // 图片加载失败后显示的图片
                 .bitmapConfig(Bitmap.Config.RGB_565)
-                .resetViewBeforeLoading(true).cacheInMemory(true)
+                .resetViewBeforeLoading(true).cacheInMemory(true).cacheOnDisk(true)
                 .displayer(new SimpleBitmapDisplayer()).build();
     }
 
     public void refresh(List<MamaRole> result) {
         this.data = result;
+
+        for (int i = 0; i < result.size(); i++) {
+
+            zoomMap.put(i, false);
+
+
+        }
+
+
         notifyDataSetChanged();
     }
 
@@ -89,12 +105,41 @@ public class RoleSelectAdapter extends BaseAdapter {
 
         holder.btn_role.setText(data.get(position).roleName);
 
+        if (zoomMap.get(position)) {
+            ViewRelayoutUtil.resetItemSize((ViewGroup) convertView, ViewRelayoutUtil.ZOOMIN);
+        } else {
+            ViewRelayoutUtil.resetItemSize((ViewGroup) convertView, ViewRelayoutUtil.ZOOMOUT);
+        }
+
+        final ViewGroup viewGroup = (ViewGroup) convertView;
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastHelper.showToast(ctx, "position");
+
+
+                if (zoomMap.get(position)) {
+
+                    zoomMap.put(position, false);
+
+                    ViewRelayoutUtil.resetItemSize(viewGroup, ViewRelayoutUtil.ZOOMIN);
+
+                } else {
+
+                    for (int i = 0; i < zoomMap.size(); i++) {
+
+                        zoomMap.put(i, false);
+
+                    }
+                    zoomMap.put(position, true);
+                }
+
+                notifyDataSetChanged();
+
+
             }
+
         });
+
 
         return convertView;
     }
