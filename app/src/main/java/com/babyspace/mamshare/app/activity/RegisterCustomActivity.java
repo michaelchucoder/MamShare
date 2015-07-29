@@ -2,6 +2,7 @@ package com.babyspace.mamshare.app.activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,6 +12,11 @@ import android.widget.ImageView;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.basement.BaseActivity;
+import com.babyspace.mamshare.bean.DefaultResponseEvent;
+import com.babyspace.mamshare.commons.UrlConstants;
+import com.google.gson.JsonObject;
+import com.michael.core.okhttp.OkHttpExecutor;
+import com.michael.core.tools.SelectPicTools;
 import com.michael.library.camera.ImageUtility;
 import com.michael.library.widget.materialedittext.MaterialEditText;
 
@@ -42,17 +48,38 @@ public class RegisterCustomActivity extends BaseActivity {
         ButterKnife.inject(this);
 
 
+        setImage();
+
+
+
+
+
+
+    }
+
+    /**
+     * 设置
+     */
+    private void setImage() {
         Display display = getWindowManager().getDefaultDisplay();
         mSize = new Point();
         display.getSize(mSize);
 
         Intent intent  = getIntent();
-
         Uri uri = intent.getData();
+        int from = intent.getIntExtra("from", -1);
 
-        Bitmap bitmap = ImageUtility.decodeSampledBitmapFromPath(uri.getPath(), mSize.x, mSize.x);
+        if(from==1234){
 
-        registerCustomAvatar.setImageBitmap(bitmap);
+            String picturePath = SelectPicTools.getPath(RegisterCustomActivity.this, uri);
+            registerCustomAvatar.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+
+
+        }else{
+            Bitmap bitmap = ImageUtility.decodeSampledBitmapFromPath(uri.getPath(), mSize.x, mSize.x);
+
+            registerCustomAvatar.setImageBitmap(bitmap);
+        }
     }
 
 
@@ -62,6 +89,18 @@ public class RegisterCustomActivity extends BaseActivity {
         switch (view.getId()){
 
             case R.id.register_custom_submit:
+                
+                String  mamaRole = registerCustomMyRole.getText().toString().trim();
+
+                if (mamaRole.length()>0) {
+                    
+//                    submitData(mamaRole);
+
+                    finish();
+
+                }
+
+
 
 
                 break;
@@ -73,6 +112,27 @@ public class RegisterCustomActivity extends BaseActivity {
         }
 
     }
+
+    private void submitData(String mamaRole) {
+
+        JsonObject jsonParameter = new JsonObject();
+
+        jsonParameter.addProperty("mobile", "");
+        jsonParameter.addProperty("password", "1");
+        jsonParameter.addProperty("nickname", "");
+        jsonParameter.addProperty("headIcon", "1");
+        jsonParameter.addProperty("mRoleID", "");
+        jsonParameter.addProperty("mamRoleName", "1");
+        jsonParameter.addProperty("RegFrom", "");
+        jsonParameter.addProperty("validCode", "1");
+
+
+        OkHttpExecutor.query(UrlConstants.Register, jsonParameter, DefaultResponseEvent.class, false, this);
+
+    }
+
+
+
 
 
 }

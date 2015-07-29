@@ -17,5 +17,5 @@ public class TagEvaluate implements Serializable {
     @SerializedName("tag")
     public Tags tag;
     @SerializedName("eval")
-    public List<Evaluate> evaluates;
+    public List<Evaluate> evalList;
 }

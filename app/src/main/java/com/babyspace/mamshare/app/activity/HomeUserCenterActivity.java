@@ -7,8 +7,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
@@ -17,22 +17,19 @@ import com.babyspace.mamshare.app.fragment.GridViewGuidanceFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.commons.AppConstants;
-import com.babyspace.mamshare.listener.EmptyListener;
+import com.babyspace.mamshare.listener.ScrollListener;
+import com.michael.library.debug.L;
 import com.michael.library.widget.roundimage.RoundImageView;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class HomeUserCenterActivity extends BaseActivity implements ViewPager.OnPageChangeListener, EmptyListener {
+public class HomeUserCenterActivity extends BaseActivity implements ViewPager.OnPageChangeListener, ScrollListener {
 
-    @InjectView(R.id.tab_guidance)
-    TextView tab_guidance;
-    @InjectView(R.id.tab_evaluate)
-    TextView tab_evaluate;
-    @InjectView(R.id.line_guidance)
-    View line_guidance;
-    @InjectView(R.id.line_evaluate)
-    View line_evaluate;
+    @InjectView(R.id.btn_guidance)
+    Button tab_guidance;
+    @InjectView(R.id.btn_evaluate)
+    Button tab_evaluate;
 
     private static int pagePosition = 0;
     private static int lastState = 0;
@@ -40,14 +37,13 @@ public class HomeUserCenterActivity extends BaseActivity implements ViewPager.On
     private ViewPager mPager;
 
 
-    @InjectView(R.id.user_avatar_show)
-    RoundImageView user_avatar_show;
-    @InjectView(R.id.user_id_show)
-    TextView user_id_show;
-    @InjectView(R.id.user_contribute_btn)
-    Button user_contribute_btn;
-    @InjectView(R.id.user_profile_edit)
-    ImageButton user_profile_edit;
+    @InjectView(R.id.iv_avatar)
+    RoundImageView iv_avatar;
+    @InjectView(R.id.tv_nickname)
+    TextView tv_nickname;
+    @InjectView(R.id.tv_role)
+    TextView tv_role;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,46 +70,8 @@ public class HomeUserCenterActivity extends BaseActivity implements ViewPager.On
 
     }
 
-    @OnClick({R.id.tab_guidance, R.id.tab_evaluate, R.id.user_avatar_show, R.id.user_contribute_btn, R.id.user_profile_edit})
-    public void doOnClick(View view) {
-        Intent i = new Intent();
-
-        switch (view.getId()) {
-            case R.id.tab_guidance:
-                tab_guidance.setTextColor(getResources().getColor(R.color.green_mama_bg));
-                tab_evaluate.setTextColor(getResources().getColor(R.color.black));
-
-                line_guidance.setVisibility(View.VISIBLE);
-                line_evaluate.setVisibility(View.INVISIBLE);
-
-                mPager.setCurrentItem(0);
-                break;
-            case R.id.tab_evaluate:
-                tab_evaluate.setTextColor(getResources().getColor(R.color.green_mama_bg));
-                tab_guidance.setTextColor(getResources().getColor(R.color.black));
-
-                line_evaluate.setVisibility(View.VISIBLE);
-                line_guidance.setVisibility(View.INVISIBLE);
-
-                mPager.setCurrentItem(1);
-                break;
-            case R.id.user_avatar_show:
-                i.setClass(this, UserProfileActivity.class);
-                startActivity(i);
-
-                break;
-            case R.id.user_contribute_btn:
-                i.setClass(this, UserProfileActivity.class);
-                startActivity(i);
-
-                break;
-            case R.id.user_profile_edit:
-                i.setClass(this, SettingActivity.class);
-                startActivity(i);
-
-                break;
-        }
-    }
+    @OnClick({R.id.btn_guidance, R.id.btn_evaluate, R.id.common_title_right, R.id.mama_role_container})
+    public void doOnClick(View view)
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -128,15 +86,10 @@ public class HomeUserCenterActivity extends BaseActivity implements ViewPager.On
             tab_guidance.setTextColor(getResources().getColor(R.color.green_mama_bg));
             tab_evaluate.setTextColor(getResources().getColor(R.color.black));
 
-            line_guidance.setVisibility(View.VISIBLE);
-            line_evaluate.setVisibility(View.INVISIBLE);
 
         } else {
             tab_evaluate.setTextColor(getResources().getColor(R.color.green_mama_bg));
             tab_guidance.setTextColor(getResources().getColor(R.color.black));
-
-            line_evaluate.setVisibility(View.VISIBLE);
-            line_guidance.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -152,6 +105,7 @@ public class HomeUserCenterActivity extends BaseActivity implements ViewPager.On
         }
         lastState = state;
     }
+
 
     class MyPagerAdapter extends FragmentPagerAdapter {
         String[] titles = {"攻略", "评测"};
@@ -178,7 +132,9 @@ public class HomeUserCenterActivity extends BaseActivity implements ViewPager.On
     }
 
     @Override
-    public void onDataEmpty() {
+    public void OnScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+        L.d("ScrollListener", "Activity-OnScroll " + " " + firstVisibleItem + " " + visibleItemCount + " " + totalItemCount);
 
     }
+
 }

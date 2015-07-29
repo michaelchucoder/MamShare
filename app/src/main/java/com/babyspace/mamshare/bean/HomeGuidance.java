@@ -14,23 +14,13 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 /**
- * {
- * "code": 200,
- * "msg": [
- * {
- * "StrategyId": 1,
- * "Title": "标题1",
- * "ImageUrl": "http://file6.m6go.com/pFYGyGOH1~Iu5S_VK1mR9W",
- * "PageUrl": "http://m.gou.com/product_17123.html"
- * },
- * {
- * "StrategyId": 2,
- * "Title": "标题2",
- * "ImageUrl": "http://file9.m6go.com/wIbVjP3h04aAsYZsQloxCW",
- * "PageUrl": "http://m.gou.com/product_17123.html"
- * }
- * ]
- * }
+ {
+ "strategyId":6,
+ "title":"看看有没有日志",
+ "imageUrl":"",
+ "pageUrl":"http://m.gou.com/product_17123.html",
+ "recommendFlag":1
+ },
  */
 public class HomeGuidance implements Serializable {
     public Long id;
@@ -38,28 +28,22 @@ public class HomeGuidance implements Serializable {
     @SerializedName("strategyId")
     public Long guidanceId;
 
-
     @SerializedName("title")
     public String guidanceTitle;
     @SerializedName("imageUrl")
     public String imageUrl;
     @SerializedName("pageUrl")
     public String pageUrl;
+    @SerializedName("recommendFlag")
+    public int recommendFlag;
 
-    public HomeGuidance(Long id, Long guidanceId, String guidanceTitle, String imageUrl, String pageUrl) {
+    public HomeGuidance(Long id, Long guidanceId, String guidanceTitle, String imageUrl, String pageUrl, int recommendFlag) {
         this.guidanceId = guidanceId;
         this.guidanceTitle = guidanceTitle;
         this.id = id;
         this.imageUrl = imageUrl;
         this.pageUrl = pageUrl;
-    }
-
-
-    public HomeGuidance(Long guidanceId, String guidanceTitle, String imageUrl, String pageUrl) {
-        this.guidanceId = guidanceId;
-        this.guidanceTitle = guidanceTitle;
-        this.imageUrl = imageUrl;
-        this.pageUrl = pageUrl;
+        this.recommendFlag = recommendFlag;
     }
 
     @Override
@@ -70,6 +54,7 @@ public class HomeGuidance implements Serializable {
                 ", guidanceTitle='" + guidanceTitle + '\'' +
                 ", imageUrl='" + imageUrl + '\'' +
                 ", pageUrl='" + pageUrl + '\'' +
+                ", recommendFlag='" + recommendFlag + '\'' +
                 '}';
     }
 }

@@ -611,7 +611,7 @@ public class SplashActivity extends BaseActivity {
 
                 break;
             case R.id.go_orm:
-                i.setClass(this, GreenDaoActivity.class);
+                i.setClass(this, TagEvaluateListActivity.class);
                 startActivity(i);
 
                 break;
