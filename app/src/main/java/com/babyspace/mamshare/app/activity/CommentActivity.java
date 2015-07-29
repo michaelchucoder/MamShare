@@ -33,6 +33,14 @@ public class CommentActivity extends BaseActivity {
         mContext = this;
 
         Button commentBtn = (Button) findViewById(R.id.main_comment_btn);
+        commentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mCommentEditDialog.show();
+                //清空输入框
+                ((EditText) mCommentEditDialog.findViewById(R.id.dialogComment_commentContentInput_edt)).setText("");
+            }
+        });
 
         mCommentExLV = (ExpandableListView) findViewById(R.id.main_commentList_elv);
         initTestCommentItemList();
@@ -103,7 +111,17 @@ public class CommentActivity extends BaseActivity {
         mCommentEditDialog = builder.create();
     }
 
-    private String getCurrentDateTime()
+    private String getCurrentDateTime() {
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH) + 1;
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+        int second = calendar.get(Calendar.SECOND);
+
+        return year + "-" + convertNumToString(month) + "-" + convertNumToString(day) + " " + convertNumToString(hour) + ":" + convertNumToString(minute) + ":" + second;
+    }
 
     private String convertNumToString(int num) {
         if (num < 10) {

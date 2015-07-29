@@ -71,7 +71,32 @@ public class HomeUserCenterActivity extends BaseActivity implements ViewPager.On
     }
 
     @OnClick({R.id.btn_guidance, R.id.btn_evaluate, R.id.common_title_right, R.id.mama_role_container})
-    public void doOnClick(View view)
+    public void doOnClick(View view) {
+        Intent i = new Intent();
+
+        switch (view.getId()) {
+            case R.id.btn_guidance:
+                tab_guidance.setTextColor(getResources().getColor(R.color.green_mama_bg));
+                tab_evaluate.setTextColor(getResources().getColor(R.color.black));
+
+                mPager.setCurrentItem(0);
+                break;
+            case R.id.btn_evaluate:
+                tab_evaluate.setTextColor(getResources().getColor(R.color.green_mama_bg));
+                tab_guidance.setTextColor(getResources().getColor(R.color.black));
+
+                mPager.setCurrentItem(1);
+                break;
+            case R.id.common_title_right:
+                i.setClass(this, SettingActivity.class);
+                startActivity(i);
+            case R.id.mama_role_container:
+                i.setClass(this, UserProfileActivity.class);
+                startActivity(i);
+
+                break;
+        }
+    }
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
