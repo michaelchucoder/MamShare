@@ -3,9 +3,7 @@ package com.babyspace.mamshare.app.activity;
 import android.os.Bundle;
 
 import com.babyspace.mamshare.R;
-import com.babyspace.mamshare.app.fragment.GridViewEvaluateFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
-import com.babyspace.mamshare.commons.AppConstants;
 
 public class UserEvaluateListActivity extends BaseActivity {
 
@@ -17,16 +15,7 @@ public class UserEvaluateListActivity extends BaseActivity {
 
         if (findViewById(R.id.fragment_container) != null) {
 
-            if (savedInstanceState != null) {
-                return;
-            }
 
-            GridViewEvaluateFragment fragment = GridViewEvaluateFragment.newInstance(AppConstants.page_user_evaluate);
-
-            fragment.setArguments(getIntent().getExtras());
-
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_container, fragment).commit();
         }
     }
 

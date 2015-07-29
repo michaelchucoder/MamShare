@@ -111,25 +111,7 @@ public class ParallaxToolbarListViewActivity extends BaseActivity implements Obs
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
                 switch (scrollState) {
-                    //当不滚动时@
-                    case AbsListView.OnScrollListener.SCROLL_STATE_IDLE:
-                        // 判断滚动到底部
-                        if (listView.getLastVisiblePosition() == (listView.getCount() - 1)) {
-                            if (isMoreData) {
-                                // 当到底部时刷新 如果还有数据
-                                isRefreshAdd = true;
-                                queryData();
-                            }
 
-                        }
-                        // 判断滚动到顶部
-                        if (listView.getFirstVisiblePosition() == 0) {
-                            L.d("Michael", "滚动到顶部");
-                            //mSwipeLayout.setRefreshing(true);
-
-                        }
-
-                        break;
                     case AbsListView.OnScrollListener.SCROLL_STATE_FLING:
                         L.d("Michael", "开始滚动SCROLL_STATE_FLING");
 
