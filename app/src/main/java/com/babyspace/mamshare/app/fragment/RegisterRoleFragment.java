@@ -4,10 +4,9 @@ package com.babyspace.mamshare.app.fragment;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
+import android.util.SparseArray;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
@@ -22,13 +21,11 @@ import com.babyspace.mamshare.listener.RegisterListener;
 import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.library.camera.CameraActivity;
 import com.michael.library.debug.L;
-import com.michael.library.widget.custom.SelectPicturePopwindow;
 import com.squareup.okhttp.Call;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
@@ -59,6 +56,9 @@ public class RegisterRoleFragment extends BaseFragment {
 
 
     private static final int REQUEST_CAMERA = 0;
+
+    private SparseArray<Boolean> zoomArray = new SparseArray<>();
+
     public RegisterRoleFragment() {
         // Required empty public constructor
     }
@@ -107,6 +107,33 @@ public class RegisterRoleFragment extends BaseFragment {
 
         adapter.refresh(data);
         listView.setAdapter(adapter);
+        listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+//                if(zoomArray.get(position)){
+//
+//
+//                    ViewRelayoutUtil.relayoutViewWithScale(parent.getChildAt(position),MamShare.screenWidthScale);
+//                }else{
+//                    for (int i = 0; i < zoomArray.size(); i++) {
+//                        if(zoomArray.get(i)){
+//                            ViewRelayoutUtil.relayoutViewWithScale(parent.getChildAt(i),MamShare.screenWidthScale);
+//                        }
+//
+//                        ViewRelayoutUtil.relayoutViewWithScale(parent.getChildAt(i),1.1f);
+//
+//                    }
+//                }
+
+
+            }
+        });
+
+
         queryData();
 
     }
@@ -139,8 +166,6 @@ public class RegisterRoleFragment extends BaseFragment {
                 launchCamera();
 
 
-
-
                 break;
             case R.id.ll_role_again:
                 queryData();
@@ -154,9 +179,7 @@ public class RegisterRoleFragment extends BaseFragment {
     }
 
     /**
-     *
-     * @param view
-     * 跳转到拍照页面
+     * @param view 跳转到拍照页面
      */
     public void launchCamera() {
         Intent startCustomCameraIntent = new Intent(getActivity(), CameraActivity.class);
@@ -198,22 +221,13 @@ public class RegisterRoleFragment extends BaseFragment {
             adapter.refresh(data);
         } else
             adapter.refresh(data);
+        for (int i = 0; i < zoomArray.size(); i++) {
+
+            zoomArray.put(i, false);
+
+        }
 
 
     }
 
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        ButterKnife.inject(this, rootView);
-        return rootView;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        ButterKnife.reset(this);
-    }
 }

@@ -22,7 +22,7 @@ import com.babyspace.mamshare.bean.Guidance;
 import com.babyspace.mamshare.bean.SearchResultEvent;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.UrlConstants;
-import com.babyspace.mamshare.listener.EmptyListener;
+import com.babyspace.mamshare.listener.ScrollListener;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.core.tools.ViewRelayoutUtil;
@@ -42,7 +42,7 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
     private static final String PAGE_FLAG = "pageFlag";
     private static int pageFlag;
 
-    EmptyListener mCallback;
+    ScrollListener mCallback;
 
     @InjectView(R.id.swipe_container)
     SwipeRefreshLayout mSwipeLayout;
@@ -93,10 +93,10 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
         // This makes sure that the container activity has implemented
         // the callback interface. If not, it throws an exception.
         try {
-            mCallback = (EmptyListener) activity;
+            mCallback = (ScrollListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement EmptyListener");
+                    + " must implement UserCenterListener");
         }
     }
 
@@ -175,6 +175,10 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
 
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                L.d("ScrollListener", "Fragment-OnScroll " + " " + firstVisibleItem + " " + visibleItemCount + " " + totalItemCount);
+
+                mCallback.OnScroll(view,firstVisibleItem,visibleItemCount,totalItemCount);
+
                 firstVisiblePosition = gridView.getFirstVisiblePosition();
                 if (firstVisiblePosition > BACK_TOP_COUNT) {
                     mBackTop.setVisibility(View.VISIBLE);
@@ -201,10 +205,12 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
         // 如果是更新策略 则 Start为置为0
         if (!isRefreshAdd) queryStart = 0;
 
-        JsonObject jsonParameter = new JsonObject();
+        JsonObject collectParameter = new JsonObject();
 
-        jsonParameter.addProperty("num", queryNum);
-        jsonParameter.addProperty("start", queryStart);
+        collectParameter.addProperty("userId", 12296568);
+        collectParameter.addProperty("num", queryNum);
+        collectParameter.addProperty("start", queryStart);
+
 
         //showLoadingProgress();
         switch (pageFlag) {
@@ -214,7 +220,7 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
                 break;
             case AppConstants.page_collect_guidance:
                 if (queryCall != null) queryCall.cancel();
-                queryCall = OkHttpExecutor.query(UrlConstants.CollectGuidance, jsonParameter, CollectGuidanceEvent.class, false, this);
+                queryCall = OkHttpExecutor.query(UrlConstants.CollectGuidance, collectParameter, CollectGuidanceEvent.class, false, this);
                 break;
         }
 

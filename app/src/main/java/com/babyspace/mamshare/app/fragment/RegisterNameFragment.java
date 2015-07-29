@@ -196,7 +196,7 @@ public class RegisterNameFragment extends BaseFragment {
 
         JsonObject jsonParameter = new JsonObject();
 
-        jsonParameter.addProperty("mobile", TempData.phoneNum);
+        jsonParameter.addProperty("mobile", TempData.getInstance().phoneNum);
         jsonParameter.addProperty("password", MD5Util.getMD5String(password));
         jsonParameter.addProperty("nickname", nickName);
         jsonParameter.addProperty("headIcon", "http://file.0-6.com/qX0Nq6Cip4Mw0BeG7FByHc");
@@ -210,12 +210,12 @@ public class RegisterNameFragment extends BaseFragment {
      * 请求获取验证码
      */
     private void getVerifyCode() {
-        TempData.verifyCode = "";
+        TempData.getInstance().verifyCode = "";
 
 
         JsonObject jsonParameter = new JsonObject();
 
-        jsonParameter.addProperty("phoneNum", TempData.phoneNum);
+        jsonParameter.addProperty("phoneNum", TempData.getInstance().phoneNum);
         jsonParameter.addProperty("type", "1");
         OkHttpExecutor.query(UrlConstants.GetVerifyCode, jsonParameter, DefaultResponseEvent.class, false, this);
 
@@ -231,7 +231,7 @@ public class RegisterNameFragment extends BaseFragment {
 
         if ("1200".equals(event.getCode())) {
 
-            TempData.verifyCode = event.getData();
+            TempData.getInstance().verifyCode = event.getData();
 //            TempData.phoneNum = phoneNum;
 
 

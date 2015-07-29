@@ -11,6 +11,7 @@ import com.babyspace.mamshare.adapter.GenericsAdapter;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.bean.Evaluate;
 import com.babyspace.mamshare.bean.TagEvaluateEvent;
+import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
@@ -79,6 +80,7 @@ public class TagEvaluateListFragment extends BaseFragment {
         if (getArguments() != null) {
             pageFlag = getArguments().getInt(PAGE_FLAG);
         }
+        pageFlag= AppConstants.page_tag_evaluate;
         data = new ArrayList<>();
         adapter = new GenericsAdapter(getActivity(), pageFlag);
 
@@ -143,7 +145,7 @@ public class TagEvaluateListFragment extends BaseFragment {
         hideLoadingProgress();
         L.d(OkHttpExecutor.TAG, "onEventMainThread-RegisterFeatureFragment>" + event.getResultStr());
 
-        List<Evaluate> responseData = event.getData().evaluates;
+        List<Evaluate> responseData = event.getData().evalList;
 
         data = responseData;
 

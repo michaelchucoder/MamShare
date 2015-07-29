@@ -38,7 +38,7 @@ import de.greenrobot.event.EventBus;
 
 public class HomeEvaluateListFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener, EmptyListener {
     private static final String PAGE_FLAG = "pageFlag";
-    private int pageFlag;
+    private static int pageFlag;
     EmptyListener mCallback;
 
     @InjectView(R.id.swipe_container)
@@ -74,7 +74,8 @@ public class HomeEvaluateListFragment extends BaseFragment implements SwipeRefre
     }
 
     // TODO: Rename and change types and number of parameters
-    public static HomeEvaluateListFragment newInstance(int pageFlag) {
+    public static HomeEvaluateListFragment newInstance(int flag) {
+        pageFlag = flag;
         HomeEvaluateListFragment fragment = new HomeEvaluateListFragment();
         Bundle args = new Bundle();
         args.putInt(PAGE_FLAG, pageFlag);
@@ -105,8 +106,9 @@ public class HomeEvaluateListFragment extends BaseFragment implements SwipeRefre
         if (getArguments() != null) {
             pageFlag = getArguments().getInt(PAGE_FLAG);
         }
+        pageFlag = AppConstants.page_home_evaluate;
         data = new ArrayList<>();
-        adapter = new GenericsAdapter(getActivity(), AppConstants.page_home_evaluate);
+        adapter = new GenericsAdapter(getActivity(), pageFlag);
     }
 
     @Override
@@ -228,7 +230,7 @@ public class HomeEvaluateListFragment extends BaseFragment implements SwipeRefre
     public void onEventMainThread(HomeEvaluateEvent event) {
         mSwipeLayout.setRefreshing(false);
         hideLoadingProgress();
-        L.d(OkHttpExecutor.TAG, "onEventMainThread-HomeGuidanceListFragment>" + event.getResultStr());
+        L.d(OkHttpExecutor.TAG, "onEventMainThread-HomeEvaluateListFragment>" + event.getResultStr());
 
         List<HomeEvaluate> responseData = event.getData();
 

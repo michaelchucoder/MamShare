@@ -18,7 +18,6 @@ import com.babyspace.mamshare.commons.UrlConstants;
 import com.babyspace.mamshare.listener.RegisterListener;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
-import com.michael.core.tools.StringTools;
 import com.michael.library.debug.L;
 import com.michael.library.widget.materialedittext.MaterialEditText;
 
@@ -100,6 +99,7 @@ public class RegisterPhoneFragment extends BaseFragment {
 
         switch (view.getId()) {
             case R.id.btn_register_next:
+                mCallback.onRegisterRoleSelected();
                 phoneNum = register_phone_edit.getText().toString().trim();
 //                if(StringTools.isPhone(phoneNum)){
                     JsonObject jsonParameter = new JsonObject();
@@ -128,8 +128,8 @@ public class RegisterPhoneFragment extends BaseFragment {
 
             if ("1200".equals(event.getCode())) {
 
-                TempData.verifyCode = event.getData();
-                TempData.phoneNum = phoneNum;
+                TempData.getInstance().verifyCode = event.getData();
+                TempData.getInstance().phoneNum = phoneNum;
 
 
             }
@@ -154,7 +154,7 @@ public class RegisterPhoneFragment extends BaseFragment {
      */
     private void getVerifyCode() {
 
-        TempData.verifyCode = "";
+        TempData.getInstance().verifyCode = "";
         JsonObject jsonParameter = new JsonObject();
 
         jsonParameter.addProperty("phoneNum", phoneNum);

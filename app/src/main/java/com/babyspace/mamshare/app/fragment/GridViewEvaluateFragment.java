@@ -20,10 +20,12 @@ import com.babyspace.mamshare.basement.MamShare;
 import com.babyspace.mamshare.bean.CollectEvaluateEvent;
 import com.babyspace.mamshare.bean.Evaluate;
 import com.babyspace.mamshare.bean.SearchResultEvent;
+import com.babyspace.mamshare.bean.TagEvaluateEvent;
 import com.babyspace.mamshare.bean.UserEvaluateEvent;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.babyspace.mamshare.listener.EmptyListener;
+import com.babyspace.mamshare.listener.ScrollListener;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.core.tools.ViewRelayoutUtil;
@@ -42,7 +44,7 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
 
     private static final String PAGE_FLAG = "pageFlag";
     private int pageFlag;
-    EmptyListener mCallback;
+    ScrollListener mCallback;
 
     @InjectView(R.id.swipe_container)
     SwipeRefreshLayout mSwipeLayout;
@@ -93,10 +95,10 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
         // This makes sure that the container activity has implemented
         // the callback interface. If not, it throws an exception.
         try {
-            mCallback = (EmptyListener) activity;
+            mCallback = (ScrollListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement EmptyListener");
+                    + " must implement ScrollListener");
         }
     }
 
@@ -174,6 +176,8 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
 
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                mCallback.OnScroll(view,firstVisibleItem,visibleItemCount,totalItemCount);
+
                 firstVisiblePosition = gridView.getFirstVisiblePosition();
                 if (firstVisiblePosition > BACK_TOP_COUNT) {
                     mBackTop.setVisibility(View.VISIBLE);
@@ -204,6 +208,15 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
         jsonParameter.addProperty("num", queryNum);
         jsonParameter.addProperty("start", queryStart);
 
+
+
+        JsonObject collectParameter = new JsonObject();
+
+        collectParameter.addProperty("userId", 12296568);
+        collectParameter.addProperty("num", queryNum);
+        collectParameter.addProperty("start", queryStart);
+
+
         //showLoadingProgress();
         switch (pageFlag) {
             case AppConstants.page_search_evaluate:
@@ -212,11 +225,15 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
                 break;
             case AppConstants.page_collect_evaluate:
                 if (queryCall != null) queryCall.cancel();
-                queryCall = OkHttpExecutor.query(UrlConstants.CollectEvaluate, jsonParameter, CollectEvaluateEvent.class, false, this);
+                queryCall = OkHttpExecutor.query(UrlConstants.CollectEvaluate, collectParameter, CollectEvaluateEvent.class, false, this);
                 break;
             case AppConstants.page_user_evaluate:
                 if (queryCall != null) queryCall.cancel();
                 queryCall = OkHttpExecutor.query(UrlConstants.UserEvaluate, jsonParameter, UserEvaluateEvent.class, false, this);
+                break;
+            case AppConstants.page_tag_evaluate:
+                if (queryCall != null) queryCall.cancel();
+                queryCall = OkHttpExecutor.query(UrlConstants.TagEvaluate, jsonParameter, TagEvaluateEvent.class, false, this);
                 break;
         }
 
@@ -317,6 +334,43 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
         mSwipeLayout.setRefreshing(false);
         hideLoadingProgress();
         L.d(OkHttpExecutor.TAG, "onEventMainThread-SearchResultEvaluateFragment>" + event.getResultStr());
+
+        List<Evaluate> responseData = event.getData().evalList;
+
+        if (responseData.size() < queryNum) {
+            footerProgressBar.setVisibility(View.INVISIBLE);
+            footerText.setText("本次探险已经结束，暂时没有更多内容了呢~");
+            isMoreData = false;
+        } else {
+            footerProgressBar.setVisibility(View.INVISIBLE);
+            footerText.setText("");
+        }
+
+        if (isRefreshAdd) {
+            queryStart += queryNum;
+            data.addAll(responseData);
+            isRefreshAdd = false;
+        } else {
+            data = responseData;
+            // 有可能刚刷新完 又上滑刷新添加
+            isMoreData = true;
+            queryStart += queryNum;
+        }
+
+        if (queryCount > 2) {
+            data.clear();
+            mSwipeLayout.setVisibility(View.GONE);
+        } else {
+            mSwipeLayout.setVisibility(View.VISIBLE);
+            adapter.refresh(pageFlag, data);
+        }
+
+    }
+
+    public void onEventMainThread(TagEvaluateEvent event) {
+        mSwipeLayout.setRefreshing(false);
+        hideLoadingProgress();
+        L.d(OkHttpExecutor.TAG, "onEventMainThread-TagEvaluateEvent>" + event.getResultStr());
 
         List<Evaluate> responseData = event.getData().evalList;
 

@@ -40,7 +40,7 @@ import de.greenrobot.event.EventBus;
 
 public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
     private static final String PAGE_FLAG = "pageFlag";
-    private int pageFlag;
+    private static int pageFlag;
     EmptyListener mCallback;
 
     @InjectView(R.id.swipe_container)
@@ -80,7 +80,8 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
     }
 
     // TODO: Rename and change types and number of parameters
-    public static HomeGuidanceListFragment newInstance(int pageFlag) {
+    public static HomeGuidanceListFragment newInstance(int flag) {
+        pageFlag=flag;
         HomeGuidanceListFragment fragment = new HomeGuidanceListFragment();
         Bundle args = new Bundle();
         args.putInt(PAGE_FLAG, pageFlag);
@@ -110,8 +111,9 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
         if (getArguments() != null) {
             pageFlag = getArguments().getInt(PAGE_FLAG);
         }
+        pageFlag= AppConstants.page_home_guidance;
         data = new ArrayList<>();
-        adapter = new GenericsAdapter(getActivity(), AppConstants.page_home_guidance);
+        adapter = new GenericsAdapter(getActivity(), pageFlag);
     }
 
     @Override
