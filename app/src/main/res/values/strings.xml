@@ -37,5 +37,15 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_blank">BlankActivity</string>
 
+    <!--宝宝性别数组-->
+    <array name="baby_sex_array">
+
+        <item>男</item>
+        <item>女</item>
+    </array>
+    <string name="title_activity_user_collect">UserCollectActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+
 
 </resources>

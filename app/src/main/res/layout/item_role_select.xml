@@ -4,6 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
+    android:paddingTop="20px"
+    android:paddingBottom="20px"
+
     android:layout_centerHorizontal="true">
 
     <RelativeLayout
@@ -19,20 +22,20 @@
             android:layout_centerInParent="true"
             android:layout_centerVertical="true"
             android:layout_gravity="center_vertical"
-            android:background="@drawable/shape_white1_corners20"
+            android:background="@drawable/shape_white1_corners30"
             android:gravity="center"
-            android:paddingLeft="100px"
+            android:paddingLeft="120px"
 
-            android:paddingRight="100px"
+            android:paddingRight="120px"
 
             android:text="海淘妈妈"
             android:textColor="@color/login_hint_color"
-            android:textSize="20px" />
+            android:textSize="25px" />
 
         <com.michael.library.widget.roundimage.RoundImageView
             android:id="@+id/iv_avatar"
-            android:layout_width="100px"
-            android:layout_height="100px"
+            android:layout_width="120px"
+            android:layout_height="120px"
             android:layout_centerVertical="true"
             android:scaleType="center"
             android:src="@drawable/user_default_avatar"
