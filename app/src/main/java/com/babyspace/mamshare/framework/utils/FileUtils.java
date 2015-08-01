@@ -1,6 +1,7 @@
 package com.babyspace.mamshare.framework.utils;
 
 import android.content.Context;
+import android.os.Environment;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -71,4 +72,9 @@ public class FileUtils {
 
         return dbNames;
     }
+
+
+    static final String sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
+
+
 }

@@ -14,13 +14,13 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 /**
- {
- "strategyId":6,
- "title":"看看有没有日志",
- "imageUrl":"",
- "pageUrl":"http://m.gou.com/product_17123.html",
- "recommendFlag":1
- },
+ * {
+ * "strategyId":6,
+ * "title":"看看有没有日志",
+ * "imageUrl":"",
+ * "pageUrl":"http://m.gou.com/product_17123.html",
+ * "recommendFlag":1
+ * },
  */
 public class HomeGuidance implements Serializable {
     public Long id;

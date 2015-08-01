@@ -3,6 +3,7 @@ package com.babyspace.mamshare.bean;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
+import android.text.TextUtils;
 
 import com.babyspace.mamshare.framework.db.DaoSession;
 
@@ -87,7 +88,7 @@ public class HomeGuidanceDao extends AbstractDao<HomeGuidance, Long> {
         }
         stmt.bindLong(2, entity.guidanceId);
         stmt.bindString(3, entity.guidanceTitle);
-        stmt.bindString(4, entity.imageUrl);
+        stmt.bindString(4, TextUtils.isEmpty(entity.imageUrl) ? "" : entity.imageUrl);
         stmt.bindString(5, entity.pageUrl);
         stmt.bindLong(6, entity.recommendFlag);
 

@@ -55,10 +55,11 @@ public class StringTools {
 
     /**
      * 验证是否是手机号码
+     *
      * @param phoneNum
      * @return
      */
-    public static boolean isPhone(String phoneNum){
+    public static boolean isPhone(String phoneNum) {
         Pattern pattern = Pattern.compile("^[1][3-8]+\\\\d{9}");
         return pattern.matcher(phoneNum).matches();
     }
