@@ -2,19 +2,18 @@
     xmlns:imagecontrol="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#eee"
+
     android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/activity_title"
         android:layout_width="match_parent"
-        android:layout_height="400px"
-        android:background="@color/pink_mama_bg">
+        android:layout_height="500px">
 
         <ImageView
             android:id="@+id/bg_title"
             android:layout_width="match_parent"
-            android:layout_height="300px"
+            android:layout_height="350px"
             android:background="@color/green_mama_bg" />
 
         <include
@@ -24,27 +23,31 @@
         <RelativeLayout
             android:id="@+id/rl_float_title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200px"
+
             android:layout_alignParentBottom="true">
 
             <LinearLayout
                 android:id="@+id/mama_role_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
+
+
                 android:layout_marginBottom="0px"
-                android:layout_marginLeft="30px">
+                android:layout_marginLeft="30px"
+                android:clickable="true">
 
                 <LinearLayout
                     android:id="@+id/baby_container"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
                     android:orientation="vertical">
 
                     <com.michael.library.widget.roundimage.RoundImageView
                         android:id="@+id/iv_avatar"
-                        android:layout_width="100px"
-                        android:layout_height="100px"
+                        android:layout_width="150px"
+                        android:layout_height="150px"
                         android:scaleType="fitXY"
                         android:src="@drawable/user_default_avatar"
                         imagecontrol:border_outside_color="#ffdcd4d9"
@@ -63,8 +66,10 @@
                     android:id="@+id/nick_name_container"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
+
                     android:layout_marginLeft="20px"
+
+                    android:layout_marginTop="60px"
                     android:orientation="vertical">
 
                     <TextView
@@ -85,54 +90,64 @@
 
             <Button
                 android:id="@+id/iv_contribution"
-                android:layout_width="160px"
-                android:layout_height="60px"
+                android:layout_width="260px"
+                android:layout_height="70px"
+                android:layout_alignParentBottom="true"
+
                 android:layout_alignParentRight="true"
-                android:layout_below="@+id/mama_role_container"
-                android:layout_marginBottom="10px"
-                android:background="@color/green_mama_bg"
-                android:text="我要投稿" />
+                android:layout_marginBottom="30px"
+
+                android:layout_marginRight="30px"
+                android:background="@drawable/shape_green_edge"
+
+                android:text="我要投稿"
+                android:textColor="@color/green_mama_bg" />
 
         </RelativeLayout>
 
     </RelativeLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15px"
+        android:background="#EEE" />
+
     <RelativeLayout
         android:id="@+id/tab_content"
         android:layout_width="match_parent"
+
+
         android:layout_height="100px">
 
         <RelativeLayout
             android:id="@+id/tab_title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+
+
+            android:layout_height="100px">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
+
+                android:layout_marginLeft="30px"
+
+                android:textSize="35px"
+
+                android:layout_marginBottom="10px"
+
                 android:text="我的收藏" />
 
-            <LinearLayout
-                android:id="@+id/tab_card"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true">
-
-                <Button
-                    android:id="@+id/btn_guidance"
-                    android:layout_width="188px"
-                    android:layout_height="100px"
-                    android:text="攻略" />
-
-                <Button
-                    android:id="@+id/btn_evaluate"
-                    android:layout_width="188px"
-                    android:layout_height="100px"
-                    android:text="评测" />
+            <View
 
 
-            </LinearLayout>
+                android:layout_width="match_parent"
+                android:layout_height="5px"
+                android:background="#EEE"
+
+                android:layout_alignParentBottom="true" />
+
 
         </RelativeLayout>
 
