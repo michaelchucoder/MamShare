@@ -8,7 +8,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.AbsListView;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
@@ -26,10 +25,6 @@ import butterknife.OnClick;
 
 public class HomeUserCenterActivity extends BaseActivity implements ViewPager.OnPageChangeListener, ScrollListener {
 
-    @InjectView(R.id.btn_guidance)
-    Button tab_guidance;
-    @InjectView(R.id.btn_evaluate)
-    Button tab_evaluate;
 
     private static int pagePosition = 0;
     private static int lastState = 0;
@@ -70,29 +65,41 @@ public class HomeUserCenterActivity extends BaseActivity implements ViewPager.On
 
     }
 
-    @OnClick({R.id.btn_guidance, R.id.btn_evaluate, R.id.common_title_right, R.id.mama_role_container})
+    @OnClick({R.id.common_title_right,
+            R.id.mama_role_container,
+            R.id.baby_container})
     public void doOnClick(View view) {
         Intent i = new Intent();
 
         switch (view.getId()) {
-            case R.id.btn_guidance:
-                tab_guidance.setTextColor(getResources().getColor(R.color.green_mama_bg));
-                tab_evaluate.setTextColor(getResources().getColor(R.color.black));
-
-                mPager.setCurrentItem(0);
-                break;
-            case R.id.btn_evaluate:
-                tab_evaluate.setTextColor(getResources().getColor(R.color.green_mama_bg));
-                tab_guidance.setTextColor(getResources().getColor(R.color.black));
-
-                mPager.setCurrentItem(1);
-                break;
+//            case R.id.btn_guidance:
+//                tab_guidance.setTextColor(getResources().getColor(R.color.green_mama_bg));
+//                tab_evaluate.setTextColor(getResources().getColor(R.color.black));
+//
+//                mPager.setCurrentItem(0);
+//                break;
+//            case R.id.btn_evaluate:
+//                tab_evaluate.setTextColor(getResources().getColor(R.color.green_mama_bg));
+//                tab_guidance.setTextColor(getResources().getColor(R.color.black));
+//
+//                mPager.setCurrentItem(1);
+//                break;
             case R.id.common_title_right:
                 i.setClass(this, SettingActivity.class);
                 startActivity(i);
+                break;
             case R.id.mama_role_container:
                 i.setClass(this, UserProfileActivity.class);
                 startActivity(i);
+
+                break;
+
+            case R.id.baby_container:
+
+                Intent intent = new Intent(HomeUserCenterActivity.this, UserProfileActivity.class);
+
+                startActivity(intent);
+
 
                 break;
         }
@@ -107,15 +114,15 @@ public class HomeUserCenterActivity extends BaseActivity implements ViewPager.On
 
         pagePosition = position;
 
-        if (position == 0) {
-            tab_guidance.setTextColor(getResources().getColor(R.color.green_mama_bg));
-            tab_evaluate.setTextColor(getResources().getColor(R.color.black));
-
-
-        } else {
-            tab_evaluate.setTextColor(getResources().getColor(R.color.green_mama_bg));
-            tab_guidance.setTextColor(getResources().getColor(R.color.black));
-        }
+//        if (position == 0) {
+//            tab_guidance.setTextColor(getResources().getColor(R.color.green_mama_bg));
+//            tab_evaluate.setTextColor(getResources().getColor(R.color.black));
+//
+//
+//        } else {
+//            tab_evaluate.setTextColor(getResources().getColor(R.color.green_mama_bg));
+//            tab_guidance.setTextColor(getResources().getColor(R.color.black));
+//        }
     }
 
     @Override

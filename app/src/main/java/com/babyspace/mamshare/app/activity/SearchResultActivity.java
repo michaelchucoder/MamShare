@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.AbsListView;
 import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
@@ -16,12 +16,13 @@ import com.babyspace.mamshare.app.fragment.GridViewGuidanceFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.commons.AppConstants;
-import com.babyspace.mamshare.listener.EmptyListener;
+import com.babyspace.mamshare.listener.ScrollListener;
+import com.michael.library.debug.L;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class SearchResultActivity extends BaseActivity implements ViewPager.OnPageChangeListener, EmptyListener {
+public class SearchResultActivity extends BaseActivity implements ViewPager.OnPageChangeListener, ScrollListener {
 
     @InjectView(R.id.tab_guidance)
     TextView tab_guidance;
@@ -36,9 +37,6 @@ public class SearchResultActivity extends BaseActivity implements ViewPager.OnPa
     private static int lastState = 0;
 
     private ViewPager mPager;
-
-    @InjectView(R.id.register_name_edit)
-    EditText register_name_edit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +63,7 @@ public class SearchResultActivity extends BaseActivity implements ViewPager.OnPa
 
     }
 
-    @OnClick({R.id.tab_guidance, R.id.tab_evaluate, R.id.tv_label_search, R.id.clear_txt})
+    @OnClick({R.id.tab_guidance, R.id.tab_evaluate, R.id.tv_label_search})
     public void doOnClick(View view) {
         Intent i = new Intent();
 
@@ -91,9 +89,6 @@ public class SearchResultActivity extends BaseActivity implements ViewPager.OnPa
             case R.id.tv_label_search:
                 i.setClass(this, SearchResultActivity.class);
                 startActivity(i);
-                break;
-            case R.id.clear_txt:
-                register_name_edit.setText("");
                 break;
         }
     }
@@ -161,7 +156,8 @@ public class SearchResultActivity extends BaseActivity implements ViewPager.OnPa
     }
 
     @Override
-    public void onDataEmpty() {
+    public void OnScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+        L.d("ScrollListener", "Activity-OnScroll " + " " + firstVisibleItem + " " + visibleItemCount + " " + totalItemCount);
 
     }
 }
