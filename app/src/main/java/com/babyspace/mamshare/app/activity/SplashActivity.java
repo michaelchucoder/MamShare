@@ -620,6 +620,8 @@ public class SplashActivity extends BaseActivity {
                 startActivity(i);
 
                 break;
+
+
         }
     }
 
