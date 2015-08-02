@@ -81,7 +81,7 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
 
     // TODO: Rename and change types and number of parameters
     public static HomeGuidanceListFragment newInstance(int flag) {
-        pageFlag=flag;
+        pageFlag = flag;
         HomeGuidanceListFragment fragment = new HomeGuidanceListFragment();
         Bundle args = new Bundle();
         args.putInt(PAGE_FLAG, pageFlag);
@@ -111,7 +111,7 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
         if (getArguments() != null) {
             pageFlag = getArguments().getInt(PAGE_FLAG);
         }
-        pageFlag= AppConstants.page_home_guidance;
+        pageFlag = AppConstants.page_home_guidance;
         data = new ArrayList<>();
         adapter = new GenericsAdapter(getActivity(), pageFlag);
     }

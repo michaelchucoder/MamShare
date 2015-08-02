@@ -78,7 +78,7 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
 
     // TODO: Rename and change types and number of parameters
     public static GridViewGuidanceFragment newInstance(int flag) {
-        pageFlag=flag;
+        pageFlag = flag;
         GridViewGuidanceFragment fragment = new GridViewGuidanceFragment();
         Bundle args = new Bundle();
         args.putInt(PAGE_FLAG, pageFlag);
@@ -96,7 +96,7 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
             mCallback = (ScrollListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement UserCenterListener");
+                    + " must implement ScrollListener");
         }
     }
 
@@ -177,7 +177,7 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
                 L.d("ScrollListener", "Fragment-OnScroll " + " " + firstVisibleItem + " " + visibleItemCount + " " + totalItemCount);
 
-                mCallback.OnScroll(view,firstVisibleItem,visibleItemCount,totalItemCount);
+                mCallback.OnScroll(view, firstVisibleItem, visibleItemCount, totalItemCount);
 
                 firstVisiblePosition = gridView.getFirstVisiblePosition();
                 if (firstVisiblePosition > BACK_TOP_COUNT) {
@@ -212,11 +212,19 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
         collectParameter.addProperty("start", queryStart);
 
 
+        JsonObject searchParameter = new JsonObject();
+
+        searchParameter.addProperty("keyword", "");
+        searchParameter.addProperty("orderby", "");
+        searchParameter.addProperty("orderrule", "");
+        searchParameter.addProperty("start", queryStart);
+        searchParameter.addProperty("num", queryNum);
+
         //showLoadingProgress();
         switch (pageFlag) {
             case AppConstants.page_search_guidance:
                 if (queryCall != null) queryCall.cancel();
-                queryCall = OkHttpExecutor.query(UrlConstants.Search, SearchResultEvent.class, false, this);
+                queryCall = OkHttpExecutor.query(UrlConstants.Search, searchParameter, SearchResultEvent.class, false, this);
                 break;
             case AppConstants.page_collect_guidance:
                 if (queryCall != null) queryCall.cancel();

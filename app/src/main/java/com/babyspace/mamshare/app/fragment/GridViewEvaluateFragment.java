@@ -24,7 +24,6 @@ import com.babyspace.mamshare.bean.TagEvaluateEvent;
 import com.babyspace.mamshare.bean.UserEvaluateEvent;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.UrlConstants;
-import com.babyspace.mamshare.listener.EmptyListener;
 import com.babyspace.mamshare.listener.ScrollListener;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
@@ -176,7 +175,7 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
 
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                mCallback.OnScroll(view,firstVisibleItem,visibleItemCount,totalItemCount);
+                mCallback.OnScroll(view, firstVisibleItem, visibleItemCount, totalItemCount);
 
                 firstVisiblePosition = gridView.getFirstVisiblePosition();
                 if (firstVisiblePosition > BACK_TOP_COUNT) {
@@ -209,7 +208,6 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
         jsonParameter.addProperty("start", queryStart);
 
 
-
         JsonObject collectParameter = new JsonObject();
 
         collectParameter.addProperty("userId", 12296568);
@@ -217,11 +215,20 @@ public class GridViewEvaluateFragment extends BaseFragment implements SwipeRefre
         collectParameter.addProperty("start", queryStart);
 
 
+        JsonObject searchParameter = new JsonObject();
+
+        searchParameter.addProperty("keyword", "");
+        searchParameter.addProperty("orderby", "");
+        searchParameter.addProperty("orderrule", "");
+        searchParameter.addProperty("start", queryStart);
+        searchParameter.addProperty("num", queryNum);
+
+
         //showLoadingProgress();
         switch (pageFlag) {
             case AppConstants.page_search_evaluate:
                 if (queryCall != null) queryCall.cancel();
-                queryCall = OkHttpExecutor.query(UrlConstants.Search, SearchResultEvent.class, false, this);
+                queryCall = OkHttpExecutor.query(UrlConstants.Search, searchParameter, SearchResultEvent.class, false, this);
                 break;
             case AppConstants.page_collect_evaluate:
                 if (queryCall != null) queryCall.cancel();

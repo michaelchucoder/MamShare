@@ -65,7 +65,7 @@ public class RegisterCustomFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.register_custom_submit:
                 //TODO 也返回到 RegisterNameFragment 数据传送可以用SPrefUtil
-                mCallback.onRegisterNameSelected();
+                mCallback.onRegisterNameSelected(new Bundle());
                 break;
         }
     }
