@@ -38,6 +38,10 @@
         android:layout_alignParentRight="true"
         android:visibility="gone"
         android:text="右按钮"
+
+        android:textColor="@color/green_mama_bg"
+
+
         android:textSize="40px" />
 
 </RelativeLayout>

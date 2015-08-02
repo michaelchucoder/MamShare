@@ -1,139 +1,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.babyspace.mamshare.app.activity.SettingActivity">
 
-    <include
-        android:id="@+id/common_title"
-        layout="@layout/common_title_layout" />
 
-    <LinearLayout
-        android:id="@+id/layout_user_profile_content"
+    <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/common_title"
-        android:orientation="vertical"
-        android:paddingLeft="50px"
-        android:paddingRight="50px">
 
-        <RelativeLayout
-            android:id="@+id/nickname_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/tv_nickname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_margin="30px"
-                android:text="昵称"
-                android:textSize="30px" />
-
-            <Button
-                android:layout_width="40px"
-                android:layout_height="40px"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:background="@color/red" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_below="@+id/tv_nickname"
-                android:background="@color/red" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/mama_profile_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/tv_mama_profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_margin="30px"
-                android:text="妈妈名片"
-                android:textSize="30px" />
-
-            <Button
-                android:layout_width="40px"
-                android:layout_height="40px"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:background="@color/red" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_below="@+id/tv_mama_profile"
-                android:background="@color/red" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/birthday_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/tv_birthday"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_margin="30px"
-                android:text="生日或预产期"
-                android:textSize="30px" />
-
-            <Button
-                android:layout_width="40px"
-                android:layout_height="40px"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:background="@color/red" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_below="@+id/tv_birthday"
-                android:background="@color/red" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/sex_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/tv_sex"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_margin="30px"
-                android:text="宝宝性别"
-                android:textSize="30px" />
-
-            <Button
-                android:layout_width="40px"
-                android:layout_height="40px"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:background="@color/red" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_below="@+id/tv_sex"
-                android:background="@color/red" />
-
-        </RelativeLayout>
-
-    </LinearLayout>
+        />
 
 
 </RelativeLayout>

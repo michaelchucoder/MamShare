@@ -1,5 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:imagecontrol="http://schemas.android.com/tools"
     android:layout_width="match_parent"
 
     android:layout_height="match_parent"
@@ -41,11 +42,11 @@
             <Button
                 android:id="@+id/verify_countdown"
                 android:layout_width="wrap_content"
-                android:minWidth="120px"
                 android:layout_height="60px"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="20px"
                 android:background="@drawable/btn_bg_verifycode"
+                android:minWidth="120px"
                 android:text="60s"
                 android:textColor="@color/white" />
 
@@ -60,6 +61,8 @@
             android:layout_marginLeft="15px"
             android:layout_marginTop="32px"
             android:hint="@string/password_role"
+
+            android:singleLine="true"
             android:textSize="24px"
             app:met_clearButton="true" />
 
@@ -77,10 +80,10 @@
         <RelativeLayout
             android:id="@+id/ll_reg_feature"
             android:layout_width="500px"
-            android:layout_height="60px"
+            android:layout_height="100px"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="15px"
-            android:layout_marginTop="32px"
+            android:layout_marginTop="20px"
             android:gravity="center_vertical">
 
             <TextView
@@ -100,14 +103,17 @@
                 android:layout_marginRight="20px"
                 android:src="@drawable/tab_select_shape_right_selector" />
 
-            <ImageView
+            <com.michael.library.widget.roundimage.RoundImageView
                 android:id="@+id/register_feature_icon"
-                android:layout_width="50px"
-                android:layout_height="50px"
+                android:layout_width="80px"
+                android:layout_height="80px"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="20px"
                 android:layout_toLeftOf="@id/feature_arrow_right"
-                android:src="@drawable/login_sina_icon" />
+                android:scaleType="fitXY"
+                android:src="@drawable/login_sina_icon"
+                imagecontrol:border_outside_color="@color/login_hint_color"
+                imagecontrol:border_thickness="3px" />
 
 
         </RelativeLayout>
