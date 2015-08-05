@@ -25,15 +25,18 @@ public class Guidance implements Serializable {
     public String pageUrl;
     @SerializedName("praiseNum")
     public int likeNum;
+    @SerializedName("recommendFlag")
+    private int recommendFlag;
 
 
-    public Guidance(Long id, Long guidanceId, String guidanceTitle, String imageUrl, String pageUrl, int likeNum) {
+    public Guidance(Long id, Long guidanceId, String guidanceTitle, String imageUrl, String pageUrl, int likeNum , int recommendFlag) {
         this.guidanceId = guidanceId;
         this.guidanceTitle = guidanceTitle;
         this.id = id;
         this.imageUrl = imageUrl;
         this.likeNum = likeNum;
         this.pageUrl = pageUrl;
+        this.recommendFlag = recommendFlag;
     }
 
 }

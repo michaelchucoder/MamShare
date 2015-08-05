@@ -13,12 +13,42 @@ import java.io.Serializable;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class UserInfo implements Serializable {
-    @SerializedName("userID")
+    @SerializedName("BabyId")
+    public String BabyId;
+    @SerializedName("UserIExteID")
+    public String UserIExteID;
+
+
+    @SerializedName("BabyBirthday")
+    public String BabyBirthday;
+    @SerializedName("BabyGender")
+    public String BabyGender;
+    @SerializedName("BackgroundImg")
+    public String BackgroundImg;
+
+
+    @SerializedName("UserID")
     public String userID;
-    @SerializedName("mamRoleName")
-    public String userName;
-    @SerializedName("headIcon")
+    @SerializedName("MamRoleName")
+    public String MamRoleName;
+    @SerializedName("HeadIcon")
     public String headIcon;
-    @SerializedName("nickname")
+    @SerializedName("Nickname")
     public String nickName;
+
+
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "BabyId='" + BabyId + '\'' +
+                ", UserIExteID='" + UserIExteID + '\'' +
+                ", BabyBirthday='" + BabyBirthday + '\'' +
+                ", BabyGender='" + BabyGender + '\'' +
+                ", BackgroundImg='" + BackgroundImg + '\'' +
+                ", userID='" + userID + '\'' +
+                ", userName='" + MamRoleName + '\'' +
+                ", headIcon='" + headIcon + '\'' +
+                ", nickName='" + nickName + '\'' +
+                '}';
+    }
 }
