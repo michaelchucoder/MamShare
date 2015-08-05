@@ -52,5 +52,8 @@
     <!--已有宝宝背景色-->
     <color name="have_baby_bg">#911bad23</color>
 
+    <!--个人中心页面攻略  评测背景-->
+    <color name="user_center_guidance_bg">#ECDEBB</color>
+
 
 </resources>

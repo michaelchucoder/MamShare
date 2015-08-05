@@ -43,9 +43,13 @@
         <item>男</item>
         <item>女</item>
     </array>
-    <string name="title_activity_user_collect">UserCollectActivity</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="remote_service_label">远程信息</string>
+    <string name="remote_service_started">远程服务已开</string>
+    <string name="remote_service_stopped">远程服务已关</string>
+    <string name="have_baby">已有宝宝</string>
+    <string name="pregnant">怀孕中</string>
+    <string name="prepare">备孕中</string>
 
 
 </resources>
