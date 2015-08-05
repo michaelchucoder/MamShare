@@ -19,7 +19,7 @@
         <LinearLayout
             android:id="@+id/ll_label_search"
             android:layout_width="450px"
-            android:layout_height="60px"
+            android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="40px"
@@ -32,11 +32,12 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="0px"
                 android:hint="搜攻略或评测(P5)"
+                android:singleLine="true"
                 android:textSize="24px"
                 app:met_clearButton="true"
                 app:met_hideUnderline="true"
                 app:met_iconLeft="@drawable/activity_home_btn_search"
-                app:met_iconPadding="0dp" />
+                app:met_iconPadding="-20dp" />
 
         </LinearLayout>
 

@@ -35,11 +35,12 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="0px"
                 android:hint="搜攻略或评测(P5)"
+                android:singleLine="true"
                 android:textSize="24px"
                 app:met_clearButton="true"
                 app:met_hideUnderline="true"
                 app:met_iconLeft="@drawable/activity_home_btn_search"
-                app:met_iconPadding="0dp" />
+                app:met_iconPadding="-20dp" />
 
         </RelativeLayout>
 

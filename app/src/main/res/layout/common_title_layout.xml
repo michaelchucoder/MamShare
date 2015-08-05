@@ -8,7 +8,9 @@
         android:id="@+id/common_title_left"
         android:layout_width="100px"
         android:layout_height="100px"
-        android:background="#f9f33f"
+        android:background="@null"
+        android:src="@drawable/ic_back"
+
         android:text="左按钮"
         android:textSize="40px" />
 
@@ -27,7 +29,7 @@
         android:layout_width="100px"
         android:layout_height="100px"
         android:layout_alignParentRight="true"
-        android:background="#f9f33f"
+        android:background="@null"
         android:text="右按钮"
         android:textSize="40px" />
 
@@ -36,12 +38,12 @@
         android:layout_width="100px"
         android:layout_height="100px"
         android:layout_alignParentRight="true"
-        android:visibility="gone"
         android:text="右按钮"
-
         android:textColor="@color/green_mama_bg"
 
+        android:textSize="40px"
 
-        android:textSize="40px" />
+
+        android:visibility="gone" />
 
 </RelativeLayout>

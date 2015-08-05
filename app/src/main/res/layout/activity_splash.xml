@@ -36,4 +36,11 @@
         android:layout_marginTop="700px"
         android:text="测试" />
 
+    <Button
+        android:id="@+id/go_test_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="900px"
+        android:text="服务" />
+
 </RelativeLayout>
