@@ -2,13 +2,16 @@ package com.babyspace.mamshare.app.fragment;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.app.activity.HomePrefaceActivity;
 import com.babyspace.mamshare.app.dialog.PickerDialog;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.BaseFragment;
@@ -100,21 +103,37 @@ public class RegisterWizardGuideFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.btn_register_baby, R.id.btn_register_pregnant, R.id.btn_register_prepare})
+    @OnClick({R.id.btn_register_baby, R.id.btn_register_pregnant, R.id.btn_register_prepare, R.id.common_title_left})
     public void doOnClick(View view) {
 
         switch (view.getId()) {
             case R.id.btn_register_baby:
+                SPrefUtil.putSPref(SPrefUtil.MAMA_STATE, "baby");
 
-                SPrefUtil.putSPref(SPrefUtil.MAMA_STATE, "prepare");
                 mCallback.onRegisterBabySelected();
+
                 break;
             case R.id.btn_register_pregnant:
                 SPrefUtil.putSPref(SPrefUtil.MAMA_STATE, "pregnant");
                 pickerDialog.show(getActivity().getSupportFragmentManager(), "date_picker");
                 break;
             case R.id.btn_register_prepare:
-                SPrefUtil.putSPref(SPrefUtil.MAMA_STATE, "baby");
+                SPrefUtil.putSPref(SPrefUtil.MAMA_STATE, "prepare");
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), HomePrefaceActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.common_title_left:
+
+                FragmentManager manager = getFragmentManager();
+
+                if (manager.getBackStackEntryCount() == 0) {
+
+                    getActivity().finish();
+
+                } else {
+                    manager.popBackStack();
+                }
                 break;
 
 

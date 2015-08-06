@@ -8,8 +8,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.util.ArrayMap;
 import android.text.format.DateFormat;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -24,12 +27,17 @@ import com.babyspace.mamshare.basement.BaseFragment;
 import com.michael.core.tools.SPrefUtil;
 import com.michael.library.widget.custom.DatePicker;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
 
 public class RegisterWizardBabyFragment extends BaseFragment {
     private static final String PAGE_FLAG = "pageFlag";
+    @InjectView(R.id.common_title_left)
+    ImageButton commonTitleLeft;
+    @InjectView(R.id.common_title_text)
+    TextView commonTitleText;
     private int pageFlag;
 
     @InjectView(R.id.btn_register_next)
@@ -94,6 +102,8 @@ public class RegisterWizardBabyFragment extends BaseFragment {
     @Override
     public void initView() {
 
+        commonTitleText.setText(R.string.have_baby);
+
         datePicker = ((DatePicker) findViewById(R.id.long_date));
         datePicker.setDateFormat(DateFormat.getDateFormat(getActivity()));
         datePicker.setText("请宝宝选择生日");
@@ -117,7 +127,9 @@ public class RegisterWizardBabyFragment extends BaseFragment {
     }
 
     @OnClick({R.id.btn_register_next, R.id.btn_register_day, R.id.btn_register_dialog,
-            R.id.btn_register_picker, R.id.register_baby_girl, R.id.register_baby_boy})
+            R.id.btn_register_picker, R.id.register_baby_girl, R.id.register_baby_boy,
+            R.id.common_title_left}
+    )
     public void doOnClick(View view) {
 
         switch (view.getId()) {
@@ -158,6 +170,12 @@ public class RegisterWizardBabyFragment extends BaseFragment {
                 selectBoy();
 
                 break;
+            case R.id.common_title_left:
+
+                getFragmentManager().popBackStack();
+
+
+                break;
 
 
         }
@@ -196,4 +214,17 @@ public class RegisterWizardBabyFragment extends BaseFragment {
     }
 
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        ButterKnife.inject(this, rootView);
+        return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.reset(this);
+    }
 }

@@ -13,10 +13,14 @@ import android.widget.TextView;
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.bean.DefaultResponseEvent;
+import com.babyspace.mamshare.bean.MamaRole;
+import com.babyspace.mamshare.commons.RegisterConstant;
 import com.babyspace.mamshare.listener.FragmentChangeListener;
 import com.babyspace.mamshare.listener.UserProfileListener;
+import com.michael.core.tools.SPrefUtil;
 import com.michael.library.widget.custom.DatePicker;
 import com.michael.library.widget.roundimage.RoundImageView;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -80,9 +84,9 @@ public class UserProfileFragment extends BaseFragment {
 
         setContentView(R.layout.fragment_user_profile);
 
-        if (getArguments() != null) {
-//            pageFlag = getArguments().getInt(PAGE_FLAG);
-        }
+//        if (getArguments() != null) {
+////            pageFlag = getArguments().getInt(PAGE_FLAG);
+//        }
 
         EventBus.getDefault().register(this);
 
@@ -100,6 +104,30 @@ public class UserProfileFragment extends BaseFragment {
 
         commonTitleText.setText("编辑资料");
 
+
+        if (getArguments() != null) {
+//            pageFlag = getArguments().getInt(PAGE_FLAG);
+
+            Bundle bundle = getArguments();
+
+            int flag = bundle.getInt(RegisterConstant.FLAG);
+
+
+            switch (flag) {
+
+                case RegisterConstant.REGISTER_ROLE:
+
+                    MamaRole mamaRole = (MamaRole) bundle.getSerializable("MamaRole");
+
+                    ImageLoader.getInstance().displayImage(mamaRole.systemHeadIcon,ivAvatar);
+
+                    tvUserProfileMamarole.setText(mamaRole.roleName);
+
+                    break;
+
+            }
+        }
+
     }
 
 
@@ -114,6 +142,9 @@ public class UserProfileFragment extends BaseFragment {
                 break;
 
             case R.id.mama_profile_container:
+
+//                RegisterConstant.WHERE_TO_MAMAROLE = 101;
+                SPrefUtil.putSPref(SPrefUtil.WHERE_TO_MAMAROLE, 101);
 
                 mCallback.onRegisterRoleSelected(new Bundle());
 

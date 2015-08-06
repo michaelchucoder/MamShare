@@ -4,10 +4,13 @@ package com.babyspace.mamshare.app.fragment;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.RoleSelectAdapter;
@@ -29,6 +32,7 @@ import com.squareup.okhttp.Call;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
@@ -37,6 +41,8 @@ public class RegisterRoleFragment extends BaseFragment {
     private static final String PAGE_FLAG = "pageFlag";
     @InjectView(R.id.register_role_layout)
     RelativeLayout registerRoleLayout;
+    @InjectView(R.id.common_title_text)
+    TextView commonTitleText;
     private int pageFlag;
 
     FragmentChangeListener mCallback;
@@ -116,19 +122,11 @@ public class RegisterRoleFragment extends BaseFragment {
     @Override
     public void initView() {
 
+        commonTitleText.setText("多款妈妈名片，总有一款适合你");
+
         adapter.refresh(data);
         listView.setAdapter(adapter);
         listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-
-            }
-        });
-
 
         queryData();
 
@@ -150,7 +148,9 @@ public class RegisterRoleFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.register_role_custom, R.id.ll_role_again, R.id.register_role_submit})
+    @OnClick({R.id.register_role_custom, R.id.ll_role_again,
+            R.id.common_title_left,
+            R.id.register_role_submit})
     public void doOnClick(View view) {
 
         switch (view.getId()) {
@@ -180,7 +180,18 @@ public class RegisterRoleFragment extends BaseFragment {
                 bundle.putInt(RegisterConstant.FLAG, RegisterConstant.REGISTER_ROLE);
 
 
-                mCallback.onRegisterNameSelected(bundle);
+                if (mCallback instanceof RegisterListener) {
+                    mCallback.onRegisterNameSelected(bundle);
+                }else if(mCallback instanceof UserProfileListener){
+                    mCallback.onUserProfileSelected(bundle);
+                }
+
+
+                break;
+
+            case R.id.common_title_left:
+
+                getFragmentManager().popBackStack();
                 break;
         }
     }
@@ -245,4 +256,17 @@ public class RegisterRoleFragment extends BaseFragment {
     }
 
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        ButterKnife.inject(this, rootView);
+        return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.reset(this);
+    }
 }

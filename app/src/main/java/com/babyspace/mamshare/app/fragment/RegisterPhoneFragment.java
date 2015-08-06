@@ -3,6 +3,7 @@ package com.babyspace.mamshare.app.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -95,7 +96,7 @@ public class RegisterPhoneFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.btn_register_next})
+    @OnClick({R.id.btn_register_next,R.id.common_title_left})
     public void doOnClick(View view) {
 
         switch (view.getId()) {
@@ -111,6 +112,21 @@ public class RegisterPhoneFragment extends BaseFragment {
 
                 OkHttpExecutor.query(UrlConstants.IsPhoneRegistered, jsonParameter, DefaultResponseEvent.class, false, this);
 //                }
+
+                break;
+
+            case R.id.common_title_left:
+
+                FragmentManager manager = getFragmentManager();
+
+                if(manager.getBackStackEntryCount()==0){
+                    getActivity().finish();
+                }else{
+                    getFragmentManager().popBackStack();
+                }
+
+
+
 
                 break;
 
@@ -155,7 +171,7 @@ public class RegisterPhoneFragment extends BaseFragment {
             } else {
 
 //                hideLoadingProgress();
-                ToastHelper.showToast(getActivity(), "异常");
+                ToastHelper.showToast(getActivity(), "数据异常");
             }
         }
 

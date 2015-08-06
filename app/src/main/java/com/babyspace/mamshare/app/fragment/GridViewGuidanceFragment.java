@@ -37,7 +37,7 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 
-public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
+public class  GridViewGuidanceFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 
     private static final String PAGE_FLAG = "pageFlag";
     private static int pageFlag;
@@ -107,9 +107,9 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
         EventBus.getDefault().register(this);
 
         if (getArguments() != null) {
-            pageFlag = getArguments().getInt(PAGE_FLAG);
+//            pageFlag = getArguments().getInt(PAGE_FLAG);
         }
-        L.d("GridViewGuidanceFragment", " pageFlag " + pageFlag);
+        L.d("asker", "GridViewGuidanceFragment—————— pageFlag " + pageFlag);
 
         data = new ArrayList<>();
         adapter = new GenericsAdapter(getActivity(), pageFlag);
@@ -208,8 +208,8 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
         JsonObject collectParameter = new JsonObject();
 
         collectParameter.addProperty("userId", 12296568);
-        collectParameter.addProperty("num", queryNum);
-        collectParameter.addProperty("start", queryStart);
+        collectParameter.addProperty("num", 10);
+        collectParameter.addProperty("start", 0);
 
 
         JsonObject searchParameter = new JsonObject();
@@ -229,6 +229,8 @@ public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefre
             case AppConstants.page_collect_guidance:
                 if (queryCall != null) queryCall.cancel();
                 queryCall = OkHttpExecutor.query(UrlConstants.CollectGuidance, collectParameter, CollectGuidanceEvent.class, false, this);
+
+
                 break;
         }
 
