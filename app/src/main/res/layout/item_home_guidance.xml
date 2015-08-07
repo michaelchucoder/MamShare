@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="680px"
     android:layout_height="1000px"
-    android:background="@color/pink_mama_bg"
+    android:background="@color/white"
     android:orientation="vertical"
     android:padding="20px">
 
-    <ImageView
+    <com.michael.library.widget.roundimage.RoundImageViewByXfermode
         android:id="@+id/iv_guidance"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@color/yellow"
-        android:text="我是标题大人" />
+        app:borderRadius="10px"
+        android:scaleType="centerCrop"
+
+        app:type="round"
+        android:src="@drawable/example"
+         />
 
 </RelativeLayout>

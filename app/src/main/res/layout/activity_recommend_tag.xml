@@ -71,7 +71,7 @@
         android:background="#f4f4f5">
 
 
-        <com.michael.library.widget.custom.GridViewWithHeaderAndFooter
+        <!--<com.michael.library.widget.custom.GridViewWithHeaderAndFooter
             android:id="@+id/label_gridView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -82,7 +82,16 @@
             android:horizontalSpacing="10dp"
             android:numColumns="3"
             android:padding="10dp"
-            android:verticalSpacing="5dp" />
+            android:verticalSpacing="5dp" />-->
+
+        <com.michael.library.widget.custom.FlowGroupView
+
+            android:id="@+id/recommend_tag_flowgroupview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="40px"
+
+            ></com.michael.library.widget.custom.FlowGroupView>
     </android.support.v4.widget.SwipeRefreshLayout>
 
     <LinearLayout
