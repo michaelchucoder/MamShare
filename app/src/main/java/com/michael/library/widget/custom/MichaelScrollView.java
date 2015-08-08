@@ -86,14 +86,27 @@ public class MichaelScrollView extends ScrollView {
                 /**
                  * 朱小辉
                  */
-                if (mScrollY - mLastScrollY > 22) onScrollListener.onScrollUp();
-                if (mLastScrollY - mScrollY > 22) onScrollListener.onScrollDown();
+                if (mScrollY - mLastScrollY > 22)
+                    onScrollListener.onScrollUp();
+                if (mLastScrollY - mScrollY > 22)
+                    onScrollListener.onScrollDown();
 
                 break;
+
+            case MotionEvent.ACTION_HOVER_MOVE:
+                break;
+            case MotionEvent.ACTION_DOWN:
+
+                break;
+
+
 
         }
         return super.onTouchEvent(ev);
     }
+
+
+
 
     /**
      * 滚动的回调接口
