@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.BaseActivity;
+import com.babyspace.mamshare.bean.Login;
 import com.babyspace.mamshare.bean.LoginEvent;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.babyspace.mamshare.commons.IntentParams;
@@ -448,7 +449,8 @@ public class LoginActivity extends BaseActivity {
             , R.id.tv_login_forgot_pwd
             , R.id.btn_login_tencent
             , R.id.btn_login_wechat
-            , R.id.btn_login_sina})
+            , R.id.btn_login_sina
+    ,R.id.common_title_left})
     public void doOnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_login_submit:
@@ -472,12 +474,38 @@ public class LoginActivity extends BaseActivity {
                 mSsoHandler = new SsoHandler(this, weiboAuth);
                 mSsoHandler.authorize(new AuthListener());
                 break;
+
+            case R.id.common_title_left:
+                LoginActivity.this.finish();
+                break;
         }
     }
 
     public void onEventMainThread(LoginEvent event) {
         hideLoadingProgress();
-        L.d(OkHttpExecutor.TAG, "onEventMainThread->" + event.getResultStr());
+        L.d(OkHttpExecutor.TAG, "onEventMainThread->LoginEvent>>>>>" + event.getResultStr());
+        if (null != event.getData()) {
+
+
+
+            if("1200".equals(event.getCode())){
+                Login login = event.getData();
+
+                if (login.alert.status==1200){
+
+                    String userID = login.data.userID;
+
+                }else{
+                    ToastHelper.showToast(LoginActivity.this,login.alert.tips);
+                }
+
+
+            }
+
+
+        }
+
+
 
     }
 

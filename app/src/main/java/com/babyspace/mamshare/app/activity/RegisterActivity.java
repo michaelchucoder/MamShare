@@ -69,6 +69,11 @@ public class RegisterActivity extends BaseActivity implements RegisterListener {
     }
 
     @Override
+    public void onUserProfileSelected(Bundle bundle) {
+
+    }
+
+    @Override
     public void onRegisterRoleSelected(Bundle bundle) {
         RegisterRoleFragment fragment = new RegisterRoleFragment();
 
@@ -90,4 +95,7 @@ public class RegisterActivity extends BaseActivity implements RegisterListener {
                 .replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
 
     }
+
+
+
 }
