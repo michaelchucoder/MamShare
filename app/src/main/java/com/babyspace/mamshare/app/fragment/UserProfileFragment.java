@@ -2,6 +2,7 @@ package com.babyspace.mamshare.app.fragment;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
@@ -119,9 +120,22 @@ public class UserProfileFragment extends BaseFragment {
 
                     MamaRole mamaRole = (MamaRole) bundle.getSerializable("MamaRole");
 
-                    ImageLoader.getInstance().displayImage(mamaRole.systemHeadIcon,ivAvatar);
+                    ImageLoader.getInstance().displayImage(mamaRole.systemHeadIcon, ivAvatar);
 
                     tvUserProfileMamarole.setText(mamaRole.roleName);
+
+                    break;
+
+                case RegisterConstant.FLAG_TO_REGTISTERNAME:
+
+                    String mamaRoleName = bundle.getString(RegisterConstant.MAMA_ROLE);
+
+                    String imageLocalPath = bundle.getString(RegisterConstant.MAMA_ROLE_ICON_LOCAL_PATH);
+
+                    ivAvatar.setImageBitmap(BitmapFactory.decodeFile(imageLocalPath));
+
+                    tvUserProfileMamarole.setText(mamaRoleName);
+
 
                     break;
 
