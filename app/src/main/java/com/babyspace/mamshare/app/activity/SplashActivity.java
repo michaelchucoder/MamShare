@@ -63,7 +63,7 @@ public class SplashActivity extends BaseActivity {
     private final int MESSAGE_WHAT_OK = 100;
     private final int MESSAGE_WHAT = 101;
     @SuppressLint("HandlerLeak")
-    private Handler handler = new Handler() {
+    private  Handler handler = new Handler() {
         public void handleMessage(Message message) {
             switch (message.what) {
                 case MESSAGE_WHAT:
@@ -595,7 +595,7 @@ public class SplashActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.go_preface, R.id.go_login, R.id.go_orm, R.id.go_test})
+    @OnClick({R.id.go_preface, R.id.go_login, R.id.go_orm, R.id.go_test, R.id.go_test_service})
     public void doOnClick(View view) {
         Intent i = new Intent();
 
@@ -617,6 +617,11 @@ public class SplashActivity extends BaseActivity {
                 break;
             case R.id.go_test:
                 i.setClass(this, ScaleActivity.class);
+                startActivity(i);
+                break;
+
+            case R.id.go_test_service:
+                i.setClass(this, GuidanceDetailActivity.class);
                 startActivity(i);
 
                 break;

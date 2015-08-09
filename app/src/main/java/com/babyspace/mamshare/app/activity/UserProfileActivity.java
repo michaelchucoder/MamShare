@@ -1,5 +1,6 @@
 package com.babyspace.mamshare.app.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
@@ -7,6 +8,7 @@ import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.fragment.RegisterRoleFragment;
 import com.babyspace.mamshare.app.fragment.UserProfileFragment;
 import com.babyspace.mamshare.basement.BaseActivity;
+import com.babyspace.mamshare.commons.RegisterConstant;
 import com.babyspace.mamshare.listener.UserProfileListener;
 
 import butterknife.InjectView;
@@ -23,21 +25,37 @@ public class UserProfileActivity extends BaseActivity implements UserProfileList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
+
         if (getActionBar() != null) getActionBar().hide();
 
 
-        if (layoutUserProfileContent != null) {
+        Intent intent = getIntent();
+        int intentFlag = intent.getIntExtra(RegisterConstant.FLAG, -1);
 
-            if (savedInstanceState != null) {
-                return;
-            }
+        switch (intentFlag) {
+            case RegisterConstant.FLAG_TO_REGTISTERNAME:
 
-            UserProfileFragment fragment = new UserProfileFragment();
 
-            fragment.setArguments(getIntent().getExtras());
+                onUserProfileSelected(intent.getExtras());
 
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_container, fragment).commit();
+
+                break;
+            default:
+                if (layoutUserProfileContent != null) {
+
+                    if (savedInstanceState != null) {
+                        return;
+                    }
+
+                    UserProfileFragment fragment = new UserProfileFragment();
+
+                    fragment.setArguments(getIntent().getExtras());
+
+                    getSupportFragmentManager().beginTransaction()
+                            .add(R.id.fragment_container, fragment).commit();
+                }
+                break;
+
         }
 
 
@@ -59,6 +77,19 @@ public class UserProfileActivity extends BaseActivity implements UserProfileList
 
     @Override
     public void onRegisterNameSelected(Bundle bundle) {
+
+    }
+
+    @Override
+    public void onUserProfileSelected(Bundle bundle) {
+
+        UserProfileFragment fragment = new UserProfileFragment();
+
+        fragment.setArguments(bundle);
+
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
 
     }
 }
