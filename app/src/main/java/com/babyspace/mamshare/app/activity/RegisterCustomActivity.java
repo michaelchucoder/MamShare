@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Display;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.basement.BaseActivity;
@@ -17,6 +18,7 @@ import com.babyspace.mamshare.commons.RegisterConstant;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
+import com.michael.core.tools.SPrefUtil;
 import com.michael.core.tools.SelectPicTools;
 import com.michael.library.camera.ImageUtility;
 import com.michael.library.widget.materialedittext.MaterialEditText;
@@ -41,6 +43,8 @@ public class RegisterCustomActivity extends BaseActivity {
     MaterialEditText registerCustomMyRole;
 
     String imageLocalPath = "";
+    @InjectView(R.id.common_title_text)
+    TextView commonTitleText;
 
 
     @Override
@@ -50,8 +54,20 @@ public class RegisterCustomActivity extends BaseActivity {
         setContentView(R.layout.fragment_register_custom);
         ButterKnife.inject(this);
 
+        initView();
+
 
         setImage();
+
+
+    }
+
+    /**
+     * 初始化
+     */
+    private void initView() {
+
+        commonTitleText.setText("");
 
 
     }
@@ -106,6 +122,20 @@ public class RegisterCustomActivity extends BaseActivity {
 //                    submitData(mamaRole);
 
                     Intent intent = new Intent(RegisterCustomActivity.this, RegisterActivity.class);
+
+                    int where_from = SPrefUtil.getSPref(SPrefUtil.WHERE_TO_MAMAROLE, -1);
+
+                    //根据取出的值 确定返回到  个人资料编辑还是  注册
+                    switch (where_from) {
+                        case 100:
+                            intent.setClass(RegisterCustomActivity.this, RegisterActivity.class);
+                            break;
+                        case 101:
+
+                            intent.setClass(RegisterCustomActivity.this, UserProfileActivity.class);
+                            break;
+                    }
+
 
                     intent.putExtra(RegisterConstant.FLAG, RegisterConstant.FLAG_TO_REGTISTERNAME);
 

@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
+import android.view.ViewGroup.MarginLayoutParams;
 import android.widget.AbsListView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.adapter.GenericsAdapter;
@@ -23,12 +25,14 @@ import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.core.tools.ViewRelayoutUtil;
 import com.michael.library.debug.L;
+import com.michael.library.widget.custom.FlowGroupView;
 import com.michael.library.widget.custom.GridViewWithHeaderAndFooter;
 import com.squareup.okhttp.Call;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
@@ -38,11 +42,13 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
     @InjectView(R.id.swipe_container)
     SwipeRefreshLayout mSwipeLayout;
 
-    @InjectView(R.id.label_gridView)
-    GridViewWithHeaderAndFooter gridView;
+//    @InjectView(R.id.label_gridView)
+//    GridViewWithHeaderAndFooter gridView;
 
     @InjectView(R.id.btn_home_back_top)
     LinearLayout mBackTop;
+    @InjectView(R.id.recommend_tag_flowgroupview)
+    FlowGroupView recommendTagFlowgroupview;
 
     private ProgressBar footerProgressBar;
     private TextView footerText;
@@ -67,6 +73,7 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recommend_tag);
 
+
         data = new ArrayList<>();
         adapter = new GenericsAdapter(this, AppConstants.page_recommend_tag);
 
@@ -84,13 +91,13 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
         mSwipeLayout.setColorSchemeResources(android.R.color.holo_red_dark,
                 android.R.color.holo_red_light);
 
-        mHeader = View.inflate(this, R.layout.common_title_layout, null);
-        mFooter = View.inflate(this, R.layout.common_refresh_footer, null);
+//        mHeader = View.inflate(this, R.layout.common_title_layout, null);
+//        mFooter = View.inflate(this, R.layout.common_refresh_footer, null);
 
         ViewRelayoutUtil.relayoutViewWithScale(mHeader, MamShare.screenWidthScale);
         ViewRelayoutUtil.relayoutViewWithScale(mFooter, MamShare.screenWidthScale);
 
-        gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
+       /* gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
 
         adapter.refresh(AppConstants.page_recommend_tag, data);
         gridView.addFooterView(mFooter);
@@ -143,7 +150,7 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
                 }
 
             }
-        });
+        });*/
 
     }
 
@@ -152,8 +159,8 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
         //mSwipeLayout.setRefreshing(true);
 
         ++queryCount;
-        footerProgressBar.setVisibility(View.VISIBLE);
-        footerText.setText("正在加载...");
+//        footerProgressBar.setVisibility(View.VISIBLE);
+//        footerText.setText("正在加载...");
 
         // 如果是更新策略 则 Start为置为0
         if (!isRefreshAdd) queryStart = 0;
@@ -173,11 +180,11 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
     public void doOnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_home_back_top:
-                if (firstVisiblePosition <= BACK_TOP_COUNT * 2) {// 未超过限定值的两倍
-                    gridView.smoothScrollToPosition(0);
-                } else {
-                    gridView.setSelection(0);
-                }
+//                if (firstVisiblePosition <= BACK_TOP_COUNT * 2) {// 未超过限定值的两倍
+//                    gridView.smoothScrollToPosition(0);
+//                } else {
+//                    gridView.setSelection(0);
+//                }
                 break;
             case R.id.tv_label_search:
 
@@ -187,6 +194,41 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
                 onBackPressed();
                 break;
         }
+    }
+
+    /**
+     * 动态添加布局
+     * @param str
+     */
+    private void addTextView(String str) {
+        TextView child = new TextView(this);
+        MarginLayoutParams params = new MarginLayoutParams(MarginLayoutParams.WRAP_CONTENT,MarginLayoutParams.WRAP_CONTENT);
+        params.setMargins(15, 15, 15, 15);
+
+        child.setLayoutParams(params);
+        child.setBackgroundResource(R.drawable.shape_textback);
+        child.setText(str);
+        child.setTextColor(Color.WHITE);
+        initEvents(child);
+        recommendTagFlowgroupview.addView(child);
+        // 务必要加这句
+        recommendTagFlowgroupview.requestLayout();
+    }
+
+
+    /**
+     * 为每个view 添加点击事件
+     * @param tv
+     */
+    private void initEvents(final TextView tv){
+        tv.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+//                Toast.makeText(RecommendTagActivity.this, tv.getText().toString(), 0).show();
+            }
+        });
     }
 
     /**
@@ -200,7 +242,12 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
         L.d(OkHttpExecutor.TAG, "onEventMainThread-HotWordEvent>" + event.getResultStr());
         List<String> responseData = event.getData();
 
-        if (responseData.size() < queryNum) {
+
+        for (int i = 0; i < responseData.size(); i++) {
+            addTextView(responseData.get(i));
+        }
+
+       /* if (responseData.size() < queryNum) {
             footerProgressBar.setVisibility(View.INVISIBLE);
             footerText.setText("本次探险已经结束，暂时没有更多内容了呢~");
             isMoreData = false;
@@ -219,7 +266,7 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
             isMoreData = true;
             queryStart += queryNum;
         }
-        adapter.refresh(AppConstants.page_recommend_tag, data);
+        adapter.refresh(AppConstants.page_recommend_tag, data);*/
 
     }
 
