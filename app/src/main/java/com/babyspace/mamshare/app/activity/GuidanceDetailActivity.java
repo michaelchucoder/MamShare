@@ -4,8 +4,11 @@ import android.net.http.SslError;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.webkit.JavascriptInterface;
 import android.webkit.SslErrorHandler;
@@ -14,9 +17,11 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
@@ -24,38 +29,104 @@ import com.babyspace.mamshare.basement.BaseCompatActivity;
 import com.michael.library.debug.L;
 import com.michael.library.widget.custom.MichaelScrollView;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+import butterknife.OnClick;
+
 public class GuidanceDetailActivity extends BaseCompatActivity implements MichaelScrollView.OnScrollListener {
     private static final String JS_OBJECT_NAME = "MamaShareApp";
     private static final String TAG = "GuidanceDetailActivity";
     private static final int ANDROID = 2;
     private static final String JAVASCRIPT_PREFIX = "javascript:";
+    @InjectView(R.id.common_title_text)
+    TextView commonTitleText;
+    @InjectView(R.id.bottom_collect)
+    TextView bottomCollect;
+    @InjectView(R.id.bottom_like)
+    TextView bottomLike;
     private ProgressBar progressBar;
     private boolean clearHistory = false;
     private WebView webView;
 
     private Toolbar mToolbar;
-    private ImageButton mFabButton;
-    private MichaelScrollView my_scrollView;
+    private LinearLayout bottom_bar_container;
+    private ScrollView my_scrollView;
     private int lastStrollState = 0;
     boolean isViewShow = true;
 
     RelativeLayout common_title;
+
+    private int mMotionY;
+    Animation up;
+
+    Animation dowm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppThemeRed);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guidance_detail);
+        ButterKnife.inject(this);
+
+
 
         //initToolbar();
-        mFabButton = (ImageButton) findViewById(R.id.fabButton);
+        bottom_bar_container = (LinearLayout) findViewById(R.id.bottom_bar_container);
         webView = (WebView) findViewById(R.id.html5_body);
         progressBar = (ProgressBar) findViewById(R.id.html5_pb);
 
         common_title = (RelativeLayout) findViewById(R.id.common_title);
 
-        my_scrollView = (MichaelScrollView) findViewById(R.id.my_scrollView);
-        my_scrollView.setOnScrollListener(this);
+        my_scrollView = (ScrollView) findViewById(R.id.my_scrollView);
+//        my_scrollView.setOnScrollListener(this);
+
+
+        // bar 向上的动画
+        up = AnimationUtils.loadAnimation(GuidanceDetailActivity.this,
+                R.anim.y_from100_to0);
+        // bar 向下的动画
+        dowm = AnimationUtils.loadAnimation(GuidanceDetailActivity.this,
+                R.anim.y_from0_to100);
+
+        my_scrollView.setOnTouchListener(new View.OnTouchListener() {
+
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+
+                // 记录点击时 y 的坐标
+                int y = (int) event.getY();
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        // 第一次点击是 ACTION_DOWN 事件，把值保存起来
+                        mMotionY = y;
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        // 当你滑动屏幕时是 ACTION_MOVE 事件，在这里做逻辑处理
+                        // （y - mMotionY） 的正负就代表了 向上和向下
+                        if ((y - mMotionY) > 10) {
+
+
+                            showViews();
+//                            if (view2.getVisibility() == View.GONE) {
+//                                view2.startAnimation(up);
+//                                view2.setVisibility(View.VISIBLE);
+//                            }
+                        } else if((y - mMotionY) < -10) {
+                            hideViews();
+//                            if (view2.getVisibility() == View.VISIBLE) {
+//                                view2.startAnimation(dowm);
+//                                view2.setVisibility(View.GONE);
+//                            }
+                        }
+                        mMotionY = y;
+                        break;
+                }
+                return false;
+
+            }
+        });
 
         initWebViewSettings();
     }
@@ -67,20 +138,71 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
         mToolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
     }
 
-    private void hideViews() {
-        common_title.animate().translationY(-common_title.getHeight()).setInterpolator(new AccelerateInterpolator(2));
 
-        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) mFabButton.getLayoutParams();
-        int fabBottomMargin = lp.bottomMargin;
-        mFabButton.animate().translationY(mFabButton.getHeight() + fabBottomMargin).setInterpolator(new AccelerateInterpolator(2)).start();
-        isViewShow = false;
+    @OnClick({R.id.common_title_left,R.id.bottom_collect,R.id.bottom_like})
+    public void doOnClick(View view ){
+
+        switch (view.getId()){
+            case R.id.common_title_left:
+
+                GuidanceDetailActivity.this.finish();
+                break;
+            case R.id.bottom_collect:
+
+
+                break;
+            case R.id.bottom_like:
+                break;
+
+
+        }
+
+
+
+    }
+
+    private void hideViews() {
+
+        if (bottom_bar_container.isShown()){
+            bottom_bar_container.setAnimation(dowm);
+
+            bottom_bar_container.setVisibility(View.GONE);
+        }
+
+        if (common_title.isShown()){
+            common_title.setAnimation(up);
+
+            common_title.setVisibility(View.GONE);
+        }
+
+
+//        common_title.animate().translationY(-common_title.getHeight()).setInterpolator(new AccelerateInterpolator(2));
+//
+//        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) bottom_bar_container.getLayoutParams();
+//        int fabBottomMargin = lp.bottomMargin;
+//        bottom_bar_container.animate().translationY(bottom_bar_container.getHeight() + fabBottomMargin).setInterpolator(new AccelerateInterpolator(2)).start();
+//        isViewShow = false;
     }
 
 
     private void showViews() {
-        common_title.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
-        mFabButton.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
-        isViewShow = true;
+
+        if (!bottom_bar_container.isShown()){
+            bottom_bar_container.setAnimation(up);
+
+            bottom_bar_container.setVisibility(View.VISIBLE);
+        }
+
+        if (!common_title.isShown()){
+            common_title.setAnimation(dowm);
+
+            common_title.setVisibility(View.VISIBLE);
+        }
+
+
+//        common_title.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
+//        bottom_bar_container.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
+//        isViewShow = true;
 
     }
 
