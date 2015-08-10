@@ -55,5 +55,8 @@
     <!--个人中心页面攻略  评测背景-->
     <color name="user_center_guidance_bg">#ECDEBB</color>
 
+    <!--个人中心页面攻略  评测背景-->
+    <color name="light_gray">#ECECEC</color>
+
 
 </resources>
