@@ -32,7 +32,7 @@
     <RelativeLayout
         android:id="@+id/cover_container"
         android:layout_width="match_parent"
-        android:layout_height="600px"
+        android:layout_height="720px"
         android:layout_below="@+id/tv_desc"
         android:background="@color/yellow">
 

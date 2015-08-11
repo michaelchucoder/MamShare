@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="680px"
-    android:layout_height="1000px"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:background="@color/white"
-    android:orientation="vertical"
-    android:padding="20px">
+    android:gravity="center"
+    android:padding="30px">
 
     <com.michael.library.widget.roundimage.RoundImageViewByXfermode
         android:id="@+id/iv_guidance"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:borderRadius="10px"
-        android:scaleType="centerCrop"
-
-        app:type="round"
+        android:layout_width="680px"
+        android:layout_height="904px"
+        android:scaleType="fitCenter"
         android:src="@drawable/example"
-         />
+        android:layout_centerInParent="true"
+        app:borderRadius="15px"
+        app:type="round" />
 
 </RelativeLayout>

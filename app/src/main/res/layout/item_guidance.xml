@@ -10,7 +10,9 @@
         android:id="@+id/iv_cover"
         android:layout_width="300px"
         android:layout_height="300px"
-        android:src="@color/yellow" />
+
+        android:scaleType="center"
+        android:src="@drawable/example" />
 
     <Button
         android:id="@+id/btn_like"

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/material_blue_grey_800"
+    android:background="@drawable/shape_white1_corners10"
     android:orientation="vertical"
     android:padding="20px">
 
@@ -10,7 +10,9 @@
         android:id="@+id/iv_cover"
         android:layout_width="180px"
         android:layout_height="180px"
-        android:layout_marginTop="20px">
+
+        android:scaleType="center"
+        >
 
     </ImageView>
 
@@ -19,8 +21,11 @@
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/yellow"
-        android:text="我是标题大人" />
+
+        android:singleLine="true"
+
+        android:textColor="@color/login_hint_color"
+        android:text="" />
 
 
 </LinearLayout>
