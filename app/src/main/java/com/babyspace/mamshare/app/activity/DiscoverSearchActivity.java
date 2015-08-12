@@ -3,6 +3,8 @@ package com.babyspace.mamshare.app.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.fragment.DiscoverSearchFragment;
@@ -17,6 +19,9 @@ public class DiscoverSearchActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_discover_search);
+
+
+        getIntent().getStringExtra("tag");
         if (getActionBar() != null) getActionBar().hide();
 
         if (findViewById(R.id.fragment_container) != null) {
@@ -38,12 +43,15 @@ public class DiscoverSearchActivity extends BaseActivity {
     public void doOnClick(View view) {
         switch (view.getId()) {
             case R.id.ll_label_search:
+
+                break;
             case R.id.tv_label_search:
                 Intent i = new Intent(this, RecommendTagActivity.class);
                 startActivity(i);
                 break;
             case R.id.back:
                 onBackPressed();
+
                 break;
         }
     }
