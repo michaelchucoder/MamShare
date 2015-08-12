@@ -212,17 +212,23 @@ public class  GridViewGuidanceFragment extends BaseFragment implements SwipeRefr
         collectParameter.addProperty("start", 0);
 
 
-        JsonObject searchParameter = new JsonObject();
 
-        searchParameter.addProperty("keyword", "");
-        searchParameter.addProperty("orderby", "");
-        searchParameter.addProperty("orderrule", "");
-        searchParameter.addProperty("start", queryStart);
-        searchParameter.addProperty("num", queryNum);
 
         //showLoadingProgress();
         switch (pageFlag) {
             case AppConstants.page_search_guidance:
+                JsonObject searchParameter = new JsonObject();
+
+                L.d("asker","搜索关键词-----------"+getArguments().getString("tag"));
+
+                searchParameter.addProperty("keyword", getArguments().getString("tag"));
+
+                searchParameter.addProperty("orderby", "d");
+                searchParameter.addProperty("orderrule", "id");
+                searchParameter.addProperty("start", queryStart);
+                searchParameter.addProperty("num", queryNum);
+
+
                 if (queryCall != null) queryCall.cancel();
                 queryCall = OkHttpExecutor.query(UrlConstants.Search, searchParameter, SearchResultEvent.class, false, this);
                 break;

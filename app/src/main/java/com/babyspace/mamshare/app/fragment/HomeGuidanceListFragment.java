@@ -255,14 +255,14 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
             data.addAll(responseData);
             isRefreshAdd = false;
         } else {
+
             data = responseData;
             // 有可能刚刷新完 又上滑刷新添加
             isMoreData = true;
             queryStart += queryNum;
         }
 
-        if (queryCount > 2) {
-            data.clear();
+        if (data.size()==0&&!isRefreshAdd) {
             mSwipeLayout.setVisibility(View.GONE);
         } else {
             mSwipeLayout.setVisibility(View.VISIBLE);
