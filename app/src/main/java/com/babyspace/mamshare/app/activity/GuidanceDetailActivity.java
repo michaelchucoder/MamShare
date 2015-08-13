@@ -6,17 +6,14 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.DecelerateInterpolator;
 import android.webkit.JavascriptInterface;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -25,11 +22,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
+import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.BaseCompatActivity;
+import com.babyspace.mamshare.bean.DefaultResponseEvent;
+import com.babyspace.mamshare.bean.HomeGuidance;
+import com.babyspace.mamshare.commons.UrlConstants;
+import com.google.gson.JsonObject;
+import com.michael.core.okhttp.OkHttpExecutor;
 import com.michael.library.debug.L;
 import com.michael.library.widget.custom.MichaelScrollView;
 
-import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
@@ -56,21 +58,40 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
 
     RelativeLayout common_title;
 
+    /**
+     * 记录手指点下的Y坐标
+     */
     private int mMotionY;
-    Animation up;
 
+    /**
+     * 向上动画
+     */
+    Animation up;
+    /**
+     * 向下动画
+     */
     Animation dowm;
+
+    private HomeGuidance guidance;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppThemeRed);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guidance_detail);
-        ButterKnife.inject(this);
 
+
+//        guidanceId = getIntent().getb.getLongExtra("guidance", -1);
+
+       guidance = (HomeGuidance) getIntent().getExtras().getSerializable("guidance");
 
 
         //initToolbar();
+        initView();
+    }
+
+    private void initView() {
         bottom_bar_container = (LinearLayout) findViewById(R.id.bottom_bar_container);
         webView = (WebView) findViewById(R.id.html5_body);
         progressBar = (ProgressBar) findViewById(R.id.html5_pb);
@@ -113,7 +134,7 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
 //                                view2.startAnimation(up);
 //                                view2.setVisibility(View.VISIBLE);
 //                            }
-                        } else if((y - mMotionY) < -10) {
+                        } else if ((y - mMotionY) < -10) {
                             hideViews();
 //                            if (view2.getVisibility() == View.VISIBLE) {
 //                                view2.startAnimation(dowm);
@@ -139,37 +160,132 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
     }
 
 
-    @OnClick({R.id.common_title_left,R.id.bottom_collect,R.id.bottom_like})
-    public void doOnClick(View view ){
+    @OnClick({R.id.common_title_left, R.id.bottom_collect, R.id.bottom_like})
+    public void doOnClick(View view) {
 
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.common_title_left:
 
                 GuidanceDetailActivity.this.finish();
                 break;
             case R.id.bottom_collect:
 
+                doCollect();
+
 
                 break;
             case R.id.bottom_like:
+                doLike();
                 break;
 
 
         }
 
+
+    }
+
+    /**
+     *点赞
+     */
+    private void doLike() {
+
+        JsonObject jsonParameter = new JsonObject();
+
+        jsonParameter.addProperty("articleId", guidance.guidanceId);
+        jsonParameter.addProperty("articleType", 1);
+
+
+        OkHttpExecutor.query(UrlConstants.StrategyPraise, jsonParameter, DefaultResponseEvent.class, false, this);
+
+    }
+
+    /**
+     * 收藏
+     */
+    private void doCollect() {
+
+        JsonObject jsonParameter = new JsonObject();
+
+        jsonParameter.addProperty("articleID", guidance.guidanceId);
+        jsonParameter.addProperty("collectionType", 1);
+
+        jsonParameter.addProperty("userID", 12296568);
+
+        OkHttpExecutor.query(UrlConstants.AddCollection, jsonParameter, DefaultResponseEvent.class, false, this);
+
+
+    }
+
+    /**
+     * EventBus 响应事件
+     *
+     * @param event
+     */
+    public void onEventMainThread(DefaultResponseEvent event) {
+        hideLoadingProgress();
+        L.d(OkHttpExecutor.TAG, "GuidanceDetailActivity---onEventMainThread->" + event.getResultStr());
+
+        if ("1200".equals(event.getCode())) {
+
+
+            if(event.getUrl().endsWith(UrlConstants.AddCollection)){
+                switch (event.getData()) {
+                    case "1":
+
+                        ToastHelper.showToast(GuidanceDetailActivity.this, "收藏成功");
+                        break;
+
+                    case "0":
+                        ToastHelper.showToast(GuidanceDetailActivity.this, "收藏失败");
+                        break;
+                    case "-1":
+
+                        ToastHelper.showToast(GuidanceDetailActivity.this, "已收藏过");
+                        break;
+
+
+                }
+
+
+            }else if(event.getUrl().endsWith(UrlConstants.StrategyPraise)){
+
+                switch (event.getData()) {
+                    case "1":
+
+                        ToastHelper.showToast(GuidanceDetailActivity.this, "点赞成功");
+                        break;
+
+                    case "0":
+                        ToastHelper.showToast(GuidanceDetailActivity.this, "点赞失败");
+                        break;
+                    case "-1":
+
+                        ToastHelper.showToast(GuidanceDetailActivity.this, "已点赞过");
+                        break;
+
+
+                }
+
+
+
+            }
+
+
+
+        }
 
 
     }
 
     private void hideViews() {
 
-        if (bottom_bar_container.isShown()){
+        if (bottom_bar_container.isShown()) {
             bottom_bar_container.setAnimation(dowm);
 
             bottom_bar_container.setVisibility(View.GONE);
         }
 
-        if (common_title.isShown()){
+        if (common_title.isShown()) {
             common_title.setAnimation(up);
 
             common_title.setVisibility(View.GONE);
@@ -187,13 +303,13 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
 
     private void showViews() {
 
-        if (!bottom_bar_container.isShown()){
+        if (!bottom_bar_container.isShown()) {
             bottom_bar_container.setAnimation(up);
 
             bottom_bar_container.setVisibility(View.VISIBLE);
         }
 
-        if (!common_title.isShown()){
+        if (!common_title.isShown()) {
             common_title.setAnimation(dowm);
 
             common_title.setVisibility(View.VISIBLE);
@@ -253,7 +369,11 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
         webView.setWebViewClient(new Html5WebViewClient());
         String url = "file:///android_asset/index.html";
         L.d(TAG + "->loadUrl->" + url);
-        webView.loadUrl(url);
+
+        if(guidance!=null){
+            webView.loadUrl(guidance.pageUrl);
+        }
+
     }
 
     /**
