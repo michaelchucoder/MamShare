@@ -1,37 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="330px"
-    android:layout_height="330px"
-    android:background="@color/pink_mama_bg"
-    android:orientation="vertical"
-    android:padding="20px">
+    android:layout_width="300px"
+    android:layout_height="380px"
+    android:background="@drawable/item_evaluate_bg"
+    android:padding="2dp">
 
     <ImageView
         android:id="@+id/iv_cover"
-        android:layout_width="250px"
-        android:layout_height="250px"
+        android:layout_width="match_parent"
+        android:layout_height="300px"
         android:layout_centerHorizontal="true"
-        android:src="@color/yellow" />
+        android:scaleType="center"
+        android:src="@drawable/example" />
+
 
     <TextView
         android:id="@+id/tv_title"
-        android:layout_width="250px"
-        android:layout_height="100px"
+        android:layout_width="220px"
+        android:layout_height="80px"
         android:layout_below="@+id/iv_cover"
         android:gravity="center"
         android:text="标题" />
 
-
-    <Button
+    <TextView
         android:id="@+id/btn_like"
-        android:layout_width="50px"
-        android:layout_height="50px"
+        android:layout_width="80px"
+        android:layout_height="80px"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="20px"
-        android:background="@drawable/shape_rounded_rectangle"
-        android:text="45">
+        android:background="@null"
+        android:drawableTop="@drawable/heart_normal"
+        android:gravity="center"
+        android:text="45"
+        android:textSize="25px">
 
-    </Button>
+    </TextView>
+
 
 </RelativeLayout>

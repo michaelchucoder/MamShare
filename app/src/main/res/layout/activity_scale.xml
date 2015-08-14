@@ -74,7 +74,6 @@
                 android:id="@+id/iv_avatar"
                 android:layout_width="100px"
                 android:layout_height="100px"
-                android:layout_centerHorizontal="true"
                 android:scaleType="fitXY"
                 android:src="@drawable/user_default_avatar"
                 imagecontrol:border_outside_color="#ffdcd4d9"
