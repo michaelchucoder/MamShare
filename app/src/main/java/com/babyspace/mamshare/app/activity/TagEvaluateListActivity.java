@@ -7,6 +7,7 @@ import android.view.View;
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.app.fragment.TagEvaluateListFragment;
+import com.babyspace.mamshare.bean.Tags;
 import com.babyspace.mamshare.commons.AppConstants;
 import com.michael.library.debug.L;
 import com.michael.library.widget.ParallaxToolbar.BaseActivity;
@@ -25,12 +26,16 @@ public class TagEvaluateListActivity extends BaseActivity implements ObservableS
     private ObservableScrollView mScrollView;
     private int mParallaxImageHeight;
 
+    private Tags tags;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tag_evaluate_list);
 
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+
+        tags = (Tags) getIntent().getExtras().getSerializable("data");
 
         /**
          * 动态设置label

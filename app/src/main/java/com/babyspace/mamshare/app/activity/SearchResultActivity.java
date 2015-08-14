@@ -38,6 +38,8 @@ public class SearchResultActivity extends BaseActivity implements ViewPager.OnPa
 
     private ViewPager mPager;
 
+    private String tag;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +49,8 @@ public class SearchResultActivity extends BaseActivity implements ViewPager.OnPa
     }
 
     private void initView() {
+
+       tag = getIntent().getStringExtra("tag");
         mPager = (ViewPager) findViewById(R.id.pager);
         MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(adapter);
@@ -136,7 +140,14 @@ public class SearchResultActivity extends BaseActivity implements ViewPager.OnPa
         BaseFragment[] fragments = {GridViewGuidanceFragment.newInstance(AppConstants.page_search_guidance), GridViewEvaluateFragment.newInstance(AppConstants.page_search_evaluate)};
 
         public MyPagerAdapter(FragmentManager fm) {
+
             super(fm);
+
+            Bundle bundle = new Bundle();
+
+            bundle.putString("tag",tag);
+
+            fragments[0].setArguments(bundle);
         }
 
         @Override

@@ -86,10 +86,10 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
     private void initView() {
 
 
-        mSwipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
-        mSwipeLayout.setOnRefreshListener(this);
-        mSwipeLayout.setColorSchemeResources(android.R.color.holo_red_dark,
-                android.R.color.holo_red_light);
+//        mSwipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
+//        mSwipeLayout.setOnRefreshListener(this);
+//        mSwipeLayout.setColorSchemeResources(android.R.color.holo_red_dark,
+//                android.R.color.holo_red_light);
 
 //        mHeader = View.inflate(this, R.layout.common_title_layout, null);
 //        mFooter = View.inflate(this, R.layout.common_refresh_footer, null);
@@ -158,12 +158,12 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
     private void queryData() {
         //mSwipeLayout.setRefreshing(true);
 
-        ++queryCount;
+//        ++queryCount;
 //        footerProgressBar.setVisibility(View.VISIBLE);
 //        footerText.setText("正在加载...");
 
         // 如果是更新策略 则 Start为置为0
-        if (!isRefreshAdd) queryStart = 0;
+//        if (!isRefreshAdd) queryStart = 0;
 
         JsonObject jsonParameter = new JsonObject();
 
@@ -227,6 +227,13 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
             public void onClick(View v) {
                 // TODO Auto-generated method stub
 //                Toast.makeText(RecommendTagActivity.this, tv.getText().toString(), 0).show();
+
+                Intent intent = new Intent(RecommendTagActivity.this,SearchResultActivity.class);
+                intent.putExtra("tag",tv.getText().toString());
+
+                startActivity(intent);
+
+
             }
         });
     }
@@ -237,7 +244,7 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
      * @param event
      */
     public void onEventMainThread(HotWordEvent event) {
-        mSwipeLayout.setRefreshing(false);
+//        mSwipeLayout.setRefreshing(false);
         hideLoadingProgress();
         L.d(OkHttpExecutor.TAG, "onEventMainThread-HotWordEvent>" + event.getResultStr());
         List<String> responseData = event.getData();
@@ -272,12 +279,12 @@ public class RecommendTagActivity extends BaseActivity implements SwipeRefreshLa
 
     @Override
     public void onRefresh() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mSwipeLayout.setRefreshing(false);
-            }
-        }, 2000);
-        queryData();
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                mSwipeLayout.setRefreshing(false);
+//            }
+//        }, 2000);
+//        queryData();
     }
 }

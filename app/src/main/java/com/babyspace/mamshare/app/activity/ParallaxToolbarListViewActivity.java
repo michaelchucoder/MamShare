@@ -54,6 +54,8 @@ public class ParallaxToolbarListViewActivity extends BaseActivity implements Obs
     private ObservableListView listView;
     private int mParallaxImageHeight;
 
+
+
     private int firstVisiblePosition;
     private final int BACK_TOP_COUNT = 5;
 
