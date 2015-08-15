@@ -13,8 +13,8 @@ import java.util.List;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class UserEvaluate {
-    @SerializedName("user")
-    public UserInfo userInfo;
-    @SerializedName("eval")
+    @SerializedName("User")
+    public User user;
+    @SerializedName("Eval")
     public List<Evaluate> evalList;
 }
