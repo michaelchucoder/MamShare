@@ -26,6 +26,7 @@ import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.BaseCompatActivity;
 import com.babyspace.mamshare.bean.DefaultResponseEvent;
 import com.babyspace.mamshare.bean.HomeGuidance;
+import com.babyspace.mamshare.commons.IntentParams;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.google.gson.JsonObject;
 import com.michael.core.okhttp.OkHttpExecutor;
@@ -84,7 +85,7 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
 
 //        guidanceId = getIntent().getb.getLongExtra("guidance", -1);
 
-       guidance = (HomeGuidance) getIntent().getExtras().getSerializable("guidance");
+       guidance = (HomeGuidance) getIntent().getExtras().getSerializable(IntentParams.guidance);
 
 
         //initToolbar();
@@ -227,7 +228,6 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
 
         if ("1200".equals(event.getCode())) {
 
-
             if(event.getUrl().endsWith(UrlConstants.AddCollection)){
                 switch (event.getData()) {
                     case "1":
@@ -242,7 +242,6 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
 
                         ToastHelper.showToast(GuidanceDetailActivity.this, "已收藏过");
                         break;
-
 
                 }
 
@@ -335,7 +334,7 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
     public void onScrollUp() {
         hideViews();
 
-        Log.d("onScroll", "scrollY " + "onScrollUp");
+        L.d("onScroll", "scrollY " + "onScrollUp");
 
     }
 
@@ -343,7 +342,7 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
     public void onScrollDown() {
         showViews();
 
-        Log.d("onScroll", "scrollY " + "onScrollDown");
+        L.d("onScroll", "scrollY " + "onScrollDown");
 
     }
 
