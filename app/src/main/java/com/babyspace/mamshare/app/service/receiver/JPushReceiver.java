@@ -7,6 +7,11 @@ import android.os.Bundle;
 import android.text.TextUtils;
 
 import com.babyspace.mamshare.app.activity.SplashActivity;
+import com.babyspace.mamshare.bean.DefaultResponseEvent;
+import com.babyspace.mamshare.commons.UrlConstants;
+import com.google.gson.JsonObject;
+import com.michael.core.okhttp.OkHttpExecutor;
+import com.michael.core.tools.SPrefUtil;
 import com.michael.library.debug.L;
 
 import org.json.JSONException;
@@ -34,6 +39,14 @@ public class JPushReceiver extends BroadcastReceiver {
             String regId = bundle.getString(JPushInterface.EXTRA_REGISTRATION_ID);
             L.d(TAG, "[JPushReceiver] 接收Registration Id : " + regId);
             //TODO send the Registration Id to your server...
+
+            JsonObject jsonParameter = new JsonObject();
+
+            jsonParameter.addProperty("userId", SPrefUtil.getSPref(SPrefUtil.sp_user_id, "0"));
+            jsonParameter.addProperty("cid", regId);
+
+            OkHttpExecutor.query(UrlConstants.UpLoadPushCID, jsonParameter, DefaultResponseEvent.class, false, this);
+
 
         } else if (JPushInterface.ACTION_MESSAGE_RECEIVED.equals(intent.getAction())) {
             L.d(TAG, "[JPushReceiver] 接收到推送下来的自定义消息: " + bundle.getString(JPushInterface.EXTRA_MESSAGE));
