@@ -9,51 +9,57 @@ package com.babyspace.mamshare.bean;
  * To change this template use File | Settings | File and Code Templates.
  */
 
+import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.Serializable;
 import java.util.List;
 
 /**
  * {
- * "Remark": " 又是周末，感觉如果不利用周末的时间玩玩烘焙，就好像这个周末过得不充实一样。",
- * "PraiseNum": 100,
- * "EvalID": 1,
- * "Title": "评测1",
- * "HeadUrl": "http://file.0-6.com/i9zB5eRnPOyEIjdEVLVi5q",
- * "UserID": 101,
- * "MamRoleName": "神奇妈妈",
- * "HeadIcon": "http://file.0-6.com/qX0Nq6Cip4Mw0BeG7FByHc",
- * "Nickname": "月儿",
- * "Tags": [
+ * "remark":"评测摘要评测摘要",
+ * "userID":12296535,
+ * "mamRoleName":"",
+ * "headIcon":"",
+ * "nickname":"",
+ * "tags":[
  * {
- * "TagId": 1,
- * "TagName": "宝宝洗白白"
+ * "tagId":8,
+ * "tagName":"77777"
  * },
  * {
- * "TagId": 2,
- * "TagName": "小编精选"
- * },
- * {
- * "TagId": 3,
- * "TagName": "贝亲"
+ * "tagId":2,
+ * "tagName":"越玩越聪明"
+ * }
+ * ],
+ * "isCollected":false,
+ * "isPraised":false,
+ * "evalID":63,
+ * "title":"tag标签",
+ * "headUrl":"http://file8.m6go.com/y~kynrLsL~yFwtU8M1GbdG;",
+ * "pageUrl":"http://tappweb.0-6.com/appweb/h5link/eval/63",
+ * "praiseNum":1
  * }
  */
 public class HomeEvaluate implements Serializable {
+    private static Gson gson = new Gson();
+
     public Long id;
 
     @SerializedName("evalID")
     public Long evalID;
+
+    @SerializedName("title")
+    public String title;
     @SerializedName("remark")
     public String remark;
     @SerializedName("praiseNum")
     public int likeNum;
-    @SerializedName("title")
-    public String title;
     @SerializedName("headUrl")
     public String headUrl;
     @SerializedName("userID")
-    public int userID;
+    public String userID;
     @SerializedName("mamRoleName")
     public String roleName;
     @SerializedName("headIcon")
@@ -64,7 +70,61 @@ public class HomeEvaluate implements Serializable {
     @SerializedName("tags")
     public List<Tags> tagList;
 
+    private String jsonTagList;
 
+    @SerializedName("isCollected")
+    public String isCollected;
+    @SerializedName("isPraised")
+    public String isPraised;
+
+    public HomeEvaluate(Long id, Long evalID, String title, String remark, int likeNum, String headUrl, String userID, String roleName, String headIcon, String nickName, String jsonTagList, String isCollected, String isPraised) {
+        this.id = id;
+        this.evalID = evalID;
+        this.title = title;
+        this.remark = remark;
+        this.likeNum = likeNum;
+        this.headUrl = headUrl;
+        this.userID = userID;
+        this.roleName = roleName;
+        this.headIcon = headIcon;
+        this.nickName = nickName;
+        this.jsonTagList = jsonTagList;
+        this.tagList = gson.fromJson(jsonTagList, new TypeToken<List<Tags>>() {
+        }.getType());
+        this.isCollected = isCollected;
+        this.isPraised = isPraised;
+    }
+
+    @Override
+    public String toString() {
+        return "HomeEvaluate{" +
+                "id=" + id +
+                ", evalID=" + evalID +
+                ", title='" + title + '\'' +
+                ", remark='" + remark + '\'' +
+                ", likeNum=" + likeNum +
+                ", headUrl='" + headUrl + '\'' +
+                ", userID=" + userID +
+                ", roleName='" + roleName + '\'' +
+                ", headIcon='" + headIcon + '\'' +
+                ", nickName='" + nickName + '\'' +
+                ", tagList=" + tagList +
+                ", jsonTagList='" + getJsonTagList() + '\'' +
+                ", isCollected=" + isCollected +
+                ", isPraised=" + isPraised +
+                '}';
+    }
+
+    public String getJsonTagList() {
+        return gson.toJson(tagList);
+    }
+
+    public void setJsonTagList(String jsonTagList) {
+        this.jsonTagList = jsonTagList;
+        this.tagList = gson.fromJson(jsonTagList, new TypeToken<List<Tags>>() {
+        }.getType());
+
+    }
 }
 
 
