@@ -209,8 +209,8 @@ public class GuidanceDetailActivity extends BaseCompatActivity implements Michae
 
         jsonParameter.addProperty("articleID", guidance.guidanceId);
         jsonParameter.addProperty("collectionType", 1);
-
         jsonParameter.addProperty("userID", 12296568);
+        jsonParameter.addProperty("oper", 1);
 
         OkHttpExecutor.query(UrlConstants.AddCollection, jsonParameter, DefaultResponseEvent.class, false, this);
 

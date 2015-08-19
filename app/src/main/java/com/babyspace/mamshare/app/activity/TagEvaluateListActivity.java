@@ -1,5 +1,6 @@
 package com.babyspace.mamshare.app.activity;
 
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -57,6 +58,8 @@ public class TagEvaluateListActivity extends BaseActivity implements AbsListView
     //控件
     private GridViewWithHeaderAndFooter gridView;
     private Toolbar toolbar;
+
+    private TextView toolbarText;
     private TextView floatTitle;
     private ImageView headerBg;
     //测量值
@@ -149,6 +152,9 @@ public class TagEvaluateListActivity extends BaseActivity implements AbsListView
         gridView = (GridViewWithHeaderAndFooter) findViewById(R.id.gridview_tag_evaluate_list);
         floatTitle = (TextView) findViewById(R.id.tv_title_tag_evaluate_list);
         toolbar = (Toolbar) findViewById(R.id.toolbar_tag_evaluate_list);
+
+        toolbarText = (TextView) findViewById(R.id.toolbar_title);
+
         setSupportActionBar(toolbar);
 
         try{
@@ -290,6 +296,8 @@ public class TagEvaluateListActivity extends BaseActivity implements AbsListView
     public void onDownMotionEvent() {
         L.d("LabelEvaluateListActivity", "onDownMotionEvent ");
 
+
+
     }
 
 
@@ -321,11 +329,11 @@ public class TagEvaluateListActivity extends BaseActivity implements AbsListView
 
         /*** 标题文字处理 ***/
         //标题文字缩放圆心（X轴）
-        floatTitle.setPivotX(floatTitle.getLeft() + floatTitle.getPaddingLeft());
+//        floatTitle.setPivotX(floatTitle.getLeft() + floatTitle.getPaddingLeft());
         //标题文字缩放比例
         float titleScale = floatTitleSize / floatTitleSizeLarge;
         //标题文字X轴偏移
-        floatTitle.setTranslationX(floatTitleLeftMargin * offset);
+//        floatTitle.setTranslationX(floatTitleLeftMargin * offset);
         //标题文字Y轴偏移：（-缩放高度差 + 大文字与小文字高度差）/ 2 * 变化率 + Y轴滑动偏移
         floatTitle.setTranslationY(
                 (-(floatTitle.getHeight() - minHeaderHeight) +//-缩放高度差
@@ -339,10 +347,14 @@ public class TagEvaluateListActivity extends BaseActivity implements AbsListView
 
         //判断标题文字的显示
         if (scrollY > headerBarOffsetY) {
-            toolbar.setTitle(tags.tagName);
+            toolbar.setTitle("");
+
+            toolbarText.setText(floatTitle.getText());
             floatTitle.setVisibility(View.GONE);
         } else {
             toolbar.setTitle("");
+
+            toolbarText.setText("");
             floatTitle.setVisibility(View.VISIBLE);
         }
     }

@@ -1,5 +1,6 @@
 package com.babyspace.mamshare.app.activity;
 
+import android.graphics.Color;
 import android.net.http.SslError;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.babyspace.mamshare.R;
@@ -21,10 +23,12 @@ import com.michael.library.widget.ParallaxToolbar.observablescrollview.Observabl
 import com.michael.library.widget.ParallaxToolbar.observablescrollview.ObservableScrollViewCallbacks;
 import com.michael.library.widget.ParallaxToolbar.observablescrollview.ScrollState;
 import com.michael.library.widget.ParallaxToolbar.observablescrollview.ScrollUtils;
+import com.michael.library.widget.custom.ListenerScrollView;
+import com.michael.library.widget.custom.MichaelScrollView;
 import com.nineoldandroids.view.ViewHelper;
 
 
-public class EvaluateDetailActivity extends BaseCompatActivity implements ObservableScrollViewCallbacks {
+public class EvaluateDetailActivity extends BaseCompatActivity implements ListenerScrollView.OnScrollListener, ObservableScrollViewCallbacks {
 
     private static final String JS_OBJECT_NAME = "MamaShareApp";
     private static final String TAG = "EvaluateDetailActivity";
@@ -35,30 +39,40 @@ public class EvaluateDetailActivity extends BaseCompatActivity implements Observ
 
     private View mImageView;
     //private View mToolbarView;
+//    private ListenerScrollView mScrollView;
+
+
     private ObservableScrollView mScrollView;
+
+
     private int mParallaxImageHeight;
 
     private WebView webView;
     private RelativeLayout common_title;
+    private TextView common_title_text;
+
+    private TextView mTvDetailTitle;
+
+    /***************************************/
+
+    //测量值
+    private float headerHeight;//顶部高度
+    private float minHeaderHeight;//顶部最低高度，即Bar的高度
+    private float floatTitleLeftMargin;//header标题文字左偏移量
+    private float floatTitleSize;//header标题文字大小
+    private float floatTitleSizeLarge;//header标题文字大小（大号）
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_evaluate_detail);
+//        setContentView(R.layout.activity_evaluate_detail);
+        setContentView(R.layout.header_evaluate_detail);
+
+        initMeasure();
 
         //setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
 
-        webView = (WebView) findViewById(R.id.html5_body);
-        progressBar = (ProgressBar) findViewById(R.id.html5_pb);
-        mImageView = findViewById(R.id.image);
-        common_title = (RelativeLayout) findViewById(R.id.common_title);
-        //mToolbarView = findViewById(R.id.toolbar);
-        common_title.setBackgroundColor(ScrollUtils.getColorWithAlpha(0, getResources().getColor(R.color.primary)));
-
-        mScrollView = (ObservableScrollView) findViewById(R.id.scroll);
-        mScrollView.setScrollViewCallbacks(this);
-
-        mParallaxImageHeight = getResources().getDimensionPixelSize(R.dimen.parallax_image_height);
+        initView();
 
         initWebViewSettings();
 
@@ -77,22 +91,107 @@ public class EvaluateDetailActivity extends BaseCompatActivity implements Observ
         }
     }
 
+    private void initView() {
+
+        mTvDetailTitle = (TextView) findViewById(R.id.detail_title);
+
+        common_title_text = (TextView) findViewById(R.id.common_title_text);
+
+        webView = (WebView) findViewById(R.id.html5_body);
+        progressBar = (ProgressBar) findViewById(R.id.html5_pb);
+        mImageView = findViewById(R.id.image);
+        common_title = (RelativeLayout) findViewById(R.id.common_title);
+        //mToolbarView = findViewById(R.id.toolbar);
+        common_title.setBackgroundColor(ScrollUtils.getColorWithAlpha(0, getResources().getColor(R.color.primary)));
+
+        mScrollView = (ObservableScrollView) findViewById(R.id.detail_scrollview);
+        mScrollView.setScrollViewCallbacks(this);
+
+//        mScrollView.setOnScrollListener(this);
+
+        mParallaxImageHeight = getResources().getDimensionPixelSize(R.dimen.parallax_image_height);
+    }
+
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        onScrollChanged(mScrollView.getCurrentScrollY(), false, false);
+//        onScrollChanged(mScrollView.getCurrentScrollY(), false, false);
+    }
+
+
+    /**
+     * 从资源文件获得宽高
+     */
+    private void initMeasure() {
+        headerHeight = getResources().getDimension(R.dimen.header_height);
+        minHeaderHeight = getResources().getDimension(R.dimen.title_view_height);
+        floatTitleLeftMargin = getResources().getDimension(R.dimen.float_title_left_margin);
+        floatTitleSize = getResources().getDimension(R.dimen.float_title_size);
+        floatTitleSizeLarge = getResources().getDimension(R.dimen.float_title_size_large);
     }
 
     @Override
     public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
-        int baseColor = getResources().getColor(R.color.primary);
-        float alpha = Math.min(1, (float) scrollY / mParallaxImageHeight);
-        common_title.setBackgroundColor(ScrollUtils.getColorWithAlpha(alpha, baseColor));
-        ViewHelper.setTranslationY(mImageView, scrollY / 2);
+
+        L.d("asker", "滑动距离-------" + scrollY);
+//        int baseColor = getResources().getColor(R.color.primary);
+//        float alpha = Math.min(1, (float) scrollY / mParallaxImageHeight);
+//        common_title.setBackgroundColor(ScrollUtils.getColorWithAlpha(alpha, baseColor));
+//        ViewHelper.setTranslationY(mImageView, scrollY / 2);
+
+
+        /*********************************************/
+
+
+        //变化率
+        float headerBarOffsetY = headerHeight - minHeaderHeight;//Toolbar与header高度的差值
+        float offset = 1 - Math.max((headerBarOffsetY - scrollY) / headerBarOffsetY, 0f);
+
+//        Log.d("asker",)
+
+        //Toolbar背景色透明度
+//        toolbar.setBackgroundColor(Color.argb((int) (offset * 255), 0, 0, 0));
+
+        common_title.setBackgroundColor(Color.argb((int) (offset * 255), 0, 0, 0));
+        //header背景图Y轴偏移
+        mImageView.setTranslationY(scrollY / 2);
+
+        /*** 标题文字处理 ***/
+        //标题文字缩放圆心（X轴）
+//        floatTitle.setPivotX(floatTitle.getLeft() + floatTitle.getWidth()/2);
+        //标题文字缩放比例
+        float titleScale = floatTitleSize / floatTitleSizeLarge;
+        //标题文字X轴偏移
+//        floatTitle.setTranslationX(floatTitleLeftMargin * offset);
+        //标题文字Y轴偏移：（-缩放高度差 + 大文字与小文字高度差）/ 2 * 变化率 + Y轴滑动偏移
+        mTvDetailTitle.setTranslationY(
+                (-(mTvDetailTitle.getHeight() - minHeaderHeight) +//-缩放高度差
+                        mTvDetailTitle.getHeight() * (1 - titleScale))//大文字与小文字高度差
+                        / 2 * offset +
+                        (headerHeight - mTvDetailTitle.getHeight()) * (1 - offset));//Y轴滑动偏移
+        //标题文字X轴缩放
+        mTvDetailTitle.setScaleX(1 - offset * (1 - titleScale));
+        //标题文字Y轴缩放
+        mTvDetailTitle.setScaleY(1 - offset * (1 - titleScale));
+
+        //判断标题文字的显示
+        if (scrollY > headerBarOffsetY) {
+
+            common_title_text.setText("Hello World");
+
+            mTvDetailTitle.setVisibility(View.GONE);
+        } else {
+
+            common_title_text.setText("");
+            mTvDetailTitle.setVisibility(View.VISIBLE);
+        }
+
     }
 
     @Override
     public void onDownMotionEvent() {
+
+
     }
 
     @Override
@@ -122,6 +221,14 @@ public class EvaluateDetailActivity extends BaseCompatActivity implements Observ
         String url = "file:///android_asset/index.html";
         L.d(TAG + "->loadUrl->" + url);
         webView.loadUrl(url);
+    }
+
+    @Override
+    public void scrollChangedListener(int x, int t, int oldX, int oldT) {
+
+        L.d("asker", "滑动距离-------" + t + "---------" + oldT);
+
+
     }
 
     /**
