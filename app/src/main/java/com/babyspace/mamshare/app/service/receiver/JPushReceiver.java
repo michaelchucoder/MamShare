@@ -42,7 +42,7 @@ public class JPushReceiver extends BroadcastReceiver {
 
             JsonObject jsonParameter = new JsonObject();
 
-            jsonParameter.addProperty("userId", SPrefUtil.getSPref(SPrefUtil.sp_user_id, "0"));
+            jsonParameter.addProperty("userId", SPrefUtil.getSPref(SPrefUtil.SP_USER_ID, "0"));
             jsonParameter.addProperty("cid", regId);
 
             OkHttpExecutor.query(UrlConstants.UpLoadPushCID, jsonParameter, DefaultResponseEvent.class, false, this);
