@@ -53,9 +53,11 @@
 
 
     <!--妈妈说 float效果-->
-    <dimen name="header_height">320dp</dimen>
+    <dimen name="header_height">560px</dimen>
     <dimen name="min_header_height">56dp</dimen>
     <dimen name="float_title_left_margin">44dp</dimen>
-    <dimen name="float_title_size">20dp</dimen>
+    <dimen name="float_title_size">20sp</dimen>
     <dimen name="float_title_size_large">36sp</dimen>
+
+
 </resources>
