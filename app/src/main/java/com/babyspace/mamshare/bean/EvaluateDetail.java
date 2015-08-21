@@ -116,6 +116,14 @@ public class EvaluateDetail implements Serializable {
     @SerializedName("tags")
     public List<Tags> tagList;
 
+
+    @SerializedName("isCollected")
+    public boolean isCollected;
+
+
+    @SerializedName("isPraised")
+    public boolean isPraised;
+
     static class Comment implements Serializable {
         @SerializedName("userID")
         int tagId;

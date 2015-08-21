@@ -198,7 +198,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
                     String auth = json_msg.get("auth").getAsString();
                     String userId = json_msg.get("userId").getAsString();
                     SPrefUtil.putSPref(SPrefUtil.sp_auth, auth);
-                    SPrefUtil.putSPref(SPrefUtil.sp_user_id, userId);
+                    SPrefUtil.putSPref(SPrefUtil.SP_USER_ID, userId);
                     SPrefUtil.putSPref(AUTO_LOGIN, false);// 如果是第三方登录，取消自动登录功能
                     SPrefUtil.putSPref("login_refresh", true);
 
