@@ -4,9 +4,6 @@
     <solid android:color="@color/pregnant_bg" />
 
     <corners
-        android:bottomLeftRadius="110px"
-        android:bottomRightRadius="110px"
-        android:topLeftRadius="110px"
-        android:topRightRadius="110px" />
+        android:radius="55dp" />
 
 </shape>
