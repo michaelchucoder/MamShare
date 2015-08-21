@@ -3,7 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+    <com.michael.library.widget.custom.TitleSearchView
+
+        android:id="@+id/label_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    </com.michael.library.widget.custom.TitleSearchView>
+
+    <!--<RelativeLayout
         android:id="@+id/label_title"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/title_view_height"
@@ -51,7 +60,7 @@
             android:gravity="center"
             android:padding="25px"
             android:text="搜索" />
-    </RelativeLayout>
+    </RelativeLayout>-->
 
     <TextView
         android:id="@+id/hot_search"

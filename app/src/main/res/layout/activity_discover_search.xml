@@ -1,56 +1,72 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <RelativeLayout
+    android:layout_height="match_parent"
+    android:background="@color/light_gray">
+
+    <com.michael.library.widget.custom.TitleSearchView
         android:id="@+id/label_title"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/title_view_height">
 
-        <ImageView
-            android:id="@+id/back"
-            android:layout_width="100px"
-            android:layout_height="match_parent"
-            android:layout_centerVertical="true"
-            android:padding="25px"
-            android:src="@drawable/ic_back" />
+        android:layout_width="match_parent"
+        android:layout_height="100px">
 
-        <LinearLayout
-            android:id="@+id/ll_label_search"
-            android:layout_width="450px"
-            android:layout_height="match_parent"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="40px"
-            android:layout_marginTop="32px"
-            android:background="@drawable/shape_discover_search_bg">
+    </com.michael.library.widget.custom.TitleSearchView>
 
-            <com.michael.library.widget.materialedittext.MaterialEditText
-                android:id="@+id/search_edit"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="0px"
-                android:hint="搜攻略或评测(P5)"
-                android:singleLine="true"
-                android:textSize="24px"
-                app:met_clearButton="true"
-                app:met_hideUnderline="true"
-                app:met_iconLeft="@drawable/activity_home_btn_search"
-                app:met_iconPadding="-20dp" />
+    <!-- <RelativeLayout
+         android:id="@+id/label_title"
+         android:layout_width="wrap_content"
 
-        </LinearLayout>
+         android:background="@color/white"
+         android:layout_height="@dimen/title_view_height">
 
-        <TextView
-            android:id="@+id/tv_label_search"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:gravity="center"
-            android:padding="25px"
-            android:text="搜索" />
-    </RelativeLayout>
+         <ImageView
+             android:id="@+id/back"
+             android:layout_width="100px"
+             android:layout_height="match_parent"
+             android:layout_centerVertical="true"
+             android:padding="25px"
+             android:src="@drawable/ic_back" />
+
+         <LinearLayout
+             android:id="@+id/ll_label_search"
+             android:layout_width="match_parent"
+
+             android:layout_marginLeft="120px"
+
+             android:layout_height="match_parent"
+             android:layout_centerHorizontal="true"
+             android:layout_centerVertical="true"
+             android:layout_marginRight="120px"
+             android:layout_marginTop="32px"
+             android:background="@drawable/shape_discover_search_bg">
+
+             <com.michael.library.widget.materialedittext.MaterialEditText
+                 android:id="@+id/search_edit"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:layout_marginTop="0px"
+                 android:hint="搜攻略或评测(P5)"
+                 android:singleLine="true"
+                 android:textSize="24px"
+                 app:met_clearButton="true"
+                 app:met_hideUnderline="true"
+
+                 app:met_iconLeft="@drawable/abc_ic_search_api_mtrl_alpha"
+                 app:met_iconPadding="-20dp" />
+
+         </LinearLayout>
+
+         <TextView
+             android:id="@+id/tv_label_search"
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:layout_alignParentRight="true"
+             android:layout_centerVertical="true"
+             android:gravity="center"
+             android:padding="25px"
+             android:text="搜索" />
+     </RelativeLayout>-->
 
     <FrameLayout
         android:id="@+id/fragment_container"
