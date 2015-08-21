@@ -10,13 +10,13 @@
 
 
     <EditText
-        android:id="@+id/app_icon"
-        android:layout_width="500px"
-        android:layout_height="300px"
+        android:id="@+id/et_feedback"
+        android:layout_width="600px"
+        android:layout_height="500px"
         android:layout_below="@id/common_title"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20px"
-        android:background="@color/pink_mama_bg"
+        android:background="@drawable/shape_feedback_bg"
         android:text="你的意见或建议是妈妈前进的动力" />
 
 
