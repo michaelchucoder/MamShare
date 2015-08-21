@@ -100,7 +100,6 @@ public class UserProfileFragment extends BaseFragment {
 
         commonTitleRight.setVisibility(View.GONE);
 
-
         commonTitleRightText.setText("保存");
 
         commonTitleText.setText("编辑资料");
@@ -145,7 +144,7 @@ public class UserProfileFragment extends BaseFragment {
     }
 
 
-    @OnClick({R.id.sex_container, R.id.mama_profile_container, R.id.common_title_right_text})
+    @OnClick({R.id.sex_container, R.id.mama_profile_container, R.id.common_title_right_text, R.id.common_title_left})
     public void doOnClick(View view) {
 
         switch (view.getId()) {
@@ -157,17 +156,17 @@ public class UserProfileFragment extends BaseFragment {
 
             case R.id.mama_profile_container:
 
-//                RegisterConstant.WHERE_TO_MAMAROLE = 101;
                 SPrefUtil.putSPref(SPrefUtil.WHERE_TO_MAMAROLE, 101);
 
                 mCallback.onRegisterRoleSelected(new Bundle());
-
 
                 break;
 
             case R.id.common_title_right_text:
 
-
+                break;
+            case R.id.common_title_left:
+                getActivity().onBackPressed();
                 break;
 
         }
@@ -198,6 +197,5 @@ public class UserProfileFragment extends BaseFragment {
 
 
     }
-
 
 }

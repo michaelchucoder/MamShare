@@ -233,6 +233,7 @@ public class HomeEvaluateListFragment extends BaseFragment implements SwipeRefre
         L.d(OkHttpExecutor.TAG, "onEventMainThread-HomeEvaluateListFragment>" + event.getResultStr());
 
         List<HomeEvaluate> responseData = event.getData();
+        L.d(OkHttpExecutor.TAG, "onEventMainThread-HomeEvaluate>" + responseData.get(0).toString());
 
         if (responseData.size() < queryNum) {
             footerProgressBar.setVisibility(View.INVISIBLE);
