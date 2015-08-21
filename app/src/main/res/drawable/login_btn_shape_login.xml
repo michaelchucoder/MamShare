@@ -3,9 +3,6 @@
 
     <solid android:color="@color/login_btn_bg" />
     <corners
-        android:bottomLeftRadius="38px"
-        android:bottomRightRadius="38px"
-        android:topLeftRadius="38px"
-        android:topRightRadius="38px" />
+        android:radius="20dp" />
 
 </shape>
