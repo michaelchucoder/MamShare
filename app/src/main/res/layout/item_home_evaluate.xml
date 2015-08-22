@@ -34,14 +34,16 @@
         android:layout_width="match_parent"
         android:layout_height="720px"
         android:layout_below="@+id/tv_desc"
-        android:background="@color/yellow">
+        >
 
         <ImageView
             android:id="@+id/iv_cover"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
-            android:src="@color/plane_arrive_city" />
+
+            android:scaleType="centerCrop"
+             />
 
         <LinearLayout
             android:id="@+id/mama_role_container"
@@ -105,6 +107,7 @@
                     android:src="@drawable/heart_normal" />
 
                 <TextView
+                    android:id="@+id/item_home_evaluate_like_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/item_home_evaluate_like"
@@ -114,16 +117,6 @@
 
             </RelativeLayout>
 
-            <Button
-                android:id="@+id/btn_like"
-                android:layout_width="50px"
-                android:layout_height="50px"
-                android:visibility="gone"
-                android:layout_gravity="right|bottom"
-                android:background="@drawable/shape_rounded_rectangle"
-                android:text="45">
-
-            </Button>
         </LinearLayout>
 
     </RelativeLayout>
