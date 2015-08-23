@@ -145,6 +145,8 @@ public class RegisterPhoneFragment extends BaseFragment {
         String requestUrl = event.getUrl();
         if (requestUrl.endsWith(UrlConstants.GetVerifyCode)) {
 
+            L.e("asker","获取验证码");
+
             if ("1200".equals(event.getCode())) {
 
 //                hideLoadingProgress();
@@ -163,6 +165,8 @@ public class RegisterPhoneFragment extends BaseFragment {
 
 
         } else if (requestUrl.endsWith(UrlConstants.IsPhoneRegistered)) {
+
+            L.e("asker","验证手机号");
 
 
             if (event.getData().equals("0")) {
@@ -184,7 +188,7 @@ public class RegisterPhoneFragment extends BaseFragment {
     private void getVerifyCode() {
 
 
-        TempData.getInstance().verifyCode = "";
+
         JsonObject jsonParameter = new JsonObject();
 
         jsonParameter.addProperty("phoneNum", phoneNum);

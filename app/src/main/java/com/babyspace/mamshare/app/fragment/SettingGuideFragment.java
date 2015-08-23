@@ -4,18 +4,22 @@ package com.babyspace.mamshare.app.fragment;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.listener.SettingGuideListener;
 
+import butterknife.InjectView;
 import butterknife.OnClick;
 
 
 public class SettingGuideFragment extends BaseFragment {
 
-    SettingGuideListener mCallback;
+    @InjectView(R.id.common_title_text)
+    TextView commonTitleText;
 
+    SettingGuideListener mCallback;
 
     public SettingGuideFragment() {
         // Required empty public constructor
@@ -42,14 +46,17 @@ public class SettingGuideFragment extends BaseFragment {
 
     @Override
     public void initView() {
-
+        commonTitleText.setText("系统设置");
     }
 
 
-    @OnClick({R.id.about_container, R.id.feedback_container})
+    @OnClick({R.id.common_title_left, R.id.about_container, R.id.feedback_container})
     public void doOnClick(View view) {
 
         switch (view.getId()) {
+            case R.id.common_title_left:
+                getActivity().onBackPressed();
+           break;
             case R.id.about_container:
                 mCallback.onSettingAboutSelected();
                 break;
