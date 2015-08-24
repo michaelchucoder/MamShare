@@ -26,10 +26,11 @@ public class Guidance implements Serializable {
     @SerializedName("praiseNum")
     public int likeNum;
     @SerializedName("recommendFlag")
-    private int recommendFlag;
+    public int recommendFlag;
 
+    public int isSelected;   //  默认为0 -1为点击编辑状态 1为选中状态
 
-    public Guidance(Long id, Long guidanceId, String guidanceTitle, String imageUrl, String pageUrl, int likeNum , int recommendFlag) {
+    public Guidance(Long id, Long guidanceId, String guidanceTitle, String imageUrl, String pageUrl, int likeNum, int recommendFlag) {
         this.guidanceId = guidanceId;
         this.guidanceTitle = guidanceTitle;
         this.id = id;

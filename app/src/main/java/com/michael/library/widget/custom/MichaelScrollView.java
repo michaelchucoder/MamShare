@@ -100,12 +100,9 @@ public class MichaelScrollView extends ScrollView {
                 break;
 
 
-
         }
         return super.onTouchEvent(ev);
     }
-
-
 
 
     /**
