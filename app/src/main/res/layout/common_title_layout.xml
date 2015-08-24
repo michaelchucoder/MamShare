@@ -10,7 +10,6 @@
         android:layout_height="100px"
         android:background="@null"
         android:src="@drawable/ic_back"
-
         android:text="左按钮"
         android:textSize="40px" />
 
@@ -40,10 +39,7 @@
         android:layout_alignParentRight="true"
         android:text="右按钮"
         android:textColor="@color/green_mama_bg"
-
         android:textSize="40px"
-
-
         android:visibility="gone" />
 
 </RelativeLayout>
