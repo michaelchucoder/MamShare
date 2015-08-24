@@ -7,8 +7,7 @@
         android:color="@color/green_mama_bg" />
 
     <solid android:color="@color/white" />
-    <corners
-        android:radius="35.5dp" />
+    <corners android:radius="35.5dp" />
 
 
 </shape>
