@@ -55,11 +55,12 @@ public class SettingFeedbackFragment extends BaseFragment {
 
         switch (view.getId()) {
             case R.id.common_title_left:
-                if(getActivity().getSupportFragmentManager().getBackStackEntryCount() == 0){
+                if (getActivity().getSupportFragmentManager().getBackStackEntryCount() == 0) {
                     getActivity().onBackPressed();
-                }else{
+                } else {
                     getActivity().getSupportFragmentManager().popBackStack();
-                }                break;
+                }
+                break;
             case R.id.common_title_right_text:
                 queryData();
                 break;

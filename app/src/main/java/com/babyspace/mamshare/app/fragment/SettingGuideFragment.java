@@ -56,7 +56,7 @@ public class SettingGuideFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.common_title_left:
                 getActivity().onBackPressed();
-           break;
+                break;
             case R.id.about_container:
                 mCallback.onSettingAboutSelected();
                 break;

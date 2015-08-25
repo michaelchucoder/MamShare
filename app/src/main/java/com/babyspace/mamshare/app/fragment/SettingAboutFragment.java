@@ -3,7 +3,6 @@ package com.babyspace.mamshare.app.fragment;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.babyspace.mamshare.R;
@@ -37,9 +36,9 @@ public class SettingAboutFragment extends BaseFragment {
 
         switch (view.getId()) {
             case R.id.common_title_left:
-                if(getActivity().getSupportFragmentManager().getBackStackEntryCount() == 0){
+                if (getActivity().getSupportFragmentManager().getBackStackEntryCount() == 0) {
                     getActivity().onBackPressed();
-                }else{
+                } else {
                     getActivity().getSupportFragmentManager().popBackStack();
                 }
                 break;
