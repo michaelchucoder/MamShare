@@ -28,17 +28,17 @@ public class TestActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-        sc=new ServiceConnection() {
+        sc = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
-                LocalService.LocalBinder mBinder = (LocalService.LocalBinder)service;
+                LocalService.LocalBinder mBinder = (LocalService.LocalBinder) service;
                 L.d(TAG, "30 + 5 = " + mBinder.add(30, 5));
                 L.d(TAG, mBinder.getService().toString());
             }
 
             @Override
             public void onServiceDisconnected(ComponentName name) {
-                L.d(TAG, "onServiceDisconnected "+name.toString());
+                L.d(TAG, "onServiceDisconnected " + name.toString());
 
             }
         };
@@ -86,11 +86,10 @@ public class TestActivity extends BaseActivity {
             public void onClick(View v) {
 
                 //TODO service
-                if(isBind){
+                if (isBind) {
                     unbindService(sc);
                     isBind = false;
                 }
-
 
 
                 bottomTextEt.setError("2-line\nError!");
