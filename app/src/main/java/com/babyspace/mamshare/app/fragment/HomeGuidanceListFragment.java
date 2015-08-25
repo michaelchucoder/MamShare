@@ -262,7 +262,7 @@ public class HomeGuidanceListFragment extends BaseFragment implements SwipeRefre
             queryStart += queryNum;
         }
 
-        if (data.size()==0&&!isRefreshAdd) {
+        if (data.size() == 0 && !isRefreshAdd) {
             mSwipeLayout.setVisibility(View.GONE);
         } else {
             mSwipeLayout.setVisibility(View.VISIBLE);

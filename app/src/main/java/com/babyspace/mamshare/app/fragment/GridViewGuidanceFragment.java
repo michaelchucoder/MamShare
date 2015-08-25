@@ -37,7 +37,7 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 
-public class  GridViewGuidanceFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
+public class GridViewGuidanceFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 
     private static final String PAGE_FLAG = "pageFlag";
     private static int pageFlag;
@@ -212,14 +212,12 @@ public class  GridViewGuidanceFragment extends BaseFragment implements SwipeRefr
         collectParameter.addProperty("start", 0);
 
 
-
-
         //showLoadingProgress();
         switch (pageFlag) {
             case AppConstants.page_search_guidance:
                 JsonObject searchParameter = new JsonObject();
 
-                L.d("asker","搜索关键词-----------"+getArguments().getString("tag"));
+                L.d("asker", "搜索关键词-----------" + getArguments().getString("tag"));
 
                 searchParameter.addProperty("keyword", getArguments().getString("tag"));
 
