@@ -40,6 +40,8 @@
         android:text="右按钮"
         android:textColor="@color/green_mama_bg"
         android:textSize="40px"
+        android:gravity="center"
+        android:layout_marginRight="10px"
         android:visibility="gone" />
 
 </RelativeLayout>
