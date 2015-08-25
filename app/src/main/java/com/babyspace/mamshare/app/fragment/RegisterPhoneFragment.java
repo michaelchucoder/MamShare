@@ -13,7 +13,6 @@ import com.babyspace.mamshare.app.dialog.ToastHelper;
 import com.babyspace.mamshare.basement.BaseFragment;
 import com.babyspace.mamshare.bean.DefaultResponseEvent;
 import com.babyspace.mamshare.commons.RegisterConstant;
-import com.babyspace.mamshare.commons.TempData;
 import com.babyspace.mamshare.commons.UrlConstants;
 import com.babyspace.mamshare.listener.RegisterListener;
 import com.google.gson.JsonObject;
@@ -96,7 +95,7 @@ public class RegisterPhoneFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.btn_register_next,R.id.common_title_left})
+    @OnClick({R.id.btn_register_next, R.id.common_title_left})
     public void doOnClick(View view) {
 
         switch (view.getId()) {
@@ -119,13 +118,11 @@ public class RegisterPhoneFragment extends BaseFragment {
 
                 FragmentManager manager = getFragmentManager();
 
-                if(manager.getBackStackEntryCount()==0){
+                if (manager.getBackStackEntryCount() == 0) {
                     getActivity().finish();
-                }else{
+                } else {
                     getFragmentManager().popBackStack();
                 }
-
-
 
 
                 break;
@@ -145,7 +142,7 @@ public class RegisterPhoneFragment extends BaseFragment {
         String requestUrl = event.getUrl();
         if (requestUrl.endsWith(UrlConstants.GetVerifyCode)) {
 
-            L.e("asker","获取验证码");
+            L.e("asker", "获取验证码");
 
             if ("1200".equals(event.getCode())) {
 
@@ -166,7 +163,7 @@ public class RegisterPhoneFragment extends BaseFragment {
 
         } else if (requestUrl.endsWith(UrlConstants.IsPhoneRegistered)) {
 
-            L.e("asker","验证手机号");
+            L.e("asker", "验证手机号");
 
 
             if (event.getData().equals("0")) {
@@ -186,7 +183,6 @@ public class RegisterPhoneFragment extends BaseFragment {
      * 请求获取验证码
      */
     private void getVerifyCode() {
-
 
 
         JsonObject jsonParameter = new JsonObject();
