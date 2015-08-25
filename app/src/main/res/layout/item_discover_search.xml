@@ -13,8 +13,7 @@
         android:layout_width="180px"
         android:layout_height="160px"
 
-        android:scaleType="center"
-        >
+        android:scaleType="center">
 
     </ImageView>
 

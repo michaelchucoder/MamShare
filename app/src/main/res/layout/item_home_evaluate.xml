@@ -33,8 +33,7 @@
         android:id="@+id/cover_container"
         android:layout_width="match_parent"
         android:layout_height="720px"
-        android:layout_below="@+id/tv_desc"
-        >
+        android:layout_below="@+id/tv_desc">
 
         <ImageView
             android:id="@+id/iv_cover"
@@ -42,8 +41,7 @@
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
 
-            android:scaleType="centerCrop"
-             />
+            android:scaleType="centerCrop" />
 
         <LinearLayout
             android:id="@+id/mama_role_container"
