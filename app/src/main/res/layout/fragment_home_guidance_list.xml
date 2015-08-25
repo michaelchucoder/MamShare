@@ -27,12 +27,12 @@
             android:divider="#EFEDEE"
 
             android:dividerHeight="20px"
-            android:focusable="false"/>
-            <!--android:horizontalSpacing="10dp"
-            android:numColumns="2"
+            android:focusable="false" />
+        <!--android:horizontalSpacing="10dp"
+        android:numColumns="2"
 
 
-            android:verticalSpacing="5dp"-->
+        android:verticalSpacing="5dp"-->
     </android.support.v4.widget.SwipeRefreshLayout>
 
     <LinearLayout
