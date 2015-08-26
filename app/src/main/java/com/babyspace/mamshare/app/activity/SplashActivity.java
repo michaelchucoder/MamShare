@@ -63,7 +63,7 @@ public class SplashActivity extends BaseActivity {
     private final int MESSAGE_WHAT_OK = 100;
     private final int MESSAGE_WHAT = 101;
     @SuppressLint("HandlerLeak")
-    private  Handler handler = new Handler() {
+    private Handler handler = new Handler() {
         public void handleMessage(Message message) {
             switch (message.what) {
                 case MESSAGE_WHAT:
@@ -616,7 +616,7 @@ public class SplashActivity extends BaseActivity {
 
                 break;
             case R.id.go_test:
-                i.setClass(this, ScaleActivity.class);
+                i.setClass(this, UserEvaluateListActivity.class);
                 startActivity(i);
                 break;
 
