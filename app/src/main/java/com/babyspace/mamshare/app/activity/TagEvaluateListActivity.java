@@ -1,13 +1,11 @@
 package com.babyspace.mamshare.app.activity;
 
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AbsListView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -38,7 +36,7 @@ import java.util.List;
 
 import de.greenrobot.event.EventBus;
 
-public class TagEvaluateListActivity extends BaseActivity implements AbsListView.OnScrollListener,ObservableScrollViewCallbacks {
+public class TagEvaluateListActivity extends BaseActivity implements AbsListView.OnScrollListener, ObservableScrollViewCallbacks {
 
     private static final String TAG = "LabelEvaluateListActivity";
 
@@ -49,7 +47,7 @@ public class TagEvaluateListActivity extends BaseActivity implements AbsListView
 
     private Tags tags;
 
-    private TextView body ;
+    private TextView body;
 
 
     /***************************************************/
@@ -157,12 +155,12 @@ public class TagEvaluateListActivity extends BaseActivity implements AbsListView
 
         setSupportActionBar(toolbar);
 
-        try{
+        try {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
 
-            L.d("asker","异常------------"+e.getMessage());
+            L.d("asker", "异常------------" + e.getMessage());
         }
 
 
@@ -191,19 +189,18 @@ public class TagEvaluateListActivity extends BaseActivity implements AbsListView
         List<String> data = new ArrayList<>();
         for (int i = 0; i < 30; i++) {
 
-            ll=i;
+            ll = i;
 
-            Evaluate evaluate = new Evaluate(ll,ll,("标题"+i),tags.coverPhoto,(10+i));
+            Evaluate evaluate = new Evaluate(ll, ll, ("标题" + i), tags.coverPhoto, (10 + i), "false", "true");
 
             evaluateList.add(evaluate);
 //            data.add(String.valueOf(i));
         }
 //        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.activity_list_item, android.R.id.text1, data);
 
-        adapter.refresh(AppConstants.page_tag_evaluate,evaluateList);
+        adapter.refresh(AppConstants.page_tag_evaluate, evaluateList);
 
         gridView.setAdapter(adapter);
-
 
 
         queryData();
@@ -238,7 +235,7 @@ public class TagEvaluateListActivity extends BaseActivity implements AbsListView
         jsonParameter.addProperty("num", 10);
         jsonParameter.addProperty("start", 0);
 
-        jsonParameter.addProperty("tagId",tags.tagId);
+        jsonParameter.addProperty("tagId", tags.tagId);
 
         //showLoadingProgress();
         if (queryCall != null) queryCall.cancel();
@@ -268,11 +265,6 @@ public class TagEvaluateListActivity extends BaseActivity implements AbsListView
     }
 
 
-
-
-
-
-
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
@@ -295,7 +287,6 @@ public class TagEvaluateListActivity extends BaseActivity implements AbsListView
     @Override
     public void onDownMotionEvent() {
         L.d("LabelEvaluateListActivity", "onDownMotionEvent ");
-
 
 
     }
@@ -345,11 +336,14 @@ public class TagEvaluateListActivity extends BaseActivity implements AbsListView
         //标题文字Y轴缩放
         floatTitle.setScaleY(1 - offset * (1 - titleScale));
 
+
+        L.d("asker", "滑动距离**********" + scrollY + "---------" + headerBarOffsetY);
+
         //判断标题文字的显示
         if (scrollY > headerBarOffsetY) {
             toolbar.setTitle("");
 
-            toolbarText.setText(floatTitle.getText());
+            toolbarText.setText(tags.tagName);
             floatTitle.setVisibility(View.GONE);
         } else {
             toolbar.setTitle("");

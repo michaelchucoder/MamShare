@@ -83,7 +83,7 @@ public class UserEvaluateListActivity extends BaseActivity implements AbsListVie
     private boolean isMoreData = true;
     private Call queryCall;
 
-    private int userID;
+    private String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,7 +91,7 @@ public class UserEvaluateListActivity extends BaseActivity implements AbsListVie
         setContentView(R.layout.activity_user_evaluate_list);
 
 
-        userID = getIntent().getIntExtra("userId", -1);
+        userID = getIntent().getStringExtra("userId");
         data = new ArrayList<>();
         adapter = new TwoColumnAdapter(this);
 
@@ -212,7 +212,7 @@ public class UserEvaluateListActivity extends BaseActivity implements AbsListVie
 //        jsonParameter.addProperty("num", queryNum);
 //        jsonParameter.addProperty("start", queryStart);
 
-        jsonParameter.addProperty("userId", userID);
+        jsonParameter.addProperty("userID", userID);
 //        showLoadingProgress();
         if (queryCall != null) queryCall.cancel();
         queryCall = OkHttpExecutor.query(UrlConstants.UserEvaluate, jsonParameter, UserEvaluateEvent.class, false, this);
