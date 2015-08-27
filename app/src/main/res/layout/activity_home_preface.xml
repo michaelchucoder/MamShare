@@ -52,7 +52,7 @@
             android:id="@+id/header"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/title_view_height"
-            android:background="#F8F8F8"
+
             android:layout_alignParentTop="true">
 
             <ImageView

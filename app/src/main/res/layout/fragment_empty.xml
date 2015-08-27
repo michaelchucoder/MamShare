@@ -6,11 +6,18 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <ImageView
+        android:id="@+id/iv_empty"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/icon_no_found"
+        android:layout_height="wrap_content" />
+
     <Button
         android:id="@+id/request_again"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerInParent="true"
+        android:layout_below="@+id/iv_empty"
         android:background="@drawable/shape_rounded_rectangle"
         android:text="结果为空请点击重试"
         android:textColor="@color/white"

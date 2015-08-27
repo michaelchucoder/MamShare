@@ -9,21 +9,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/label_title"
-        android:layout_marginLeft="0px"
-        android:layout_marginRight="0px"
-        android:background="#f4f4f5">
+
+        >
 
         <com.michael.library.widget.custom.GridViewWithHeaderAndFooter
             android:id="@+id/label_gridView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="20dp"
-            android:background="#aaaaaa"
+
             android:clickable="false"
             android:focusable="false"
             android:horizontalSpacing="10dp"
             android:numColumns="2"
-            android:padding="10dp"
+
+
             android:verticalSpacing="5dp" />
 
     </android.support.v4.widget.SwipeRefreshLayout>
@@ -36,39 +36,37 @@
     <RelativeLayout
         android:id="@+id/rl_float_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20px">
+        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:id="@+id/subtitle_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginLeft="20px"
-            android:orientation="vertical">
+        <!-- <LinearLayout
+             android:id="@+id/subtitle_container"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="bottom"
+             android:layout_marginLeft="20px"
+             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_subtitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="评测标题"
-                android:textColor="@color/white"
-                android:textSize="40px" />
+             <TextView
+                 android:id="@+id/tv_subtitle"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="评测标题"
+                 android:textColor="@color/white"
+                 android:textSize="40px" />
 
-            <TextView
-                android:id="@+id/tv_subtitle_num"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="xx次浏览"
-                android:textColor="@color/white"
-                android:textSize="30px" />
-        </LinearLayout>
+             <TextView
+                 android:id="@+id/tv_subtitle_num"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="xx次浏览"
+                 android:textColor="@color/white"
+                 android:textSize="30px" />
+         </LinearLayout>-->
 
         <LinearLayout
             android:id="@+id/mama_role_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/subtitle_container"
             android:padding="20px">
 
             <com.michael.library.widget.roundimage.RoundImageView
