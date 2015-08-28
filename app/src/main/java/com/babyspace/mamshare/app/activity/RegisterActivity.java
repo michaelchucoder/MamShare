@@ -97,5 +97,4 @@ public class RegisterActivity extends BaseActivity implements RegisterListener {
     }
 
 
-
 }
